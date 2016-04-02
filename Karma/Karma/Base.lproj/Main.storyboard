@@ -35,7 +35,6 @@
                                 </state>
                                 <connections>
                                     <action selector="tryLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lIR-Fj-aoz"/>
-                                    <segue destination="NcZ-yr-rOT" kind="show" identifier="toMain" id="JN0-tP-Ue6"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="80S-EG-ye8">
@@ -45,7 +44,7 @@
                                     <constraint firstAttribute="height" constant="40" id="a7C-Ju-Kde"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rer-er-8fh">
                                 <rect key="frame" x="49" y="284" width="284" height="40"/>
@@ -159,6 +158,7 @@
                     <connections>
                         <outlet property="password" destination="80S-EG-ye8" id="b9r-xI-6Lv"/>
                         <outlet property="username" destination="Rer-er-8fh" id="Ssj-5u-Um1"/>
+                        <segue destination="NcZ-yr-rOT" kind="show" identifier="toMain" id="Ufn-5D-BPv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -176,6 +176,16 @@
                     <view key="view" contentMode="scaleToFill" id="fhF-yt-qk4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qi2-hs-kz0">
+                                <rect key="frame" x="123" y="196" width="128" height="30"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Add New Message"/>
+                                <connections>
+                                    <segue destination="R0h-Q1-qlM" kind="show" id="VpR-cz-hJH"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Sent" id="CwQ-WE-5It"/>
@@ -193,14 +203,14 @@
                         <viewControllerLayoutGuide type="bottom" id="nAa-H4-Vt2"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hNT-vc-qk3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gry-Pw-9dZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="679" y="2805"/>
+            <point key="canvasLocation" x="581.5" y="2902.5"/>
         </scene>
         <!--Unread Recieved View Controller-->
         <scene sceneID="HTp-7Z-kfi">
@@ -293,7 +303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ODJ-ax-aZS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1178" y="1046"/>
+            <point key="canvasLocation" x="-96" y="1128"/>
         </scene>
         <!--Map-->
         <scene sceneID="uLT-iS-iTm">
@@ -351,7 +361,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hVa-ik-Sq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245.5" y="1132.5"/>
+            <point key="canvasLocation" x="757.5" y="1231.5"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="ujo-Xv-vh9">
@@ -370,7 +380,7 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="first" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rdN-ob-BtQ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rdN-ob-BtQ">
                                 <rect key="frame" x="84" y="147" width="97" height="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -378,18 +388,21 @@
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qUU-gd-63t">
                                 <rect key="frame" x="84" y="313" width="190" height="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MiS-7m-1XF">
                                 <rect key="frame" x="84" y="202" width="190" height="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="52M-Kp-xty">
                                 <rect key="frame" x="84" y="257" width="190" height="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="white" translatesAutoresizingMaskIntoConstraints="NO" id="zey-CN-AFD">
                                 <rect key="frame" x="47" y="240" width="227" height="1"/>
@@ -413,7 +426,6 @@
                                 </state>
                                 <connections>
                                     <action selector="trySignUp:" destination="VBE-UP-fc3" eventType="touchUpInside" id="rEp-1Z-qkQ"/>
-                                    <segue destination="NcZ-yr-rOT" kind="show" identifier="toMain2" id="2af-sU-vay"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" alpha="0.90000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="Bk5-jc-V7k">
@@ -428,8 +440,9 @@
                             <imageView userInteractionEnabled="NO" alpha="0.89999997615814209" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user" translatesAutoresizingMaskIntoConstraints="NO" id="J7E-RP-WSv">
                                 <rect key="frame" x="47" y="205" width="23" height="23"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="last" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eEC-kx-haE">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eEC-kx-haE">
                                 <rect key="frame" x="174" y="147" width="100" height="30"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -451,6 +464,7 @@
                         <outlet property="lastName" destination="eEC-kx-haE" id="rfQ-Lf-Ktw"/>
                         <outlet property="password" destination="52M-Kp-xty" id="aiG-TC-qnU"/>
                         <outlet property="username" destination="MiS-7m-1XF" id="b5e-w7-fLu"/>
+                        <segue destination="NcZ-yr-rOT" kind="show" identifier="toMain2" id="B5E-ME-fzZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eMi-7s-sQe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -466,6 +480,6 @@
         <image name="white" width="80" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JN0-tP-Ue6"/>
+        <segue reference="B5E-ME-fzZ"/>
     </inferredMetricsTieBreakers>
 </document>
