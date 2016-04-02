@@ -25,12 +25,14 @@ class SignUpViewController: UIViewController {
 
     
     @IBAction func trySignUp(sender: AnyObject) {
+        
         let user = PFUser()
         user.username = username.text
         user.password = password.text
         user.email = email.text
         user["firstName"] = firstName.text
         user["lastName"] = lastName.text
+        user["audienceLim"] = 1
         
         user.signUpInBackgroundWithBlock { (success, error) -> Void in
             if (success) {
