@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		370AA958BD30845B220AA7E5 /* Pods_Karma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA153DB02365CAC70274AA9C /* Pods_Karma.framework */; };
+		FC31A08E1CB03FA5005AA369 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31A08D1CB03FA5005AA369 /* MainTabBarViewController.swift */; };
 		FC3B03721CB02CAA0000EC38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03711CB02CAA0000EC38 /* AppDelegate.swift */; };
 		FC3B03741CB02CAA0000EC38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03731CB02CAA0000EC38 /* ViewController.swift */; };
 		FC3B03771CB02CAA0000EC38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC3B03751CB02CAA0000EC38 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		AB0ADD04D8B50C92F4C93D20 /* Pods-Karma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Karma.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Karma/Pods-Karma.debug.xcconfig"; sourceTree = "<group>"; };
 		CA153DB02365CAC70274AA9C /* Pods_Karma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Karma.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC31A08B1CB03AA9005AA369 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		FC31A08D1CB03FA5005AA369 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		FC3B036E1CB02CA90000EC38 /* Karma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Karma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC3B03711CB02CAA0000EC38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC3B03731CB02CAA0000EC38 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				FC3B03711CB02CAA0000EC38 /* AppDelegate.swift */,
 				FC3B03731CB02CAA0000EC38 /* ViewController.swift */,
 				FC3B03751CB02CAA0000EC38 /* Main.storyboard */,
+				FC31A08D1CB03FA5005AA369 /* MainTabBarViewController.swift */,
 				FC3B03A71CB031830000EC38 /* SentViewController.swift */,
 				FC3B03A91CB031910000EC38 /* RecievedViewController.swift */,
 				FC3B03AB1CB031A10000EC38 /* MapViewController.swift */,
@@ -363,6 +366,7 @@
 				FC3B03A61CB031410000EC38 /* LoginViewController.swift in Sources */,
 				FC3B03741CB02CAA0000EC38 /* ViewController.swift in Sources */,
 				FC3B03A81CB031830000EC38 /* SentViewController.swift in Sources */,
+				FC31A08E1CB03FA5005AA369 /* MainTabBarViewController.swift in Sources */,
 				FC3B03AA1CB031910000EC38 /* RecievedViewController.swift in Sources */,
 				FC3B03A21CB030DF0000EC38 /* SignUpViewController.swift in Sources */,
 				FC3B03721CB02CAA0000EC38 /* AppDelegate.swift in Sources */,
