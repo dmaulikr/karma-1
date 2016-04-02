@@ -8,9 +8,12 @@
 
 import UIKit
 import CoreLocation
+import Parse
 
 class MainTabBarViewController: UITabBarController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
+    var currentUser = PFUser.currentUser()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +42,18 @@ class MainTabBarViewController: UITabBarController, CLLocationManagerDelegate {
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             print("Current location: \(location)")
+            
+            let currentGeoPoint = PFGeoPoint(location: location)
+            currentUser!["location"] = currentGeoPoint
+            currentUser!.saveInBackgroundWithBlock {
+                (success: Bool, error: NSError?) -> Void in
+                if (success) {
+                    // The object has been saved.
+                    print("saved")
+                } else {
+                    // There was a problem, check error.description
+                }
+            }
         } else {
             // ...
         }
