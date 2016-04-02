@@ -32,6 +32,8 @@ class NewMessageViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        addNewMessage()
+        print("ran")
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,6 +46,8 @@ class NewMessageViewController: UIViewController {
         var displayError = ""
         if messageBody == "" {
             displayError = "Please enter a positive message!"
+        } else if currentUser!["location"] == nil {
+            works
         }
         
         if displayError != "" {
