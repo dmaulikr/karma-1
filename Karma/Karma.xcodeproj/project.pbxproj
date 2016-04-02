@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0C0C4C5F1CB04F25009A10B9 /* lookscriptwoodbold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C0C4C5E1CB04F25009A10B9 /* lookscriptwoodbold.otf */; };
-		0C0C4C611CB04FCE009A10B9 /* ThirstyScriptBoldShadow.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C0C4C601CB04FCE009A10B9 /* ThirstyScriptBoldShadow.otf */; };
 		0C0C4C631CB051C8009A10B9 /* ThirstyScriptExtraBoldDemo.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C0C4C621CB051C8009A10B9 /* ThirstyScriptExtraBoldDemo.otf */; };
 		370AA958BD30845B220AA7E5 /* Pods_Karma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA153DB02365CAC70274AA9C /* Pods_Karma.framework */; };
 		FC31A08E1CB03FA5005AA369 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31A08D1CB03FA5005AA369 /* MainTabBarViewController.swift */; };
@@ -48,7 +47,6 @@
 
 /* Begin PBXFileReference section */
 		0C0C4C5E1CB04F25009A10B9 /* lookscriptwoodbold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = lookscriptwoodbold.otf; path = "../../../../../Downloads/Look Script Wood Bold-Desktop/Fonts/lookscriptwoodbold.otf"; sourceTree = "<group>"; };
-		0C0C4C601CB04FCE009A10B9 /* ThirstyScriptBoldShadow.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ThirstyScriptBoldShadow.otf; path = "../../../../../Downloads/Thirsty Script Bold Shd-Desktop/Fonts/ThirstyScriptBoldShadow.otf"; sourceTree = "<group>"; };
 		0C0C4C621CB051C8009A10B9 /* ThirstyScriptExtraBoldDemo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ThirstyScriptExtraBoldDemo.otf; path = ../../../../../Downloads/thirsty_script/ThirstyScriptExtraBoldDemo.otf; sourceTree = "<group>"; };
 		A55867D4E0E8E3A1BDEC2294 /* Pods-Karma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Karma.release.xcconfig"; path = "Pods/Target Support Files/Pods-Karma/Pods-Karma.release.xcconfig"; sourceTree = "<group>"; };
 		AB0ADD04D8B50C92F4C93D20 /* Pods-Karma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Karma.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Karma/Pods-Karma.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				0C0C4C5E1CB04F25009A10B9 /* lookscriptwoodbold.otf */,
-				0C0C4C601CB04FCE009A10B9 /* ThirstyScriptBoldShadow.otf */,
 				0C0C4C621CB051C8009A10B9 /* ThirstyScriptExtraBoldDemo.otf */,
 				FC3B03A51CB031410000EC38 /* LoginViewController.swift */,
 				FC3B03711CB02CAA0000EC38 /* AppDelegate.swift */,
@@ -301,7 +298,6 @@
 				0C0C4C631CB051C8009A10B9 /* ThirstyScriptExtraBoldDemo.otf in Resources */,
 				0C0C4C5F1CB04F25009A10B9 /* lookscriptwoodbold.otf in Resources */,
 				FC3B03791CB02CAA0000EC38 /* Assets.xcassets in Resources */,
-				0C0C4C611CB04FCE009A10B9 /* ThirstyScriptBoldShadow.otf in Resources */,
 				FC3B03771CB02CAA0000EC38 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
