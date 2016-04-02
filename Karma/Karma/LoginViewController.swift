@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
             if loginError == nil {
                 self.performSegueWithIdentifier("toMain", sender: self)
             }
+            // fix blank logins
         }
     }
     override func viewDidLoad() {
