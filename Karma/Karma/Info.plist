@@ -30,6 +30,13 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>LSApplicationCategoryType</key>
+	<array>
+		<string></string>
+		<string>lookscriptwoodbold.otf</string>
+		<string>ThirstyScriptBoldShadow.otf</string>
+		<string>ThirstyScriptExtraBoldDemo.otf</string>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

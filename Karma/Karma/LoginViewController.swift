@@ -11,6 +11,17 @@ import Parse
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var password: UITextField!
+    
+    @IBAction func tryLogin(sender: AnyObject) {
+        PFUser.logInWithUsernameInBackground(username.text!, password: password.text!) {
+            (success, loginError) in
+            if loginError == nil {
+                self.performSegueWithIdentifier("toMain", sender: self)
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +32,7 @@ class LoginViewController: UIViewController {
             print("Object has been saved.")
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
