@@ -57,7 +57,7 @@ class NewMessageViewController: UIViewController {
             let newMessage = PFObject(className:"Messages")
         
             newMessage["senderId"] = currentUser!.objectId
-            newMessage["sentLocation"] = currentUser!["location"]
+            newMessage["sentLocation"] = currentUser!["location"] as! PFGeoPoint
             newMessage["messageBody"] = messageBody
             newMessage["sentDate"] = NSDate()
             newMessage["authorized"] = false
@@ -68,26 +68,51 @@ class NewMessageViewController: UIViewController {
             //newMessage["readIds"] = Array
             //newMessage["replyText"] = String
         
-            //newMessage["recieverIds"] = Array
-            //newMessage["recievedLocations"] = Array
-        
-        
-        
-        
-            newMessage.saveInBackgroundWithBlock {
-                (success: Bool, error: NSError?) -> Void in
-                if (success) {
-                    // The object has been saved.
-                    print("sucesssss!!!!")
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                } else {
-                    // There was a problem, check error.description
-                    if let theError = error!.userInfo["error"] as? NSString {
-                        displayError = theError as String
-                    } else {
-                        displayError = "Please try again later!"
+            let recieverIds = NSMutableArray()
+            let recievedLocations = NSMutableArray()
+            
+            // User's location
+            let userGeoPoint = currentUser!["location"] as! PFGeoPoint
+            
+            let query = PFQuery(className:"_User")
+            query.whereKey("location", nearGeoPoint:userGeoPoint)
+            query.limit = currentUser!["audienceLim"] as! Int
+            query.findObjectsInBackgroundWithBlock {
+                (objects: [PFObject]?, error: NSError?) -> Void in
+                
+                if error == nil {
+                    // The find succeeded.
+                    print("Successfully retrieved \(objects!.count) nearby users.")
+                    // Do something with the found objects
+                    if let objects = objects {
+                        for object in objects {
+                            recieverIds.addObject(object.objectId!)
+                            recievedLocations.addObject(object["location"])
+                        }
+                        newMessage["recieverIds"] = recieverIds
+                        newMessage["recievedLocations"] = recievedLocations
+                        
+                        
+                        newMessage.saveInBackgroundWithBlock {
+                            (success: Bool, error: NSError?) -> Void in
+                            if (success) {
+                                // The object has been saved.
+                                print("sucesssss!!!!")
+                                self.dismissViewControllerAnimated(true, completion: nil)
+                            } else {
+                                // There was a problem, check error.description
+                                
+                                displayError = "Please try again later!"
+                                
+                                self.displayAlert("Could Not Send Message", displayError: displayError)
+                            }
+                        }
+                        
+                        
                     }
-                    self.displayAlert("Could Not Signup", displayError: displayError)
+                } else {
+                    // Log details of the failure
+                    print("Error: \(error!) \(error!.userInfo)")
                 }
             }
         }
