@@ -47,7 +47,7 @@ class NewMessageViewController: UIViewController {
         if messageBody == "" {
             displayError = "Please enter a positive message!"
         } else if currentUser!["location"] == nil {
-            works
+            //works
         }
         
         if displayError != "" {
