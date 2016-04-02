@@ -276,6 +276,7 @@
         <scene sceneID="9ti-zg-IUB">
             <objects>
                 <tabBarController id="NcZ-yr-rOT" customClass="MainTabBarViewController" customModule="Karma" customModuleProvider="target" sceneMemberID="viewController">
+                    <keyCommands/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="F0Q-xq-ZjF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
