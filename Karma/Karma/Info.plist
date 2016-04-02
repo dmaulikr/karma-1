@@ -34,9 +34,6 @@
 	</array>
 	<key>LSApplicationCategoryType</key>
 	<array>
-		<string></string>
-		<string>lookscriptwoodbold.otf</string>
-		<string>ThirstyScriptBoldShadow.otf</string>
 		<string>ThirstyScriptExtraBoldDemo.otf</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
