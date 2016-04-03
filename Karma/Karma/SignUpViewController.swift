@@ -41,7 +41,7 @@ class SignUpViewController: UIViewController {
 
     
     @IBAction func trySignUp(sender: AnyObject) {
-        
+        self.sameEmail.hidden = true
         self.emailAlert.hidden = true
         self.takenAlert.hidden = true
         
