@@ -552,6 +552,7 @@
                         <outlet property="firstName" destination="rdN-ob-BtQ" id="RMQ-bz-MZ0"/>
                         <outlet property="lastName" destination="eEC-kx-haE" id="rfQ-Lf-Ktw"/>
                         <outlet property="password" destination="52M-Kp-xty" id="aiG-TC-qnU"/>
+                        <outlet property="sameEmail" destination="yqQ-QM-mvE" id="JsS-Wu-62B"/>
                         <outlet property="takenAlert" destination="cnH-GH-CwD" id="0GZ-XQ-KHQ"/>
                         <outlet property="username" destination="MiS-7m-1XF" id="b5e-w7-fLu"/>
                         <segue destination="NcZ-yr-rOT" kind="show" identifier="toMain2" id="B5E-ME-fzZ"/>
