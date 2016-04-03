@@ -15,7 +15,7 @@ class MapNavigationViewController: UINavigationController {
 
         // Do any additional setup after loading the view.
         
-        self.tabBarItem.image = UIImage.fontAwesomeIconWithName(.Github, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+        self.tabBarItem.image = UIImage.fontAwesomeIconWithName(.MapO, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
     }
 
     override func didReceiveMemoryWarning() {
