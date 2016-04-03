@@ -67,7 +67,7 @@ class SignUpViewController: UIViewController {
         do {
             self.duplicateEmails = try query.findObjects()
         } catch {
-            print("Weird error")
+            print("Weird error #2")
         }
         
         print(self.duplicateUsers.count)
@@ -77,9 +77,11 @@ class SignUpViewController: UIViewController {
         if self.duplicateUsers.count > 0 {
             self.takenAlert.hidden = false
             self.duplicateUsers = []
+        } else if self.duplicateEmails.count > 0 {
+            self.sameEmail.hidden = false
+            self.duplicateEmails = []
         } else {
-        
-        user.signUpInBackgroundWithBlock { (success, error) -> Void in
+            user.signUpInBackgroundWithBlock { (success, error) -> Void in
             if (self.username.text == "" || self.password.text == "" || self.email.text == "" || self.lastName.text == "" || self.firstName.text == "") {
                 
                 self.displayEmptyFieldError()
