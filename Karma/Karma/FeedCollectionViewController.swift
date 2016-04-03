@@ -106,6 +106,22 @@ class FeedCollectionViewController: UICollectionViewController {
         cell.Time.text = times[indexPath.row]
         cell.location.text = locations[indexPath.row]
         
+        cell.layer.borderColor = UIColor.grayColor().CGColor
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 8
+        
+        cell.layer.shadowOffset = CGSizeMake(10, 10)
+        cell.layer.shadowColor = UIColor.blackColor().CGColor
+        cell.layer.shadowRadius = 8
+        cell.layer.shadowOpacity = 0.6
+        
+        // Maybe just me, but I had to add it to work:
+        cell.clipsToBounds = false
+        
+        let shadowFrame: CGRect = (cell.layer.bounds)
+        let shadowPath: CGPathRef = UIBezierPath(rect: shadowFrame).CGPath
+        cell.layer.shadowPath = shadowPath
+        
         return cell
     }
     

@@ -15,4 +15,6 @@ class FeedCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var message: UILabel!
     
     
+    
+    
 }
