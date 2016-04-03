@@ -50,7 +50,7 @@ class FeedCollectionViewController: UICollectionViewController {
     }
     
     func addTapped() {
-        //nothing
+        self.tabBarController?.selectedIndex = 1
     }
     
     
