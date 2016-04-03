@@ -9,6 +9,10 @@
 import UIKit
 
 class SentViewController: UIViewController {
+    
+    func addTapped() {
+        //nothing
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
