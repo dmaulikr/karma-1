@@ -57,7 +57,16 @@ class FeedCollectionViewController: UICollectionViewController {
         self.navigationController!.navigationBar.topItem!.title = "Received Messages";
         
         getMessages()
-        self.collectionView!.layoutMargins = UIEdgeInsetsMake(0, 50, 0, 10);
+        
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        
+        let screenWidth = screenSize.width
+        
+        self.collectionView!.frame.size.width = screenWidth
+        
+        
+        
+        
 //        self.edgesForExtendedLayout = UIRectEdgeNone
         
     
@@ -107,13 +116,20 @@ class FeedCollectionViewController: UICollectionViewController {
         cell.Time.text = times[indexPath.row]
         cell.location.text = locations[indexPath.row]
         
-        cell.layer.borderColor = UIColor.grayColor().CGColor
-        cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 8
         
-        cell.layer.shadowOffset = CGSizeMake(10, 10)
+        
+        let collectionViewWidth = self.collectionView!.bounds.size.width
+        cell.frame.size.width = collectionViewWidth
+        cell.frame.origin.x = self.collectionView!.frame.origin.x
+        
+        
+        cell.layer.borderColor = UIColor.whiteColor().CGColor
+        cell.layer.borderWidth = 1
+        
+        
+        cell.layer.shadowOffset = CGSizeMake(0, 3)
         cell.layer.shadowColor = UIColor.blackColor().CGColor
-        cell.layer.shadowRadius = 8
+        
         cell.layer.shadowOpacity = 0.6
         
         
