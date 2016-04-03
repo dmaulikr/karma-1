@@ -20,7 +20,6 @@ class SettingsViewController: UIViewController {
         //UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.topItem!.title = "Settings";
-        self.tabBarController?.tabBar.barTintColor = UIColor.whiteColor()
     }
 
     override func didReceiveMemoryWarning() {

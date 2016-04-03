@@ -254,7 +254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeD-Rd-9pk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1164.5" y="1231.5"/>
+            <point key="canvasLocation" x="1240.5" y="1165.5"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Jqm-Ha-Eih">
@@ -377,7 +377,7 @@
         <!--Map-->
         <scene sceneID="jRh-cv-Xbq">
             <objects>
-                <navigationController title="Map" id="I26-tb-q7u" sceneMemberID="viewController">
+                <navigationController title="Map" id="I26-tb-q7u" customClass="MapNavigationViewController" customModule="Karma" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Map" id="Jqs-JF-whp"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pmq-tt-qBu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -891,7 +891,7 @@
         <image name="white" width="80" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B5E-ME-fzZ"/>
         <segue reference="iB8-ol-SVn"/>
+        <segue reference="B5E-ME-fzZ"/>
     </inferredMetricsTieBreakers>
 </document>

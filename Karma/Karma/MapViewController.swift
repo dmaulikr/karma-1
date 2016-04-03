@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FontAwesome_swift
 
 class MapViewController: UIViewController {
 
@@ -16,8 +17,11 @@ class MapViewController: UIViewController {
         //self.navigationController?.navigationBar.translucent = false;
         //UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        self.navigationController!.navigationBar.topItem!.title = "Your Reach";
-        self.tabBarController?.tabBar.barTintColor = UIColor.whiteColor()
+        self.navigationController!.navigationBar.topItem!.title = "Your Reach"
+        //self.tabBarController?.tabBar.barTintColor = UIColor.whiteColor()
+        //let customImage = UIImage.fontAwesomeIconWithName(.Github, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+        //self.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "tab_icon_normal"), selectedImage: customImage)
+
 
         // Do any additional setup after loading the view.
     }

@@ -55,7 +55,6 @@ class FeedCollectionViewController: UICollectionViewController {
             //UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.topItem!.title = "Received Messages";
-        self.tabBarController?.tabBar.barTintColor = UIColor.whiteColor()
         
         getMessages()
 //        self.edgesForExtendedLayout = UIRectEdgeNone
