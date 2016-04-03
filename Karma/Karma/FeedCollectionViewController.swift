@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 private let reuseIdentifier = "Cell"
 
@@ -19,16 +20,43 @@ class FeedCollectionViewController: UICollectionViewController {
     var locations = ["berkeley, CA", "berkeley, CA","berkeley, CA","berkeley, CA","berkeley, CA", "A land far far away"]
     var body = ["Hey everyone at Berkeley! I hope you are all doing well. Don't stress out too much on midterms/finals. ", "merry christmas and happy holidays. Everyone enjoy your break","I hope you are doing well today.","Idealistic as it may sound, altruism should be the driving force in business, not just competition and a desire for wealth","have a cookie, take a nap", "good afternoon"]
     
+    func getMessages() {
+        // Get the list of all the social titles and add them to the socialLabels array. Then reload the collectionview.
+        let query = PFQuery(className:"Messages")
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) socials.")
+                // Do something with the found objects
+                if let objects = objects {
+                    for object in objects {
+                        self.socialLabels.append(object["socialTitle"] as! String)
+                        self.socialIds.append ( object.objectId!)
+                    }
+                    self.socialCollectionView.reloadData()
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
+    }
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.barTintColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.orangeColor()]
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        //self.navigationController?.navigationBar.translucent = false;
+            //UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.topItem!.title = "Received Messages";
-        self.tabBarController?.tabBar.barTintColor = UIColor.orangeColor()
+        self.tabBarController?.tabBar.barTintColor = UIColor.whiteColor()
+        
+        getMessages()
 //        self.edgesForExtendedLayout = UIRectEdgeNone
         
     
