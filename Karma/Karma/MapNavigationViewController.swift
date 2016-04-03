@@ -1,25 +1,21 @@
 //
-//  SettingsViewController.swift
+//  MapNavigationViewController.swift
 //  Karma
 //
-//  Created by Shaan Appel on 4/2/16.
+//  Created by Shaan Appel on 4/3/16.
 //  Copyright © 2016 MDB - Karma. All rights reserved.
 //
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class MapNavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        //self.navigationController?.navigationBar.translucent = false;
-        //UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        self.navigationController!.navigationBar.topItem!.title = "Settings";
+        self.tabBarItem.image = UIImage.fontAwesomeIconWithName(.MapO, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
     }
 
     override func didReceiveMemoryWarning() {

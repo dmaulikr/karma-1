@@ -6,6 +6,7 @@ use_frameworks!
 target 'Karma' do
 	pod 'FontAwesomeIconFactory'
 	pod 'Parse'
+	pod 'FontAwesome.swift'
 end
 
 target 'KarmaTests' do

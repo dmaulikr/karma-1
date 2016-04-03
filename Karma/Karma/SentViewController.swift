@@ -9,6 +9,10 @@
 import UIKit
 
 class SentViewController: UIViewController {
+    
+    func addTapped() {
+        //nothing
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +24,9 @@ class SentViewController: UIViewController {
         //UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.topItem!.title = "Sent Messages";
-        self.tabBarController?.tabBar.barTintColor = UIColor.whiteColor()
+        
+        let newMessageImage = UIImage.fontAwesomeIconWithName(.PencilSquareO, textColor: UIColor.blackColor(), size: CGSizeMake(25, 25))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: newMessageImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(FeedCollectionViewController.addTapped))
     }
 
     override func didReceiveMemoryWarning() {

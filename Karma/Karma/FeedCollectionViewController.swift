@@ -29,6 +29,10 @@ class FeedCollectionViewController: UICollectionViewController {
             if error == nil {
                 // The find succeeded.
                 print("Successfully retrieved \(objects!.count) socials.")
+                
+                self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: String(objects!.count), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(FeedCollectionViewController.addTapped))
+                
+                
                 // Do something with the found objects
                 if let objects = objects {
                     for object in objects {
@@ -45,7 +49,9 @@ class FeedCollectionViewController: UICollectionViewController {
         }
     }
     
-    
+    func addTapped() {
+        self.tabBarController?.selectedIndex = 1
+    }
     
     
     override func viewDidLoad() {
@@ -55,9 +61,21 @@ class FeedCollectionViewController: UICollectionViewController {
             //UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.topItem!.title = "Received Messages";
-        self.tabBarController?.tabBar.barTintColor = UIColor.whiteColor()
         
         getMessages()
+        
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        
+        let screenWidth = screenSize.width
+        
+        self.collectionView!.frame.size.width = screenWidth
+        
+        
+        let newMessageImage = UIImage.fontAwesomeIconWithName(.PencilSquareO, textColor: UIColor.blackColor(), size: CGSizeMake(25, 25))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: newMessageImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(FeedCollectionViewController.addTapped))
+        
+        
+        
 //        self.edgesForExtendedLayout = UIRectEdgeNone
         
     
@@ -106,6 +124,30 @@ class FeedCollectionViewController: UICollectionViewController {
         cell.message.text = body[indexPath.row]
         cell.Time.text = times[indexPath.row]
         cell.location.text = locations[indexPath.row]
+        
+        
+        
+        let collectionViewWidth = self.collectionView!.bounds.size.width
+        cell.frame.size.width = collectionViewWidth
+        cell.frame.origin.x = self.collectionView!.frame.origin.x
+        
+        
+        cell.layer.borderColor = UIColor.whiteColor().CGColor
+        cell.layer.borderWidth = 1
+        
+        
+        cell.layer.shadowOffset = CGSizeMake(0, 3)
+        cell.layer.shadowColor = UIColor.blackColor().CGColor
+        
+        cell.layer.shadowOpacity = 0.6
+        
+        
+        // Maybe just me, but I had to add it to work:
+        cell.clipsToBounds = false
+        
+        let shadowFrame: CGRect = (cell.layer.bounds)
+        let shadowPath: CGPathRef = UIBezierPath(rect: shadowFrame).CGPath
+        cell.layer.shadowPath = shadowPath
         
         return cell
     }
