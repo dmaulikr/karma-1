@@ -17,8 +17,8 @@ class FeedCollectionViewController: UICollectionViewController {
     
     
     var times = ["June 30","Last week","Today", "March 32", "July 3", "August 3"]
-    var locations = ["berkeley, CA", "berkeley, CA","berkeley, CA","berkeley, CA","berkeley, CA", "A land far far away"]
-    var body = ["Hey everyone at Berkeley! I hope you are all doing well. Don't stress out too much on midterms/finals. ", "merry christmas and happy holidays. Everyone enjoy your break","I hope you are doing well today.","Idealistic as it may sound, altruism should be the driving force in business, not just competition and a desire for wealth","have a cookie, take a nap", "good afternoon"]
+    var locations = Array<String>()
+    var body = Array<String>()
     
     func getMessages() {
         // Get the list of all the social titles and add them to the socialLabels array. Then reload the collectionview.
@@ -32,10 +32,11 @@ class FeedCollectionViewController: UICollectionViewController {
                 // Do something with the found objects
                 if let objects = objects {
                     for object in objects {
-                        self.socialLabels.append(object["socialTitle"] as! String)
-                        self.socialIds.append ( object.objectId!)
+                        //self.times.append(object["socialTitle"] as! String)
+                        self.locations.append ( object["audience"] as! String)
+                        self.body.append(object["messageBody"] as! String)
                     }
-                    self.socialCollectionView.reloadData()
+                    self.collectionView!.reloadData()
                 }
             } else {
                 // Log details of the failure
