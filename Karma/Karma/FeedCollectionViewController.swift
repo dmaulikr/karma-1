@@ -29,6 +29,10 @@ class FeedCollectionViewController: UICollectionViewController {
             if error == nil {
                 // The find succeeded.
                 print("Successfully retrieved \(objects!.count) socials.")
+                
+                self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: String(objects!.count), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(FeedCollectionViewController.addTapped))
+                
+                
                 // Do something with the found objects
                 if let objects = objects {
                     for object in objects {
@@ -45,7 +49,9 @@ class FeedCollectionViewController: UICollectionViewController {
         }
     }
     
-    
+    func addTapped() {
+        //nothing
+    }
     
     
     override func viewDidLoad() {
@@ -64,6 +70,9 @@ class FeedCollectionViewController: UICollectionViewController {
         
         self.collectionView!.frame.size.width = screenWidth
         
+        
+        let newMessageImage = UIImage.fontAwesomeIconWithName(.PencilSquareO, textColor: UIColor.blackColor(), size: CGSizeMake(25, 25))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: newMessageImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(FeedCollectionViewController.addTapped))
         
         
         

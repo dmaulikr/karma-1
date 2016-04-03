@@ -36,6 +36,7 @@ class MainTabBarViewController: UITabBarController, CLLocationManagerDelegate {
         viewControllers![1].tabBarItem.image = UIImage.fontAwesomeIconWithName(.MailForward, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
         viewControllers![2].tabBarItem.image = UIImage.fontAwesomeIconWithName(.MailReply, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
         viewControllers![3].tabBarItem.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+        
     
     }
 
