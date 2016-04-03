@@ -57,6 +57,7 @@ class FeedCollectionViewController: UICollectionViewController {
         self.navigationController!.navigationBar.topItem!.title = "Received Messages";
         
         getMessages()
+        self.collectionView!.layoutMargins = UIEdgeInsetsMake(0, 50, 0, 10);
 //        self.edgesForExtendedLayout = UIRectEdgeNone
         
     
@@ -114,6 +115,7 @@ class FeedCollectionViewController: UICollectionViewController {
         cell.layer.shadowColor = UIColor.blackColor().CGColor
         cell.layer.shadowRadius = 8
         cell.layer.shadowOpacity = 0.6
+        
         
         // Maybe just me, but I had to add it to work:
         cell.clipsToBounds = false
