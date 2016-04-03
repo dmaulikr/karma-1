@@ -28,12 +28,16 @@ class NewMessageViewController: UIViewController {
     //gameScore.addUniqueObjectsFromArray(["flying", "kungfu"], forKey:"skills")
     //gameScore.saveInBackground()
     
+    override func viewDidAppear(animated: Bool) {
+        addNewMessage()
+        print("ran")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        addNewMessage()
-        print("ran")
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,11 +51,8 @@ class NewMessageViewController: UIViewController {
         if messageBody == "" {
             displayError = "Please enter a positive message!"
         } else if currentUser!["location"] == nil {
-<<<<<<< HEAD
             //works
-=======
             displayError = "Can't find your location!"
->>>>>>> 6990ed40a03c438c34bb5494d09a96aa55639018
         }
         
         if displayError != "" {

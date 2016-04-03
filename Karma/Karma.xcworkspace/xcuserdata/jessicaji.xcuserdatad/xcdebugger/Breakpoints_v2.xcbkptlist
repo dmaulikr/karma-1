@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Karma/SignUpViewController.swift"
-            timestampString = "481329314.796926"
+            timestampString = "481334367.248943"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "SignUpViewController"
             landmarkType = "3">
          </BreakpointContent>

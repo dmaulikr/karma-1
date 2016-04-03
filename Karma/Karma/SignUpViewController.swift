@@ -17,10 +17,13 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var email: UITextField!
     
+    @IBOutlet weak var takenAlert: UILabel!
+    @IBOutlet weak var emailAlert: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        takenAlert.hidden = true
+        emailAlert.hidden = true
     }
 
     
@@ -35,8 +38,13 @@ class SignUpViewController: UIViewController {
         user["audienceLim"] = 1
         
         user.signUpInBackgroundWithBlock { (success, error) -> Void in
+            //query
+            
             if (success) {
                 self.performSegueWithIdentifier("toMain2", sender: self)
+            } else {
+                
+                self.takenAlert.hidden = false
             }
         }
     }
