@@ -14,6 +14,13 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        //self.navigationController?.navigationBar.translucent = false;
+        //UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController!.navigationBar.topItem!.title = "Settings";
+        self.tabBarController?.tabBar.barTintColor = UIColor.whiteColor()
     }
 
     override func didReceiveMemoryWarning() {

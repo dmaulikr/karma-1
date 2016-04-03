@@ -16,7 +16,7 @@ class FeedCollectionViewController: UICollectionViewController {
     
     
     
-    var times = ["June 30","Last week","Today", "March 32", "July 3", "August 3"]
+    var times = ["Today","Last week","March 2", "March 32", "July 3", "August 3"]
     var locations = Array<String>()
     var body = Array<String>()
     
