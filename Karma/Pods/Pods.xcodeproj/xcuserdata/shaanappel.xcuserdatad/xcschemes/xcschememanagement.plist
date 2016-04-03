@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FontAwesome.swift-FontAwesome.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FontAwesome.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>FontAwesomeIconFactory.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,12 +37,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0AB1EA1EC0E2FE766084F6B9E331D0D4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2C8AA1BAF35413BDB954A1DF93576ED1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B145340D8947E99F154FEE4E20076F6C</key>
+		<key>6D9EDCF48A5AA1A0B1FB393CB904CF6F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>744D8936F538391EE0E1CD29AC2DAC87</key>
 		<dict>
 			<key>primary</key>
 			<true/>
