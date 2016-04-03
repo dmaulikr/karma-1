@@ -174,6 +174,7 @@
                         <outlet property="password" destination="80S-EG-ye8" id="b9r-xI-6Lv"/>
                         <outlet property="username" destination="Rer-er-8fh" id="Ssj-5u-Um1"/>
                         <segue destination="NcZ-yr-rOT" kind="show" identifier="toMain" id="Ufn-5D-BPv"/>
+                        <segue destination="1wp-WZ-MOK" kind="show" identifier="toUnread" id="t06-U9-tdf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -204,7 +205,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Sent" id="CwQ-WE-5It"/>
-                    <navigationItem key="navigationItem" id="42w-J2-NSE"/>
+                    <navigationItem key="navigationItem" title="Sent Messages" id="42w-J2-NSE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6hP-bI-IEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -237,14 +238,23 @@
                         <viewControllerLayoutGuide type="bottom" id="5on-fy-Wrr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="7Kw-bP-PNH">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="orange" translatesAutoresizingMaskIntoConstraints="NO" id="sKc-O7-wnV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="screen" translatesAutoresizingMaskIntoConstraints="NO" id="JGI-pd-yOS">
+                                <rect key="frame" x="0.0" y="69" width="375" height="598"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeD-Rd-9pk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-216" y="4005"/>
+            <point key="canvasLocation" x="1164.5" y="1231.5"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Jqm-Ha-Eih">
@@ -271,7 +281,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" id="7Na-Pw-row"/>
-                    <navigationItem key="navigationItem" id="G40-vH-ZqF"/>
+                    <navigationItem key="navigationItem" title="Settings" id="G40-vH-ZqF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J2d-YL-tQO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -304,14 +314,15 @@
                         <viewControllerLayoutGuide type="bottom" id="CNF-pU-ITQ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kul-ZQ-xdU">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jyn-9c-t0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1396" y="1161"/>
+            <point key="canvasLocation" x="1517.5" y="346.5"/>
         </scene>
         <!--Forgot Password-->
         <scene sceneID="lWq-Ra-yjO">
@@ -357,7 +368,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="bxt-EK-sWh"/>
-                    <navigationItem key="navigationItem" id="URQ-y4-WL3"/>
+                    <navigationItem key="navigationItem" title="Your Footprint" id="URQ-y4-WL3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rOi-SJ-2Fb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -626,6 +637,7 @@
                         <outlet property="takenAlert" destination="cnH-GH-CwD" id="0GZ-XQ-KHQ"/>
                         <outlet property="username" destination="MiS-7m-1XF" id="b5e-w7-fLu"/>
                         <segue destination="NcZ-yr-rOT" kind="show" identifier="toMain2" id="B5E-ME-fzZ"/>
+                        <segue destination="1wp-WZ-MOK" kind="show" identifier="toUnread2" id="iB8-ol-SVn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eMi-7s-sQe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -832,7 +844,7 @@
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbv-9C-XC0">
                                 <rect key="frame" x="109" y="351" width="156" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.66666666669999997" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Reply! :)">
+                                <state key="normal" title="Send a reply">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" red="1" green="0.66666666669999997" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -872,11 +884,14 @@
         <image name="email" width="256" height="256"/>
         <image name="lock" width="256" height="256"/>
         <image name="name" width="256" height="256"/>
+        <image name="orange" width="124" height="60"/>
+        <image name="screen" width="314" height="440"/>
         <image name="settings" width="936" height="1444"/>
         <image name="user" width="256" height="256"/>
         <image name="white" width="80" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="B5E-ME-fzZ"/>
+        <segue reference="iB8-ol-SVn"/>
     </inferredMetricsTieBreakers>
 </document>
