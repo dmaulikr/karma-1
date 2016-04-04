@@ -88,7 +88,7 @@ class SignUpViewController: UIViewController {
                 
             } else {
                     if (success) {
-                        self.performSegueWithIdentifier("toMain2", sender: self)
+                        self.performSegueWithIdentifier("toUnread2", sender: self)
                     } else {
                         print("email error?")
                         self.emailAlert.hidden = false
