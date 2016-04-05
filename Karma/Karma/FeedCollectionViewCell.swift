@@ -14,7 +14,9 @@ class FeedCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var Time: UILabel!
     @IBOutlet weak var message: UILabel!
     
+    @IBOutlet weak var replyButton: UIButton!
     
+    @IBOutlet weak var replyTextField: UITextField!
     
     
 }
