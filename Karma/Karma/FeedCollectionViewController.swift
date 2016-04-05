@@ -142,16 +142,25 @@ class FeedCollectionViewController: UICollectionViewController {
         cell.frame.origin.y = ((collectionView.frame.height / 5) + 10) * (CGFloat(indexPath.row))
         if currentIndex == indexPath.row{
             cell.frame.size.height = (collectionView.frame.height / 5) + 50
-            cell.replyTextField.hidden = false
+            cell.replyTextField.hidden = !cell.replyTextField.hidden
             var frameRect = cell.replyTextField.frame;
             frameRect.size.height = 50; // <-- Specify the height you want here.
             frameRect.size.width = cell.frame.size.width - 10.0;
             cell.replyTextField.bounds.origin.x = 5.0
             cell.replyTextField.bounds.origin.y = (cell.message.bounds.origin.y + cell.message.frame.height)
+            cell.replyTextField.frame.origin.x = 5.0
+            cell.replyTextField.frame.origin.y = (cell.message.bounds.origin.y + cell.message.frame.height)
+            cell.replyTextField.layer.frame.origin.y = (cell.message.bounds.origin.y + cell.message.frame.height)
+            var layerFrame = cell.replyTextField.layer.frame
+            layerFrame.size.height = 50
+            layerFrame.size.width = cell.frame.size.width - 10.0;
             
-            cell.replyTextField.frame = frameRect;
+            cell.replyTextField.frame = frameRect
+            cell.replyTextField.layer.frame = layerFrame
+
             cell.replyTextField.placeholder = "How would you like to reply?"
             cell.replyTextField.backgroundColor = UIColor.whiteColor()
+            
             cell.replyTextField.borderStyle = UITextBorderStyle.Line
         } else if currentIndex < indexPath.row  && currentIndex != -1{
             cell.frame.origin.y = cell.frame.origin.y + 50
@@ -177,7 +186,7 @@ class FeedCollectionViewController: UICollectionViewController {
         cell.replyButton.clipsToBounds = true
         
         // Maybe just me, but I had to add it to work:
-        cell.clipsToBounds = false
+        //cell.clipsToBounds = false
         
         let shadowFrame: CGRect = (cell.layer.bounds)
         let shadowPath: CGPathRef = UIBezierPath(rect: shadowFrame).CGPath
