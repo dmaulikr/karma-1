@@ -143,6 +143,16 @@ class FeedCollectionViewController: UICollectionViewController {
         if currentIndex == indexPath.row{
             cell.frame.size.height = (collectionView.frame.height / 5) + 50
             cell.replyTextField.hidden = false
+            var frameRect = cell.replyTextField.frame;
+            frameRect.size.height = 50; // <-- Specify the height you want here.
+            frameRect.size.width = cell.frame.size.width - 10.0;
+            cell.replyTextField.bounds.origin.x = 5.0
+            cell.replyTextField.bounds.origin.y = (cell.message.bounds.origin.y + cell.message.frame.height)
+            
+            cell.replyTextField.frame = frameRect;
+            cell.replyTextField.placeholder = "How would you like to reply?"
+            cell.replyTextField.backgroundColor = UIColor.whiteColor()
+            cell.replyTextField.borderStyle = UITextBorderStyle.Line
         } else if currentIndex < indexPath.row  && currentIndex != -1{
             cell.frame.origin.y = cell.frame.origin.y + 50
         }
@@ -175,13 +185,6 @@ class FeedCollectionViewController: UICollectionViewController {
         
         
         
-        cell.replyTextField.frame.origin.x = 5.0
-        cell.replyTextField.frame.origin.y = (cell.message.bounds.origin.y + cell.message.frame.height)
-        cell.replyTextField.frame.size.width = cell.frame.size.width - 10.0
-        cell.replyTextField.frame.size.height = 50.0
-        cell.replyTextField.placeholder = "How would you like to reply?"
-        cell.replyTextField.backgroundColor = UIColor.whiteColor()
-        cell.replyTextField.borderStyle = UITextBorderStyle.Line
         
         
         return cell
