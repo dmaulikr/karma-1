@@ -16,9 +16,10 @@ class FeedCollectionViewController: UICollectionViewController {
     
     
     
-    var times = ["Today","Last week","March 2", "March 32", "July 3", "August 3"]
+    var times = ["Today","Last week","March 2", "March 32", "July 3", "August 3","Today","Last week","March 2", "March 32", "July 3", "August 3"]
     var locations = Array<String>()
     var body = Array<String>()
+    var currentIndex = -1;
     
     func getMessages() {
         // Get the list of all the social titles and add them to the socialLabels array. Then reload the collectionview.
@@ -105,6 +106,17 @@ class FeedCollectionViewController: UICollectionViewController {
 
     // MARK: UICollectionViewDataSource
 
+    @IBAction func replyButtonClicked(sender: AnyObject) {
+        if let button = sender as? UIButton {
+            if let superview = button.superview {
+                if let cell = superview.superview as? FeedCollectionViewCell {
+                    let indexPath = collectionView?.indexPathForCell(cell)
+                    currentIndex = indexPath!.row
+                    collectionView?.reloadData()
+                }
+            }
+        }
+    }
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -125,7 +137,34 @@ class FeedCollectionViewController: UICollectionViewController {
         cell.Time.text = times[indexPath.row]
         cell.location.text = locations[indexPath.row]
         
-        
+        cell.replyTextField.hidden = true
+        cell.frame.size.height = collectionView.frame.height / 5
+        cell.frame.origin.y = ((collectionView.frame.height / 5) + 10) * (CGFloat(indexPath.row))
+        if currentIndex == indexPath.row{
+            cell.frame.size.height = (collectionView.frame.height / 5) + 50
+            cell.replyTextField.hidden = !cell.replyTextField.hidden
+            var frameRect = cell.replyTextField.frame;
+            frameRect.size.height = 50; // <-- Specify the height you want here.
+            frameRect.size.width = cell.frame.size.width - 10.0;
+            cell.replyTextField.bounds.origin.x = 5.0
+            cell.replyTextField.bounds.origin.y = (cell.message.bounds.origin.y + cell.message.frame.height)
+            cell.replyTextField.frame.origin.x = 5.0
+            cell.replyTextField.frame.origin.y = (cell.message.bounds.origin.y + cell.message.frame.height)
+            cell.replyTextField.layer.frame.origin.y = (cell.message.bounds.origin.y + cell.message.frame.height)
+            var layerFrame = cell.replyTextField.layer.frame
+            layerFrame.size.height = 50
+            layerFrame.size.width = cell.frame.size.width - 10.0;
+            
+            cell.replyTextField.frame = frameRect
+            cell.replyTextField.layer.frame = layerFrame
+
+            cell.replyTextField.placeholder = "How would you like to reply?"
+            cell.replyTextField.backgroundColor = UIColor.whiteColor()
+            
+            cell.replyTextField.borderStyle = UITextBorderStyle.Line
+        } else if currentIndex < indexPath.row  && currentIndex != -1{
+            cell.frame.origin.y = cell.frame.origin.y + 50
+        }
         
         let collectionViewWidth = self.collectionView!.bounds.size.width
         cell.frame.size.width = collectionViewWidth
@@ -141,13 +180,21 @@ class FeedCollectionViewController: UICollectionViewController {
         
         cell.layer.shadowOpacity = 0.6
         
+        cell.replyButton.titleLabel?.font = UIFont.fontAwesomeOfSize(20)
+        cell.replyButton.setTitle(String.fontAwesomeIconWithName(.PlusSquareO), forState: .Normal)
+        cell.replyButton.layer.cornerRadius = 0.5 *  cell.replyButton.bounds.size.width
+        cell.replyButton.clipsToBounds = true
         
         // Maybe just me, but I had to add it to work:
-        cell.clipsToBounds = false
+        //cell.clipsToBounds = false
         
         let shadowFrame: CGRect = (cell.layer.bounds)
         let shadowPath: CGPathRef = UIBezierPath(rect: shadowFrame).CGPath
         cell.layer.shadowPath = shadowPath
+        
+        
+        
+        
         
         return cell
     }
