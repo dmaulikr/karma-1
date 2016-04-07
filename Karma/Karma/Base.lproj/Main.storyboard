@@ -224,23 +224,15 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1IW-3f-YZp">
-                                                    <rect key="frame" x="281" y="8" width="22" height="16"/>
-                                                    <color key="backgroundColor" red="0.99215686270000003" green="0.59215686270000001" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <state key="normal" title="Reply">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="replyButtonClicked:" destination="yrv-mh-AA8" eventType="touchUpInside" id="A44-MW-kBl"/>
-                                                        <segue destination="BY3-jG-UAd" kind="presentation" identifier="sentToDetail" id="OL0-FK-HQb"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="message body" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNf-s1-pJl">
-                                                    <rect key="frame" x="8" y="22" width="295" height="45"/>
+                                                    <rect key="frame" x="8" y="22" width="274" height="45"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gpl-lP-LQ0">
+                                                    <rect key="frame" x="284" y="4" width="19" height="18"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -258,6 +250,7 @@
                     <navigationItem key="navigationItem" title="Sent Messages" id="42w-J2-NSE"/>
                     <connections>
                         <outlet property="collectionView" destination="JEf-r9-Mmf" id="G5N-m0-6mZ"/>
+                        <segue destination="BY3-jG-UAd" kind="presentation" identifier="expandSent" id="EHi-7r-cNK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6hP-bI-IEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -953,7 +946,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r7E-R7-h6d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1014.5" y="3809.5"/>
+            <point key="canvasLocation" x="950.5" y="3633.5"/>
         </scene>
     </scenes>
     <resources>
@@ -970,6 +963,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="t06-U9-tdf"/>
         <segue reference="VU5-fZ-n1w"/>
-        <segue reference="OL0-FK-HQb"/>
+        <segue reference="EHi-7r-cNK"/>
     </inferredMetricsTieBreakers>
 </document>

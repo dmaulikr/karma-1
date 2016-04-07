@@ -43,12 +43,12 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("sentToDetail", sender: indexPath)
+        performSegueWithIdentifier("expandSent", sender: indexPath)
     }
     
     //add //design elements on cards
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "sentToDetail" {
+        if segue.identifier == "expandSent" {
             let vc = segue.destinationViewController as! expandViewController
             let row = (sender as! NSIndexPath).item
         }
