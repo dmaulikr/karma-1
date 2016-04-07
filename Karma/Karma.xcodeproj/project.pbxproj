@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0C0C4C651CB06669009A10B9 /* ThirstyScriptExtraBoldDemo.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C0C4C641CB06669009A10B9 /* ThirstyScriptExtraBoldDemo.otf */; };
+		0C0C4C671CB61BB3009A10B9 /* SentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C4C661CB61BB3009A10B9 /* SentCollectionViewCell.swift */; };
+		0C0C4C691CB61E58009A10B9 /* NewPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C4C681CB61E58009A10B9 /* NewPostCollectionViewCell.swift */; };
 		370AA958BD30845B220AA7E5 /* Pods_Karma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA153DB02365CAC70274AA9C /* Pods_Karma.framework */; };
 		D867B3D11CB0964600335615 /* expandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867B3CE1CB0964600335615 /* expandViewController.swift */; };
 		D867B3D21CB0964600335615 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867B3CF1CB0964600335615 /* FeedCollectionViewCell.swift */; };
@@ -50,6 +52,8 @@
 
 /* Begin PBXFileReference section */
 		0C0C4C641CB06669009A10B9 /* ThirstyScriptExtraBoldDemo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ThirstyScriptExtraBoldDemo.otf; path = Fonts/ThirstyScriptExtraBoldDemo.otf; sourceTree = "<group>"; };
+		0C0C4C661CB61BB3009A10B9 /* SentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentCollectionViewCell.swift; sourceTree = "<group>"; };
+		0C0C4C681CB61E58009A10B9 /* NewPostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostCollectionViewCell.swift; sourceTree = "<group>"; };
 		A55867D4E0E8E3A1BDEC2294 /* Pods-Karma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Karma.release.xcconfig"; path = "Pods/Target Support Files/Pods-Karma/Pods-Karma.release.xcconfig"; sourceTree = "<group>"; };
 		AB0ADD04D8B50C92F4C93D20 /* Pods-Karma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Karma.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Karma/Pods-Karma.debug.xcconfig"; sourceTree = "<group>"; };
 		CA153DB02365CAC70274AA9C /* Pods_Karma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Karma.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +164,9 @@
 				FC102D2C1CB1A85A00268B78 /* MapNavigationViewController.swift */,
 				FC3B03A11CB030DF0000EC38 /* SignUpViewController.swift */,
 				FC3B03A71CB031830000EC38 /* SentViewController.swift */,
+				D867B3D01CB0964600335615 /* FeedCollectionViewController.swift */,
+				0C0C4C681CB61E58009A10B9 /* NewPostCollectionViewCell.swift */,
+				0C0C4C661CB61BB3009A10B9 /* SentCollectionViewCell.swift */,
 				FC3B03A91CB031910000EC38 /* RecievedViewController.swift */,
 				FC3B03AB1CB031A10000EC38 /* MapViewController.swift */,
 				FC3B03AD1CB031B00000EC38 /* SettingsViewController.swift */,
@@ -167,7 +174,6 @@
 				FC3B03B11CB032180000EC38 /* NewMessageViewController.swift */,
 				D867B3CE1CB0964600335615 /* expandViewController.swift */,
 				D867B3CF1CB0964600335615 /* FeedCollectionViewCell.swift */,
-				D867B3D01CB0964600335615 /* FeedCollectionViewController.swift */,
 				FC3B03781CB02CAA0000EC38 /* Assets.xcassets */,
 				FC3B037A1CB02CAA0000EC38 /* LaunchScreen.storyboard */,
 				FC3B037D1CB02CAA0000EC38 /* Info.plist */,
@@ -387,12 +393,14 @@
 				FC31A08E1CB03FA5005AA369 /* MainTabBarViewController.swift in Sources */,
 				FC102D2D1CB1A85A00268B78 /* MapNavigationViewController.swift in Sources */,
 				FC3B03AA1CB031910000EC38 /* RecievedViewController.swift in Sources */,
+				0C0C4C671CB61BB3009A10B9 /* SentCollectionViewCell.swift in Sources */,
 				FC3B03A21CB030DF0000EC38 /* SignUpViewController.swift in Sources */,
 				FC3B03721CB02CAA0000EC38 /* AppDelegate.swift in Sources */,
 				FC3B03AC1CB031A10000EC38 /* MapViewController.swift in Sources */,
 				FC3B03B21CB032180000EC38 /* NewMessageViewController.swift in Sources */,
 				D867B3D21CB0964600335615 /* FeedCollectionViewCell.swift in Sources */,
 				FC3B03B01CB031C60000EC38 /* UnreadRecievedViewController.swift in Sources */,
+				0C0C4C691CB61E58009A10B9 /* NewPostCollectionViewCell.swift in Sources */,
 				FC3B03AE1CB031B00000EC38 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
