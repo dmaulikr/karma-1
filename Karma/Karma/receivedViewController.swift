@@ -76,7 +76,9 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         let screenWidth = screenSize.width
         
+        self.view.backgroundColor = UIColor.blackColor()
         receivedMessagesCollectionView.frame.size.width = screenWidth
+        receivedMessagesCollectionView.backgroundColor = UIColor(red: 252.0, green: 245.0, blue: 235.0, alpha: 1.0)
         
         
         let newMessageImage = UIImage.fontAwesomeIconWithName(.PencilSquareO, textColor: UIColor.blackColor(), size: CGSizeMake(25, 25))
@@ -107,7 +109,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         let cell = receivedMessagesCollectionView.dequeueReusableCellWithReuseIdentifier("recCell", forIndexPath: indexPath) as!receivedMessageCollectionViewCell
         
         //modify the cell
-        cell.backgroundColor = UIColor.whiteColor()
+        cell.backgroundColor = UIColor(red: 217.0, green: 217.0, blue: 217.0, alpha: 1)
         
         cell.message.text = body[indexPath.row]
         cell.time.text = timesArray[indexPath.row]
@@ -135,7 +137,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.replyTextField.layer.frame = layerFrame
             
             cell.replyTextField.placeholder = "How would you like to reply?"
-            cell.replyTextField.backgroundColor = UIColor.whiteColor()
+            //cell.replyTextField.backgroundColor = UIColor.whiteColor()
             
             cell.replyTextField.borderStyle = UITextBorderStyle.Line
         } else if currentIndex < indexPath.row  && currentIndex != -1{
@@ -147,7 +149,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.frame.origin.x = receivedMessagesCollectionView.frame.origin.x
         
         
-        cell.layer.borderColor = UIColor.whiteColor().CGColor
+       // cell.layer.borderColor = UIColor.whiteColor().CGColor
         cell.layer.borderWidth = 1
         
         
