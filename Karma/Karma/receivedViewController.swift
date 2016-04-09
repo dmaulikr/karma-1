@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Parse
 
-class receivedViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,receivedMessageCollectionViewCellDelegate {
+class receivedViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
 //    
 //    var sendtextfield = UITextField(frame: CGRectMake(10, 5, UIScreen.mainScreen().bounds.width - 20, 95))
@@ -19,6 +20,7 @@ class receivedViewController: UIViewController, UICollectionViewDataSource, UICo
     var locations = Array<String>()
     var body = Array<String>()
     var currentIndex = -1;
+    var timesArray = ["Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time"]
     
     func getMessages() {
         // Get the list of all the social titles and add them to the socialLabels array. Then reload the collectionview.
@@ -30,7 +32,7 @@ class receivedViewController: UIViewController, UICollectionViewDataSource, UICo
                 // The find succeeded.
                 print("Successfully retrieved \(objects!.count) socials.")
                 
-                self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: String(objects!.count), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(FeedCollectionViewController.addTapped))
+                self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: String(objects!.count), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(receivedViewController.addTapped))
                 
                 
                 // Do something with the found objects
@@ -40,7 +42,7 @@ class receivedViewController: UIViewController, UICollectionViewDataSource, UICo
                         self.locations.append ( object["audience"] as! String)
                         self.body.append(object["messageBody"] as! String)
                     }
-                    self.collectionView!.reloadData()
+                    self.receivedMessagesCollectionView.reloadData()
                 }
             } else {
                 // Log details of the failure
@@ -54,8 +56,9 @@ class receivedViewController: UIViewController, UICollectionViewDataSource, UICo
     }
 
     
-    
     @IBOutlet weak var receivedMessagesCollectionView: UICollectionView!
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         receivedMessagesCollectionView.dataSource = self
@@ -73,11 +76,11 @@ class receivedViewController: UIViewController, UICollectionViewDataSource, UICo
         
         let screenWidth = screenSize.width
         
-        self.collectionView!.frame.size.width = screenWidth
+        receivedMessagesCollectionView.frame.size.width = screenWidth
         
         
         let newMessageImage = UIImage.fontAwesomeIconWithName(.PencilSquareO, textColor: UIColor.blackColor(), size: CGSizeMake(25, 25))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: newMessageImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(FeedCollectionViewController.addTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: newMessageImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(receivedViewController.addTapped))
 
 
 
@@ -101,13 +104,13 @@ class receivedViewController: UIViewController, UICollectionViewDataSource, UICo
     }
         
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath)
+        let cell = receivedMessagesCollectionView.dequeueReusableCellWithReuseIdentifier("recCell", forIndexPath: indexPath) as!receivedMessageCollectionViewCell
         
         //modify the cell
         cell.backgroundColor = UIColor.whiteColor()
         
         cell.message.text = body[indexPath.row]
-        cell.Time.text = times[indexPath.row]
+        cell.time.text = timesArray[indexPath.row]
         cell.location.text = locations[indexPath.row]
         
         cell.replyTextField.hidden = true
@@ -139,9 +142,9 @@ class receivedViewController: UIViewController, UICollectionViewDataSource, UICo
             cell.frame.origin.y = cell.frame.origin.y + 50
         }
         
-        let collectionViewWidth = self.collectionView!.bounds.size.width
+        let collectionViewWidth = receivedMessagesCollectionView.bounds.size.width
         cell.frame.size.width = collectionViewWidth
-        cell.frame.origin.x = self.collectionView!.frame.origin.x
+        cell.frame.origin.x = receivedMessagesCollectionView.frame.origin.x
         
         
         cell.layer.borderColor = UIColor.whiteColor().CGColor
@@ -190,9 +193,9 @@ class receivedViewController: UIViewController, UICollectionViewDataSource, UICo
         if let button = sender as? UIButton {
             if let superview = button.superview {
                 if let cell = superview.superview as? FeedCollectionViewCell {
-                    let indexPath = collectionView?.indexPathForCell(cell)
+                    let indexPath = receivedMessagesCollectionView.indexPathForCell(cell)
                     currentIndex = indexPath!.row
-                    collectionView?.reloadData()
+                    receivedMessagesCollectionView.reloadData()
                 }
             }
         }
@@ -218,7 +221,7 @@ class receivedViewController: UIViewController, UICollectionViewDataSource, UICo
             let row = (sender as! NSIndexPath).item
             let sendbody = body[row]
             vc.transferedmessage = sendbody
-            let senddate = times[row]
+            let senddate = timesArray[row]
             vc.transfereddate = senddate
             let sendloc = locations[row]
             vc.transferedlocation = sendloc

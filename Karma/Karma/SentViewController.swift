@@ -35,7 +35,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if indexPath.section == 0 {
             let np = collectionView.dequeueReusableCellWithReuseIdentifier("newPost", forIndexPath: indexPath) as! NewPostCollectionViewCell
             
-            np.
+            //np.
             return np
 
             let newPostCell = collectionView.dequeueReusableCellWithReuseIdentifier("newPost", forIndexPath: indexPath) as! SentCollectionViewCell
@@ -97,7 +97,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.navigationController!.navigationBar.topItem!.title = "Sent Messages";
         
         let newMessageImage = UIImage.fontAwesomeIconWithName(.PencilSquareO, textColor: UIColor.blackColor(), size: CGSizeMake(25, 25))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: newMessageImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(FeedCollectionViewController.addTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: newMessageImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(receivedViewController.addTapped))
     }
 
     override func didReceiveMemoryWarning() {

@@ -12,8 +12,8 @@ class receivedMessageCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var replyButton: UIButton!
     
-    @IBOutlet weak var Time: UILabel!
-    @IBOutlet weak var Location: UILabel!
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var location: UILabel!
     @IBOutlet weak var replyTextField: UITextField!
    
     @IBOutlet weak var message: UILabel!
