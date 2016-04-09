@@ -10,13 +10,13 @@ import UIKit
 
 class FeedCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var location: UILabel!
-    @IBOutlet weak var Time: UILabel!
-    @IBOutlet weak var message: UILabel!
-    
-    @IBOutlet weak var replyButton: UIButton!
-    
-    @IBOutlet weak var replyTextField: UITextField!
+//    @IBOutlet weak var location: UILabel!
+//    @IBOutlet weak var Time: UILabel!
+//    @IBOutlet weak var message: UILabel!
+//    
+//    @IBOutlet weak var replyButton: UIButton!
+//    
+//    @IBOutlet weak var replyTextField: UITextField!
     
     
 }
