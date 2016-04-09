@@ -406,11 +406,11 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <outlet property="Location" destination="YuD-Jj-qCT" id="iAa-Pm-Uu6"/>
-                                            <outlet property="Time" destination="nd6-eJ-dAj" id="152-uE-CKb"/>
+                                            <outlet property="location" destination="YuD-Jj-qCT" id="IL8-Jb-pHg"/>
                                             <outlet property="message" destination="Brt-Fv-0gC" id="Ic1-Ft-qOH"/>
                                             <outlet property="replyButton" destination="S5c-sJ-NxD" id="xPS-Uw-Wjh"/>
                                             <outlet property="replyTextField" destination="AQd-c6-KCC" id="VQ2-5u-iSs"/>
+                                            <outlet property="time" destination="nd6-eJ-dAj" id="rDs-du-bVT"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
