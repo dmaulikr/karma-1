@@ -32,8 +32,8 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         if indexPath.section == 0 {
             let newPostCell = collectionView.dequeueReusableCellWithReuseIdentifier("newPost", forIndexPath: indexPath) as! SentCollectionViewCell
-                
             return newPostCell
+            
         } else {
             let sentCell = collectionView.dequeueReusableCellWithReuseIdentifier("sentMessage", forIndexPath: indexPath) as! SentCollectionViewCell
             
