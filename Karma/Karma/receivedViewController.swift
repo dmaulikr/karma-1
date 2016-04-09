@@ -64,10 +64,10 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         receivedMessagesCollectionView.dataSource = self
         receivedMessagesCollectionView.delegate = self
         receivedMessagesCollectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
-        //self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        //self.navigationController?.navigationBar.translucent = false;
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.translucent = false;
         //UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1)
-        //self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.topItem!.title = "Received Messages";
         
         getMessages()
@@ -76,10 +76,10 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         let screenWidth = screenSize.width
         
-        self.view.backgroundColor = UIColor.blackColor()
+        self.view.backgroundColor = UIColor.greenColor()
         receivedMessagesCollectionView.frame.size.width = screenWidth
-        receivedMessagesCollectionView.backgroundColor = UIColor(red: 252.0, green: 245.0, blue: 235.0, alpha: 1.0)
-        receivedMessagesCollectionView.backgroundView?.backgroundColor = UIColor(red: 252.0, green: 245.0, blue: 235.0, alpha: 1.0)
+        receivedMessagesCollectionView.backgroundColor = UIColor(red: 217.0, green: 217.0, blue: 217.0, alpha: 1.0)
+        receivedMessagesCollectionView.backgroundView = nil;
         
         
         let newMessageImage = UIImage.fontAwesomeIconWithName(.PencilSquareO, textColor: UIColor.blackColor(), size: CGSizeMake(25, 25))
@@ -110,8 +110,9 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         let cell = receivedMessagesCollectionView.dequeueReusableCellWithReuseIdentifier("recCell", forIndexPath: indexPath) as!receivedMessageCollectionViewCell
         
         //modify the cell
-        cell.backgroundColor = UIColor(red: 217.0, green: 217.0, blue: 217.0, alpha: 1)
-        
+        cell.backgroundColor = UIColor(red: 255.0, green: 184.0, blue: 77.0, alpha: 0.5)
+        //255, 184, 77
+        cell.backgroundView = nil;
         cell.message.text = body[indexPath.row]
         cell.time.text = timesArray[indexPath.row]
         cell.location.text = locations[indexPath.row]
@@ -150,14 +151,14 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.frame.origin.x = receivedMessagesCollectionView.frame.origin.x
         
         
-       // cell.layer.borderColor = UIColor.whiteColor().CGColor
+        cell.layer.borderColor = UIColor.whiteColor().CGColor
         cell.layer.borderWidth = 1
         
         
         cell.layer.shadowOffset = CGSizeMake(0, 3)
         cell.layer.shadowColor = UIColor.blackColor().CGColor
         
-        cell.layer.shadowOpacity = 0.6
+        cell.layer.shadowOpacity = 0.2
         
         cell.replyButton.titleLabel?.font = UIFont.fontAwesomeOfSize(20)
         cell.replyButton.setTitle(String.fontAwesomeIconWithName(.PlusSquareO), forState: .Normal)
