@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -210,6 +210,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sentMessage" id="Yii-DX-MTe" customClass="SentCollectionViewCell" customModule="Karma" customModuleProvider="target">
                                         <rect key="frame" x="32" y="174" width="311" height="100"/>
@@ -225,8 +226,8 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="message body" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNf-s1-pJl">
-                                                    <rect key="frame" x="8" y="22" width="274" height="45"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <rect key="frame" x="8" y="22" width="274" height="52"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -236,8 +237,8 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <outlet property="messageBody" destination="WNf-s1-pJl" id="ucK-uC-OpX"/>
                                             <outlet property="seenBy" destination="Kqt-2a-gyb" id="UY8-kJ-TuN"/>
                                         </connections>
                                     </collectionViewCell>
@@ -250,6 +251,7 @@
                     <navigationItem key="navigationItem" title="Sent Messages" id="42w-J2-NSE"/>
                     <connections>
                         <outlet property="collectionView" destination="JEf-r9-Mmf" id="G5N-m0-6mZ"/>
+                        <outlet property="messageBody" destination="WNf-s1-pJl" id="FLR-rc-Lpd"/>
                         <segue destination="BY3-jG-UAd" kind="presentation" identifier="expandSent" id="EHi-7r-cNK"/>
                     </connections>
                 </viewController>
@@ -945,6 +947,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="VU5-fZ-n1w"/>
         <segue reference="t06-U9-tdf"/>
-        <segue reference="1L2-ql-7DY"/>
+        <segue reference="EHi-7r-cNK"/>
     </inferredMetricsTieBreakers>
 </document>
