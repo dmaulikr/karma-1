@@ -79,6 +79,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.view.backgroundColor = UIColor.blackColor()
         receivedMessagesCollectionView.frame.size.width = screenWidth
         receivedMessagesCollectionView.backgroundColor = UIColor(red: 252.0, green: 245.0, blue: 235.0, alpha: 1.0)
+        receivedMessagesCollectionView.backgroundView?.backgroundColor = UIColor(red: 252.0, green: 245.0, blue: 235.0, alpha: 1.0)
         
         
         let newMessageImage = UIImage.fontAwesomeIconWithName(.PencilSquareO, textColor: UIColor.blackColor(), size: CGSizeMake(25, 25))
