@@ -12,4 +12,5 @@ class SentCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var seenBy: UILabel!
     @IBOutlet weak var messageBody: UILabel!
+    
 }

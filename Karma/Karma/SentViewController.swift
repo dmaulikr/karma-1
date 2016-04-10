@@ -12,7 +12,8 @@ import Parse
 class SentViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    var sentArray = []
+    var locations = Array<String>()
+    var messages = Array<String>()
     
     
     @IBOutlet weak var messageBody: UILabel!
@@ -21,7 +22,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if section == 0 {
             return 1
         } else {
-            return sentArray.count
+            return locations.count
         }
     }
     
@@ -44,7 +45,9 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         } else {
             let sc = collectionView.dequeueReusableCellWithReuseIdentifier("sentMessage", forIndexPath: indexPath) as! SentCollectionViewCell
             
-            
+            if messages.count > 0 {
+                sc.messageBody.text = messages[indexPath.item]
+            }
             return sc
         }
     }
@@ -66,6 +69,8 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
 
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        
     
         queryMessages()
         setProperties()
@@ -79,17 +84,28 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) ->Void in
             if error == nil {
                 print("Successfully retrieved sent")
-                self.sentArray = objects!
+                
+                if let objects = objects {
+                    for object in objects {
+                        self.locations.append ( object["audience"] as! String)
+                        self.messages.append(object["messageBody"] as! String)
+                    }
+                }
+                
+                
                 self.collectionView!.reloadData()
             } else {
                 print("Error: \(error!) \(error!.userInfo)")
             }
             
         }
-        print(self.sentArray.count)
+        print(self.messages.count)
     }
     
     func setProperties() {
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 0
+        
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         //self.navigationController?.navigationBar.translucent = false;
         //UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1)
