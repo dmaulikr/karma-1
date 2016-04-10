@@ -78,7 +78,8 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         self.view.backgroundColor = UIColor.greenColor()
         receivedMessagesCollectionView.frame.size.width = screenWidth
-        receivedMessagesCollectionView.backgroundColor = UIColor(red: 217.0, green: 217.0, blue: 217.0, alpha: 1.0)
+        receivedMessagesCollectionView.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
+        
         receivedMessagesCollectionView.backgroundView = nil;
         
         
@@ -110,7 +111,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         let cell = receivedMessagesCollectionView.dequeueReusableCellWithReuseIdentifier("recCell", forIndexPath: indexPath) as!receivedMessageCollectionViewCell
         
         //modify the cell
-        cell.backgroundColor = UIColor(red: 255.0, green: 184.0, blue: 77.0, alpha: 0.5)
+        cell.backgroundColor = UIColor.whiteColor();
         //255, 184, 77
         cell.backgroundView = nil;
         cell.message.text = body[indexPath.row]
@@ -158,7 +159,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.layer.shadowOffset = CGSizeMake(0, 3)
         cell.layer.shadowColor = UIColor.blackColor().CGColor
         
-        cell.layer.shadowOpacity = 0.2
+        cell.layer.shadowOpacity = 0.9
         
         cell.replyButton.titleLabel?.font = UIFont.fontAwesomeOfSize(20)
         cell.replyButton.setTitle(String.fontAwesomeIconWithName(.PlusSquareO), forState: .Normal)
@@ -166,7 +167,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.replyButton.clipsToBounds = true
         
         // Maybe just me, but I had to add it to work:
-        //cell.clipsToBounds = false
+        cell.clipsToBounds = false
         
         let shadowFrame: CGRect = (cell.layer.bounds)
         let shadowPath: CGPathRef = UIBezierPath(rect: shadowFrame).CGPath
