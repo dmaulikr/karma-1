@@ -15,6 +15,7 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         textView.delegate = self
+        
         print("hello")
         setPlaceholder()
     }
@@ -36,11 +37,12 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
         }
     }
     
-    func textViewDidEndEditing(textView: UITextView) {
+    func textViewDidEndEditing(textView: UITextView) {        
         if (textView.text == "") {
             textView.text = "What's on your mind?"
             textView.textColor = UIColor.lightGrayColor()
         }
+        textView.resignFirstResponder()
     }
     
     //dismiss keyboard

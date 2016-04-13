@@ -75,6 +75,14 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         queryMessages()
         setProperties()
         
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
+        tapRecognizer.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(tapRecognizer)
+        
+    }
+    
+    func handleSingleTap(recognizer: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
     
     func queryMessages() {
