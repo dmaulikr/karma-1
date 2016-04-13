@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class InitialViewController: UIViewController {
 
@@ -19,6 +20,17 @@ class InitialViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        let currentUser = PFUser.currentUser()
+        if  currentUser != nil {
+            self.performSegueWithIdentifier("toUnread", sender: self)
+        }
+        else {
+            self.performSegueWithIdentifier("toLogin", sender: self)
+        }
     }
     
 
