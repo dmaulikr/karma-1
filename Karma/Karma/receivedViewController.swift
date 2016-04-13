@@ -123,8 +123,11 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.frame.origin.y = ((collectionView.frame.height / 5) + 10) * (CGFloat(indexPath.row))
         if currentIndex == indexPath.row{
             cell.frame.size.height = (collectionView.frame.height / 5) + 50
+            
+            
             cell.replyTextField.hidden = !cell.replyTextField.hidden
-            var frameRect = cell.replyTextField.frame;
+            
+            /*var frameRect = cell.replyTextField.frame;
             frameRect.size.height = 50; // <-- Specify the height you want here.
             frameRect.size.width = cell.frame.size.width - 10.0;
             cell.replyTextField.bounds.origin.x = 5.0
@@ -137,7 +140,12 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
             layerFrame.size.width = cell.frame.size.width - 10.0;
             
             cell.replyTextField.frame = frameRect
-            cell.replyTextField.layer.frame = layerFrame
+            cell.replyTextField.layer.frame = layerFrame*/
+            var frame = cell.replyTextField.frame
+            frame.size.height = 100.0;
+            cell.replyTextField.frame = frame
+            
+            
             
             cell.replyTextField.placeholder = "How would you like to reply?"
             //cell.replyTextField.backgroundColor = UIColor.whiteColor()
@@ -197,9 +205,10 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBAction func replyButtonClicked(sender: AnyObject) {
         if let button = sender as? UIButton {
             if let superview = button.superview {
-                if let cell = superview.superview as? FeedCollectionViewCell {
+                if let cell = superview.superview as? receivedMessageCollectionViewCell {
                     let indexPath = receivedMessagesCollectionView.indexPathForCell(cell)
                     currentIndex = indexPath!.row
+                    print("worked")
                     receivedMessagesCollectionView.reloadData()
                 }
             }
