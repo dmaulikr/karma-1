@@ -14,14 +14,13 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        textView.delegate = self
         
-        print("hello")
-        setPlaceholder()
+        
     }
     
     func setPlaceholder() {
         print("hi")
+        textView.delegate = self
         textView.text = "What's on your mind?"
         textView.textColor = UIColor.lightGrayColor()
     }

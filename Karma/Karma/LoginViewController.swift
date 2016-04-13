@@ -24,11 +24,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
     
     
     override func viewDidLoad() {
@@ -39,8 +34,58 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
         tapRecognizer.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(tapRecognizer)
+//        
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+//        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
         
     }
+    
+//    
+//    func keyboardWillShow(notification: NSNotification) {
+//        
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+//            self.view.frame.origin.y -= keyboardSize.height
+//        }
+//        
+//    }
+//    
+//    func keyboardWillHide(notification: NSNotification) {
+//        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+//            self.view.frame.origin.y += keyboardSize.height
+//        }
+//    }
+    
+    
+//    func keyboardWillShow(notification: NSNotification) {
+//        let info:NSDictionary = notification.userInfo!
+//        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
+//        
+//        let keyboardHeight: CGFloat = keyboardSize.height
+//        
+//        let _: CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber as CGFloat
+//        
+//        
+//        UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+//            self.view.frame = CGRectMake(0, (self.view.frame.origin.y - keyboardHeight), self.view.bounds.width, self.view.bounds.height)
+//            }, completion: nil)
+//        
+//    }
+//    
+//    func keyboardWillHide(notification: NSNotification) {
+//        let info: NSDictionary = notification.userInfo!
+//        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue()
+//        
+//        let keyboardHeight: CGFloat = keyboardSize.height
+//        
+//        let _: CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber as CGFloat
+//        
+//        UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+//            self.view.frame = CGRectMake(0, (self.view.frame.origin.y + keyboardHeight), self.view.bounds.width, self.view.bounds.height)
+//            }, completion: nil)
+//        
+//    }
+    
+    
     
     func handleSingleTap(recognizer: UITapGestureRecognizer) {
         self.view.endEditing(true)
