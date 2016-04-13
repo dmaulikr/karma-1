@@ -370,7 +370,7 @@
         <!--Settings-->
         <scene sceneID="Jqm-Ha-Eih">
             <objects>
-                <viewController id="Izr-Nd-eQb" customClass="SentViewController" customModule="Karma" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Izr-Nd-eQb" customClass="SettingsViewController" customModule="Karma" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="try-hd-mgz"/>
                         <viewControllerLayoutGuide type="bottom" id="XTL-fo-iuM"/>
