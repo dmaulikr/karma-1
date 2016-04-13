@@ -8,6 +8,28 @@
 
 import UIKit
 
-class NewPostCollectionViewCell: UICollectionViewCell {
+class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
     
+    @IBOutlet weak var textView: UITextView!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        textView.delegate = self
+        textView.text = "What's on your mind?"
+        textView.textColor = UIColor.lightGrayColor()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
+    func textViewDidBeginEditing(textView: UITextView) {
+        if textView.textColor == UIColor.lightGrayColor() {
+            textView.text = nil
+            textView.textColor = UIColor.blackColor()
+        }
+    }
+    
+    //dismiss keyboard
+
 }

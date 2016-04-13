@@ -6,33 +6,68 @@
 	<dict>
 		<key>Bolts.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FontAwesome.swift-FontAwesome.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>FontAwesome.swift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>FontAwesomeIconFactory.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>KMPlaceholderTextView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Parse.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>3</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>Pods-Karma.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-KarmaTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-KarmaUITests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0AB1EA1EC0E2FE766084F6B9E331D0D4</key>
+		<key>03011254AEBBC55DD8787AED81E7147A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>2C8AA1BAF35413BDB954A1DF93576ED1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5F4528E9204F9353E0BE9A150DFE09F1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,7 +82,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B145340D8947E99F154FEE4E20076F6C</key>
+		<key>9320D2F802D599D76278FF33517A1351</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A06387DDC619718DA888766D18BAED56</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -58,6 +98,11 @@
 			<true/>
 		</dict>
 		<key>C1967A1B7BD24B96811D1E776757119B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EC25B770E2E786F47106EE8F013163EA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
