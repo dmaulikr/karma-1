@@ -13,7 +13,6 @@ import MapKit
 
 class MapViewController: UIViewController {
     
-    @IBOutlet weak var reachMap: MKMapView!
     var sentLocations = Array<CLLocationCoordinate2D>()
     
     override func viewDidLoad() {
@@ -39,6 +38,7 @@ class MapViewController: UIViewController {
                 if let objects = objects {
                     for object in objects {
                         if (object["recievedLocations"] != nil) {
+                            print("hello")
                             let receivedLocations = object["recievedLocations"] as! Array<PFGeoPoint>
                             for receivedLocation in receivedLocations {
                                 let latitude: CLLocationDegrees = receivedLocation.latitude
