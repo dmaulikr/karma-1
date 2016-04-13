@@ -29,11 +29,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         username.delegate = self
         password.delegate = self
         
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
+        tapRecognizer.numberOfTapsRequired = 1
+        self.view.addGestureRecognizer(tapRecognizer)
+        
+    }
+    
+    func handleSingleTap(recognizer: UITapGestureRecognizer) {
+        self.view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
