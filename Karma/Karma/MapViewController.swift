@@ -15,6 +15,7 @@ class MapViewController: UIViewController {
     
     var sentLocations = Array<CLLocationCoordinate2D>()
     
+    @IBOutlet weak var reachMap: UITabBarItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
