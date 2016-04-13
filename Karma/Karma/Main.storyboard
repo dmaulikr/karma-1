@@ -566,7 +566,7 @@
                     <tabBarItem key="tabBarItem" title="Map" id="bxt-EK-sWh"/>
                     <navigationItem key="navigationItem" title="Your Footprint" id="URQ-y4-WL3"/>
                     <connections>
-                        <outlet property="reachMap" destination="bxt-EK-sWh" id="CpO-4Y-ITS"/>
+                        <outlet property="reachMap" destination="jba-ES-cQQ" id="VM4-ke-hen"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rOi-SJ-2Fb" userLabel="First Responder" sceneMemberID="firstResponder"/>
