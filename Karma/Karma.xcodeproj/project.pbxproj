@@ -10,6 +10,7 @@
 		0C0C4C651CB06669009A10B9 /* ThirstyScriptExtraBoldDemo.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C0C4C641CB06669009A10B9 /* ThirstyScriptExtraBoldDemo.otf */; };
 		0C0C4C671CB61BB3009A10B9 /* SentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C4C661CB61BB3009A10B9 /* SentCollectionViewCell.swift */; };
 		0C0C4C691CB61E58009A10B9 /* NewPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C4C681CB61E58009A10B9 /* NewPostCollectionViewCell.swift */; };
+		0C79AEED1CBE039900CD43AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C79AEEC1CBE039900CD43AD /* Main.storyboard */; };
 		370AA958BD30845B220AA7E5 /* Pods_Karma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA153DB02365CAC70274AA9C /* Pods_Karma.framework */; };
 		CB850E927912366BD11ADB5A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA3A7DF6983660DAE55C9E78 /* Pods.framework */; };
 		D851269B1CB97738007CF281 /* receivedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D851269A1CB97738007CF281 /* receivedViewController.swift */; };
@@ -21,7 +22,6 @@
 		FC31A08E1CB03FA5005AA369 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31A08D1CB03FA5005AA369 /* MainTabBarViewController.swift */; };
 		FC3B03721CB02CAA0000EC38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03711CB02CAA0000EC38 /* AppDelegate.swift */; };
 		FC3B03741CB02CAA0000EC38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03731CB02CAA0000EC38 /* ViewController.swift */; };
-		FC3B03771CB02CAA0000EC38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC3B03751CB02CAA0000EC38 /* Main.storyboard */; };
 		FC3B03791CB02CAA0000EC38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC3B03781CB02CAA0000EC38 /* Assets.xcassets */; };
 		FC3B037C1CB02CAA0000EC38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC3B037A1CB02CAA0000EC38 /* LaunchScreen.storyboard */; };
 		FC3B03871CB02CAA0000EC38 /* KarmaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03861CB02CAA0000EC38 /* KarmaTests.swift */; };
@@ -58,6 +58,7 @@
 		0C0C4C641CB06669009A10B9 /* ThirstyScriptExtraBoldDemo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ThirstyScriptExtraBoldDemo.otf; path = Fonts/ThirstyScriptExtraBoldDemo.otf; sourceTree = "<group>"; };
 		0C0C4C661CB61BB3009A10B9 /* SentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentCollectionViewCell.swift; sourceTree = "<group>"; };
 		0C0C4C681CB61E58009A10B9 /* NewPostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostCollectionViewCell.swift; sourceTree = "<group>"; };
+		0C79AEEC1CBE039900CD43AD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A55867D4E0E8E3A1BDEC2294 /* Pods-Karma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Karma.release.xcconfig"; path = "Pods/Target Support Files/Pods-Karma/Pods-Karma.release.xcconfig"; sourceTree = "<group>"; };
 		AB0ADD04D8B50C92F4C93D20 /* Pods-Karma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Karma.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Karma/Pods-Karma.debug.xcconfig"; sourceTree = "<group>"; };
 		CA153DB02365CAC70274AA9C /* Pods_Karma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Karma.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,7 +74,6 @@
 		FC3B036E1CB02CA90000EC38 /* Karma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Karma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC3B03711CB02CAA0000EC38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC3B03731CB02CAA0000EC38 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FC3B03761CB02CAA0000EC38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC3B03781CB02CAA0000EC38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC3B037B1CB02CAA0000EC38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC3B037D1CB02CAA0000EC38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -169,9 +169,9 @@
 				FC3B03A51CB031410000EC38 /* LoginViewController.swift */,
 				FC3B03711CB02CAA0000EC38 /* AppDelegate.swift */,
 				FC3B03731CB02CAA0000EC38 /* ViewController.swift */,
-				FC3B03751CB02CAA0000EC38 /* Main.storyboard */,
 				FCCEF0781CBE02BC00740817 /* InitialViewController.swift */,
 				FC31A08D1CB03FA5005AA369 /* MainTabBarViewController.swift */,
+				0C79AEEC1CBE039900CD43AD /* Main.storyboard */,
 				FC102D2C1CB1A85A00268B78 /* MapNavigationViewController.swift */,
 				FC3B03A11CB030DF0000EC38 /* SignUpViewController.swift */,
 				FC3B03A71CB031830000EC38 /* SentViewController.swift */,
@@ -324,8 +324,8 @@
 			files = (
 				FC3B037C1CB02CAA0000EC38 /* LaunchScreen.storyboard in Resources */,
 				FC3B03791CB02CAA0000EC38 /* Assets.xcassets in Resources */,
-				FC3B03771CB02CAA0000EC38 /* Main.storyboard in Resources */,
 				0C0C4C651CB06669009A10B9 /* ThirstyScriptExtraBoldDemo.otf in Resources */,
+				0C79AEED1CBE039900CD43AD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,14 +453,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FC3B03751CB02CAA0000EC38 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FC3B03761CB02CAA0000EC38 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FC3B037A1CB02CAA0000EC38 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
