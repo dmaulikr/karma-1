@@ -16,7 +16,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
 //    
 //    var sendbutton = UIButton( frame: CGRectMake(300, 56 ,50, 40
 //    ))
-    
+    var refresher:UIRefreshControl!
     var locations = Array<String>()
     var body = Array<String>()
     var currentIndex = -1;
@@ -43,6 +43,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
                         self.body.append(object["messageBody"] as! String)
                     }
                     self.receivedMessagesCollectionView.reloadData()
+                    self.refresher.endRefreshing()
                 }
             } else {
                 // Log details of the failure
@@ -53,6 +54,13 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func addTapped() {
         self.tabBarController?.selectedIndex = 1
+    }
+    func refresh() {
+        locations = Array<String>()
+        body = Array<String>()
+        currentIndex = -1;
+        getMessages()
+        
     }
 
     
@@ -85,8 +93,11 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         let newMessageImage = UIImage.fontAwesomeIconWithName(.PencilSquareO, textColor: UIColor.blackColor(), size: CGSizeMake(25, 25))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: newMessageImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(receivedViewController.addTapped))
-
-
+        
+        refresher = UIRefreshControl()
+        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refresher.addTarget(self, action:"refresh", forControlEvents: UIControlEvents.ValueChanged)
+        receivedMessagesCollectionView.addSubview(refresher)
 
         
 
@@ -114,6 +125,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.backgroundColor = UIColor.whiteColor();
         //255, 184, 77
         cell.backgroundView = nil;
+        print(body);
         cell.message.text = body[indexPath.row]
         cell.time.text = timesArray[indexPath.row]
         cell.location.text = locations[indexPath.row]
@@ -226,7 +238,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return locations.count
+        return body.count
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

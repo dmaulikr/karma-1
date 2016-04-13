@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="i7D-KF-sbn">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -11,9 +11,51 @@
     <customFonts key="customFonts">
         <mutableArray key="ThirstyScriptExtraBoldDemo.otf">
             <string>ThirstyScriptExtraboldDemo</string>
+            <string>ThirstyScriptExtraboldDemo</string>
         </mutableArray>
     </customFonts>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="1Pi-Ro-k5F">
+            <objects>
+                <viewController id="i7D-KF-sbn" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tmd-jC-51B"/>
+                        <viewControllerLayoutGuide type="bottom" id="woi-fH-ovW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lQ4-wM-lnz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Karma" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="37" translatesAutoresizingMaskIntoConstraints="NO" id="3aL-4d-WeU">
+                                <rect key="frame" x="37" y="277" width="301" height="113"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3aL-4d-WeU" secondAttribute="height" multiplier="301:113" id="Qsv-Mf-igO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ThirstyScriptExtraboldDemo" family="Thirsty Script Extrabold Demo" pointSize="74"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99215686270000003" green="0.59215686270000001" blue="0.29803921570000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="woi-fH-ovW" firstAttribute="top" secondItem="3aL-4d-WeU" secondAttribute="bottom" constant="277" id="0gI-dC-sXe"/>
+                            <constraint firstItem="3aL-4d-WeU" firstAttribute="leading" secondItem="lQ4-wM-lnz" secondAttribute="leadingMargin" constant="17" id="BAI-j2-X9m"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3aL-4d-WeU" secondAttribute="trailing" constant="17" id="tuf-PA-rmk"/>
+                            <constraint firstItem="3aL-4d-WeU" firstAttribute="top" secondItem="tmd-jC-51B" secondAttribute="bottom" constant="257" id="wDO-10-Xtb"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="toLogin" id="Kyz-Ys-yCC"/>
+                        <segue destination="NcZ-yr-rOT" kind="show" id="3eK-xz-wrs"/>
+                        <segue destination="1wp-WZ-MOK" kind="show" id="MCB-D0-mfL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cas-bw-gDL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-314" y="288"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -323,7 +365,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeD-Rd-9pk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1264.5" y="1133.5"/>
+            <point key="canvasLocation" x="1027.5" y="1240.5"/>
         </scene>
         <!--Settings-->
         <scene sceneID="Jqm-Ha-Eih">
@@ -565,7 +607,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hVa-ik-Sq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="757.5" y="1231.5"/>
+            <point key="canvasLocation" x="470" y="1343"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="ujo-Xv-vh9">
@@ -978,8 +1020,9 @@
         <image name="white" width="80" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iB8-ol-SVn"/>
-        <segue reference="B5E-ME-fzZ"/>
+        <segue reference="Kyz-Ys-yCC"/>
+        <segue reference="MCB-D0-mfL"/>
+        <segue reference="3eK-xz-wrs"/>
         <segue reference="EHi-7r-cNK"/>
     </inferredMetricsTieBreakers>
 </document>
