@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "073691AA0A459AF27363D1435B5AD83F03B8299B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "073691AA0A459AF27363D1435B5AD83F03B8299B" : 0,
+    "EFEF4EE294495FCB26B48F934DBA1497505F1210" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "FABAD5F5-E5F7-403A-A820-C5777A33FBD6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "073691AA0A459AF27363D1435B5AD83F03B8299B" : "karma\/",
+    "EFEF4EE294495FCB26B48F934DBA1497505F1210" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Karma",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Karma\/Karma.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/shaanappel\/karma.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "073691AA0A459AF27363D1435B5AD83F03B8299B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ankurmahesh\/MDB.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EFEF4EE294495FCB26B48F934DBA1497505F1210"
+    }
+  ]
+}
