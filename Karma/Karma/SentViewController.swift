@@ -39,13 +39,13 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let np = collectionView.dequeueReusableCellWithReuseIdentifier("newPost", forIndexPath: indexPath) as! NewPostCollectionViewCell
             
             //design cell
-            np.layer.borderColor = UIColor.whiteColor().CGColor
-            np.layer.borderWidth = 1
+//            np.layer.borderColor = UIColor.whiteColor().CGColor
+//            np.layer.borderWidth = 1
             
             np.layer.shadowOffset = CGSizeMake(0, 1)
             np.layer.shadowColor = UIColor.blackColor().CGColor
             
-            np.layer.shadowOpacity = 0.9
+            np.layer.shadowOpacity = 0.7
             
             
             let shadowFrame: CGRect = (np.layer.bounds)
@@ -69,10 +69,10 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             sc.backgroundColor = UIColor.whiteColor();
             sc.layer.borderColor = UIColor.whiteColor().CGColor
             sc.layer.borderWidth = 1
-            sc.layer.shadowOffset = CGSizeMake(0, 3)
+            sc.layer.shadowOffset = CGSizeMake(0, 1)
             sc.layer.shadowColor = UIColor.blackColor().CGColor
             
-            sc.layer.shadowOpacity = 0.9
+            sc.layer.shadowOpacity = 0.7
             
             let shadowFrame: CGRect = (sc.layer.bounds)
             let shadowPath: CGPathRef = UIBezierPath(rect: shadowFrame).CGPath
@@ -121,11 +121,10 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         
-        let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.sectionInset = UIEdgeInsetsMake(-10, 0, 10, 0);
+//        let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+//        layout.sectionInset = UIEdgeInsetsMake(-10, 0, 0, 0);
         let frame : CGRect = self.view.frame
-        let margin  = (frame.width - 90 * 3) / 6.0
-        return UIEdgeInsetsMake(10, margin, 10, margin) // margin between cells
+        return UIEdgeInsetsMake(10, -30, 0, -30) // margin between cells
     }
     
     func handleSingleTap(recognizer: UITapGestureRecognizer) {
