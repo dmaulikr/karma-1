@@ -13,9 +13,10 @@ import MapKit
 
 class MapViewController: UIViewController {
     
-    @IBOutlet weak var reachMap: MKMapView!
     var sentLocations = Array<CLLocationCoordinate2D>()
+    var locationName = ""
     
+    @IBOutlet weak var reachMap: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
@@ -53,9 +54,39 @@ class MapViewController: UIViewController {
                 if self.sentLocations.count > 0 {
                     for location in self.sentLocations {
                         let annotation = MKPointAnnotation()
-                        annotation.title = "Test"
-                        annotation.coordinate = location
-                        self.reachMap.addAnnotation(annotation)
+                        
+                        
+                        let geoCoder = CLGeocoder()
+                        let locationNot2D = CLLocation(latitude: location.latitude, longitude: location.longitude)
+                        geoCoder.reverseGeocodeLocation(locationNot2D) {
+                            (placemarks, error) -> Void in
+                            
+                            let placeArray = placemarks as [CLPlacemark]!
+                            
+                            // Place details
+                            var placeMark: CLPlacemark!
+                            placeMark = placeArray?[0]
+                            
+                            
+                            // City
+                            if let city = placeMark.addressDictionary?["City"] as? NSString
+                            {
+                                print(city)
+                                self.locationName += city as String
+                                self.locationName += ", "
+                            }
+                            
+                            
+                            // Country
+                            if let country = placeMark.addressDictionary?["Country"] as? NSString
+                            {
+                                print(country)
+                                self.locationName += country as String
+                            }
+                            annotation.title = self.locationName
+                            annotation.coordinate = location
+                            self.reachMap.addAnnotation(annotation)
+                        }
                     }
                 }
             } else {
@@ -63,7 +94,6 @@ class MapViewController: UIViewController {
                 print("Error: \(error!) \(error!.userInfo)")
             }
         }
-        
         
         
         
@@ -87,3 +117,4 @@ class MapViewController: UIViewController {
      */
     
 }
+
