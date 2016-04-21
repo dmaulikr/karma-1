@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Parse
 
 class expandViewController: UIViewController {
     @IBOutlet weak var response: UITextField!
@@ -20,10 +21,44 @@ class expandViewController: UIViewController {
     var transferedmessage = ""
     var transfereddate = ""
     var transferedlocation = ""
+    var messageId = ""
     
+    func displayAlert(title: String, displayError: String) {
+        
+        let alert = UIAlertController(title: title, message: displayError, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { action in
+            
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
     
-    
-    
+    func addNewMessage() {
+        
+        var displayError = ""
+        if response.text == "" {
+            displayError = "Please enter a positive reply!"
+        }
+        
+        if displayError != "" {
+            displayAlert("Incomplete Form", displayError: displayError)
+        } else {
+            
+            let replyText = response.text
+            
+            let query = PFQuery(className:"Messages")
+            query.getObjectInBackgroundWithId(messageId) {
+                (message: PFObject?, error: NSError?) -> Void in
+                if error != nil {
+                    print(error)
+                } else if let message = message {
+                    message["replyText"] = replyText
+                    message.saveInBackground()
+                }
+            }
+
+        }
+    }
     
     
     
@@ -53,9 +88,14 @@ class expandViewController: UIViewController {
     }
     */
     @IBAction func sendReply(sender: AnyObject) {
+        addNewMessage()
+        displayAlert("Sent", displayError: "Reply Sent!")
+        response.text = ""
+        view.endEditing(true)
     }
     
     @IBAction func sendThanks(sender: AnyObject) {
+        print("thankssent")
     }
     @IBOutlet weak var mapFrom: MKMapView!
 

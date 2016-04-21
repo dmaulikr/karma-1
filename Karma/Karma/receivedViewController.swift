@@ -21,6 +21,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
     var body = Array<String>()
     var currentIndex = -1;
     var timesArray = Array<NSDate>()
+    var messageIds = Array<String>()
     var currUser = PFUser.currentUser()!
     var userId = PFUser.currentUser()!.objectId
     
@@ -43,6 +44,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
                         //self.times.append(object["socialTitle"] as! String)
                         self.locations.append ( object["audience"] as! String)
                         self.body.append(object["messageBody"] as! String)
+                        self.messageIds.append(object.objectId!)
                         
                         
                         self.timesArray.append((object["sentDate"] as? NSDate)!)
@@ -58,14 +60,11 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     func cleanTime(sentDate: NSDate) -> String {
-        //let dateFormatter = NSDateFormatter()
-        //dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        //let dateString = dateFormatter.stringFromDate(sentDate)
         
         var timeInterval : NSTimeInterval = sentDate.timeIntervalSinceNow
         timeInterval = timeInterval * -1
         
-        print(timeInterval)
+        //print(timeInterval)
         if timeInterval < 60 {
             return "Just now"
         } else if timeInterval < (60 * 60) {
@@ -298,9 +297,14 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
             let sendbody = body[row]
             vc.transferedmessage = sendbody
             let senddate = timesArray[row]
-            vc.transfereddate = cleanTime(senddate)
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+            let dateString = dateFormatter.stringFromDate(senddate)
+            vc.transfereddate = dateString
             let sendloc = locations[row]
             vc.transferedlocation = sendloc
+            let id = messageIds[row]
+            vc.messageId = id
             
             
             
