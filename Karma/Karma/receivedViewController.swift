@@ -21,11 +21,14 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
     var body = Array<String>()
     var currentIndex = -1;
     var timesArray = Array<NSDate>()
+    var currUser = PFUser.currentUser()!
+    var userId = PFUser.currentUser()!.objectId
     
     func getMessages() {
         // Get the list of all the social titles and add them to the socialLabels array. Then reload the collectionview.
         let query = PFQuery(className:"Messages")
         query.orderByDescending("sentDate")
+        query.whereKey("recieverIds", equalTo: userId!)
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             
@@ -33,7 +36,6 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
                 // The find succeeded.
                 print("Successfully retrieved \(objects!.count) socials.")
                 
-                self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: String(objects!.count) + "Messages", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(receivedViewController.addTapped))
                 
                 // Do something with the found objects
                 if let objects = objects {
@@ -123,6 +125,8 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         //UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.topItem!.title = "Received Messages";
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: String(currUser["audienceLim"]), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(receivedViewController.addTapped))
         
         getMessages()
         
