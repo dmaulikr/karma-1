@@ -20,11 +20,12 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
     var locations = Array<String>()
     var body = Array<String>()
     var currentIndex = -1;
-    var timesArray = Array<String>()
+    var timesArray = Array<NSDate>()
     
     func getMessages() {
         // Get the list of all the social titles and add them to the socialLabels array. Then reload the collectionview.
         let query = PFQuery(className:"Messages")
+        query.orderByDescending("sentDate")
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             
@@ -33,8 +34,6 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
                 print("Successfully retrieved \(objects!.count) socials.")
                 
                 self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: String(objects!.count) + "Messages", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(receivedViewController.addTapped))
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
                 
                 // Do something with the found objects
                 if let objects = objects {
@@ -43,8 +42,8 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
                         self.locations.append ( object["audience"] as! String)
                         self.body.append(object["messageBody"] as! String)
                         
-                        let dateString = dateFormatter.stringFromDate((object["sentDate"] as? NSDate)!)
-                        self.timesArray.append(dateString)
+                        
+                        self.timesArray.append((object["sentDate"] as? NSDate)!)
                     }
                     self.receivedMessagesCollectionView.reloadData()
                     self.refresher.endRefreshing()
@@ -54,6 +53,49 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
                 print("Error: \(error!) \(error!.userInfo)")
             }
         }
+    }
+    
+    func cleanTime(sentDate: NSDate) -> String {
+        //let dateFormatter = NSDateFormatter()
+        //dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        //let dateString = dateFormatter.stringFromDate(sentDate)
+        
+        var timeInterval : NSTimeInterval = sentDate.timeIntervalSinceNow
+        timeInterval = timeInterval * -1
+        
+        print(timeInterval)
+        if timeInterval < 60 {
+            return "Just now"
+        } else if timeInterval < (60 * 60) {
+            let numMinutes = Int(floor(timeInterval / 60))
+            return String(numMinutes) + " minutes ago"
+        } else if timeInterval < (2*60*60) {
+            return "1 hour ago"
+        } else if timeInterval < (24*60*60) {
+            let numHours = Int(floor(timeInterval / (60*60)))
+            return String(numHours) + " hours ago"
+        } else if timeInterval < (48 * 60 * 60) {
+            return "1 day ago"
+        } else if timeInterval < (7 * 24 * 60 * 60) {
+            let numDays = Int(floor(timeInterval / (24*60*60)))
+            return String(numDays) + " days ago"
+        } else if timeInterval < (2 * 7 * 24 * 60 * 60) {
+            return "1 week ago"
+        } else if timeInterval < (30 * 24 * 60 * 60) {
+            let numWeeks = Int(floor(timeInterval / (7*24*60*60)))
+            return String(numWeeks) + " weeks ago"
+        } else if timeInterval < (2 * 30 * 24 * 60 * 60) {
+            return "1 month ago"
+        } else if timeInterval < (365 * 24 * 60 * 60) {
+            let numMonths = Int(floor(timeInterval / (30*24*60*60)))
+            return String(numMonths) + " months ago"
+        } else if timeInterval < (365 * 24 * 60 * 60) {
+            return "1 year ago"
+        }
+        
+        let numYears = Int(floor(timeInterval / (365*24*60*60)))
+        return String(numYears) + " years ago"
+        
     }
     
     func addTapped() {
@@ -131,7 +173,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.backgroundView = nil;
         print(body);
         cell.message.text = body[indexPath.row]
-        cell.time.text = timesArray[indexPath.row]
+        cell.time.text = cleanTime(timesArray[indexPath.row])
         cell.location.text = locations[indexPath.row]
         
         cell.replyTextField.hidden = true
@@ -252,7 +294,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
             let sendbody = body[row]
             vc.transferedmessage = sendbody
             let senddate = timesArray[row]
-            vc.transfereddate = senddate
+            vc.transfereddate = cleanTime(senddate)
             let sendloc = locations[row]
             vc.transferedlocation = sendloc
             

@@ -34,6 +34,7 @@
 		FC3B03AE1CB031B00000EC38 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03AD1CB031B00000EC38 /* SettingsViewController.swift */; };
 		FC3B03B01CB031C60000EC38 /* UnreadRecievedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03AF1CB031C60000EC38 /* UnreadRecievedViewController.swift */; };
 		FC3B03B21CB032180000EC38 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03B11CB032180000EC38 /* NewMessageViewController.swift */; };
+		FC9789881CC8940600AB7FB7 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9789871CC8940600AB7FB7 /* DateExtensions.swift */; };
 		FCCEF0791CBE02BC00740817 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCEF0781CBE02BC00740817 /* InitialViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		FC3B03AD1CB031B00000EC38 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FC3B03AF1CB031C60000EC38 /* UnreadRecievedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnreadRecievedViewController.swift; sourceTree = "<group>"; };
 		FC3B03B11CB032180000EC38 /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
+		FC9789871CC8940600AB7FB7 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		FCCEF0781CBE02BC00740817 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,6 +180,7 @@
 				FC3B03A71CB031830000EC38 /* SentViewController.swift */,
 				0C79AEEC1CBE039900CD43AD /* Main.storyboard */,
 				D851269A1CB97738007CF281 /* receivedViewController.swift */,
+				FC9789871CC8940600AB7FB7 /* DateExtensions.swift */,
 				D867B3D01CB0964600335615 /* FeedCollectionViewController.swift */,
 				D851269C1CB97A8F007CF281 /* receivedMessageCollectionViewCell.swift */,
 				FC3B03A91CB031910000EC38 /* RecievedViewController.swift */,
@@ -412,6 +415,7 @@
 				FC3B03A21CB030DF0000EC38 /* SignUpViewController.swift in Sources */,
 				FC3B03721CB02CAA0000EC38 /* AppDelegate.swift in Sources */,
 				FC3B03AC1CB031A10000EC38 /* MapViewController.swift in Sources */,
+				FC9789881CC8940600AB7FB7 /* DateExtensions.swift in Sources */,
 				FC3B03B21CB032180000EC38 /* NewMessageViewController.swift in Sources */,
 				FCCEF0791CBE02BC00740817 /* InitialViewController.swift in Sources */,
 				D867B3D21CB0964600335615 /* FeedCollectionViewCell.swift in Sources */,
