@@ -30,6 +30,8 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return 2
     }
     
+    
+    
     // customize border between sections width between sections
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
@@ -37,19 +39,21 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let np = collectionView.dequeueReusableCellWithReuseIdentifier("newPost", forIndexPath: indexPath) as! NewPostCollectionViewCell
             
             //design cell
-            np.layer.borderColor = UIColor.whiteColor().CGColor
-            np.layer.borderWidth = 1
+//            np.layer.borderColor = UIColor.whiteColor().CGColor
+//            np.layer.borderWidth = 1
             
-            np.layer.shadowOffset = CGSizeMake(0, 3)
+            np.layer.shadowOffset = CGSizeMake(0, 1)
             np.layer.shadowColor = UIColor.blackColor().CGColor
             
-            np.layer.shadowOpacity = 0.9
+            np.layer.shadowOpacity = 0.7
             
             
             let shadowFrame: CGRect = (np.layer.bounds)
             let shadowPath: CGPathRef = UIBezierPath(rect: shadowFrame).CGPath
             np.layer.shadowPath = shadowPath
             np.clipsToBounds = false
+            
+            //np.layoutMargins
 
             
             //placeholder
@@ -65,15 +69,16 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             sc.backgroundColor = UIColor.whiteColor();
             sc.layer.borderColor = UIColor.whiteColor().CGColor
             sc.layer.borderWidth = 1
-            sc.layer.shadowOffset = CGSizeMake(0, 3)
+            sc.layer.shadowOffset = CGSizeMake(0, 1)
             sc.layer.shadowColor = UIColor.blackColor().CGColor
             
-            sc.layer.shadowOpacity = 0.9
+            sc.layer.shadowOpacity = 0.7
             
             let shadowFrame: CGRect = (sc.layer.bounds)
             let shadowPath: CGPathRef = UIBezierPath(rect: shadowFrame).CGPath
             sc.layer.shadowPath = shadowPath
             sc.clipsToBounds = false
+            
 
             
             
@@ -102,6 +107,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        self.automaticallyAdjustsScrollViewInsets = false
         
     
         queryMessages()
@@ -111,6 +117,14 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         tapRecognizer.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(tapRecognizer)
         
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        
+//        let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+//        layout.sectionInset = UIEdgeInsetsMake(-10, 0, 0, 0);
+        let frame : CGRect = self.view.frame
+        return UIEdgeInsetsMake(10, -30, 0, -30) // margin between cells
     }
     
     func handleSingleTap(recognizer: UITapGestureRecognizer) {

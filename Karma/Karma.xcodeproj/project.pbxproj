@@ -13,6 +13,9 @@
 		0C79AEED1CBE039900CD43AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C79AEEC1CBE039900CD43AD /* Main.storyboard */; };
 		370AA958BD30845B220AA7E5 /* Pods_Karma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA153DB02365CAC70274AA9C /* Pods_Karma.framework */; };
 		CB850E927912366BD11ADB5A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA3A7DF6983660DAE55C9E78 /* Pods.framework */; };
+		D83409AE1CC89500007ECA3D /* changePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83409AD1CC89500007ECA3D /* changePasswordViewController.swift */; };
+		D83409B01CC89508007ECA3D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83409AF1CC89508007ECA3D /* SettingsViewController.swift */; };
+		D83409B21CC8950C007ECA3D /* settingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83409B11CC8950C007ECA3D /* settingTableViewCell.swift */; };
 		D851269B1CB97738007CF281 /* receivedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D851269A1CB97738007CF281 /* receivedViewController.swift */; };
 		D851269D1CB97A8F007CF281 /* receivedMessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D851269C1CB97A8F007CF281 /* receivedMessageCollectionViewCell.swift */; };
 		D867B3D11CB0964600335615 /* expandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867B3CE1CB0964600335615 /* expandViewController.swift */; };
@@ -31,7 +34,6 @@
 		FC3B03A81CB031830000EC38 /* SentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03A71CB031830000EC38 /* SentViewController.swift */; };
 		FC3B03AA1CB031910000EC38 /* RecievedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03A91CB031910000EC38 /* RecievedViewController.swift */; };
 		FC3B03AC1CB031A10000EC38 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03AB1CB031A10000EC38 /* MapViewController.swift */; };
-		FC3B03AE1CB031B00000EC38 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03AD1CB031B00000EC38 /* SettingsViewController.swift */; };
 		FC3B03B01CB031C60000EC38 /* UnreadRecievedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03AF1CB031C60000EC38 /* UnreadRecievedViewController.swift */; };
 		FC3B03B21CB032180000EC38 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03B11CB032180000EC38 /* NewMessageViewController.swift */; };
 		FC9789881CC8940600AB7FB7 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9789871CC8940600AB7FB7 /* DateExtensions.swift */; };
@@ -63,6 +65,9 @@
 		A55867D4E0E8E3A1BDEC2294 /* Pods-Karma.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Karma.release.xcconfig"; path = "Pods/Target Support Files/Pods-Karma/Pods-Karma.release.xcconfig"; sourceTree = "<group>"; };
 		AB0ADD04D8B50C92F4C93D20 /* Pods-Karma.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Karma.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Karma/Pods-Karma.debug.xcconfig"; sourceTree = "<group>"; };
 		CA153DB02365CAC70274AA9C /* Pods_Karma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Karma.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D83409AD1CC89500007ECA3D /* changePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = changePasswordViewController.swift; sourceTree = "<group>"; };
+		D83409AF1CC89508007ECA3D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D83409B11CC8950C007ECA3D /* settingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingTableViewCell.swift; sourceTree = "<group>"; };
 		D851269A1CB97738007CF281 /* receivedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = receivedViewController.swift; sourceTree = "<group>"; };
 		D851269C1CB97A8F007CF281 /* receivedMessageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = receivedMessageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D867B3CE1CB0964600335615 /* expandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = expandViewController.swift; sourceTree = "<group>"; };
@@ -89,7 +94,6 @@
 		FC3B03A71CB031830000EC38 /* SentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentViewController.swift; sourceTree = "<group>"; };
 		FC3B03A91CB031910000EC38 /* RecievedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecievedViewController.swift; sourceTree = "<group>"; };
 		FC3B03AB1CB031A10000EC38 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		FC3B03AD1CB031B00000EC38 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FC3B03AF1CB031C60000EC38 /* UnreadRecievedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnreadRecievedViewController.swift; sourceTree = "<group>"; };
 		FC3B03B11CB032180000EC38 /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
 		FC9789871CC8940600AB7FB7 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
@@ -185,11 +189,13 @@
 				D851269C1CB97A8F007CF281 /* receivedMessageCollectionViewCell.swift */,
 				FC3B03A91CB031910000EC38 /* RecievedViewController.swift */,
 				FC3B03AB1CB031A10000EC38 /* MapViewController.swift */,
-				FC3B03AD1CB031B00000EC38 /* SettingsViewController.swift */,
 				FC3B03AF1CB031C60000EC38 /* UnreadRecievedViewController.swift */,
 				FC3B03B11CB032180000EC38 /* NewMessageViewController.swift */,
 				D867B3CE1CB0964600335615 /* expandViewController.swift */,
 				D867B3CF1CB0964600335615 /* FeedCollectionViewCell.swift */,
+				D83409AF1CC89508007ECA3D /* SettingsViewController.swift */,
+				D83409B11CC8950C007ECA3D /* settingTableViewCell.swift */,
+				D83409AD1CC89500007ECA3D /* changePasswordViewController.swift */,
 				FC3B03781CB02CAA0000EC38 /* Assets.xcassets */,
 				FC3B037A1CB02CAA0000EC38 /* LaunchScreen.storyboard */,
 				FC3B037D1CB02CAA0000EC38 /* Info.plist */,
@@ -403,6 +409,7 @@
 			files = (
 				D867B3D11CB0964600335615 /* expandViewController.swift in Sources */,
 				FC3B03A61CB031410000EC38 /* LoginViewController.swift in Sources */,
+				D83409B21CC8950C007ECA3D /* settingTableViewCell.swift in Sources */,
 				FC3B03741CB02CAA0000EC38 /* ViewController.swift in Sources */,
 				FC3B03A81CB031830000EC38 /* SentViewController.swift in Sources */,
 				D851269D1CB97A8F007CF281 /* receivedMessageCollectionViewCell.swift in Sources */,
@@ -413,6 +420,8 @@
 				FC3B03AA1CB031910000EC38 /* RecievedViewController.swift in Sources */,
 				0C0C4C671CB61BB3009A10B9 /* SentCollectionViewCell.swift in Sources */,
 				FC3B03A21CB030DF0000EC38 /* SignUpViewController.swift in Sources */,
+				D83409AE1CC89500007ECA3D /* changePasswordViewController.swift in Sources */,
+				D83409B01CC89508007ECA3D /* SettingsViewController.swift in Sources */,
 				FC3B03721CB02CAA0000EC38 /* AppDelegate.swift in Sources */,
 				FC3B03AC1CB031A10000EC38 /* MapViewController.swift in Sources */,
 				FC9789881CC8940600AB7FB7 /* DateExtensions.swift in Sources */,
@@ -421,7 +430,6 @@
 				D867B3D21CB0964600335615 /* FeedCollectionViewCell.swift in Sources */,
 				FC3B03B01CB031C60000EC38 /* UnreadRecievedViewController.swift in Sources */,
 				0C0C4C691CB61E58009A10B9 /* NewPostCollectionViewCell.swift in Sources */,
-				FC3B03AE1CB031B00000EC38 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
