@@ -36,14 +36,46 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if indexPath.section == 0 {
             let np = collectionView.dequeueReusableCellWithReuseIdentifier("newPost", forIndexPath: indexPath) as! NewPostCollectionViewCell
             
+            //design cell
+            np.layer.borderColor = UIColor.whiteColor().CGColor
+            np.layer.borderWidth = 1
+            
+            np.layer.shadowOffset = CGSizeMake(0, 3)
+            np.layer.shadowColor = UIColor.blackColor().CGColor
+            
+            np.layer.shadowOpacity = 0.9
+            
+            
+            let shadowFrame: CGRect = (np.layer.bounds)
+            let shadowPath: CGPathRef = UIBezierPath(rect: shadowFrame).CGPath
+            np.layer.shadowPath = shadowPath
+            np.clipsToBounds = false
+
+            
+            //placeholder
             np.setPlaceholder()
             
-            //np.
             return np
 
             
         } else {
             let sc = collectionView.dequeueReusableCellWithReuseIdentifier("sentMessage", forIndexPath: indexPath) as! SentCollectionViewCell
+            
+            //design cell
+            sc.backgroundColor = UIColor.whiteColor();
+            sc.layer.borderColor = UIColor.whiteColor().CGColor
+            sc.layer.borderWidth = 1
+            sc.layer.shadowOffset = CGSizeMake(0, 3)
+            sc.layer.shadowColor = UIColor.blackColor().CGColor
+            
+            sc.layer.shadowOpacity = 0.9
+            
+            let shadowFrame: CGRect = (np.layer.bounds)
+            let shadowPath: CGPathRef = UIBezierPath(rect: shadowFrame).CGPath
+            np.layer.shadowPath = shadowPath
+            np.clipsToBounds = false
+
+            
             
             if messages.count > 0 {
                 sc.messageBody.text = messages[indexPath.item]
