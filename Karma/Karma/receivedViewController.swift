@@ -20,7 +20,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
     var locations = Array<String>()
     var body = Array<String>()
     var currentIndex = -1;
-    var timesArray = ["Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time","Time"]
+    var timesArray = Array<String>()
     
     func getMessages() {
         // Get the list of all the social titles and add them to the socialLabels array. Then reload the collectionview.
@@ -32,8 +32,9 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
                 // The find succeeded.
                 print("Successfully retrieved \(objects!.count) socials.")
                 
-                self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: String(objects!.count), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(receivedViewController.addTapped))
-                
+                self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: String(objects!.count) + "Messages", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(receivedViewController.addTapped))
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
                 
                 // Do something with the found objects
                 if let objects = objects {
@@ -41,6 +42,9 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
                         //self.times.append(object["socialTitle"] as! String)
                         self.locations.append ( object["audience"] as! String)
                         self.body.append(object["messageBody"] as! String)
+                        
+                        let dateString = dateFormatter.stringFromDate((object["sentDate"] as? NSDate)!)
+                        self.timesArray.append(dateString)
                     }
                     self.receivedMessagesCollectionView.reloadData()
                     self.refresher.endRefreshing()
@@ -96,7 +100,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         refresher = UIRefreshControl()
         refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refresher.addTarget(self, action:"refresh", forControlEvents: UIControlEvents.ValueChanged)
+        refresher.addTarget(self, action:#selector(receivedViewController.refresh), forControlEvents: UIControlEvents.ValueChanged)
         receivedMessagesCollectionView.addSubview(refresher)
 
         
