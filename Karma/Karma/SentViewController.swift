@@ -70,10 +70,10 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             sc.layer.shadowOpacity = 0.9
             
-            let shadowFrame: CGRect = (np.layer.bounds)
+            let shadowFrame: CGRect = (sc.layer.bounds)
             let shadowPath: CGPathRef = UIBezierPath(rect: shadowFrame).CGPath
-            np.layer.shadowPath = shadowPath
-            np.clipsToBounds = false
+            sc.layer.shadowPath = shadowPath
+            sc.clipsToBounds = false
 
             
             

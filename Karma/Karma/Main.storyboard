@@ -246,7 +246,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="newPost" id="7Nc-Gu-kLa" customClass="NewPostCollectionViewCell" customModule="Karma" customModuleProvider="target">
-                                        <rect key="frame" x="32" y="174" width="311" height="100"/>
+                                        <rect key="frame" x="32" y="64" width="311" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="311" height="100"/>
@@ -267,7 +267,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sentMessage" id="Yii-DX-MTe" customClass="SentCollectionViewCell" customModule="Karma" customModuleProvider="target">
-                                        <rect key="frame" x="32" y="64" width="311" height="100"/>
+                                        <rect key="frame" x="32" y="174" width="311" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="311" height="100"/>
