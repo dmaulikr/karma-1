@@ -51,44 +51,7 @@ class MapViewController: UIViewController {
                         }
                     }
                 }
-                if self.sentLocations.count > 0 {
-                    for location in self.sentLocations {
-                        let annotation = MKPointAnnotation()
-                        
-                        
-                        let geoCoder = CLGeocoder()
-                        let locationNot2D = CLLocation(latitude: location.latitude, longitude: location.longitude)
-                        geoCoder.reverseGeocodeLocation(locationNot2D) {
-                            (placemarks, error) -> Void in
-                            
-                            let placeArray = placemarks as [CLPlacemark]!
-                            
-                            // Place details
-                            var placeMark: CLPlacemark!
-                            placeMark = placeArray?[0]
-                            
-                            
-                            // City
-                            if let city = placeMark.addressDictionary?["City"] as? NSString
-                            {
-                                print(city)
-                                self.locationName += city as String
-                                self.locationName += ", "
-                            }
-                            
-                            
-                            // Country
-                            if let country = placeMark.addressDictionary?["Country"] as? NSString
-                            {
-                                print(country)
-                                self.locationName += country as String
-                            }
-                            annotation.title = self.locationName
-                            annotation.coordinate = location
-                            self.reachMap.addAnnotation(annotation)
-                        }
-                    }
-                }
+                self.drawAnnotations()
             } else {
                 // Log details of the failure
                 print("Error: \(error!) \(error!.userInfo)")
@@ -98,6 +61,47 @@ class MapViewController: UIViewController {
         
         
         // Do any additional setup after loading the view.
+    }
+    
+    func drawAnnotations() {
+        if self.sentLocations.count > 0 {
+            for location in self.sentLocations {
+                let annotation = MKPointAnnotation()
+                
+                
+                let geoCoder = CLGeocoder()
+                let locationNot2D = CLLocation(latitude: location.latitude, longitude: location.longitude)
+                geoCoder.reverseGeocodeLocation(locationNot2D) {
+                    (placemarks, error) -> Void in
+                    
+                    let placeArray = placemarks as [CLPlacemark]!
+                    
+                    // Place details
+                    var placeMark: CLPlacemark!
+                    placeMark = placeArray?[0]
+                    
+                    
+                    // City
+                    if let city = placeMark.addressDictionary?["City"] as? NSString
+                    {
+                        print(city)
+                        self.locationName += city as String
+                        self.locationName += ", "
+                    }
+                    
+                    
+                    // Country
+                    if let country = placeMark.addressDictionary?["Country"] as? NSString
+                    {
+                        print(country)
+                        self.locationName += country as String
+                    }
+                    annotation.title = self.locationName
+                    annotation.coordinate = location
+                    self.reachMap.addAnnotation(annotation)
+                }
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
