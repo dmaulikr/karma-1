@@ -15,6 +15,7 @@ class MapViewController: UIViewController {
     
     var sentLocations = Array<CLLocationCoordinate2D>()
     var locationName = ""
+    var finalName = ""
     
     @IBOutlet weak var reachMap: MKMapView!
     override func viewDidLoad() {
@@ -70,6 +71,11 @@ class MapViewController: UIViewController {
                 
                 
                 let geoCoder = CLGeocoder()
+                
+                
+                //locationNot2D has the same latitudes and longitudes as "location," but
+                //is an object of type CLLocation, as opposed to CLLocation2D. The reverse geocoder
+                //takes in a CLLocation object.
                 let locationNot2D = CLLocation(latitude: location.latitude, longitude: location.longitude)
                 geoCoder.reverseGeocodeLocation(locationNot2D) {
                     (placemarks, error) -> Void in
@@ -102,30 +108,36 @@ class MapViewController: UIViewController {
                         print(country)
                         self.locationName += country as String
                     }
-                    annotation.title = self.locationName
-                    annotation.coordinate = location
-                    self.reachMap.addAnnotation(annotation)
+                    
+                    //These next three lines will add an annotation of the specific location.
+                    //Comment out these lines adding an annotation of the
+                    //general city.
+//                    annotation.title = self.locationName
+//                    annotation.coordinate = location
+//                    self.reachMap.addAnnotation(annotation)
+                    
+                    var geo = CLGeocoder()
+                    geo.geocodeAddressString(self.locationName, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+                        if((error) != nil){
+                            
+                            print("Error", error)
+                        }
+                            
+                        else {
+                            var placemark:CLPlacemark = placemarks![0] as! CLPlacemark
+                            var coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
+                            
+                            var pointAnnotation:MKPointAnnotation = MKPointAnnotation()
+                            pointAnnotation.coordinate = coordinates
+                            pointAnnotation.title = self.locationName
+                            
+                            self.reachMap.addAnnotation(pointAnnotation)
+                            self.reachMap.centerCoordinate = coordinates
+                            self.reachMap.selectAnnotation(pointAnnotation, animated: true)
+                            print("Added annotation to map view")
+                        }
+                    })
                 }
-                geoCoder.geocodeAddressString(self.locationName, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
-                    if((error) != nil){
-                        
-                        print("Error", error)
-                    }
-                        
-                    else {
-                        var placemark:CLPlacemark = placemarks![0] as! CLPlacemark
-                        var coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
-                        
-                        var pointAnnotation:MKPointAnnotation = MKPointAnnotation()
-                        pointAnnotation.coordinate = coordinates
-                        pointAnnotation.title = self.locationName
-                        
-                        self.reachMap.addAnnotation(pointAnnotation)
-                        self.reachMap.centerCoordinate = coordinates
-                        self.reachMap.selectAnnotation(pointAnnotation, animated: true)
-                        print("Added annotation to map view")
-                    }
-                })
             }
         }
     }

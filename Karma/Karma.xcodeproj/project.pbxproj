@@ -21,9 +21,19 @@
 		D867B3D11CB0964600335615 /* expandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867B3CE1CB0964600335615 /* expandViewController.swift */; };
 		D867B3D21CB0964600335615 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867B3CF1CB0964600335615 /* FeedCollectionViewCell.swift */; };
 		D867B3D31CB0964600335615 /* FeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867B3D01CB0964600335615 /* FeedCollectionViewController.swift */; };
+		E8F0D22E1CCC03B200AFF6AE /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8F0D22D1CCC03B200AFF6AE /* Bolts.framework */; };
+		E8F0D22F1CCC03B200AFF6AE /* Bolts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8F0D22D1CCC03B200AFF6AE /* Bolts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8F0D2321CCC03B600AFF6AE /* FontAwesome_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8F0D2311CCC03B600AFF6AE /* FontAwesome_swift.framework */; };
+		E8F0D2331CCC03B600AFF6AE /* FontAwesome_swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8F0D2311CCC03B600AFF6AE /* FontAwesome_swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8F0D2351CCC03B900AFF6AE /* FontAwesomeIconFactory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8F0D2341CCC03B900AFF6AE /* FontAwesomeIconFactory.framework */; };
+		E8F0D2361CCC03B900AFF6AE /* FontAwesomeIconFactory.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8F0D2341CCC03B900AFF6AE /* FontAwesomeIconFactory.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8F0D2381CCC03BD00AFF6AE /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8F0D2371CCC03BD00AFF6AE /* Parse.framework */; };
+		E8F0D2391CCC03BD00AFF6AE /* Parse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8F0D2371CCC03BD00AFF6AE /* Parse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8F0D23F1CCC0ADC00AFF6AE /* YSLCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D23C1CCC0ADC00AFF6AE /* YSLCardView.m */; };
+		E8F0D2401CCC0ADC00AFF6AE /* YSLDraggableCardContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D23E1CCC0ADC00AFF6AE /* YSLDraggableCardContainer.m */; };
+		E8F0D2441CCC0AF600AFF6AE /* UIColor+Random_Color.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D2431CCC0AF600AFF6AE /* UIColor+Random_Color.m */; };
+		E8F0D2461CCC0BB500AFF6AE /* CardStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D2451CCC0BB400AFF6AE /* CardStackViewController.swift */; };
 		FC102D2D1CB1A85A00268B78 /* MapNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC102D2C1CB1A85A00268B78 /* MapNavigationViewController.swift */; };
-		FC1BFC0A1CC9FD5700BC9E3D /* FontAwesome_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC1BFC091CC9FD5700BC9E3D /* FontAwesome_swift.framework */; };
-		FC1BFC0B1CC9FD5700BC9E3D /* FontAwesome_swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC1BFC091CC9FD5700BC9E3D /* FontAwesome_swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FC31A08E1CB03FA5005AA369 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31A08D1CB03FA5005AA369 /* MainTabBarViewController.swift */; };
 		FC3B03721CB02CAA0000EC38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03711CB02CAA0000EC38 /* AppDelegate.swift */; };
 		FC3B03741CB02CAA0000EC38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03731CB02CAA0000EC38 /* ViewController.swift */; };
@@ -60,13 +70,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		FC1BFC0C1CC9FD5700BC9E3D /* Embed Frameworks */ = {
+		E8F0D2301CCC03B200AFF6AE /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FC1BFC0B1CC9FD5700BC9E3D /* FontAwesome_swift.framework in Embed Frameworks */,
+				E8F0D2361CCC03B900AFF6AE /* FontAwesomeIconFactory.framework in Embed Frameworks */,
+				E8F0D22F1CCC03B200AFF6AE /* Bolts.framework in Embed Frameworks */,
+				E8F0D2391CCC03BD00AFF6AE /* Parse.framework in Embed Frameworks */,
+				E8F0D2331CCC03B600AFF6AE /* FontAwesome_swift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -89,9 +102,20 @@
 		D867B3CE1CB0964600335615 /* expandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = expandViewController.swift; sourceTree = "<group>"; };
 		D867B3CF1CB0964600335615 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		D867B3D01CB0964600335615 /* FeedCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewController.swift; sourceTree = "<group>"; };
+		E8F0D22D1CCC03B200AFF6AE /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Bolts.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphoneos/Bolts.framework"; sourceTree = "<absolute>"; };
+		E8F0D2311CCC03B600AFF6AE /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FontAwesome_swift.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphoneos/FontAwesome_swift.framework"; sourceTree = "<absolute>"; };
+		E8F0D2341CCC03B900AFF6AE /* FontAwesomeIconFactory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FontAwesomeIconFactory.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphoneos/FontAwesomeIconFactory.framework"; sourceTree = "<absolute>"; };
+		E8F0D2371CCC03BD00AFF6AE /* Parse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Parse.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphoneos/Parse.framework"; sourceTree = "<absolute>"; };
+		E8F0D23B1CCC0ADC00AFF6AE /* YSLCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLCardView.h; sourceTree = "<group>"; };
+		E8F0D23C1CCC0ADC00AFF6AE /* YSLCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLCardView.m; sourceTree = "<group>"; };
+		E8F0D23D1CCC0ADC00AFF6AE /* YSLDraggableCardContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLDraggableCardContainer.h; sourceTree = "<group>"; };
+		E8F0D23E1CCC0ADC00AFF6AE /* YSLDraggableCardContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLDraggableCardContainer.m; sourceTree = "<group>"; };
+		E8F0D2411CCC0AF600AFF6AE /* Karma-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Karma-Bridging-Header.h"; sourceTree = "<group>"; };
+		E8F0D2421CCC0AF600AFF6AE /* UIColor+Random_Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Random_Color.h"; sourceTree = "<group>"; };
+		E8F0D2431CCC0AF600AFF6AE /* UIColor+Random_Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Random_Color.m"; sourceTree = "<group>"; };
+		E8F0D2451CCC0BB400AFF6AE /* CardStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStackViewController.swift; sourceTree = "<group>"; };
 		EA3A7DF6983660DAE55C9E78 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC102D2C1CB1A85A00268B78 /* MapNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapNavigationViewController.swift; sourceTree = "<group>"; };
-		FC1BFC091CC9FD5700BC9E3D /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FontAwesome_swift.framework; path = "/Users/shaanappel/Library/Developer/Xcode/DerivedData/Karma-aozwyqwzuzebfnfngmqognwflduf/Build/Products/Debug-iphoneos/FontAwesome_swift.framework"; sourceTree = "<absolute>"; };
 		FC31A08B1CB03AA9005AA369 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		FC31A08D1CB03FA5005AA369 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		FC3B036E1CB02CA90000EC38 /* Karma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Karma.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,9 +146,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8F0D22E1CCC03B200AFF6AE /* Bolts.framework in Frameworks */,
 				370AA958BD30845B220AA7E5 /* Pods_Karma.framework in Frameworks */,
-				FC1BFC0A1CC9FD5700BC9E3D /* FontAwesome_swift.framework in Frameworks */,
 				CB850E927912366BD11ADB5A /* Pods.framework in Frameworks */,
+				E8F0D2351CCC03B900AFF6AE /* FontAwesomeIconFactory.framework in Frameworks */,
+				E8F0D2381CCC03BD00AFF6AE /* Parse.framework in Frameworks */,
+				E8F0D2321CCC03B600AFF6AE /* FontAwesome_swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,10 +191,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E8F0D23A1CCC0ADC00AFF6AE /* YSLDraggableCardContainer */ = {
+			isa = PBXGroup;
+			children = (
+				E8F0D23B1CCC0ADC00AFF6AE /* YSLCardView.h */,
+				E8F0D23C1CCC0ADC00AFF6AE /* YSLCardView.m */,
+				E8F0D23D1CCC0ADC00AFF6AE /* YSLDraggableCardContainer.h */,
+				E8F0D23E1CCC0ADC00AFF6AE /* YSLDraggableCardContainer.m */,
+			);
+			path = YSLDraggableCardContainer;
+			sourceTree = "<group>";
+		};
 		FC3B03651CB02CA90000EC38 = {
 			isa = PBXGroup;
 			children = (
-				FC1BFC091CC9FD5700BC9E3D /* FontAwesome_swift.framework */,
+				E8F0D2371CCC03BD00AFF6AE /* Parse.framework */,
+				E8F0D2341CCC03B900AFF6AE /* FontAwesomeIconFactory.framework */,
+				E8F0D2311CCC03B600AFF6AE /* FontAwesome_swift.framework */,
+				E8F0D22D1CCC03B200AFF6AE /* Bolts.framework */,
 				FC3B03701CB02CAA0000EC38 /* Karma */,
 				FC3B03851CB02CAA0000EC38 /* KarmaTests */,
 				FC3B03901CB02CAA0000EC38 /* KarmaUITests */,
@@ -190,8 +231,13 @@
 		FC3B03701CB02CAA0000EC38 /* Karma */ = {
 			isa = PBXGroup;
 			children = (
+				E8F0D23A1CCC0ADC00AFF6AE /* YSLDraggableCardContainer */,
 				0C0C4C641CB06669009A10B9 /* ThirstyScriptExtraBoldDemo.otf */,
+				E8F0D2451CCC0BB400AFF6AE /* CardStackViewController.swift */,
 				FC3B03A51CB031410000EC38 /* LoginViewController.swift */,
+				E8F0D2411CCC0AF600AFF6AE /* Karma-Bridging-Header.h */,
+				E8F0D2421CCC0AF600AFF6AE /* UIColor+Random_Color.h */,
+				E8F0D2431CCC0AF600AFF6AE /* UIColor+Random_Color.m */,
 				FC3B03711CB02CAA0000EC38 /* AppDelegate.swift */,
 				FC3B03731CB02CAA0000EC38 /* ViewController.swift */,
 				FCCEF0781CBE02BC00740817 /* InitialViewController.swift */,
@@ -253,7 +299,7 @@
 				FC3B036C1CB02CA90000EC38 /* Resources */,
 				F1BA1B0F7EB295F53DC0E1B9 /* Embed Pods Frameworks */,
 				0548F2EA3675A8DC1C8A7808 /* Copy Pods Resources */,
-				FC1BFC0C1CC9FD5700BC9E3D /* Embed Frameworks */,
+				E8F0D2301CCC03B200AFF6AE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -312,7 +358,7 @@
 				TargetAttributes = {
 					FC3B036D1CB02CA90000EC38 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = KV9N5HK3BV;
+						DevelopmentTeam = 99ZW2S7LSG;
 					};
 					FC3B03811CB02CAA0000EC38 = {
 						CreatedOnToolsVersion = 7.3;
@@ -434,14 +480,17 @@
 				FC3B03A81CB031830000EC38 /* SentViewController.swift in Sources */,
 				D851269D1CB97A8F007CF281 /* receivedMessageCollectionViewCell.swift in Sources */,
 				D867B3D31CB0964600335615 /* FeedCollectionViewController.swift in Sources */,
+				E8F0D2461CCC0BB500AFF6AE /* CardStackViewController.swift in Sources */,
 				D851269B1CB97738007CF281 /* receivedViewController.swift in Sources */,
 				FC31A08E1CB03FA5005AA369 /* MainTabBarViewController.swift in Sources */,
 				FC102D2D1CB1A85A00268B78 /* MapNavigationViewController.swift in Sources */,
 				FC3B03AA1CB031910000EC38 /* RecievedViewController.swift in Sources */,
 				0C0C4C671CB61BB3009A10B9 /* SentCollectionViewCell.swift in Sources */,
 				FC3B03A21CB030DF0000EC38 /* SignUpViewController.swift in Sources */,
+				E8F0D23F1CCC0ADC00AFF6AE /* YSLCardView.m in Sources */,
 				D83409AE1CC89500007ECA3D /* changePasswordViewController.swift in Sources */,
 				D83409B01CC89508007ECA3D /* SettingsViewController.swift in Sources */,
+				E8F0D2441CCC0AF600AFF6AE /* UIColor+Random_Color.m in Sources */,
 				FC3B03721CB02CAA0000EC38 /* AppDelegate.swift in Sources */,
 				FC3B03AC1CB031A10000EC38 /* MapViewController.swift in Sources */,
 				FC9789881CC8940600AB7FB7 /* DateExtensions.swift in Sources */,
@@ -449,6 +498,7 @@
 				FCCEF0791CBE02BC00740817 /* InitialViewController.swift in Sources */,
 				D867B3D21CB0964600335615 /* FeedCollectionViewCell.swift in Sources */,
 				FC3B03B01CB031C60000EC38 /* UnreadRecievedViewController.swift in Sources */,
+				E8F0D2401CCC0ADC00AFF6AE /* YSLDraggableCardContainer.m in Sources */,
 				0C0C4C691CB61E58009A10B9 /* NewPostCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -589,9 +639,10 @@
 				INFOPLIST_FILE = Karma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mdbKarma.Karma;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mdbKarma.Karma1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "./Karma/Karma-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -605,9 +656,10 @@
 				INFOPLIST_FILE = Karma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mdbKarma.Karma;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mdbKarma.Karma1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "./Karma/Karma-Bridging-Header.h";
 			};
 			name = Release;
 		};
