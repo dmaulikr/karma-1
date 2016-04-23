@@ -40,6 +40,8 @@
 		FC3B03AC1CB031A10000EC38 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03AB1CB031A10000EC38 /* MapViewController.swift */; };
 		FC3B03B01CB031C60000EC38 /* UnreadRecievedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03AF1CB031C60000EC38 /* UnreadRecievedViewController.swift */; };
 		FC3B03B21CB032180000EC38 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03B11CB032180000EC38 /* NewMessageViewController.swift */; };
+		FC6312501CCC1EB300D34C8B /* FontAwesome_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC63124F1CCC1EB300D34C8B /* FontAwesome_swift.framework */; };
+		FC6312511CCC1EB300D34C8B /* FontAwesome_swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC63124F1CCC1EB300D34C8B /* FontAwesome_swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FC9789881CC8940600AB7FB7 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9789871CC8940600AB7FB7 /* DateExtensions.swift */; };
 		FCCEF0791CBE02BC00740817 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCEF0781CBE02BC00740817 /* InitialViewController.swift */; };
 /* End PBXBuildFile section */
@@ -68,6 +70,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FC6312511CCC1EB300D34C8B /* FontAwesome_swift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +124,7 @@
 		FC3B03AB1CB031A10000EC38 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FC3B03AF1CB031C60000EC38 /* UnreadRecievedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnreadRecievedViewController.swift; sourceTree = "<group>"; };
 		FC3B03B11CB032180000EC38 /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
+		FC63124F1CCC1EB300D34C8B /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FontAwesome_swift.framework; path = "/Users/shaanappel/Library/Developer/Xcode/DerivedData/Karma-aozwyqwzuzebfnfngmqognwflduf/Build/Products/Debug-iphoneos/FontAwesome_swift.framework"; sourceTree = "<absolute>"; };
 		FC9789871CC8940600AB7FB7 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		FCCEF0781CBE02BC00740817 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				370AA958BD30845B220AA7E5 /* Pods_Karma.framework in Frameworks */,
+				FC6312501CCC1EB300D34C8B /* FontAwesome_swift.framework in Frameworks */,
 				CB850E927912366BD11ADB5A /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +190,7 @@
 		FC3B03651CB02CA90000EC38 = {
 			isa = PBXGroup;
 			children = (
+				FC63124F1CCC1EB300D34C8B /* FontAwesome_swift.framework */,
 				FC3B03701CB02CAA0000EC38 /* Karma */,
 				FC3B03851CB02CAA0000EC38 /* KarmaTests */,
 				FC3B03901CB02CAA0000EC38 /* KarmaUITests */,
@@ -334,7 +340,7 @@
 				TargetAttributes = {
 					FC3B036D1CB02CA90000EC38 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 99ZW2S7LSG;
+						DevelopmentTeam = KV9N5HK3BV;
 					};
 					FC3B03811CB02CAA0000EC38 = {
 						CreatedOnToolsVersion = 7.3;
@@ -615,7 +621,7 @@
 				INFOPLIST_FILE = Karma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mdbKarma.Karma1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mdbKarma.Karma2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "./Karma/Karma-Bridging-Header.h";
@@ -632,7 +638,7 @@
 				INFOPLIST_FILE = Karma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mdbKarma.Karma1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mdbKarma.Karma2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "./Karma/Karma-Bridging-Header.h";
