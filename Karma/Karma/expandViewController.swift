@@ -22,6 +22,7 @@ class expandViewController: UIViewController {
     var transfereddate = ""
     var transferedlocation = ""
     var messageId = ""
+    var replyOpenText = false
     
     func displayAlert(title: String, displayError: String) {
         
@@ -67,6 +68,10 @@ class expandViewController: UIViewController {
         location.text = transferedlocation
         date.text = transfereddate
         receivedmessage.text = transferedmessage
+        if replyOpenText {
+            response.becomeFirstResponder()
+            print("wwwwwwwoooootttt")
+        }
       
 
         // Do any additional setup after loading the view.

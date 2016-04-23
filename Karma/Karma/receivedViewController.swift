@@ -22,8 +22,10 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
     var currentIndex = -1;
     var timesArray = Array<NSDate>()
     var messageIds = Array<String>()
+    var replies = Array<String>()
     var currUser = PFUser.currentUser()!
     var userId = PFUser.currentUser()!.objectId
+    var replyOpenText = false
     
     func getMessages() {
         // Get the list of all the social titles and add them to the socialLabels array. Then reload the collectionview.
@@ -45,6 +47,12 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
                         self.locations.append ( object["audience"] as! String)
                         self.body.append(object["messageBody"] as! String)
                         self.messageIds.append(object.objectId!)
+                        var replyText = object["replyText"]
+                        if replyText == nil {
+                            self.replies.append("")
+                        } else {
+                            self.replies.append(object["replyText"] as! String)
+                        }
                         
                         
                         self.timesArray.append((object["sentDate"] as? NSDate)!)
@@ -113,6 +121,9 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     @IBOutlet weak var receivedMessagesCollectionView: UICollectionView!
     
+    override func viewDidAppear(animated: Bool) {
+        replyOpenText = false
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -128,6 +139,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: String(currUser["audienceLim"]), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(receivedViewController.addTapped))
         
         getMessages()
+        
         
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         
@@ -182,7 +194,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.replyTextField.hidden = true
         cell.frame.size.height = collectionView.frame.height / 5
         cell.frame.origin.y = ((collectionView.frame.height / 5) + 10) * (CGFloat(indexPath.row))
-        if currentIndex == indexPath.row{
+        /*if currentIndex == indexPath.row{
             cell.frame.size.height = (collectionView.frame.height / 5) + 50
             
             
@@ -214,7 +226,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.replyTextField.borderStyle = UITextBorderStyle.Line
         } else if currentIndex < indexPath.row  && currentIndex != -1{
             cell.frame.origin.y = cell.frame.origin.y + 50
-        }
+        }*/
         
         let collectionViewWidth = receivedMessagesCollectionView.bounds.size.width
         cell.frame.size.width = collectionViewWidth
@@ -230,8 +242,14 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         cell.layer.shadowOpacity = 0.9
         
-        cell.replyButton.titleLabel?.font = UIFont.fontAwesomeOfSize(20)
-        cell.replyButton.setTitle(String.fontAwesomeIconWithName(.PlusSquareO), forState: .Normal)
+        cell.replyButton.titleLabel?.font = UIFont.fontAwesomeOfSize(10)
+        cell.replyButton.setTitle("Reply", forState: .Normal)
+        
+        if replies[indexPath.row] != "" {
+            cell.replyButton.setTitle(String.fontAwesomeIconWithName(.Check), forState: .Normal)
+        }
+        
+        //cell.replyButton.setTit
         cell.replyButton.layer.cornerRadius = 0.5 *  cell.replyButton.bounds.size.width
         cell.replyButton.clipsToBounds = true
         
@@ -268,9 +286,12 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
             if let superview = button.superview {
                 if let cell = superview.superview as? receivedMessageCollectionViewCell {
                     let indexPath = receivedMessagesCollectionView.indexPathForCell(cell)
-                    currentIndex = indexPath!.row
+                    replyOpenText = true
+                    self.performSegueWithIdentifier("tomessage", sender: indexPath)
+                    
+                    /*currentIndex = indexPath!.row
                     print("worked")
-                    receivedMessagesCollectionView.reloadData()
+                    receivedMessagesCollectionView.reloadData()*/
                 }
             }
         }
@@ -305,6 +326,9 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
             vc.transferedlocation = sendloc
             let id = messageIds[row]
             vc.messageId = id
+            
+            vc.replyOpenText = replyOpenText
+            print("repOpen: " + String(replyOpenText))
             
             
             
