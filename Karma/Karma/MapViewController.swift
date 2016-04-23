@@ -82,16 +82,22 @@ class MapViewController: UIViewController {
                     
                     
                     // City
-                    if let city = placeMark.addressDictionary?["City"] as? NSString
+                    if let city = placeMark.locality
                     {
                         print(city)
                         self.locationName += city as String
                         self.locationName += ", "
                     }
                     
+                    if let state = placeMark.administrativeArea
+                    {
+                        print(state)
+                        self.locationName += state as String
+                        self.locationName += ", "
+                    }
                     
                     // Country
-                    if let country = placeMark.addressDictionary?["Country"] as? NSString
+                    if let country = placeMark.country
                     {
                         print(country)
                         self.locationName += country as String
@@ -100,6 +106,26 @@ class MapViewController: UIViewController {
                     annotation.coordinate = location
                     self.reachMap.addAnnotation(annotation)
                 }
+                geoCoder.geocodeAddressString(self.locationName, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+                    if((error) != nil){
+                        
+                        print("Error", error)
+                    }
+                        
+                    else {
+                        var placemark:CLPlacemark = placemarks![0] as! CLPlacemark
+                        var coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
+                        
+                        var pointAnnotation:MKPointAnnotation = MKPointAnnotation()
+                        pointAnnotation.coordinate = coordinates
+                        pointAnnotation.title = self.locationName
+                        
+                        self.reachMap.addAnnotation(pointAnnotation)
+                        self.reachMap.centerCoordinate = coordinates
+                        self.reachMap.selectAnnotation(pointAnnotation, animated: true)
+                        print("Added annotation to map view")
+                    }
+                })
             }
         }
     }
