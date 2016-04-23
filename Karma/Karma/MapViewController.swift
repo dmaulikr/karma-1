@@ -109,7 +109,7 @@ class MapViewController: UIViewController {
                         self.locationName += country as String
                     }
                     
-                    //This next three lines will add an annotation of the specific location.
+                    //These next three lines will add an annotation of the specific location.
                     //Comment out these lines adding an annotation of the
                     //general city.
 //                    annotation.title = self.locationName
