@@ -18,7 +18,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         PFUser.logInWithUsernameInBackground(username.text!, password: password.text!) {
             (success, loginError) in
             if loginError == nil {
-                self.performSegueWithIdentifier("toUnread", sender: self)
+                self.performSegueWithIdentifier("toMain", sender: self)
             }
             // fix blank logins
         }
