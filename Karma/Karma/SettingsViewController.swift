@@ -52,9 +52,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 print("Successfully retrieved \(objects!.count) socials.")
             }
             if let objects = objects {
-                for object in objects {
-                    object.deleteInBackground()
-                }
+                
             }
         }
     }
@@ -170,7 +168,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 9
+        return 8
     }
     
     
