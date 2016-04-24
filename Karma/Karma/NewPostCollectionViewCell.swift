@@ -58,6 +58,7 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
             msg["sentDate"] = NSDate()
             msg["authorized"] = false
             msg["flagged"] = false
+            msg["favorited"] = false
             
             msg["audience"] = selectedAudience
             
@@ -88,9 +89,10 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
                         
                         msg.saveInBackgroundWithBlock {
                             (success: Bool, error: NSError?) -> Void in
+                            self.setPlaceholder()
+                            self.textView.endEditing(true)
                             if (success) {
                                 print("yaaaaas")
-                                self.setPlaceholder()
                                 // if tap outside then shrink the box
                                 // but if inside then expand and show the button
                             } else {
