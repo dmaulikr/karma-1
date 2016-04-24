@@ -85,7 +85,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var currentUser = PFUser.currentUser()
+        var currentUser = PFUser()
         
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         //self.navigationController?.navigationBar.translucent = false;
@@ -100,7 +100,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         clearFeedAlertController.addAction(cancelClear)
         clearFeedAlertController.addAction(confirmClear)
         
-        ParseUsernameLabel.text = currentUser!["username"] as! String
+        ParseUsernameLabel.text = currentUser["username"] as! String
         ParseUsernameLabel.font =  UIFont(name: "Avenir Next", size: 18)
         ParseUsernameLabel.textColor = UIColor(colorLiteralRed: 0.965, green: 0.698, blue: 0.42, alpha: 1)
         ParseUsernameLabel.backgroundColor = UIColor.clearColor()

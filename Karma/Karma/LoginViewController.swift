@@ -22,21 +22,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             } else {
                 print("THIS IS THE LOGIN ERROR")
                 print(loginError)
-                self.displayAlert("Invalid Username/ Password", displayError: "Please try again!")
             }
             // fix blank logins
         }
     }
     
-    func displayAlert(title: String, displayError: String) {
-        
-        let alert = UIAlertController(title: title, message: displayError, preferredStyle: UIAlertControllerStyle.Alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { action in
-            
-        }))
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
     
     
     override func viewDidLoad() {
