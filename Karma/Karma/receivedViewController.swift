@@ -238,11 +238,13 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.layer.borderColor = UIColor.whiteColor().CGColor
         cell.layer.borderWidth = 1
         
+        cell.layer.shadowColor = UIColor(netHex:0xCDBA96).CGColor
+        cell.layer.shadowRadius = 3
+        cell.layer.cornerRadius = 3
+        
+        cell.layer.shadowOpacity = 0.7
         
         cell.layer.shadowOffset = CGSizeMake(0, 3)
-        cell.layer.shadowColor = UIColor.blackColor().CGColor
-        
-        cell.layer.shadowOpacity = 0.9
         
         cell.replyButton.titleLabel?.font = UIFont.fontAwesomeOfSize(10)
         cell.replyButton.setTitle("Reply", forState: .Normal)
