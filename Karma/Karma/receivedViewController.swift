@@ -23,6 +23,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
     var timesArray = Array<NSDate>()
     var messageIds = Array<String>()
     var replies = Array<String>()
+    var messages = Array<PFObject>()
     var currUser = PFUser.currentUser()!
     var userId = PFUser.currentUser()!.objectId
     var replyOpenText = false
@@ -46,6 +47,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
                         //self.times.append(object["socialTitle"] as! String)
                         self.locations.append ( object["audience"] as! String)
                         self.body.append(object["messageBody"] as! String)
+                        self.messages.append(object)
                         self.messageIds.append(object.objectId!)
                         var replyText = object["replyText"]
                         if replyText == nil {
@@ -315,17 +317,8 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         if segue.identifier == "tomessage" {
             let vc = segue.destinationViewController as! expandViewController
             let row = (sender as! NSIndexPath).item
-            let sendbody = body[row]
-            vc.transferedmessage = sendbody
-            let senddate = timesArray[row]
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-            let dateString = dateFormatter.stringFromDate(senddate)
-            vc.transfereddate = dateString
-            let sendloc = locations[row]
-            vc.transferedlocation = sendloc
-            let id = messageIds[row]
-            vc.messageId = id
+            let message = messages[row]
+            vc.message = message
             
             vc.replyOpenText = replyOpenText
             print("repOpen: " + String(replyOpenText))

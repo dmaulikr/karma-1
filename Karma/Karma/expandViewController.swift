@@ -18,11 +18,10 @@ class expandViewController: UIViewController {
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var date: UILabel!
     
-    var transferedmessage = ""
-    var transfereddate = ""
-    var transferedlocation = ""
-    var messageId = ""
+    
+    var message = PFObject()
     var replyOpenText = false
+    var currentUser = PFUser.currentUser()
     
     func displayAlert(title: String, displayError: String) {
         
@@ -34,7 +33,7 @@ class expandViewController: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    func addNewMessage() {
+    func addNewReply() {
         
         var displayError = ""
         if response.text == "" {
@@ -47,14 +46,27 @@ class expandViewController: UIViewController {
             
             let replyText = response.text
             
-            let query = PFQuery(className:"Messages")
-            query.getObjectInBackgroundWithId(messageId) {
-                (message: PFObject?, error: NSError?) -> Void in
-                if error != nil {
-                    print(error)
-                } else if let message = message {
-                    message["replyText"] = replyText
-                    message.saveInBackground()
+            let newReply = PFObject(className:"Messages")
+            
+            newReply["senderId"] = currentUser!.objectId
+            newReply["messageId"] = message.objectId
+            newReply["replyBody"] = replyText
+            newReply["replyDate"] = NSDate()
+            newReply["authorized"] = false
+            
+            
+            newReply.saveInBackgroundWithBlock {
+                (success: Bool, error: NSError?) -> Void in
+                if (success) {
+                    // The object has been saved.
+                    print("sucesssss!!!!")
+                    //self.dismissViewControllerAnimated(true, completion: nil)
+                } else {
+                    // There was a problem, check error.description
+                    
+                    displayError = "Please try again later!"
+                    
+                    self.displayAlert("Could Not Send Reply", displayError: displayError)
                 }
             }
 
@@ -65,9 +77,14 @@ class expandViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        location.text = transferedlocation
-        date.text = transfereddate
-        receivedmessage.text = transferedmessage
+        
+        location.text = message["audience"] as? String
+        let messDate = (message["sentDate"] as? NSDate)!
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        let dateString = dateFormatter.stringFromDate(messDate)
+        date.text = dateString
+        receivedmessage.text = message["messageBody"] as? String
         if replyOpenText {
             response.becomeFirstResponder()
             print("wwwwwwwoooootttt")
@@ -93,7 +110,7 @@ class expandViewController: UIViewController {
     }
     */
     @IBAction func sendReply(sender: AnyObject) {
-        addNewMessage()
+        addNewReply()
         displayAlert("Sent", displayError: "Reply Sent!")
         response.text = ""
         view.endEditing(true)
