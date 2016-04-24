@@ -24,9 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let config = ParseClientConfiguration(block: {
             (ParseMutableClientConfiguration) -> Void in
             
-            ParseMutableClientConfiguration.applicationId = "pM2nIYy4yFNsuJG22ICh";
-            ParseMutableClientConfiguration.clientKey = "DKrD1S0VCwYLfoWKrBQJ";
-            ParseMutableClientConfiguration.server = "https://karmamdb.herokuapp.com/parse";
+            ParseMutableClientConfiguration.applicationId = "9YgHqEAS3xSpjH2RQuDJ";
+//            ParseMutableClientConfiguration.clientKey = "DKrD1S0VCwYLfoWKrBQJ";
+            ParseMutableClientConfiguration.server = "https://karmamdbv2.herokuapp.com/parse";
         });
         
         Parse.initializeWithConfiguration(config);
