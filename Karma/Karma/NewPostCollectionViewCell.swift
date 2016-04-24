@@ -12,7 +12,7 @@ import Parse
 class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
     
     @IBOutlet weak var setAudience: UIButton!
-    let dropDown = DropDown()
+    //let dropDown = DropDown()
     
     var selectedAudience = "Berkeley"
     var currUser = PFUser.currentUser()
@@ -22,21 +22,25 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        dropDown.dataSource = [
-            "Berkeley",
-            "California"
-        ]
-        
+//        
+//        dropDown.dataSource = [
+//            "Berkeley",
+//            "California"
+//        ]
+//        
 //        dropDown.selectionAction = { [unowned self] (index, item) in
-//            self.setAudience.setTitle(item, forState: .Normal)
+////            self.setAudience.setTitle(item, forState: .Normal)
+//            print("Selected Action: %@", item)
 //        }
 //        dropDown.anchorView = setAudience
-//        dropDown.bottomOffset = CGPoint(x: 0, y:setAudience.bounds.height)
-        
+//        dropDown.direction = .Top
+////        dropDown.bottomOffset = CGPoint(x: 0, y:setAudience.bounds.height)
+//        dropDown.topOffset = CGPoint(x: 0, y:-setAudience.bounds.height)
     }
     
     @IBAction func showOrDismiss(sender: AnyObject) {
+        dropDown.reloadAllComponents()
+
         if dropDown.hidden {
             dropDown.show()
         } else {
@@ -127,6 +131,21 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+//        
+//        dropDown.dataSource = [
+//            "Berkeley",
+//            "California"
+//        ]
+//        
+//        dropDown.selectionAction = { [unowned self] (index, item) in
+//            //            self.setAudience.setTitle(item, forState: .Normal)
+//            print("Selected Action: %@", item)
+//        }
+//        dropDown.anchorView = setAudience
+//        dropDown.direction = .Bottom
+//        dropDown.topOffset = CGPoint(x: 0, y:-30)
+
+        
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
