@@ -27,6 +27,16 @@
 		D867B3D21CB0964600335615 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867B3CF1CB0964600335615 /* FeedCollectionViewCell.swift */; };
 		D867B3D31CB0964600335615 /* FeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867B3D01CB0964600335615 /* FeedCollectionViewController.swift */; };
 		D8CDD29C1CCCEE71007964BF /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CDD29B1CCCEE71007964BF /* ForgotPasswordViewController.swift */; };
+		E8011A241CCD11D4001CE830 /* FontAwesome_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8011A231CCD11D4001CE830 /* FontAwesome_swift.framework */; };
+		E8011A251CCD11D4001CE830 /* FontAwesome_swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8011A231CCD11D4001CE830 /* FontAwesome_swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8011A271CCD11D4001CE830 /* FontAwesomeIconFactory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8011A261CCD11D4001CE830 /* FontAwesomeIconFactory.framework */; };
+		E8011A281CCD11D4001CE830 /* FontAwesomeIconFactory.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8011A261CCD11D4001CE830 /* FontAwesomeIconFactory.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8011A2A1CCD11D4001CE830 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8011A291CCD11D4001CE830 /* Parse.framework */; };
+		E8011A2B1CCD11D4001CE830 /* Parse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8011A291CCD11D4001CE830 /* Parse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8011A2D1CCD11D4001CE830 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8011A2C1CCD11D4001CE830 /* Pods.framework */; };
+		E8011A2E1CCD11D4001CE830 /* Pods.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8011A2C1CCD11D4001CE830 /* Pods.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E82C658A1CCD1801002F5330 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E82C65891CCD1801002F5330 /* Bolts.framework */; };
+		E82C658B1CCD1801002F5330 /* Bolts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E82C65891CCD1801002F5330 /* Bolts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E8E9F3701CCCEAE8008A8E5A /* Pods_Karma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E9F36E1CCCEAE8008A8E5A /* Pods_Karma.framework */; };
 		E8E9F3711CCCEAE8008A8E5A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E9F36F1CCCEAE8008A8E5A /* Pods.framework */; };
 		E8F0D23F1CCC0ADC00AFF6AE /* YSLCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D23C1CCC0ADC00AFF6AE /* YSLCardView.m */; };
@@ -76,6 +86,11 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				E82C658B1CCD1801002F5330 /* Bolts.framework in Embed Frameworks */,
+				E8011A2E1CCD11D4001CE830 /* Pods.framework in Embed Frameworks */,
+				E8011A281CCD11D4001CE830 /* FontAwesomeIconFactory.framework in Embed Frameworks */,
+				E8011A2B1CCD11D4001CE830 /* Parse.framework in Embed Frameworks */,
+				E8011A251CCD11D4001CE830 /* FontAwesome_swift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,6 +125,11 @@
 		D867B3CF1CB0964600335615 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		D867B3D01CB0964600335615 /* FeedCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewController.swift; sourceTree = "<group>"; };
 		D8CDD29B1CCCEE71007964BF /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		E8011A231CCD11D4001CE830 /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FontAwesome_swift.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphoneos/FontAwesome_swift.framework"; sourceTree = "<absolute>"; };
+		E8011A261CCD11D4001CE830 /* FontAwesomeIconFactory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FontAwesomeIconFactory.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphoneos/FontAwesomeIconFactory.framework"; sourceTree = "<absolute>"; };
+		E8011A291CCD11D4001CE830 /* Parse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Parse.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphoneos/Parse.framework"; sourceTree = "<absolute>"; };
+		E8011A2C1CCD11D4001CE830 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Pods.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphoneos/Pods.framework"; sourceTree = "<absolute>"; };
+		E82C65891CCD1801002F5330 /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Bolts.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphoneos/Bolts.framework"; sourceTree = "<absolute>"; };
 		E8E9F36E1CCCEAE8008A8E5A /* Pods_Karma.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Karma.framework; path = "../../../Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Pods_Karma.framework"; sourceTree = "<group>"; };
 		E8E9F36F1CCCEAE8008A8E5A /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = "../../../Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Pods.framework"; sourceTree = "<group>"; };
 		E8F0D23B1CCC0ADC00AFF6AE /* YSLCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLCardView.h; sourceTree = "<group>"; };
@@ -151,8 +171,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8011A2D1CCD11D4001CE830 /* Pods.framework in Frameworks */,
 				E8E9F3701CCCEAE8008A8E5A /* Pods_Karma.framework in Frameworks */,
+				E8011A241CCD11D4001CE830 /* FontAwesome_swift.framework in Frameworks */,
+				E8011A271CCD11D4001CE830 /* FontAwesomeIconFactory.framework in Frameworks */,
 				E8E9F3711CCCEAE8008A8E5A /* Pods.framework in Frameworks */,
+				E8011A2A1CCD11D4001CE830 /* Parse.framework in Frameworks */,
+				E82C658A1CCD1801002F5330 /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +263,11 @@
 		FC3B03651CB02CA90000EC38 = {
 			isa = PBXGroup;
 			children = (
+				E82C65891CCD1801002F5330 /* Bolts.framework */,
+				E8011A2C1CCD11D4001CE830 /* Pods.framework */,
+				E8011A291CCD11D4001CE830 /* Parse.framework */,
+				E8011A261CCD11D4001CE830 /* FontAwesomeIconFactory.framework */,
+				E8011A231CCD11D4001CE830 /* FontAwesome_swift.framework */,
 				FC3B03701CB02CAA0000EC38 /* Karma */,
 				FC3B03851CB02CAA0000EC38 /* KarmaTests */,
 				FC3B03901CB02CAA0000EC38 /* KarmaUITests */,
@@ -392,7 +422,7 @@
 				TargetAttributes = {
 					FC3B036D1CB02CA90000EC38 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = KV9N5HK3BV;
+						DevelopmentTeam = 99ZW2S7LSG;
 					};
 					FC3B03811CB02CAA0000EC38 = {
 						CreatedOnToolsVersion = 7.3;
@@ -681,7 +711,7 @@
 				INFOPLIST_FILE = Karma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mdbKarma.Karma2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mdbKarma.Karma3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "./Karma/Karma-Bridging-Header.h";
@@ -698,7 +728,7 @@
 				INFOPLIST_FILE = Karma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mdbKarma.Karma2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mdbKarma.Karma3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "./Karma/Karma-Bridging-Header.h";
