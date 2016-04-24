@@ -51,9 +51,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             if error == nil {
                 print("Successfully retrieved \(objects!.count) socials.")
             }
-            if let objects = objects {
-                
-            }
+//            if let objects = objects {
+//                
+//            }
         }
     }
     
