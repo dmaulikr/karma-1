@@ -17,16 +17,6 @@
 		0C7FEDD31CCCC80E00F25365 /* DPDConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FEDD01CCCC80E00F25365 /* DPDConstants.swift */; };
 		0C7FEDD41CCCC80E00F25365 /* DPDKeyboardListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FEDD11CCCC80E00F25365 /* DPDKeyboardListener.swift */; };
 		0C7FEDD51CCCC80E00F25365 /* DPDUIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FEDD21CCCC80E00F25365 /* DPDUIView+Extension.swift */; };
-		0C7FEDD71CCCD93000F25365 /* FontAwesome_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7FEDD61CCCD93000F25365 /* FontAwesome_swift.framework */; };
-		0C7FEDD81CCCD93000F25365 /* FontAwesome_swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7FEDD61CCCD93000F25365 /* FontAwesome_swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0C7FEDDA1CCCD93000F25365 /* FontAwesomeIconFactory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7FEDD91CCCD93000F25365 /* FontAwesomeIconFactory.framework */; };
-		0C7FEDDB1CCCD93000F25365 /* FontAwesomeIconFactory.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7FEDD91CCCD93000F25365 /* FontAwesomeIconFactory.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0C7FEDDD1CCCD93500F25365 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7FEDDC1CCCD93500F25365 /* Parse.framework */; };
-		0C7FEDDE1CCCD93500F25365 /* Parse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7FEDDC1CCCD93500F25365 /* Parse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0C7FEDE01CCCD93A00F25365 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7FEDDF1CCCD93A00F25365 /* Pods.framework */; };
-		0C7FEDE11CCCD93A00F25365 /* Pods.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7FEDDF1CCCD93A00F25365 /* Pods.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0C7FEDE31CCCD93A00F25365 /* Pods_Karma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7FEDE21CCCD93A00F25365 /* Pods_Karma.framework */; };
-		0C7FEDE41CCCD93A00F25365 /* Pods_Karma.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7FEDE21CCCD93A00F25365 /* Pods_Karma.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0C7FEDE81CCCE08200F25365 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FEDE71CCCE08200F25365 /* UIColor.swift */; };
 		D83409AE1CC89500007ECA3D /* changePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83409AD1CC89500007ECA3D /* changePasswordViewController.swift */; };
 		D83409B01CC89508007ECA3D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83409AF1CC89508007ECA3D /* SettingsViewController.swift */; };
@@ -36,6 +26,16 @@
 		D867B3D11CB0964600335615 /* expandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867B3CE1CB0964600335615 /* expandViewController.swift */; };
 		D867B3D21CB0964600335615 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867B3CF1CB0964600335615 /* FeedCollectionViewCell.swift */; };
 		D867B3D31CB0964600335615 /* FeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867B3D01CB0964600335615 /* FeedCollectionViewController.swift */; };
+		E8E9F3621CCCEACE008A8E5A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E9F3611CCCEACE008A8E5A /* Bolts.framework */; };
+		E8E9F3631CCCEACE008A8E5A /* Bolts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8E9F3611CCCEACE008A8E5A /* Bolts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8E9F3651CCCEACE008A8E5A /* FontAwesome_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E9F3641CCCEACE008A8E5A /* FontAwesome_swift.framework */; };
+		E8E9F3661CCCEACE008A8E5A /* FontAwesome_swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8E9F3641CCCEACE008A8E5A /* FontAwesome_swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8E9F3681CCCEACE008A8E5A /* FontAwesomeIconFactory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E9F3671CCCEACE008A8E5A /* FontAwesomeIconFactory.framework */; };
+		E8E9F3691CCCEACE008A8E5A /* FontAwesomeIconFactory.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8E9F3671CCCEACE008A8E5A /* FontAwesomeIconFactory.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8E9F36B1CCCEACE008A8E5A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E9F36A1CCCEACE008A8E5A /* Parse.framework */; };
+		E8E9F36C1CCCEACE008A8E5A /* Parse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8E9F36A1CCCEACE008A8E5A /* Parse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8E9F3701CCCEAE8008A8E5A /* Pods_Karma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E9F36E1CCCEAE8008A8E5A /* Pods_Karma.framework */; };
+		E8E9F3711CCCEAE8008A8E5A /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E9F36F1CCCEAE8008A8E5A /* Pods.framework */; };
 		E8F0D23F1CCC0ADC00AFF6AE /* YSLCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D23C1CCC0ADC00AFF6AE /* YSLCardView.m */; };
 		E8F0D2401CCC0ADC00AFF6AE /* YSLDraggableCardContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D23E1CCC0ADC00AFF6AE /* YSLDraggableCardContainer.m */; };
 		E8F0D2441CCC0AF600AFF6AE /* UIColor+Random_Color.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D2431CCC0AF600AFF6AE /* UIColor+Random_Color.m */; };
@@ -77,17 +77,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		E8F0D2301CCC03B200AFF6AE /* Embed Frameworks */ = {
+		E8E9F36D1CCCEACE008A8E5A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				0C7FEDE11CCCD93A00F25365 /* Pods.framework in Embed Frameworks */,
-				0C7FEDDB1CCCD93000F25365 /* FontAwesomeIconFactory.framework in Embed Frameworks */,
-				0C7FEDE41CCCD93A00F25365 /* Pods_Karma.framework in Embed Frameworks */,
-				0C7FEDDE1CCCD93500F25365 /* Parse.framework in Embed Frameworks */,
-				0C7FEDD81CCCD93000F25365 /* FontAwesome_swift.framework in Embed Frameworks */,
+				E8E9F3691CCCEACE008A8E5A /* FontAwesomeIconFactory.framework in Embed Frameworks */,
+				E8E9F3631CCCEACE008A8E5A /* Bolts.framework in Embed Frameworks */,
+				E8E9F36C1CCCEACE008A8E5A /* Parse.framework in Embed Frameworks */,
+				E8E9F3661CCCEACE008A8E5A /* FontAwesome_swift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +120,12 @@
 		D867B3CE1CB0964600335615 /* expandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = expandViewController.swift; sourceTree = "<group>"; };
 		D867B3CF1CB0964600335615 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		D867B3D01CB0964600335615 /* FeedCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewController.swift; sourceTree = "<group>"; };
+		E8E9F3611CCCEACE008A8E5A /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Bolts.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Bolts.framework"; sourceTree = "<absolute>"; };
+		E8E9F3641CCCEACE008A8E5A /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FontAwesome_swift.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/FontAwesome_swift.framework"; sourceTree = "<absolute>"; };
+		E8E9F3671CCCEACE008A8E5A /* FontAwesomeIconFactory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FontAwesomeIconFactory.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/FontAwesomeIconFactory.framework"; sourceTree = "<absolute>"; };
+		E8E9F36A1CCCEACE008A8E5A /* Parse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Parse.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Parse.framework"; sourceTree = "<absolute>"; };
+		E8E9F36E1CCCEAE8008A8E5A /* Pods_Karma.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Karma.framework; path = "../../../Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Pods_Karma.framework"; sourceTree = "<group>"; };
+		E8E9F36F1CCCEAE8008A8E5A /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = "../../../Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Pods.framework"; sourceTree = "<group>"; };
 		E8F0D23B1CCC0ADC00AFF6AE /* YSLCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLCardView.h; sourceTree = "<group>"; };
 		E8F0D23C1CCC0ADC00AFF6AE /* YSLCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLCardView.m; sourceTree = "<group>"; };
 		E8F0D23D1CCC0ADC00AFF6AE /* YSLDraggableCardContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLDraggableCardContainer.h; sourceTree = "<group>"; };
@@ -160,11 +165,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C7FEDE01CCCD93A00F25365 /* Pods.framework in Frameworks */,
-				0C7FEDD71CCCD93000F25365 /* FontAwesome_swift.framework in Frameworks */,
-				0C7FEDDA1CCCD93000F25365 /* FontAwesomeIconFactory.framework in Frameworks */,
-				0C7FEDDD1CCCD93500F25365 /* Parse.framework in Frameworks */,
-				0C7FEDE31CCCD93A00F25365 /* Pods_Karma.framework in Frameworks */,
+				E8E9F3701CCCEAE8008A8E5A /* Pods_Karma.framework in Frameworks */,
+				E8E9F3711CCCEAE8008A8E5A /* Pods.framework in Frameworks */,
+				E8E9F3681CCCEACE008A8E5A /* FontAwesomeIconFactory.framework in Frameworks */,
+				E8E9F3621CCCEACE008A8E5A /* Bolts.framework in Frameworks */,
+				E8E9F36B1CCCEACE008A8E5A /* Parse.framework in Frameworks */,
+				E8E9F3651CCCEACE008A8E5A /* FontAwesome_swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +221,8 @@
 		C0325ACF6BE238C9ADD76545 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E8E9F36E1CCCEAE8008A8E5A /* Pods_Karma.framework */,
+				E8E9F36F1CCCEAE8008A8E5A /* Pods.framework */,
 				0C7FEDE21CCCD93A00F25365 /* Pods_Karma.framework */,
 				0C7FEDDF1CCCD93A00F25365 /* Pods.framework */,
 				0C7FEDDC1CCCD93500F25365 /* Parse.framework */,
@@ -248,6 +256,10 @@
 		FC3B03651CB02CA90000EC38 = {
 			isa = PBXGroup;
 			children = (
+				E8E9F36A1CCCEACE008A8E5A /* Parse.framework */,
+				E8E9F3671CCCEACE008A8E5A /* FontAwesomeIconFactory.framework */,
+				E8E9F3641CCCEACE008A8E5A /* FontAwesome_swift.framework */,
+				E8E9F3611CCCEACE008A8E5A /* Bolts.framework */,
 				FC3B03701CB02CAA0000EC38 /* Karma */,
 				FC3B03851CB02CAA0000EC38 /* KarmaTests */,
 				FC3B03901CB02CAA0000EC38 /* KarmaUITests */,
@@ -342,7 +354,7 @@
 				FC3B036C1CB02CA90000EC38 /* Resources */,
 				F1BA1B0F7EB295F53DC0E1B9 /* Embed Pods Frameworks */,
 				0548F2EA3675A8DC1C8A7808 /* Copy Pods Resources */,
-				E8F0D2301CCC03B200AFF6AE /* Embed Frameworks */,
+				E8E9F36D1CCCEACE008A8E5A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
