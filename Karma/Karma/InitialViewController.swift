@@ -12,14 +12,13 @@ import Parse
 class InitialViewController: UIViewController {
     
     var loaded = false
+    var messagesToShow = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let currentUser = PFUser.currentUser()
         let userId = currentUser?.objectId
-        print(currentUser)
-        print("HELLO")
         
         if  currentUser != nil {
             //check for unread messages
@@ -38,10 +37,12 @@ class InitialViewController: UIViewController {
                     if let objects = objects {
                         if objects.count > 0 {
                             self.loaded = true
+                            self.messagesToShow = objects
                             self.performSegueWithIdentifier("toUnread", sender: self)
                         } else {
+                            print("Got right before seguing to the cardstack viewcontroller.")
                             self.loaded = true
-                            self.performSegueWithIdentifier("toMain", sender: self)
+                            self.performSegueWithIdentifier("toUnread", sender: self)
                         }
                         
                     }
@@ -78,6 +79,13 @@ class InitialViewController: UIViewController {
             }
         }
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "toUnread") {
+            let vc = segue.destinationViewController as! CardStackViewController
+            vc.messagesToShow = self.messagesToShow as! Array<PFObject>
+        }
     }
     
 
