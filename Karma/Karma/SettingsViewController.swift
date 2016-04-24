@@ -31,15 +31,17 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     
-    let logOutAlertController = UIAlertController(title: "Log Out", message: "Would you like to log out of your account?", preferredStyle: .Alert)
-    
-    let cancelLogout = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
 
-    let confirmLogout = UIAlertAction(title: "Log Out", style: .Default) { (UIAlertAction) in
-        PFUser.logOut()
-        print("You are no longer signed in")
-        
-    }
+    
+    
+    
+
+//    let confirmLogout = UIAlertAction(title: "Log Out", style: .Default) { (UIAlertAction) in
+//        PFUser.logOut()
+//        print("You are no longer signed in")
+//    }
+    
+
     
     
     
@@ -95,8 +97,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         clearFeedAlertController.addAction(cancelClear)
         clearFeedAlertController.addAction(confirmClear)
         
-        logOutAlertController.addAction(cancelLogout)
-        logOutAlertController.addAction(confirmLogout)
+
         
         
         settingstable.delegate = self
@@ -240,8 +241,25 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             self.performSegueWithIdentifier("toChangePassword", sender: indexPath)            
         }
         else if indexPath.row == 7 {
-            self.presentViewController(logOutAlertController, animated: true, completion: nil
-            )
+            
+            let confirmLogOff = UIAlertAction(title: "Logout", style: .Default, handler: { (action) -> Void in
+                // Logout
+                PFUser.logOut()
+                
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginView") as! UIViewController
+                    self.presentViewController(viewController, animated: true, completion: nil)
+                })
+            })
+
+            
+            let logOutAlertController = UIAlertController(title: "Log Out", message: "Would you like to log out of your account?", preferredStyle: .Alert)
+            let cancelLogout = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            
+            logOutAlertController.addAction(cancelLogout)
+            logOutAlertController.addAction(confirmLogOff)
+            
+            self.presentViewController(logOutAlertController, animated: true, completion: nil)
         }
         else if indexPath.row == 6 {
             self.presentViewController(clearFeedAlertController, animated: true, completion: nil)
