@@ -18,6 +18,8 @@ class InitialViewController: UIViewController {
         
         let currentUser = PFUser.currentUser()
         let userId = currentUser?.objectId
+        print(currentUser)
+        print("HELLO")
         
         if  currentUser != nil {
             //check for unread messages
@@ -46,6 +48,7 @@ class InitialViewController: UIViewController {
                 } else {
                     // Log details of the failure
                     print("Error: \(error!) \(error!.userInfo)")
+                    print("testing login")
                 }
             }
         } else {

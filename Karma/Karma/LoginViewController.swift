@@ -19,6 +19,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             (success, loginError) in
             if loginError == nil {
                 self.dismissViewControllerAnimated(false, completion: nil)
+            } else {
+                print("THIS IS THE LOGIN ERROR")
+                print(loginError)
             }
             // fix blank logins
         }
