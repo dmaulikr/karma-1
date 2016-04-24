@@ -107,6 +107,14 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
                     print("Error: \(error!) \(error!.userInfo)")
                 }
             }
+//            UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+//                self.sentlabel.alpha = 1.0
+//                }, completion: nil)
+//            UIView.animateWithDuration(1.0, delay: 1.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+//                self.sentlabel.alpha = 0.0
+//                }, completion: {
+//                    (finished: Bool) -> Void in
+//            })
             
         }
     }

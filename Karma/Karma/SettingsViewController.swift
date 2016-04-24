@@ -19,6 +19,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     var passwordLabel = UILabel (frame: CGRectMake(30, 0 , 200, 50))
     var notificationsLabel = UILabel (frame: CGRectMake(30, 0 , 200, 50))
     
+    var ParseUsernameLabel = UILabel (frame: CGRectMake(270, 0, 200, 50))
+
+    
     var notificationSwitch=UISwitch(frame:CGRectMake(300, 10, 100, 35
         ));
     
@@ -82,6 +85,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var currentUser = PFUser.currentUser()
+        
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         //self.navigationController?.navigationBar.translucent = false;
         //UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1)
@@ -94,6 +99,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         clearFeedAlertController.addAction(cancelClear)
         clearFeedAlertController.addAction(confirmClear)
+        
+        ParseUsernameLabel.text = currentUser!["username"] as! String
+        ParseUsernameLabel.font =  UIFont(name: "Avenir Next", size: 18)
+        ParseUsernameLabel.textColor = UIColor(colorLiteralRed: 0.965, green: 0.698, blue: 0.42, alpha: 1)
+        ParseUsernameLabel.backgroundColor = UIColor.clearColor()
         
         logOutAlertController.addAction(cancelLogout)
         logOutAlertController.addAction(confirmLogout)
@@ -187,6 +197,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             cell.addSubview(myAccountLabel)
         }
         if indexPath.row == 1{
+            cell.addSubview(ParseUsernameLabel)
             cell.addSubview(usernameLabel)
         }
         if indexPath.row == 2 {
