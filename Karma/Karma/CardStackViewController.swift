@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Parse
 
 class CardStackViewController: UIViewController, YSLDraggableCardContainerDataSource, YSLDraggableCardContainerDelegate {
     
     var container = YSLDraggableCardContainer()
-    let datas = NSArray()
+    var messagesToShow = Array<PFObject>()
     
     @IBOutlet weak var exitButton: UIButton!
     @IBAction func exitButtonPressed(sender: AnyObject) {
@@ -47,12 +48,17 @@ class CardStackViewController: UIViewController, YSLDraggableCardContainerDataSo
         card.layer.borderColor = UIColor.grayColor().CGColor
         card.layer.borderWidth = 0.4
         card.layer.cornerRadius = 7.0
+        var label = UILabel(frame: CGRectMake(0, 0, 200, 21))
+        label.center = CGPointMake(160, 284)
+        label.textAlignment = NSTextAlignment.Center
+        //label.text = messagesToShow[index]["messageBody"] as? String
+        card.addSubview(label)
         
         return card
     }
     
     func cardContainerViewNumberOfViewInIndex(index: Int) -> Int {
-        return 10
+        return messagesToShow.count
     }
     
     func cardContainerView(cardContainerView: YSLDraggableCardContainer!, didEndDraggingAtIndex index: Int, draggableView: UIView!, draggableDirection: YSLDraggableDirection) {
