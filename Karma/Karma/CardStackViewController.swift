@@ -13,6 +13,11 @@ class CardStackViewController: UIViewController, YSLDraggableCardContainerDataSo
     var container = YSLDraggableCardContainer()
     let datas = NSArray()
     
+    @IBOutlet weak var exitButton: UIButton!
+    @IBAction func exitButtonPressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(false, completion: nil)
+        print("thingggyy")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +30,7 @@ class CardStackViewController: UIViewController, YSLDraggableCardContainerDataSo
         container.delegate = self
         
         self.view.addSubview(container)
+        self.view.bringSubviewToFront(exitButton)
         
         container.reloadCardContainer()
     }

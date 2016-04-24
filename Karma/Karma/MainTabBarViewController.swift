@@ -17,27 +17,27 @@ class MainTabBarViewController: UITabBarController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        selectedIndex = 1;
         
-        // Core Location Manager asks for GPS location
         
-        // For use in foreground
-        self.locationManager.requestWhenInUseAuthorization()
+            // Do any additional setup after loading the view.
+            selectedIndex = 1;
+            
+            // Core Location Manager asks for GPS location
+            
+            // For use in foreground
+            self.locationManager.requestWhenInUseAuthorization()
+            
+            if CLLocationManager.locationServicesEnabled() {
+                locationManager.delegate = self
+                locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+                locationManager.requestLocation()
+            }
+            
+            viewControllers![0].tabBarItem.image = UIImage.fontAwesomeIconWithName(.MapO, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+            viewControllers![1].tabBarItem.image = UIImage.fontAwesomeIconWithName(.MailForward, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+            viewControllers![2].tabBarItem.image = UIImage.fontAwesomeIconWithName(.MailReply, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
+            viewControllers![3].tabBarItem.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
         
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-            locationManager.requestLocation()
-        }
-        
-        viewControllers![0].tabBarItem.image = UIImage.fontAwesomeIconWithName(.MapO, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
-        viewControllers![1].tabBarItem.image = UIImage.fontAwesomeIconWithName(.MailForward, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
-        viewControllers![2].tabBarItem.image = UIImage.fontAwesomeIconWithName(.MailReply, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
-        viewControllers![3].tabBarItem.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
-        
-    
     }
 
     override func didReceiveMemoryWarning() {

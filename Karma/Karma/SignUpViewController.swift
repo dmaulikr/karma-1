@@ -106,7 +106,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 
             } else {
                     if (success) {
-                        self.performSegueWithIdentifier("toUnread2", sender: self)
+                        self.dismissViewControllerAnimated(false, completion: nil)
                     } else {
                         print("email error?")
                         self.emailAlert.hidden = false

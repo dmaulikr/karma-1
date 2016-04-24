@@ -10,9 +10,51 @@ import UIKit
 import Parse
 
 class InitialViewController: UIViewController {
+    
+    var loaded = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let currentUser = PFUser.currentUser()
+        let userId = currentUser?.objectId
+        
+        if  currentUser != nil {
+            //check for unread messages
+            let query = PFQuery(className:"Messages")
+            query.whereKey("recieverIds", equalTo: userId!)
+            query.whereKey("readIds", notEqualTo: userId!)
+            query.findObjectsInBackgroundWithBlock {
+                (objects: [PFObject]?, error: NSError?) -> Void in
+                
+                if error == nil {
+                    // The find succeeded.
+                    print("Successfully retrieved \(objects!.count) socials.")
+                    
+                    
+                    // Do something with the found objects
+                    if let objects = objects {
+                        if objects.count > 0 {
+                            self.loaded = true
+                            self.performSegueWithIdentifier("toUnread", sender: self)
+                        } else {
+                            self.loaded = true
+                            self.performSegueWithIdentifier("toMain", sender: self)
+                        }
+                        
+                    }
+                } else {
+                    // Log details of the failure
+                    print("Error: \(error!) \(error!.userInfo)")
+                }
+            }
+        } else {
+            //go to signin
+            self.loaded = true
+            self.performSegueWithIdentifier("toSignIn", sender: self)
+            print("WEEEEENNNNNTTTTT TOOOOO SIGGGNNNN INNNNN")
+        }
+        
 
         // Do any additional setup after loading the view.
     }
@@ -24,13 +66,15 @@ class InitialViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        let currentUser = PFUser.currentUser()
-        if  currentUser != nil {
-            self.performSegueWithIdentifier("toUnread", sender: self)
+        if loaded {
+            let currentUser = PFUser.currentUser()
+            if  currentUser != nil {
+                self.performSegueWithIdentifier("toMain", sender: self)
+            } else {
+                self.performSegueWithIdentifier("toSignIn", sender: self)
+            }
         }
-        else {
-            self.performSegueWithIdentifier("toLogin", sender: self)
-        }
+        
     }
     
 

@@ -18,7 +18,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         PFUser.logInWithUsernameInBackground(username.text!, password: password.text!) {
             (success, loginError) in
             if loginError == nil {
-                self.performSegueWithIdentifier("toMain", sender: self)
+                self.dismissViewControllerAnimated(false, completion: nil)
             }
             // fix blank logins
         }
@@ -28,6 +28,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         username.delegate = self
         password.delegate = self
         
@@ -38,6 +39,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
 //        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        let currentUser = PFUser.currentUser()
+        if currentUser != nil {
+            self.dismissViewControllerAnimated(false, completion: nil)
+        }
     }
     
 //    
