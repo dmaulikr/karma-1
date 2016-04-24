@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         });
         
         Parse.initializeWithConfiguration(config);
-
+        DropDown.startListeningToKeyboard()
         
         
         return true
