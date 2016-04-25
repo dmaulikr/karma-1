@@ -1194,7 +1194,7 @@
                                 <rect key="frame" x="137" y="565" width="101" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="Submit">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="0.66470410400000002" blue="0.36900752050000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="SubmitNewPassword:" destination="l35-o0-uIV" eventType="touchUpInside" id="hSe-R5-hgr"/>

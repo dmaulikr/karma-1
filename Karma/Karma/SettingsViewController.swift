@@ -22,9 +22,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     var ParseUsernameLabel = UILabel (frame: CGRectMake(270, 0, 200, 50))
 
     
-    var notificationSwitch=UISwitch(frame:CGRectMake(300, 10, 100, 35
-        ));
-    
+
     
     var accountActionsLabel = UILabel(frame: CGRectMake(20, 0 , 200, 60
         ))
@@ -47,31 +45,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     
-    func clearFeed() {
-        let query = PFQuery(className:"Messages")
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            if error == nil {
-                print("Successfully retrieved \(objects!.count) socials.")
-            }
-//            if let objects = objects {
-//                
-//            }
-        }
-    }
+
     
-    
-    
-    
-    let clearFeedAlertController = UIAlertController(title: "Clear Feed", message: "Are you sure that you want to clear your feeds", preferredStyle: .Alert)
-    
-    let cancelClear = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-    
-    let confirmClear = UIAlertAction(title: "Clear", style: .Default) { (UIAlertAction) in
-//        SettingsViewController.clearFeed()
-        print("You have cleared your feed")
-        
-    }
     
     
     
@@ -97,9 +72,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
 
         
-        clearFeedAlertController.addAction(cancelClear)
-        clearFeedAlertController.addAction(confirmClear)
-        
         ParseUsernameLabel.text = currentUser!["username"] as! String
         ParseUsernameLabel.font =  UIFont(name: "Avenir Next", size: 18)
         ParseUsernameLabel.textColor = UIColor(colorLiteralRed: 0.965, green: 0.698, blue: 0.42, alpha: 1)
@@ -112,16 +84,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         settingstable.delegate = self
         settingstable.dataSource = self
         
-        notificationSwitch.on = true
-        notificationSwitch.setOn(true, animated: false)
-//        notificationSwitch.addTarget(self, action: "turnOffNotifications", forControlEvents: .ValueChanged)
-        
-        notificationSwitch.onTintColor = UIColor.init(colorLiteralRed: 0.965, green: 0.698, blue: 0.42, alpha: 1)
+     
         
         
-        notificationsLabel.text = "Notifications Off"
-        notificationsLabel.font =  UIFont(name: "Avenir Next", size: 18)
-        notificationsLabel.backgroundColor = UIColor.clearColor()
+        
+
         
         usernameLabel.text = "Your Username"
         usernameLabel.font =  UIFont(name: "Avenir Next", size: 18)
@@ -131,9 +98,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         passwordLabel.font =  UIFont(name: "Avenir Next", size: 18)
         passwordLabel.backgroundColor = UIColor.clearColor()
         
-        clearFeedLabel.text = "Clear Feed"
-        clearFeedLabel.font =  UIFont(name: "Avenir Next", size: 18)
-        clearFeedLabel.backgroundColor = UIColor.clearColor()
+   
         
         logOutLabel.text = "Log Out"
         logOutLabel.font =  UIFont(name: "Avenir Next", size: 18)
@@ -203,21 +168,16 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.row == 2 {
             cell.addSubview(passwordLabel)
         }
-        if indexPath.row == 3{
-            cell.addSubview(notificationsLabel)
-            cell.addSubview(notificationSwitch)
-        }
-        if indexPath.row == 5
+      
+        
+        if indexPath.row == 4
         {
             cell.backgroundColor = UIColor.init(colorLiteralRed: 0.898, green: 0.894, blue: 0.886, alpha: 1)
             cell.addSubview(accountActionsLabel)
         }
         
-        if indexPath.row == 6{
-            cell.addSubview(clearFeedLabel)
-        }
-        
-        if indexPath.row == 7{
+
+        if indexPath.row == 5 {
             cell.addSubview(logOutLabel)
         }
         
@@ -229,7 +189,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.row == 0{
             return 60
         }
-        if indexPath.row == 5{
+        if indexPath.row == 4{
             return 60
         }
         return 50
@@ -250,7 +210,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.row == 2 {
             self.performSegueWithIdentifier("toChangePassword", sender: indexPath)            
         }
-        else if indexPath.row == 7 {
+        else if indexPath.row == 5 {
             let confirmLogOff = UIAlertAction(title: "Logout", style: .Default, handler: { (action) -> Void in
                 // Logout
                 PFUser.logOut()
@@ -272,9 +232,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             self.presentViewController(logOutAlertController, animated: true, completion: nil)
 
         }
-        else if indexPath.row == 6 {
-            self.presentViewController(clearFeedAlertController, animated: true, completion: nil)
-        }
+
         
     }
     
