@@ -10,16 +10,37 @@ import UIKit
 import MapKit
 import Parse
 
-class expandViewController: UIViewController {
-    @IBOutlet weak var response: UITextField!
+class expandViewController: UIViewController, UITextViewDelegate{
     @IBOutlet weak var receivedmessage: UILabel!
 
+    @IBOutlet weak var response: UITextView!
     
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var date: UILabel!
     
+    func setPlaceholder() {
+        response.delegate = self
+        response.text = "How would you like to reply?"
+        response.textColor = UIColor.lightGrayColor()
+    }
     
-    var message = PFObject()
+    func textViewDidBeginEditing(response: UITextView) {
+        if response.textColor == UIColor.lightGrayColor() {
+            response.text = nil
+            response.textColor = UIColor.blackColor()
+        }
+    }
+    
+    func textViewDidEndEditing(response: UITextView) {
+        if (response.text == "") {
+            response.text = "How would you like to reply?"
+            response.textColor = UIColor.lightGrayColor()
+        }
+        response.resignFirstResponder()
+    }
+    
+    
+    var message: PFObject?
     var replyOpenText = false
     var currentUser = PFUser.currentUser()
     
@@ -49,7 +70,7 @@ class expandViewController: UIViewController {
             let newReply = PFObject(className:"Replies")
             
             newReply["senderId"] = currentUser!.objectId
-            newReply["messageId"] = message.objectId
+            newReply["messageId"] = message!.objectId
             newReply["replyBody"] = replyText
             newReply["createdAt"] = NSDate()
             newReply["authorized"] = false
@@ -59,6 +80,7 @@ class expandViewController: UIViewController {
                 (success: Bool, error: NSError?) -> Void in
                 if (success) {
                     // The object has been saved.
+                    self.setPlaceholder()
                     print("sucesssss!!!!")
                     //self.dismissViewControllerAnimated(true, completion: nil)
                 } else {
@@ -78,13 +100,16 @@ class expandViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        location.text = message["audience"] as? String
-        let messDate = (message["sentDate"] as? NSDate)!
+        setPlaceholder()
+        self.automaticallyAdjustsScrollViewInsets = false
+        
+        location.text = message!["audience"] as? String
+        let messDate = (message!["sentDate"] as? NSDate)!
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         let dateString = dateFormatter.stringFromDate(messDate)
         date.text = dateString
-        receivedmessage.text = message["messageBody"] as? String
+        receivedmessage.text = message!["messageBody"] as? String
         if replyOpenText {
             response.becomeFirstResponder()
             print("wwwwwwwoooootttt")
@@ -112,13 +137,10 @@ class expandViewController: UIViewController {
     @IBAction func sendReply(sender: AnyObject) {
         addNewReply()
         displayAlert("Sent", displayError: "Reply Sent!")
-        response.text = ""
-        view.endEditing(true)
+        self.response.endEditing(true)
     }
     
-    @IBAction func sendThanks(sender: AnyObject) {
-        print("thankssent")
-    }
+   
     @IBOutlet weak var mapFrom: MKMapView!
 
 }

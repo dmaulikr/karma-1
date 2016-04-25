@@ -42,7 +42,7 @@ class InitialViewController: UIViewController {
                         } else {
                             print("Got right before seguing to the cardstack viewcontroller.")
                             self.loaded = true
-                            self.performSegueWithIdentifier("toUnread", sender: self)
+                            self.performSegueWithIdentifier("toMain", sender: self)
                         }
                         
                     }

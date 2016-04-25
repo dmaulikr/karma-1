@@ -193,7 +193,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.time.text = cleanTime(timesArray[indexPath.row])
         cell.location.text = locations[indexPath.row]
         
-        cell.replyTextField.hidden = true
+        //cell.replyTextField.hidden = true
         
         //design cell
         cell.backgroundColor = UIColor.whiteColor();
