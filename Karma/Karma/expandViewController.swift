@@ -20,6 +20,32 @@ class expandViewController: UIViewController, UITextViewDelegate{
     
     @IBOutlet weak var sentMapView: MKMapView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        receivedmessage.backgroundColor = UIColor(netHex: 0xFFA54F)
+        
+        setPlaceholder()
+        addMapPin()
+        markAsRead()
+        self.automaticallyAdjustsScrollViewInsets = false
+        
+        //location.text = message!["audience"] as? String
+        let messDate = (message!["sentDate"] as? NSDate)!
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        let dateString = dateFormatter.stringFromDate(messDate)
+        date.text = dateString
+        receivedmessage.text = message!["messageBody"] as? String
+        if replyOpenText {
+            response.becomeFirstResponder()
+            print("wwwwwwwoooootttt")
+        }
+        
+        
+        // Do any additional setup after loading the view.
+    }
+    
     var message: PFObject?
     var replyOpenText = false
     var currentUser = PFUser.currentUser()
@@ -191,29 +217,7 @@ class expandViewController: UIViewController, UITextViewDelegate{
     
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setPlaceholder()
-        addMapPin()
-        markAsRead()
-        self.automaticallyAdjustsScrollViewInsets = false
-        
-        //location.text = message!["audience"] as? String
-        let messDate = (message!["sentDate"] as? NSDate)!
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        let dateString = dateFormatter.stringFromDate(messDate)
-        date.text = dateString
-        receivedmessage.text = message!["messageBody"] as? String
-        if replyOpenText {
-            response.becomeFirstResponder()
-            print("wwwwwwwoooootttt")
-        }
-      
 
-        // Do any additional setup after loading the view.
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

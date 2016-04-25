@@ -97,8 +97,6 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         vc.popoverPresentationController!.sourceRect = cell.setAudience.frame
 
         self.presentViewController(vc, animated: true, completion: nil)
-
-  
         
     }
     
