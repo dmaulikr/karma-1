@@ -16,8 +16,12 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var messages = Array<String>()
     var seenCount = Array<Int>()
     var sentTimes = Array<NSDate>()
+    var msgObjects = Array<PFObject>()
     var refresher:UIRefreshControl!
+    var index = Int()
     var popoverController:UIPopoverPresentationController? = nil
+    var replies = Array<PFObject>()
+
     
     @IBOutlet weak var messageBody: UILabel!
     
@@ -33,7 +37,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return 2
     }
     
-
+    
     // customize border between sections width between sections
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
@@ -88,15 +92,17 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func selectLocationsPressed(cell: NewPostCollectionViewCell) {
         //Select locations was called, show popover
         let vc = self.storyboard?.instantiateViewControllerWithIdentifier("locationSelection") as! LocationsViewController
-//        var nav = UINavigationController(rootViewController: vc)
+        //        var nav = UINavigationController(rootViewController: vc)
         vc.modalPresentationStyle = UIModalPresentationStyle.Popover
-//        popoverController =
+        //        popoverController =
         vc.preferredContentSize = CGSizeMake(320,300)
         vc.popoverPresentationController!.delegate = self
         vc.popoverPresentationController!.sourceView = cell
         vc.popoverPresentationController!.sourceRect = cell.setAudience.frame
-
+        
         self.presentViewController(vc, animated: true, completion: nil)
+        
+        
         
     }
     
@@ -106,14 +112,43 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("expandSent", sender: indexPath)
+        print("selected")
+        index = indexPath.row
+        self.performSegueWithIdentifier("toSentExpand", sender: indexPath)
     }
+    
+//    func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        index = indexPath.item
+//        return true
+//    }
     
     //add //design elements on cards
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "expandSent" {
-            let vc = segue.destinationViewController as! expandViewController
-            let row = (sender as! NSIndexPath).item
+        if segue.identifier == "toSentExpand" {
+            print("preparing")
+            let vc = segue.destinationViewController as! SentExpandVC
+            print("msgObjects")
+            print(msgObjects.count)
+            print("index")
+            print(index)
+            vc.message = msgObjects[index]
+//            var query = PFQuery(className:"Replies")
+//            query.whereKey("messageId", equalTo: msgObjects[index].objectId!)
+//            query.findObjectsInBackgroundWithBlock {
+//                (objects: [PFObject]?, error: NSError?) -> Void in
+//                
+//                if error == nil {
+//                    // The find succeeded.
+//                    // Do something with the found objects
+//                    if let objects = objects {
+//                        self.replies = objects
+//                    }
+//                } else {
+//                    // Log details of the failure
+//                    print("Error: \(error!) \(error!.userInfo)")
+//                }
+//            }
+            vc.replies = replies
         }
     }
     
@@ -136,6 +171,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         let tapRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
         tapRecognizer.numberOfTapsRequired = 1
+        tapRecognizer.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapRecognizer)
         
     }
@@ -163,8 +199,9 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 
                 if let objects = objects {
                     for object in objects {
+                        self.msgObjects.append(object)
                         self.locations.append (object["audience"] as! String)
-                        self.messages.append(object["messageBody"] as! String)
+                        self.messages.append(String(object["messageBody"]))
                         self.sentTimes.append(object["sentDate"] as! NSDate)
                         if object["readIds"] == nil {
                             self.seenCount.append(0)
