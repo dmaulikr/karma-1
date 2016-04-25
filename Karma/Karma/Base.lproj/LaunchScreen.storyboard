@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -19,19 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="karmaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="p9E-my-uJI">
-                                <rect key="frame" x="47" y="279" width="280" height="109"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="sincerelyLogo" translatesAutoresizingMaskIntoConstraints="NO" id="p9E-my-uJI">
+                                <rect key="frame" x="30" y="279" width="315" height="109"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="p9E-my-uJI" secondAttribute="height" multiplier="280:109" id="GmK-TD-cLQ"/>
+                                    <constraint firstAttribute="width" secondItem="p9E-my-uJI" secondAttribute="height" multiplier="315:109" id="WeA-T4-40k"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.66470410400000002" blue="0.36900752050000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="p9E-my-uJI" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="TNY-vm-LNn"/>
-                            <constraint firstItem="p9E-my-uJI" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="l4o-LG-KzF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="p9E-my-uJI" secondAttribute="trailing" constant="28" id="slV-tA-ZVQ"/>
-                            <constraint firstItem="p9E-my-uJI" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="27" id="ucQ-l3-AED"/>
+                            <constraint firstItem="p9E-my-uJI" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="R0a-pg-Nsm"/>
+                            <constraint firstItem="p9E-my-uJI" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dY1-Cj-G1o"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -42,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="karmaLogo" width="562" height="218"/>
+        <image name="sincerelyLogo" width="666" height="206"/>
     </resources>
 </document>
