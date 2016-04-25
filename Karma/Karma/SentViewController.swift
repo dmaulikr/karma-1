@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class SentViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class SentViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, NewPostCollectionViewDelegate, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
     var locations = Array<String>()
@@ -42,16 +42,17 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         if indexPath.section == 0 {
             let np = collectionView.dequeueReusableCellWithReuseIdentifier("newPost", forIndexPath: indexPath) as! NewPostCollectionViewCell
-
+            
+            np.delegate = self
             
             //np.layoutMargins
-
+            
             
             //placeholder
             np.setPlaceholder()
             
             return np
-
+            
             
         } else {
             let sc = collectionView.dequeueReusableCellWithReuseIdentifier("sentMessage", forIndexPath: indexPath) as! SentCollectionViewCell
@@ -72,7 +73,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             sc.layer.shadowPath = shadowPath
             sc.clipsToBounds = false
             
-
+            
             
             
             if messages.count > 0 {
@@ -85,6 +86,26 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
     }
     
+    func selectLocationsPressed(cell: NewPostCollectionViewCell) {
+        //Select locations was called, show popover
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("locationSelection") as! LocationsViewController
+        var nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = UIModalPresentationStyle.Popover
+        var popover = nav.popoverPresentationController
+        vc.preferredContentSize = CGSizeMake(320,300)
+        popover!.delegate = self
+        popover!.sourceView = cell
+        popover!.sourceRect = cell.setAudience.frame
+        
+        self.presentViewController(nav, animated: true, completion: nil)
+        
+    }
+    
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .None
+    }
+    
+    
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("expandSent", sender: indexPath)
     }
@@ -96,16 +117,16 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let row = (sender as! NSIndexPath).item
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         
         self.automaticallyAdjustsScrollViewInsets = false
         
-    
+        
         queryMessages()
         setProperties()
         
@@ -122,8 +143,8 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         
-//        let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-//        layout.sectionInset = UIEdgeInsetsMake(-10, 0, 0, 0);
+        //        let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        //        layout.sectionInset = UIEdgeInsetsMake(-10, 0, 0, 0);
         let frame : CGRect = self.view.frame
         return UIEdgeInsetsMake(10, -30, 0, -30) // margin between cells
     }
@@ -135,7 +156,6 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func queryMessages() {
         // query for messages sent by user
         let query = PFQuery(className:"Messages")
-        query.orderByDescending("sentDate")
         query.whereKey("senderId", equalTo: (PFUser.currentUser()?.objectId)!)
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) ->Void in
             if error == nil {
@@ -184,7 +204,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let newMessageImage = UIImage.fontAwesomeIconWithName(.PencilSquareO, textColor: UIColor.blackColor(), size: CGSizeMake(25, 25))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: newMessageImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(receivedViewController.addTapped))
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -229,7 +249,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return String(numYears) + " years ago"
         
     }
-
     
-
+    
+    
 }

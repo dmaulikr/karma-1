@@ -28,6 +28,18 @@
 		D867B3D21CB0964600335615 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867B3CF1CB0964600335615 /* FeedCollectionViewCell.swift */; };
 		D867B3D31CB0964600335615 /* FeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867B3D01CB0964600335615 /* FeedCollectionViewController.swift */; };
 		D8CDD29C1CCCEE71007964BF /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CDD29B1CCCEE71007964BF /* ForgotPasswordViewController.swift */; };
+		E89555251CCDDBBF003E07B6 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89555241CCDDBBF003E07B6 /* Bolts.framework */; };
+		E89555261CCDDBBF003E07B6 /* Bolts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E89555241CCDDBBF003E07B6 /* Bolts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E89555281CCDDBBF003E07B6 /* FontAwesome_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89555271CCDDBBF003E07B6 /* FontAwesome_swift.framework */; };
+		E89555291CCDDBBF003E07B6 /* FontAwesome_swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E89555271CCDDBBF003E07B6 /* FontAwesome_swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E895552B1CCDDBBF003E07B6 /* FontAwesomeIconFactory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E895552A1CCDDBBF003E07B6 /* FontAwesomeIconFactory.framework */; };
+		E895552C1CCDDBBF003E07B6 /* FontAwesomeIconFactory.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E895552A1CCDDBBF003E07B6 /* FontAwesomeIconFactory.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E895552E1CCDDBBF003E07B6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E895552D1CCDDBBF003E07B6 /* Parse.framework */; };
+		E895552F1CCDDBBF003E07B6 /* Parse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E895552D1CCDDBBF003E07B6 /* Parse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E89555311CCDDBBF003E07B6 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89555301CCDDBBF003E07B6 /* Pods.framework */; };
+		E89555321CCDDBBF003E07B6 /* Pods.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E89555301CCDDBBF003E07B6 /* Pods.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E89555341CCDDBBF003E07B6 /* Pods_Karma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E89555331CCDDBBF003E07B6 /* Pods_Karma.framework */; };
+		E89555351CCDDBBF003E07B6 /* Pods_Karma.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E89555331CCDDBBF003E07B6 /* Pods_Karma.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E8F0D23F1CCC0ADC00AFF6AE /* YSLCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D23C1CCC0ADC00AFF6AE /* YSLCardView.m */; };
 		E8F0D2401CCC0ADC00AFF6AE /* YSLDraggableCardContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D23E1CCC0ADC00AFF6AE /* YSLDraggableCardContainer.m */; };
 		E8F0D2441CCC0AF600AFF6AE /* UIColor+Random_Color.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D2431CCC0AF600AFF6AE /* UIColor+Random_Color.m */; };
@@ -49,8 +61,6 @@
 		FC3B03B21CB032180000EC38 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03B11CB032180000EC38 /* NewMessageViewController.swift */; };
 		FC9789881CC8940600AB7FB7 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9789871CC8940600AB7FB7 /* DateExtensions.swift */; };
 		FCCEF0791CBE02BC00740817 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCEF0781CBE02BC00740817 /* InitialViewController.swift */; };
-		FCF874B81CCDA2980028ADD7 /* FontAwesome_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF874B71CCDA2980028ADD7 /* FontAwesome_swift.framework */; };
-		FCF874B91CCDA2980028ADD7 /* FontAwesome_swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FCF874B71CCDA2980028ADD7 /* FontAwesome_swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +87,12 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FCF874B91CCDA2980028ADD7 /* FontAwesome_swift.framework in Embed Frameworks */,
+				E895552C1CCDDBBF003E07B6 /* FontAwesomeIconFactory.framework in Embed Frameworks */,
+				E89555321CCDDBBF003E07B6 /* Pods.framework in Embed Frameworks */,
+				E89555261CCDDBBF003E07B6 /* Bolts.framework in Embed Frameworks */,
+				E895552F1CCDDBBF003E07B6 /* Parse.framework in Embed Frameworks */,
+				E89555291CCDDBBF003E07B6 /* FontAwesome_swift.framework in Embed Frameworks */,
+				E89555351CCDDBBF003E07B6 /* Pods_Karma.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,6 +123,12 @@
 		D867B3CF1CB0964600335615 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		D867B3D01CB0964600335615 /* FeedCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewController.swift; sourceTree = "<group>"; };
 		D8CDD29B1CCCEE71007964BF /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		E89555241CCDDBBF003E07B6 /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Bolts.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Bolts.framework"; sourceTree = "<absolute>"; };
+		E89555271CCDDBBF003E07B6 /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FontAwesome_swift.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/FontAwesome_swift.framework"; sourceTree = "<absolute>"; };
+		E895552A1CCDDBBF003E07B6 /* FontAwesomeIconFactory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FontAwesomeIconFactory.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/FontAwesomeIconFactory.framework"; sourceTree = "<absolute>"; };
+		E895552D1CCDDBBF003E07B6 /* Parse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Parse.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Parse.framework"; sourceTree = "<absolute>"; };
+		E89555301CCDDBBF003E07B6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Pods.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Pods.framework"; sourceTree = "<absolute>"; };
+		E89555331CCDDBBF003E07B6 /* Pods_Karma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Pods_Karma.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Pods_Karma.framework"; sourceTree = "<absolute>"; };
 		E8F0D23B1CCC0ADC00AFF6AE /* YSLCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLCardView.h; sourceTree = "<group>"; };
 		E8F0D23C1CCC0ADC00AFF6AE /* YSLCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLCardView.m; sourceTree = "<group>"; };
 		E8F0D23D1CCC0ADC00AFF6AE /* YSLDraggableCardContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLDraggableCardContainer.h; sourceTree = "<group>"; };
@@ -140,7 +161,6 @@
 		FC3B03B11CB032180000EC38 /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
 		FC9789871CC8940600AB7FB7 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		FCCEF0781CBE02BC00740817 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
-		FCF874B71CCDA2980028ADD7 /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FontAwesome_swift.framework; path = "/Users/shaanappel/Library/Developer/Xcode/DerivedData/Karma-aozwyqwzuzebfnfngmqognwflduf/Build/Products/Debug-iphonesimulator/FontAwesome_swift.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +168,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCF874B81CCDA2980028ADD7 /* FontAwesome_swift.framework in Frameworks */,
+				E895552B1CCDDBBF003E07B6 /* FontAwesomeIconFactory.framework in Frameworks */,
+				E89555311CCDDBBF003E07B6 /* Pods.framework in Frameworks */,
+				E89555251CCDDBBF003E07B6 /* Bolts.framework in Frameworks */,
+				E895552E1CCDDBBF003E07B6 /* Parse.framework in Frameworks */,
+				E89555281CCDDBBF003E07B6 /* FontAwesome_swift.framework in Frameworks */,
+				E89555341CCDDBBF003E07B6 /* Pods_Karma.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,7 +252,12 @@
 		FC3B03651CB02CA90000EC38 = {
 			isa = PBXGroup;
 			children = (
-				FCF874B71CCDA2980028ADD7 /* FontAwesome_swift.framework */,
+				E89555331CCDDBBF003E07B6 /* Pods_Karma.framework */,
+				E89555301CCDDBBF003E07B6 /* Pods.framework */,
+				E895552D1CCDDBBF003E07B6 /* Parse.framework */,
+				E895552A1CCDDBBF003E07B6 /* FontAwesomeIconFactory.framework */,
+				E89555271CCDDBBF003E07B6 /* FontAwesome_swift.framework */,
+				E89555241CCDDBBF003E07B6 /* Bolts.framework */,
 				FC3B03701CB02CAA0000EC38 /* Karma */,
 				FC3B03851CB02CAA0000EC38 /* KarmaTests */,
 				FC3B03901CB02CAA0000EC38 /* KarmaUITests */,

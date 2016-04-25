@@ -9,6 +9,10 @@
 import UIKit
 import Parse
 
+protocol NewPostCollectionViewDelegate {
+    func selectLocationsPressed(cell : NewPostCollectionViewCell)
+}
+
 class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var setAudience: UIButton!
@@ -20,52 +24,55 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
     
+    var delegate:NewPostCollectionViewDelegate? = nil
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        
-//        dropDown.dataSource = [
-//            "Berkeley",
-//            "California"
-//        ]
-//        
-//        dropDown.selectionAction = { [unowned self] (index, item) in
-////            self.setAudience.setTitle(item, forState: .Normal)
-//            print("Selected Action: %@", item)
-//        }
-//        dropDown.anchorView = setAudience
-//        dropDown.direction = .Top
-////        dropDown.bottomOffset = CGPoint(x: 0, y:setAudience.bounds.height)
-//        dropDown.topOffset = CGPoint(x: 0, y:-setAudience.bounds.height)
+        //
+        //        dropDown.dataSource = [
+        //            "Berkeley",
+        //            "California"
+        //        ]
+        //
+        //        dropDown.selectionAction = { [unowned self] (index, item) in
+        ////            self.setAudience.setTitle(item, forState: .Normal)
+        //            print("Selected Action: %@", item)
+        //        }
+        //        dropDown.anchorView = setAudience
+        //        dropDown.direction = .Top
+        ////        dropDown.bottomOffset = CGPoint(x: 0, y:setAudience.bounds.height)
+        //        dropDown.topOffset = CGPoint(x: 0, y:-setAudience.bounds.height)
     }
     
-//    @IBAction func showOrDismiss(sender: AnyObject) {
-//        dropDown.reloadAllComponents()
-//
-//        if dropDown.hidden {
-//            dropDown.show()
-//        } else {
-//            dropDown.hide()
-//        }
-//    }
- 
-//    @IBAction func viewTapped() {
-//        view.endEditing(false)
-//    }
+    //    @IBAction func showOrDismiss(sender: AnyObject) {
+    //        dropDown.reloadAllComponents()
+    //
+    //        if dropDown.hidden {
+    //            dropDown.show()
+    //        } else {
+    //            dropDown.hide()
+    //        }
+    //    }
+    
+    //    @IBAction func viewTapped() {
+    //        view.endEditing(false)
+    //    }
     
     @IBAction func selectLocationPressed(sender: AnyObject)
     {
         //Present setAudiencepopover and select location
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("locationSelection") as! LocationsViewController
-        var nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = UIModalPresentationStyle.Popover
-        var popover = nav.popoverPresentationController
-        vc.preferredContentSize = CGSizeMake(320,300)
-        popover!.delegate = self
-        popover!.sourceView = self.setAudience
-        popover!.sourceRect = self.setAudience.frame
-        
-//        self.presentViewController(nav, animated: true, completion: nil)
-        self.window?.rootViewController?.presentViewController(nav, animated: true, completion: nil)
+        //        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("locationSelection") as! LocationsViewController
+        //        var nav = UINavigationController(rootViewController: vc)
+        //        nav.modalPresentationStyle = UIModalPresentationStyle.Popover
+        //        var popover = nav.popoverPresentationController
+        //        vc.preferredContentSize = CGSizeMake(320,300)
+        //        popover!.delegate = self
+        //        popover!.sourceView = self.setAudience
+        //        popover!.sourceRect = self.setAudience.frame
+        //
+        ////        self.presentViewController(nav, animated: true, completion: nil)
+        //        self.window?.rootViewController?.presentViewController(nav, animated: true, completion: nil)
+        delegate!.selectLocationsPressed(self)
     }
     @IBAction func sendMessage(sender: AnyObject) {
         print(textView.text)
@@ -112,7 +119,6 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
                             self.textView.endEditing(true)
                             if (success) {
                                 print("yaaaaas")
-                                self.displayAlert("Sent", displayError: "Reply Sent!")
                                 // if tap outside then shrink the box
                                 // but if inside then expand and show the button
                             } else {
@@ -127,26 +133,16 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
                     print("Error: \(error!) \(error!.userInfo)")
                 }
             }
-//            UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
-//                self.sentlabel.alpha = 1.0
-//                }, completion: nil)
-//            UIView.animateWithDuration(1.0, delay: 1.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-//                self.sentlabel.alpha = 0.0
-//                }, completion: {
-//                    (finished: Bool) -> Void in
-//            })
+            //            UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+            //                self.sentlabel.alpha = 1.0
+            //                }, completion: nil)
+            //            UIView.animateWithDuration(1.0, delay: 1.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            //                self.sentlabel.alpha = 0.0
+            //                }, completion: {
+            //                    (finished: Bool) -> Void in
+            //            })
             
         }
-    }
-    
-    func displayAlert(title: String, displayError: String) {
-        
-        let alert = UIAlertController(title: title, message: displayError, preferredStyle: UIAlertControllerStyle.Alert)
-        
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { action in
-            
-        }))
-        //self.presentViewController(alert, animated: true, completion: nil)
     }
     
     func setPlaceholder() {
@@ -157,20 +153,20 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-//        
-//        dropDown.dataSource = [
-//            "Berkeley",
-//            "California"
-//        ]
-//        
-//        dropDown.selectionAction = { [unowned self] (index, item) in
-//            //            self.setAudience.setTitle(item, forState: .Normal)
-//            print("Selected Action: %@", item)
-//        }
-//        dropDown.anchorView = setAudience
-//        dropDown.direction = .Bottom
-//        dropDown.topOffset = CGPoint(x: 0, y:-30)
-
+        //
+        //        dropDown.dataSource = [
+        //            "Berkeley",
+        //            "California"
+        //        ]
+        //
+        //        dropDown.selectionAction = { [unowned self] (index, item) in
+        //            //            self.setAudience.setTitle(item, forState: .Normal)
+        //            print("Selected Action: %@", item)
+        //        }
+        //        dropDown.anchorView = setAudience
+        //        dropDown.direction = .Bottom
+        //        dropDown.topOffset = CGPoint(x: 0, y:-30)
+        
         
     }
     
