@@ -22,7 +22,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
     var currentIndex = -1;
     var timesArray = Array<NSDate>()
     var messageIds = Array<String>()
-    var replies = Array<String>()
+    var replied = Array<Bool>()
     var messages = Array<PFObject>()
     var currUser = PFUser.currentUser()!
     var userId = PFUser.currentUser()!.objectId
@@ -49,13 +49,8 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
                         self.body.append(object["messageBody"] as! String)
                         self.messages.append(object)
                         self.messageIds.append(object.objectId!)
-                        var replyText = object["replyText"]
-                        if replyText == nil {
-                            self.replies.append("")
-                        } else {
-                            self.replies.append(object["replyText"] as! String)
-                        }
-                        
+                        let repliedIds = object["repliedIds"] as! NSArray
+                        self.replied.append(repliedIds.containsObject(self.userId!))
                         
                         self.timesArray.append((object["sentDate"] as? NSDate)!)
                     }
@@ -113,8 +108,13 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.tabBarController?.selectedIndex = 1
     }
     func refresh() {
-        locations = Array<String>()
-        body = Array<String>()
+        locations.removeAll()
+        body.removeAll()
+        messages.removeAll()
+        timesArray.removeAll()
+        messageIds.removeAll()
+        replied.removeAll()
+        
         currentIndex = -1;
         getMessages()
         
@@ -133,30 +133,35 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         receivedMessagesCollectionView.delegate = self
         receivedMessagesCollectionView.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         
+        //layout spacing
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 0
         
+        
+        //navbar
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar.translucent = false;
+        //self.navigationController?.navigationBar.translucent = false;
         //UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.topItem!.title = "Received Messages";
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: String(currUser["audienceLim"]), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(receivedViewController.addTapped))
+        let newMessageImage = UIImage.fontAwesomeIconWithName(.PencilSquareO, textColor: UIColor.blackColor(), size: CGSizeMake(25, 25))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: newMessageImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(receivedViewController.addTapped))
         
+        //load Messages
         getMessages()
         
         
+        //collectionViewwidth
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         
         let screenWidth = screenSize.width
         
         receivedMessagesCollectionView.frame.size.width = screenWidth
-        receivedMessagesCollectionView.backgroundColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0)
-        
-        receivedMessagesCollectionView.backgroundView = nil;
         
         
-        let newMessageImage = UIImage.fontAwesomeIconWithName(.PencilSquareO, textColor: UIColor.blackColor(), size: CGSizeMake(25, 25))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: newMessageImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(receivedViewController.addTapped))
+        //refresher
         
         refresher = UIRefreshControl()
         refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -185,10 +190,12 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = receivedMessagesCollectionView.dequeueReusableCellWithReuseIdentifier("recCell", forIndexPath: indexPath) as!receivedMessageCollectionViewCell
         
-        cell.backgroundView = nil;
+        //cell.backgroundView = nil;
         
         
         //Fill Cell Data
+        print("body" + String(body.count))
+        print(indexPath.row)
         cell.message.text = body[indexPath.row]
         cell.time.text = cleanTime(timesArray[indexPath.row])
         cell.location.text = locations[indexPath.row]
@@ -216,7 +223,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.replyButton.titleLabel?.font = UIFont.fontAwesomeOfSize(10)
         cell.replyButton.setTitle("Reply", forState: .Normal)
         
-        if replies[indexPath.row] != "" {
+        if replied[indexPath.row] {
             cell.replyButton.setTitle(String.fontAwesomeIconWithName(.Check), forState: .Normal)
         }
         

@@ -18,6 +18,13 @@ class expandViewController: UIViewController, UITextViewDelegate{
     @IBOutlet weak var location: UILabel!
     @IBOutlet weak var date: UILabel!
     
+    @IBOutlet weak var sentMapView: MKMapView!
+    
+    var message: PFObject?
+    var replyOpenText = false
+    var currentUser = PFUser.currentUser()
+    var locationName = ""
+    
     func setPlaceholder() {
         response.delegate = self
         response.text = "How would you like to reply?"
@@ -38,11 +45,6 @@ class expandViewController: UIViewController, UITextViewDelegate{
         }
         response.resignFirstResponder()
     }
-    
-    
-    var message: PFObject?
-    var replyOpenText = false
-    var currentUser = PFUser.currentUser()
     
     func displayAlert(title: String, displayError: String) {
         
@@ -72,7 +74,7 @@ class expandViewController: UIViewController, UITextViewDelegate{
             newReply["senderId"] = currentUser!.objectId
             newReply["messageId"] = message!.objectId
             newReply["replyBody"] = replyText
-            newReply["createdAt"] = NSDate()
+            newReply["replyDate"] = NSDate()
             newReply["authorized"] = false
             
             
@@ -81,6 +83,7 @@ class expandViewController: UIViewController, UITextViewDelegate{
                 if (success) {
                     // The object has been saved.
                     self.setPlaceholder()
+                    self.displayAlert("Sent", displayError: "Reply Sent!")
                     print("sucesssss!!!!")
                     //self.dismissViewControllerAnimated(true, completion: nil)
                 } else {
@@ -95,15 +98,100 @@ class expandViewController: UIViewController, UITextViewDelegate{
         }
     }
     
+    func addMapPin() {
+        let locGeoPoint = message!["sentLocation"] as! PFGeoPoint
+        let latitude: CLLocationDegrees = locGeoPoint.latitude
+        let longtitude: CLLocationDegrees = locGeoPoint.longitude
+        
+        let location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
+        
+        let geoCoder = CLGeocoder()
+        
+        
+        //locationNot2D has the same latitudes and longitudes as "location," but
+        //is an object of type CLLocation, as opposed to CLLocation2D. The reverse geocoder
+        //takes in a CLLocation object.
+        let locationNot2D = CLLocation(latitude: location.latitude, longitude: location.longitude)
+        geoCoder.reverseGeocodeLocation(locationNot2D) {
+            (placemarks, error) -> Void in
+            
+            let placeArray = placemarks as [CLPlacemark]!
+            
+            // Place details
+            var placeMark: CLPlacemark!
+            placeMark = placeArray?[0]
+            
+            
+            // City
+            if let city = placeMark.locality
+            {
+                print(city)
+                self.location.text = city as String
+                self.locationName += city as String
+                self.locationName += ", "
+            }
+            
+            if let state = placeMark.administrativeArea
+            {
+                print(state)
+                self.locationName += state as String
+                self.locationName += ", "
+            }
+            
+            // Country
+            if let country = placeMark.country
+            {
+                print(country)
+                self.locationName += country as String
+            }
+            
+            //These next three lines will add an annotation of the specific location.
+            //Comment out these lines adding an annotation of the
+            //general city.
+            //                    annotation.title = self.locationName
+            //                    annotation.coordinate = location
+            //                    self.reachMap.addAnnotation(annotation)
+            
+            //localLocationName is necessary to hold the value of self.locationName
+            //because self.locationName will be set to nil in the line after this geocodeAddressString block,
+            //before this geocodeAddressString block is done running.
+            var localLocationName = self.locationName
+            var geo = CLGeocoder()
+            geo.geocodeAddressString(localLocationName, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+                if((error) != nil){
+                    
+                    print("Error", error)
+                }
+                    
+                else {
+                    var placemark:CLPlacemark = placemarks![0] 
+                    var coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
+                    
+                    var pointAnnotation:MKPointAnnotation = MKPointAnnotation()
+                    pointAnnotation.coordinate = coordinates
+                    pointAnnotation.title = localLocationName
+                    self.sentMapView.addAnnotation(pointAnnotation)
+                    self.sentMapView.centerCoordinate = coordinates
+                    self.sentMapView.selectAnnotation(pointAnnotation, animated: true)
+                    print("Added annotation to map view")
+                }
+            })
+            self.locationName = ""
+        }
+        
+        
+    }
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setPlaceholder()
+        addMapPin()
         self.automaticallyAdjustsScrollViewInsets = false
         
-        location.text = message!["audience"] as? String
+        //location.text = message!["audience"] as? String
         let messDate = (message!["sentDate"] as? NSDate)!
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
@@ -136,7 +224,6 @@ class expandViewController: UIViewController, UITextViewDelegate{
     */
     @IBAction func sendReply(sender: AnyObject) {
         addNewReply()
-        displayAlert("Sent", displayError: "Reply Sent!")
         self.response.endEditing(true)
     }
     
