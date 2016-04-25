@@ -10,12 +10,22 @@ import UIKit
 
 class DataStorage: NSObject {
 
-    static var doubleDictionary[String: Double] = [:]
+    static var doubleDictionary:[String: Double] = ["radius":200.0]
+//    static var booleanDictionary:[String: Bool] = ["userHasPutInRadius":false]
     
     static func storeDouble(key: String, myDouble: Double) {
+        
         doubleDictionary[key] = myDouble
     }
     static func getDouble(key: String) -> Double {
-        return doubleDictionary[key]
+        return doubleDictionary[key]!
     }
+    
+//    static func storeBoolean(key: String, boolToStore: Bool) {
+//        booleanDictionary[key] = boolToStore
+//    }
+//    
+//    static func getBoolean(key: String) -> Bool {
+//        return booleanDictionary[key]!
+//    }
 }

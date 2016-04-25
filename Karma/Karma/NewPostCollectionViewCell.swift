@@ -24,8 +24,7 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
-    
-    
+    var usersInRange = Array<PFObject>()    
     
     var delegate:NewPostCollectionViewDelegate? = nil
     
@@ -79,6 +78,7 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
     }
     @IBAction func sendMessage(sender: AnyObject) {
         print(textView.text)
+        currUser!["audienceLim"] = currUser!["audienceLim"] as! Int + 1
         if (textView.text != "" || textView.text != "What's on your mind?") {
             let msg = PFObject(className: "Messages")
             msg["messageBody"] = textView.text
@@ -101,7 +101,8 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
             let userGeoPoint = currUser!["location"] as! PFGeoPoint
             
             let query = PFQuery(className:"_User")
-            query.whereKey("location", nearGeoPoint:userGeoPoint)
+            print(DataStorage.getDouble("radius"))
+            query.whereKey("location", nearGeoPoint:userGeoPoint, withinMiles: DataStorage.getDouble("radius"))
             query.limit = currUser!["audienceLim"] as! Int
             query.findObjectsInBackgroundWithBlock {
                 (objects: [PFObject]?, error: NSError?) -> Void in
@@ -109,8 +110,10 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
                 if error == nil {
                     if let objects = objects {
                         for object in objects {
-                            recieverIds.addObject(object.objectId!)
-                            recievedLocations.addObject(object["location"])
+                            if (object.objectId != self.currUser?.objectId) {
+                                recieverIds.addObject(object.objectId!)
+                                recievedLocations.addObject(object["location"])
+                            }
                         }
                         msg["recieverIds"] = recieverIds
                         msg["recievedLocations"] = recievedLocations

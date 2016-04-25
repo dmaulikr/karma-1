@@ -12,7 +12,6 @@ import Parse
 class LocationsViewController: UITableViewController {
     
     var locationOptions = ["Local (20 miles)", "Mid-Scale (200 miles)", "Expansive (2000 miles)"]
-    var usersInRange = Array<PFObject>()
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
@@ -43,7 +42,8 @@ class LocationsViewController: UITableViewController {
         } else if (indexPath.row == 2) {
             radius = 2000.0
         }
-        DataStorage.storeDouble("userRadius", myDouble: radius)
+        DataStorage.storeDouble("radius", myDouble: radius)
+//        DataStorage.storeBoolean("userHasPutInRadius", boolToStore: true)
         self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

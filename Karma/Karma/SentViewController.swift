@@ -17,7 +17,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var seenCount = Array<Int>()
     var sentTimes = Array<NSDate>()
     var refresher:UIRefreshControl!
-    
+    var popoverController:UIPopoverPresentationController? = nil
     
     @IBOutlet weak var messageBody: UILabel!
     
@@ -33,8 +33,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return 2
     }
     
-    
-    
+
     // customize border between sections width between sections
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
@@ -88,16 +87,18 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func selectLocationsPressed(cell: NewPostCollectionViewCell) {
         //Select locations was called, show popover
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("locationSelection") as! LocationsViewController
-        var nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = UIModalPresentationStyle.Popover
-        var popover = nav.popoverPresentationController
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("locationSelection") as! LocationsViewController
+//        var nav = UINavigationController(rootViewController: vc)
+        vc.modalPresentationStyle = UIModalPresentationStyle.Popover
+//        popoverController =
         vc.preferredContentSize = CGSizeMake(320,300)
-        popover!.delegate = self
-        popover!.sourceView = cell
-        popover!.sourceRect = cell.setAudience.frame
-        
-        self.presentViewController(nav, animated: true, completion: nil)
+        vc.popoverPresentationController!.delegate = self
+        vc.popoverPresentationController!.sourceView = cell
+        vc.popoverPresentationController!.sourceRect = cell.setAudience.frame
+
+        self.presentViewController(vc, animated: true, completion: nil)
+
+  
         
     }
     
@@ -250,7 +251,4 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return String(numYears) + " years ago"
         
     }
-    
-    
-    
 }
