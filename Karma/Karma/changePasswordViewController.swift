@@ -11,6 +11,8 @@ import Parse
 
 class changePasswordViewController: UIViewController {
     
+    
+    
     @IBOutlet weak var reenterNewPassword: UITextField!
     @IBOutlet weak var enterNewPassword: UITextField!
     @IBOutlet weak var enterOldPassword: UITextField!

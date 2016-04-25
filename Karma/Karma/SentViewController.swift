@@ -14,6 +14,9 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var collectionView: UICollectionView!
     var locations = Array<String>()
     var messages = Array<String>()
+    var seenCount = Array<Int>()
+    var sentTimes = Array<NSDate>()
+    var refresher:UIRefreshControl!
     
     
     @IBOutlet weak var messageBody: UILabel!
@@ -35,23 +38,11 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     // customize border between sections width between sections
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
+        //TIME STAMPS
+        
         if indexPath.section == 0 {
             let np = collectionView.dequeueReusableCellWithReuseIdentifier("newPost", forIndexPath: indexPath) as! NewPostCollectionViewCell
-            
-            //design cell
-//            np.layer.borderColor = UIColor.whiteColor().CGColor
-//            np.layer.borderWidth = 1
-            
-            np.layer.shadowOffset = CGSizeMake(0, 1)
-            np.layer.shadowColor = UIColor.blackColor().CGColor
-            
-            np.layer.shadowOpacity = 0.7
-            
-            
-            let shadowFrame: CGRect = (np.layer.bounds)
-            let shadowPath: CGPathRef = UIBezierPath(rect: shadowFrame).CGPath
-            np.layer.shadowPath = shadowPath
-            np.clipsToBounds = false
+
             
             //np.layoutMargins
 
@@ -70,7 +61,9 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             sc.layer.borderColor = UIColor.whiteColor().CGColor
             sc.layer.borderWidth = 1
             sc.layer.shadowOffset = CGSizeMake(0, 1)
-            sc.layer.shadowColor = UIColor.blackColor().CGColor
+            sc.layer.shadowColor = UIColor(netHex:0xCDBA96).CGColor
+            sc.layer.shadowRadius = 3
+            sc.layer.cornerRadius = 3
             
             sc.layer.shadowOpacity = 0.7
             
@@ -84,6 +77,9 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             if messages.count > 0 {
                 sc.messageBody.text = messages[indexPath.item]
+                sc.seenBy.text = "Seen by " + String(seenCount[indexPath.item])
+                sc.audience.text = locations[indexPath.item]
+                sc.timeStamp.text = cleanTime(sentTimes[indexPath.row])
             }
             return sc
         }
@@ -113,6 +109,11 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         queryMessages()
         setProperties()
         
+        refresher = UIRefreshControl()
+        refresher.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refresher.addTarget(self, action:#selector(SentViewController.refresh), forControlEvents: UIControlEvents.ValueChanged)
+        collectionView.addSubview(refresher)
+        
         let tapRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
         tapRecognizer.numberOfTapsRequired = 1
         self.view.addGestureRecognizer(tapRecognizer)
@@ -141,19 +142,32 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 
                 if let objects = objects {
                     for object in objects {
-                        self.locations.append ( object["audience"] as! String)
+                        self.locations.append (object["audience"] as! String)
                         self.messages.append(object["messageBody"] as! String)
+                        self.sentTimes.append(object["sentDate"] as! NSDate)
+                        if object["readIds"] == nil {
+                            self.seenCount.append(0)
+                        } else {
+                            self.seenCount.append(object["readIds"].count)
+                        }
                     }
                 }
-                
-                
                 self.collectionView!.reloadData()
+                self.refresher.endRefreshing()
             } else {
                 print("Error: \(error!) \(error!.userInfo)")
             }
             
         }
         print(self.messages.count)
+    }
+    
+    func refresh() {
+        locations = Array<String>()
+        messages = Array<String>()
+        seenCount = Array<Int>()
+        queryMessages()
+        
     }
     
     func setProperties() {
@@ -175,6 +189,45 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // Dispose of any resources that can be recreated.
     }
     
+    func cleanTime(sentDate: NSDate) -> String {
+        
+        var timeInterval : NSTimeInterval = sentDate.timeIntervalSinceNow
+        timeInterval = timeInterval * -1
+        
+        //print(timeInterval)
+        if timeInterval < 60 {
+            return "Just now"
+        } else if timeInterval < (60 * 60) {
+            let numMinutes = Int(floor(timeInterval / 60))
+            return String(numMinutes) + " minutes ago"
+        } else if timeInterval < (2*60*60) {
+            return "1 hour ago"
+        } else if timeInterval < (24*60*60) {
+            let numHours = Int(floor(timeInterval / (60*60)))
+            return String(numHours) + " hours ago"
+        } else if timeInterval < (48 * 60 * 60) {
+            return "1 day ago"
+        } else if timeInterval < (7 * 24 * 60 * 60) {
+            let numDays = Int(floor(timeInterval / (24*60*60)))
+            return String(numDays) + " days ago"
+        } else if timeInterval < (2 * 7 * 24 * 60 * 60) {
+            return "1 week ago"
+        } else if timeInterval < (30 * 24 * 60 * 60) {
+            let numWeeks = Int(floor(timeInterval / (7*24*60*60)))
+            return String(numWeeks) + " weeks ago"
+        } else if timeInterval < (2 * 30 * 24 * 60 * 60) {
+            return "1 month ago"
+        } else if timeInterval < (365 * 24 * 60 * 60) {
+            let numMonths = Int(floor(timeInterval / (30*24*60*60)))
+            return String(numMonths) + " months ago"
+        } else if timeInterval < (365 * 24 * 60 * 60) {
+            return "1 year ago"
+        }
+        
+        let numYears = Int(floor(timeInterval / (365*24*60*60)))
+        return String(numYears) + " years ago"
+        
+    }
 
     
 

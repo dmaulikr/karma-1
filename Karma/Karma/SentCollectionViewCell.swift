@@ -12,5 +12,7 @@ class SentCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var seenBy: UILabel!
     @IBOutlet weak var messageBody: UILabel!
-    
+    @IBOutlet weak var audience: UILabel!
+    @IBOutlet weak var timeStamp: UILabel!
+
 }

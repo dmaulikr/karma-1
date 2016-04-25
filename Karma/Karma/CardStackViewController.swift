@@ -21,7 +21,7 @@ class CardStackViewController: UIViewController, YSLDraggableCardContainerDataSo
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         container = YSLDraggableCardContainer()
@@ -35,7 +35,7 @@ class CardStackViewController: UIViewController, YSLDraggableCardContainerDataSo
         
         container.reloadCardContainer()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -43,7 +43,11 @@ class CardStackViewController: UIViewController, YSLDraggableCardContainerDataSo
     
     func cardContainerViewNextViewWithIndex(index: Int) -> UIView! {
         
-        let card = UIView(frame: CGRect(x: 30, y: 80, width: 300, height: 400))
+        let bounds = UIScreen.mainScreen().bounds
+        let screenWidth = bounds.size.width
+        let screenHeight = bounds.size.height
+        let cardWidth = screenWidth * (6 / 7) - screenWidth / 7
+        let card = UIView(frame: CGRect(x: screenWidth / 7, y: 130, width: cardWidth, height: 400))
         card.backgroundColor = UIColor.randomColor()
         card.layer.borderColor = UIColor.grayColor().CGColor
         card.layer.borderWidth = 0.4
@@ -58,7 +62,7 @@ class CardStackViewController: UIViewController, YSLDraggableCardContainerDataSo
     }
     
     func cardContainerViewNumberOfViewInIndex(index: Int) -> Int {
-        return messagesToShow.count
+        return 7
     }
     
     func cardContainerView(cardContainerView: YSLDraggableCardContainer!, didEndDraggingAtIndex index: Int, draggableView: UIView!, draggableDirection: YSLDraggableDirection) {
@@ -90,15 +94,15 @@ class CardStackViewController: UIViewController, YSLDraggableCardContainerDataSo
         print("Did select index: %d", index)
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

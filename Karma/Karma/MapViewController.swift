@@ -15,7 +15,6 @@ class MapViewController: UIViewController {
     
     var sentLocations = Array<CLLocationCoordinate2D>()
     var locationName = ""
-    var finalName = ""
     
     @IBOutlet weak var reachMap: MKMapView!
     override func viewDidLoad() {
@@ -67,6 +66,7 @@ class MapViewController: UIViewController {
     func drawAnnotations() {
         if self.sentLocations.count > 0 {
             for location in self.sentLocations {
+                self.locationName = ""
                 let annotation = MKPointAnnotation()
                 
                 
@@ -112,12 +112,16 @@ class MapViewController: UIViewController {
                     //These next three lines will add an annotation of the specific location.
                     //Comment out these lines adding an annotation of the
                     //general city.
-//                    annotation.title = self.locationName
-//                    annotation.coordinate = location
-//                    self.reachMap.addAnnotation(annotation)
+                    //                    annotation.title = self.locationName
+                    //                    annotation.coordinate = location
+                    //                    self.reachMap.addAnnotation(annotation)
                     
+                    //localLocationName is necessary to hold the value of self.locationName
+                    //because self.locationName will be set to nil in the line after this geocodeAddressString block,
+                    //before this geocodeAddressString block is done running.
+                    var localLocationName = self.locationName
                     var geo = CLGeocoder()
-                    geo.geocodeAddressString(self.locationName, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+                    geo.geocodeAddressString(localLocationName, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
                         if((error) != nil){
                             
                             print("Error", error)
@@ -129,14 +133,14 @@ class MapViewController: UIViewController {
                             
                             var pointAnnotation:MKPointAnnotation = MKPointAnnotation()
                             pointAnnotation.coordinate = coordinates
-                            pointAnnotation.title = self.locationName
-                            
+                            pointAnnotation.title = localLocationName
                             self.reachMap.addAnnotation(pointAnnotation)
                             self.reachMap.centerCoordinate = coordinates
                             self.reachMap.selectAnnotation(pointAnnotation, animated: true)
                             print("Added annotation to map view")
                         }
                     })
+                    self.locationName = ""
                 }
             }
         }

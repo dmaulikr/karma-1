@@ -46,12 +46,12 @@ class expandViewController: UIViewController {
             
             let replyText = response.text
             
-            let newReply = PFObject(className:"Messages")
+            let newReply = PFObject(className:"Replies")
             
             newReply["senderId"] = currentUser!.objectId
             newReply["messageId"] = message.objectId
             newReply["replyBody"] = replyText
-            newReply["replyDate"] = NSDate()
+            newReply["createdAt"] = NSDate()
             newReply["authorized"] = false
             
             
