@@ -114,6 +114,7 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
             print(DataStorage.getDouble("radius"))
             query.whereKey("location", nearGeoPoint:userGeoPoint, withinMiles: DataStorage.getDouble("radius"))
             query.limit = currUser!["audienceLim"] as! Int
+            print(currUser!["audienceLim"] as! Int)
             query.findObjectsInBackgroundWithBlock {
                 (objects: [PFObject]?, error: NSError?) -> Void in
                 
