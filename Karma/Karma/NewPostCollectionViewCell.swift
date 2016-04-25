@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
+class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPopoverPresentationControllerDelegate {
     
     @IBOutlet weak var setAudience: UIButton!
     //let dropDown = DropDown()
@@ -38,20 +38,35 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate {
 //        dropDown.topOffset = CGPoint(x: 0, y:-setAudience.bounds.height)
     }
     
-    @IBAction func showOrDismiss(sender: AnyObject) {
-        dropDown.reloadAllComponents()
-
-        if dropDown.hidden {
-            dropDown.show()
-        } else {
-            dropDown.hide()
-        }
-    }
+//    @IBAction func showOrDismiss(sender: AnyObject) {
+//        dropDown.reloadAllComponents()
+//
+//        if dropDown.hidden {
+//            dropDown.show()
+//        } else {
+//            dropDown.hide()
+//        }
+//    }
  
 //    @IBAction func viewTapped() {
 //        view.endEditing(false)
 //    }
     
+    @IBAction func selectLocationPressed(sender: AnyObject)
+    {
+        //Present setAudiencepopover and select location
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("locationSelection") as! LocationsViewController
+        var nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = UIModalPresentationStyle.Popover
+        var popover = nav.popoverPresentationController
+        vc.preferredContentSize = CGSizeMake(320,300)
+        popover!.delegate = self
+        popover!.sourceView = self.setAudience
+        popover!.sourceRect = self.setAudience.frame
+        
+//        self.presentViewController(nav, animated: true, completion: nil)
+        self.window?.rootViewController?.presentViewController(nav, animated: true, completion: nil)
+    }
     @IBAction func sendMessage(sender: AnyObject) {
         print(textView.text)
         if (textView.text != "" || textView.text != "What's on your mind?") {

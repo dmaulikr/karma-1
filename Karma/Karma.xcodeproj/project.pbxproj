@@ -10,6 +10,7 @@
 		0C0C4C651CB06669009A10B9 /* ThirstyScriptExtraBoldDemo.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C0C4C641CB06669009A10B9 /* ThirstyScriptExtraBoldDemo.otf */; };
 		0C0C4C671CB61BB3009A10B9 /* SentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C4C661CB61BB3009A10B9 /* SentCollectionViewCell.swift */; };
 		0C0C4C691CB61E58009A10B9 /* NewPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C4C681CB61E58009A10B9 /* NewPostCollectionViewCell.swift */; };
+		0C6B30BF1CCD9A5300127771 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B30BE1CCD9A5300127771 /* LocationsViewController.swift */; };
 		0C79AEED1CBE039900CD43AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C79AEEC1CBE039900CD43AD /* Main.storyboard */; };
 		0C7FEDCC1CCCC80800F25365 /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C7FEDC81CCCC80800F25365 /* DropDownCell.xib */; };
 		0C7FEDCD1CCCC80800F25365 /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FEDCA1CCCC80800F25365 /* DropDown.swift */; };
@@ -102,6 +103,7 @@
 		0C0C4C641CB06669009A10B9 /* ThirstyScriptExtraBoldDemo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ThirstyScriptExtraBoldDemo.otf; path = Fonts/ThirstyScriptExtraBoldDemo.otf; sourceTree = "<group>"; };
 		0C0C4C661CB61BB3009A10B9 /* SentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentCollectionViewCell.swift; sourceTree = "<group>"; };
 		0C0C4C681CB61E58009A10B9 /* NewPostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostCollectionViewCell.swift; sourceTree = "<group>"; };
+		0C6B30BE1CCD9A5300127771 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		0C79AEEC1CBE039900CD43AD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0C7FEDC81CCCC80800F25365 /* DropDownCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropDownCell.xib; sourceTree = "<group>"; };
 		0C7FEDCA1CCCC80800F25365 /* DropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				FC3B03A71CB031830000EC38 /* SentViewController.swift */,
 				0C7FEDE71CCCE08200F25365 /* UIColor.swift */,
 				0C79AEEC1CBE039900CD43AD /* Main.storyboard */,
+				0C6B30BE1CCD9A5300127771 /* LocationsViewController.swift */,
 				D8CDD29B1CCCEE71007964BF /* ForgotPasswordViewController.swift */,
 				D851269A1CB97738007CF281 /* receivedViewController.swift */,
 				FC9789871CC8940600AB7FB7 /* DateExtensions.swift */,
@@ -547,6 +550,7 @@
 				D83409B01CC89508007ECA3D /* SettingsViewController.swift in Sources */,
 				E8F0D2441CCC0AF600AFF6AE /* UIColor+Random_Color.m in Sources */,
 				0C7FEDD31CCCC80E00F25365 /* DPDConstants.swift in Sources */,
+				0C6B30BF1CCD9A5300127771 /* LocationsViewController.swift in Sources */,
 				FC3B03721CB02CAA0000EC38 /* AppDelegate.swift in Sources */,
 				FC3B03AC1CB031A10000EC38 /* MapViewController.swift in Sources */,
 				FC9789881CC8940600AB7FB7 /* DateExtensions.swift in Sources */,
