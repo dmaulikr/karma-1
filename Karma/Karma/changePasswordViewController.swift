@@ -56,7 +56,7 @@ class changePasswordViewController: UIViewController {
     @IBAction func SubmitNewPassword(sender: AnyObject) {
         var displayerror = ""
         var currentUser = PFUser.currentUser()!
-        
+        var currentUserPassword = currentUser.password
         
         
         
@@ -65,9 +65,9 @@ class changePasswordViewController: UIViewController {
         } else if reenterNewPassword.text != enterNewPassword.text {
             displayerror = "New Passwords Do Not Match"
         }
-//        else if currentUser["password"].text != enterOldPassword.text {
-//            displayerror = "Incorrect Password"
-//        }
+        else if currentUserPassword != enterOldPassword.text {
+            displayerror = "Incorrect Password"
+        }
         
         if displayerror != "" {
             displayalert("Error", displayError: displayerror)
