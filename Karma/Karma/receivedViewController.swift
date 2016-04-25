@@ -49,8 +49,14 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
                         self.body.append(object["messageBody"] as! String)
                         self.messages.append(object)
                         self.messageIds.append(object.objectId!)
-                        let repliedIds = object["repliedIds"] as! NSArray
-                        self.replied.append(repliedIds.containsObject(self.userId!))
+                        var repliedIds = object["repliedIds"]
+                        if (repliedIds != nil) {
+                            repliedIds = repliedIds as! NSArray
+                            self.replied.append(repliedIds.containsObject(self.userId!))
+                        } else {
+                            self.replied.append(false)
+                        }
+                        
                         
                         self.timesArray.append((object["sentDate"] as? NSDate)!)
                     }

@@ -112,6 +112,7 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
                             self.textView.endEditing(true)
                             if (success) {
                                 print("yaaaaas")
+                                self.displayAlert("Sent", displayError: "Reply Sent!")
                                 // if tap outside then shrink the box
                                 // but if inside then expand and show the button
                             } else {
@@ -136,6 +137,16 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
 //            })
             
         }
+    }
+    
+    func displayAlert(title: String, displayError: String) {
+        
+        let alert = UIAlertController(title: title, message: displayError, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { action in
+            
+        }))
+        //self.presentViewController(alert, animated: true, completion: nil)
     }
     
     func setPlaceholder() {

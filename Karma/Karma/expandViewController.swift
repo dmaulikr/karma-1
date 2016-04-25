@@ -82,6 +82,8 @@ class expandViewController: UIViewController, UITextViewDelegate{
                 (success: Bool, error: NSError?) -> Void in
                 if (success) {
                     // The object has been saved.
+                    self.message!.addUniqueObject((self.currentUser?.objectId)!, forKey:"repliedIds")
+                    self.message!.saveInBackground()
                     self.setPlaceholder()
                     self.displayAlert("Sent", displayError: "Reply Sent!")
                     print("sucesssss!!!!")
@@ -155,8 +157,8 @@ class expandViewController: UIViewController, UITextViewDelegate{
             //localLocationName is necessary to hold the value of self.locationName
             //because self.locationName will be set to nil in the line after this geocodeAddressString block,
             //before this geocodeAddressString block is done running.
-            var localLocationName = self.locationName
-            var geo = CLGeocoder()
+            let localLocationName = self.locationName
+            let geo = CLGeocoder()
             geo.geocodeAddressString(localLocationName, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
                 if((error) != nil){
                     
@@ -164,10 +166,10 @@ class expandViewController: UIViewController, UITextViewDelegate{
                 }
                     
                 else {
-                    var placemark:CLPlacemark = placemarks![0] 
-                    var coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
+                    let placemark:CLPlacemark = placemarks![0]
+                    let coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
                     
-                    var pointAnnotation:MKPointAnnotation = MKPointAnnotation()
+                    let pointAnnotation:MKPointAnnotation = MKPointAnnotation()
                     pointAnnotation.coordinate = coordinates
                     pointAnnotation.title = localLocationName
                     self.sentMapView.addAnnotation(pointAnnotation)
