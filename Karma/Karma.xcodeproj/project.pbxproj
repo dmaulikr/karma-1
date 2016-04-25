@@ -28,6 +28,7 @@
 		D867B3D21CB0964600335615 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867B3CF1CB0964600335615 /* FeedCollectionViewCell.swift */; };
 		D867B3D31CB0964600335615 /* FeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867B3D01CB0964600335615 /* FeedCollectionViewController.swift */; };
 		D8CDD29C1CCCEE71007964BF /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CDD29B1CCCEE71007964BF /* ForgotPasswordViewController.swift */; };
+		E807AE441CCDE99A0088CC5D /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E807AE431CCDE99A0088CC5D /* DataStorage.swift */; };
 		E8F0D23F1CCC0ADC00AFF6AE /* YSLCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D23C1CCC0ADC00AFF6AE /* YSLCardView.m */; };
 		E8F0D2401CCC0ADC00AFF6AE /* YSLDraggableCardContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D23E1CCC0ADC00AFF6AE /* YSLDraggableCardContainer.m */; };
 		E8F0D2441CCC0AF600AFF6AE /* UIColor+Random_Color.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D2431CCC0AF600AFF6AE /* UIColor+Random_Color.m */; };
@@ -105,6 +106,7 @@
 		D867B3CF1CB0964600335615 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		D867B3D01CB0964600335615 /* FeedCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewController.swift; sourceTree = "<group>"; };
 		D8CDD29B1CCCEE71007964BF /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		E807AE431CCDE99A0088CC5D /* DataStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		E8F0D23B1CCC0ADC00AFF6AE /* YSLCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLCardView.h; sourceTree = "<group>"; };
 		E8F0D23C1CCC0ADC00AFF6AE /* YSLCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLCardView.m; sourceTree = "<group>"; };
 		E8F0D23D1CCC0ADC00AFF6AE /* YSLDraggableCardContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLDraggableCardContainer.h; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				0C0C4C641CB06669009A10B9 /* ThirstyScriptExtraBoldDemo.otf */,
 				E8F0D2451CCC0BB400AFF6AE /* CardStackViewController.swift */,
 				FC3B03A51CB031410000EC38 /* LoginViewController.swift */,
+				E807AE431CCDE99A0088CC5D /* DataStorage.swift */,
 				E8F0D2411CCC0AF600AFF6AE /* Karma-Bridging-Header.h */,
 				E8F0D2421CCC0AF600AFF6AE /* UIColor+Random_Color.h */,
 				E8F0D2431CCC0AF600AFF6AE /* UIColor+Random_Color.m */,
@@ -496,6 +499,7 @@
 				D867B3D11CB0964600335615 /* expandViewController.swift in Sources */,
 				FC3B03A61CB031410000EC38 /* LoginViewController.swift in Sources */,
 				D83409B21CC8950C007ECA3D /* settingTableViewCell.swift in Sources */,
+				E807AE441CCDE99A0088CC5D /* DataStorage.swift in Sources */,
 				FC3B03741CB02CAA0000EC38 /* ViewController.swift in Sources */,
 				FC3B03A81CB031830000EC38 /* SentViewController.swift in Sources */,
 				D851269D1CB97A8F007CF281 /* receivedMessageCollectionViewCell.swift in Sources */,

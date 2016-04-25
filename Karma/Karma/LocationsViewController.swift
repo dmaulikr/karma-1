@@ -43,20 +43,7 @@ class LocationsViewController: UITableViewController {
         } else if (indexPath.row == 2) {
             radius = 2000.0
         }
-        
-        let userGeoPoint = PFUser.currentUser()!["location"] as! PFGeoPoint
-        let query = PFUser.query()
-        query!.whereKey("location", nearGeoPoint: userGeoPoint, withinMiles: radius)
-        query!.limit = 20
-        query!.findObjectsInBackgroundWithBlock {
-            (places, error) in
-            if (error == nil) {
-                if let places = places {
-                    for place in places {
-                        self.usersInRange.append(place)
-                    }
-                }
-            }
-        }
+        DataStorage.storeDouble("userRadius", myDouble: radius)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }
