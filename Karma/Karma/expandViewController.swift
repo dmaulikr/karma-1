@@ -100,6 +100,11 @@ class expandViewController: UIViewController, UITextViewDelegate{
         }
     }
     
+    func markAsRead() {
+        message!.addUniqueObject((self.currentUser?.objectId)!, forKey:"readIds")
+        message!.saveInBackground()
+    }
+    
     func addMapPin() {
         let locGeoPoint = message!["sentLocation"] as! PFGeoPoint
         let latitude: CLLocationDegrees = locGeoPoint.latitude
@@ -191,6 +196,7 @@ class expandViewController: UIViewController, UITextViewDelegate{
         
         setPlaceholder()
         addMapPin()
+        markAsRead()
         self.automaticallyAdjustsScrollViewInsets = false
         
         //location.text = message!["audience"] as? String

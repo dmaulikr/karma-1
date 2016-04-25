@@ -13,6 +13,7 @@ class CardStackViewController: UIViewController, YSLDraggableCardContainerDataSo
     
     var container = YSLDraggableCardContainer()
     var messagesToShow = Array<PFObject>()
+    var currentUser = PFUser.currentUser()
     
     @IBOutlet weak var exitButton: UIButton!
     @IBAction func exitButtonPressed(sender: AnyObject) {
@@ -58,7 +59,15 @@ class CardStackViewController: UIViewController, YSLDraggableCardContainerDataSo
         label.text = messagesToShow[index]["messageBody"] as? String
         card.addSubview(label)
         
+        let message = messagesToShow[index]
+        markAsRead(message)
+        
         return card
+    }
+    
+    func markAsRead(message: PFObject) {
+        message.addUniqueObject((currentUser?.objectId)!, forKey:"readIds")
+        message.saveInBackground()
     }
     
     func cardContainerViewNumberOfViewInIndex(index: Int) -> Int {
@@ -88,6 +97,7 @@ class CardStackViewController: UIViewController, YSLDraggableCardContainerDataSo
     
     func cardContainerViewDidCompleteAll(container: YSLDraggableCardContainer!) {
         print("Did CompleteALL")
+        self.dismissViewControllerAnimated(false, completion: nil)
     }
     
     func cardContainerView(cardContainerView: YSLDraggableCardContainer!, didSelectAtIndex index: Int, draggableView: UIView!) {
