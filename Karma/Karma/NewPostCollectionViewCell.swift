@@ -15,6 +15,7 @@ protocol NewPostCollectionViewDelegate {
 
 class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPopoverPresentationControllerDelegate {
     
+    @IBOutlet weak var sentLabel: UILabel!
     @IBOutlet weak var setAudience: UIButton!
     //let dropDown = DropDown()
     
@@ -23,6 +24,8 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
+    
+    
     
     var delegate:NewPostCollectionViewDelegate? = nil
     
@@ -133,14 +136,14 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
                     print("Error: \(error!) \(error!.userInfo)")
                 }
             }
-            //            UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
-            //                self.sentlabel.alpha = 1.0
-            //                }, completion: nil)
-            //            UIView.animateWithDuration(1.0, delay: 1.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-            //                self.sentlabel.alpha = 0.0
-            //                }, completion: {
-            //                    (finished: Bool) -> Void in
-            //            })
+                        UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                            self.sentLabel.alpha = 1.0
+                            }, completion: nil)
+                        UIView.animateWithDuration(1.0, delay: 1.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                            self.sentLabel.alpha = 0.0
+                            }, completion: {
+                                (finished: Bool) -> Void in
+                        })
             
         }
     }
@@ -184,6 +187,7 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
         }
         textView.resignFirstResponder()
     }
+    
     
     //dismiss keyboard
     
