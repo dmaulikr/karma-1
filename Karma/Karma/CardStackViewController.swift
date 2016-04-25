@@ -62,7 +62,7 @@ class CardStackViewController: UIViewController, YSLDraggableCardContainerDataSo
     }
     
     func cardContainerViewNumberOfViewInIndex(index: Int) -> Int {
-        return 7
+        return messagesToShow.count
     }
     
     func cardContainerView(cardContainerView: YSLDraggableCardContainer!, didEndDraggingAtIndex index: Int, draggableView: UIView!, draggableDirection: YSLDraggableDirection) {
