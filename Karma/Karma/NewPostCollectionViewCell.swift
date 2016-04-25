@@ -78,8 +78,18 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
     }
     @IBAction func sendMessage(sender: AnyObject) {
         print(textView.text)
-        currUser!["audienceLim"] = currUser!["audienceLim"] as! Int + 1
+        
+        
         if (textView.text != "" || textView.text != "What's on your mind?") {
+            currUser?.incrementKey("audienceLim", byAmount: 0.2)
+            currUser!.saveInBackgroundWithBlock {
+                (success: Bool, error: NSError?) -> Void in
+                if (success) {
+                    // The object has been saved.
+                } else {
+                    // There was a problem, check error.description
+                }
+            }
             let msg = PFObject(className: "Messages")
             msg["messageBody"] = textView.text
             msg["sentLocation"] = currUser!["location"] as! PFGeoPoint
@@ -104,6 +114,7 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
             print(DataStorage.getDouble("radius"))
             query.whereKey("location", nearGeoPoint:userGeoPoint, withinMiles: DataStorage.getDouble("radius"))
             query.limit = currUser!["audienceLim"] as! Int
+            print(currUser!["audienceLim"] as! Int)
             query.findObjectsInBackgroundWithBlock {
                 (objects: [PFObject]?, error: NSError?) -> Void in
                 

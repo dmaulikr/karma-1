@@ -29,6 +29,19 @@
 		D867B3D31CB0964600335615 /* FeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867B3D01CB0964600335615 /* FeedCollectionViewController.swift */; };
 		D8CDD29C1CCCEE71007964BF /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CDD29B1CCCEE71007964BF /* ForgotPasswordViewController.swift */; };
 		E807AE441CCDE99A0088CC5D /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E807AE431CCDE99A0088CC5D /* DataStorage.swift */; };
+		E807AF721CCE99F90088CC5D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807AF711CCE99F90088CC5D /* Bolts.framework */; };
+		E807AF731CCE9A070088CC5D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807AF711CCE99F90088CC5D /* Bolts.framework */; };
+		E807AF741CCE9A070088CC5D /* Bolts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E807AF711CCE99F90088CC5D /* Bolts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E807AF761CCE9A070088CC5D /* FontAwesome_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807AF751CCE9A070088CC5D /* FontAwesome_swift.framework */; };
+		E807AF771CCE9A070088CC5D /* FontAwesome_swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E807AF751CCE9A070088CC5D /* FontAwesome_swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E807AF791CCE9A070088CC5D /* FontAwesomeIconFactory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807AF781CCE9A070088CC5D /* FontAwesomeIconFactory.framework */; };
+		E807AF7A1CCE9A070088CC5D /* FontAwesomeIconFactory.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E807AF781CCE9A070088CC5D /* FontAwesomeIconFactory.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E807AF7C1CCE9A070088CC5D /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807AF7B1CCE9A070088CC5D /* Parse.framework */; };
+		E807AF7D1CCE9A070088CC5D /* Parse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E807AF7B1CCE9A070088CC5D /* Parse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E807AF7F1CCE9A070088CC5D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807AF7E1CCE9A070088CC5D /* Pods.framework */; };
+		E807AF801CCE9A080088CC5D /* Pods.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E807AF7E1CCE9A070088CC5D /* Pods.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E807AF821CCE9A080088CC5D /* Pods_Karma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807AF811CCE9A080088CC5D /* Pods_Karma.framework */; };
+		E807AF831CCE9A080088CC5D /* Pods_Karma.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E807AF811CCE9A080088CC5D /* Pods_Karma.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E8F0D23F1CCC0ADC00AFF6AE /* YSLCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D23C1CCC0ADC00AFF6AE /* YSLCardView.m */; };
 		E8F0D2401CCC0ADC00AFF6AE /* YSLDraggableCardContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D23E1CCC0ADC00AFF6AE /* YSLDraggableCardContainer.m */; };
 		E8F0D2441CCC0AF600AFF6AE /* UIColor+Random_Color.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D2431CCC0AF600AFF6AE /* UIColor+Random_Color.m */; };
@@ -76,6 +89,12 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				E807AF7A1CCE9A070088CC5D /* FontAwesomeIconFactory.framework in Embed Frameworks */,
+				E807AF801CCE9A080088CC5D /* Pods.framework in Embed Frameworks */,
+				E807AF741CCE9A070088CC5D /* Bolts.framework in Embed Frameworks */,
+				E807AF7D1CCE9A070088CC5D /* Parse.framework in Embed Frameworks */,
+				E807AF771CCE9A070088CC5D /* FontAwesome_swift.framework in Embed Frameworks */,
+				E807AF831CCE9A080088CC5D /* Pods_Karma.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,6 +126,12 @@
 		D867B3D01CB0964600335615 /* FeedCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewController.swift; sourceTree = "<group>"; };
 		D8CDD29B1CCCEE71007964BF /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		E807AE431CCDE99A0088CC5D /* DataStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
+		E807AF711CCE99F90088CC5D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Bolts.framework"; sourceTree = "<group>"; };
+		E807AF751CCE9A070088CC5D /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FontAwesome_swift.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/FontAwesome_swift.framework"; sourceTree = "<absolute>"; };
+		E807AF781CCE9A070088CC5D /* FontAwesomeIconFactory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FontAwesomeIconFactory.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/FontAwesomeIconFactory.framework"; sourceTree = "<absolute>"; };
+		E807AF7B1CCE9A070088CC5D /* Parse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Parse.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Parse.framework"; sourceTree = "<absolute>"; };
+		E807AF7E1CCE9A070088CC5D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Pods.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Pods.framework"; sourceTree = "<absolute>"; };
+		E807AF811CCE9A080088CC5D /* Pods_Karma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Pods_Karma.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Pods_Karma.framework"; sourceTree = "<absolute>"; };
 		E8F0D23B1CCC0ADC00AFF6AE /* YSLCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLCardView.h; sourceTree = "<group>"; };
 		E8F0D23C1CCC0ADC00AFF6AE /* YSLCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLCardView.m; sourceTree = "<group>"; };
 		E8F0D23D1CCC0ADC00AFF6AE /* YSLDraggableCardContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLDraggableCardContainer.h; sourceTree = "<group>"; };
@@ -146,6 +171,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E807AF7F1CCE9A070088CC5D /* Pods.framework in Frameworks */,
+				E807AF721CCE99F90088CC5D /* Bolts.framework in Frameworks */,
+				E807AF761CCE9A070088CC5D /* FontAwesome_swift.framework in Frameworks */,
+				E807AF791CCE9A070088CC5D /* FontAwesomeIconFactory.framework in Frameworks */,
+				E807AF731CCE9A070088CC5D /* Bolts.framework in Frameworks */,
+				E807AF7C1CCE9A070088CC5D /* Parse.framework in Frameworks */,
+				E807AF821CCE9A080088CC5D /* Pods_Karma.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +228,7 @@
 		C0325ACF6BE238C9ADD76545 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E807AF711CCE99F90088CC5D /* Bolts.framework */,
 				FC31A08B1CB03AA9005AA369 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
@@ -224,6 +257,11 @@
 		FC3B03651CB02CA90000EC38 = {
 			isa = PBXGroup;
 			children = (
+				E807AF811CCE9A080088CC5D /* Pods_Karma.framework */,
+				E807AF7E1CCE9A070088CC5D /* Pods.framework */,
+				E807AF7B1CCE9A070088CC5D /* Parse.framework */,
+				E807AF781CCE9A070088CC5D /* FontAwesomeIconFactory.framework */,
+				E807AF751CCE9A070088CC5D /* FontAwesome_swift.framework */,
 				FC3B03701CB02CAA0000EC38 /* Karma */,
 				FC3B03851CB02CAA0000EC38 /* KarmaTests */,
 				FC3B03901CB02CAA0000EC38 /* KarmaUITests */,
