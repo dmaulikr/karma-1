@@ -11,15 +11,15 @@ import Parse
 
 class LocationsViewController: UITableViewController {
     
-    var locationOptions = ["Local (20 miles)", "Mid-Scale (200)", "Expansive (2000)"]
+    var locationOptions = ["Local (20 miles)", "Mid-Scale (200 miles)", "Expansive (2000 miles)"]
     var usersInRange = Array<PFObject>()
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+        return 1
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

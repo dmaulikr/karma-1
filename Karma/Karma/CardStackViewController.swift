@@ -55,7 +55,7 @@ class CardStackViewController: UIViewController, YSLDraggableCardContainerDataSo
         var label = UILabel(frame: CGRectMake(0, 0, 200, 21))
         label.center = CGPointMake(160, 284)
         label.textAlignment = NSTextAlignment.Center
-        //label.text = messagesToShow[index]["messageBody"] as? String
+        label.text = messagesToShow[index]["messageBody"] as? String
         card.addSubview(label)
         
         return card
