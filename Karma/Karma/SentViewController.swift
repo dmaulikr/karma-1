@@ -156,6 +156,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func queryMessages() {
         // query for messages sent by user
         let query = PFQuery(className:"Messages")
+        query.orderByDescending("sentDate")
         query.whereKey("senderId", equalTo: (PFUser.currentUser()?.objectId)!)
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) ->Void in
             if error == nil {
