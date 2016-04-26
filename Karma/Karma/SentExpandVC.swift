@@ -11,7 +11,7 @@ import Parse
 
 
 class SentExpandVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource  {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     var replies = Array<PFObject>()
     var message: PFObject?
@@ -46,9 +46,9 @@ class SentExpandVC: UIViewController, UICollectionViewDelegate, UICollectionView
             }
             self.collectionView.reloadData()
         }
-
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -113,11 +113,17 @@ class SentExpandVC: UIViewController, UICollectionViewDelegate, UICollectionView
             if replies.count > 0 {
                 replyCell.replyBody.text = replies[indexPath.row]["replyBody"] as? String
                 replyCell.replyDate.text = "Replied " + cleanTime(replies[indexPath.row]["replyDate"] as! NSDate)
-//                sc.audience.text = locations[indexPath.item]
-//                sc.timeStamp.text = cleanTime(sentTimes[indexPath.row])
+                //                sc.audience.text = locations[indexPath.item]
+                //                sc.timeStamp.text = cleanTime(sentTimes[indexPath.row])
             }
             return replyCell
         }
+    }
+    
+    func collectionView(collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                               minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 1
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
@@ -128,6 +134,17 @@ class SentExpandVC: UIViewController, UICollectionViewDelegate, UICollectionView
         return UIEdgeInsetsMake(10, -30, 0, -30) // margin between cells
     }
     
+    func collectionView(collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                               sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+    {
+        if indexPath.section == 0 {
+            //Bigger one
+            return CGSizeMake(0.8 * UIScreen.mainScreen().bounds.width, 200);
+        } else {
+            return CGSizeMake(0.8 * UIScreen.mainScreen().bounds.width, 115)
+        }
+    }
     func cleanTime(sentDate: NSDate) -> String {
         
         var timeInterval : NSTimeInterval = sentDate.timeIntervalSinceNow
@@ -168,13 +185,13 @@ class SentExpandVC: UIViewController, UICollectionViewDelegate, UICollectionView
         
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
