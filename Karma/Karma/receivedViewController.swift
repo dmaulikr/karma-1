@@ -234,6 +234,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         } else {
             cell.replyButton.titleLabel?.font = UIFont.systemFontOfSize(UIFont.systemFontSize())
             cell.replyButton.setTitle("Reply", forState: .Normal)
+            //comment
         }
         
         
