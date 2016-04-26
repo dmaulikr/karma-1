@@ -99,7 +99,7 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
             msg["flagged"] = false
             msg["favorited"] = false
             
-            msg["audience"] = selectedAudience
+//            msg["audience"] = selectedAudience
             
             //Edit once approved:
             //msg["readIds"] = Array<ObjectIds>
