@@ -11,6 +11,7 @@ import Parse
 
 protocol NewPostCollectionViewDelegate {
     func selectLocationsPressed(cell : NewPostCollectionViewCell)
+    func parentShouldShowAlert(string:String, title:String)
 }
 
 class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPopoverPresentationControllerDelegate {
@@ -24,7 +25,7 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var sendButton: UIButton!
-    var usersInRange = Array<PFObject>()    
+    var usersInRange = Array<PFObject>()
     
     var delegate:NewPostCollectionViewDelegate? = nil
     
@@ -106,7 +107,7 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
                 msg["sentScale"] = "Expansive"
             }
             
-//            msg["audience"] = selectedAudience
+            //            msg["audience"] = selectedAudience
             
             //Edit once approved:
             //msg["readIds"] = Array<ObjectIds>
@@ -127,47 +128,47 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
                 
                 if error == nil {
                     if let objects = objects {
-                        for object in objects {
-                            if (objects.count == 0) {
-                                //Put display alert here
+                        if objects.count == 0 {
+                            // display alert
+                            self.delegate!.parentShouldShowAlert("Please select a larger range to pay the posivity forward!", title: "No Users in Range")
+                        } else {
+                            for object in objects {
+                                if (object.objectId != self.currUser?.objectId) {
+                                    recieverIds.addObject(object.objectId!)
+                                    recievedLocations.addObject(object["location"])
+                                }
                             }
-                            if (object.objectId != self.currUser?.objectId) {
-                                recieverIds.addObject(object.objectId!)
-                                recievedLocations.addObject(object["location"])
+                            msg["recieverIds"] = recieverIds
+                            msg["recievedLocations"] = recievedLocations
+                            
+                            
+                            msg.saveInBackgroundWithBlock {
+                                (success: Bool, error: NSError?) -> Void in
+                                self.setPlaceholder()
+                                self.textView.endEditing(true)
+                                if (success) {
+                                    print("yaaaaas")
+                                    // if tap outside then shrink the box
+                                    // but if inside then expand and show the button
+                                } else {
+                                    print("error saving")
+                                    // display what kind of error?
+                                }
                             }
                         }
-                        msg["recieverIds"] = recieverIds
-                        msg["recievedLocations"] = recievedLocations
-                        
-                        
-                        msg.saveInBackgroundWithBlock {
-                            (success: Bool, error: NSError?) -> Void in
-                            self.setPlaceholder()
-                            self.textView.endEditing(true)
-                            if (success) {
-                                print("yaaaaas")
-                                // if tap outside then shrink the box
-                                // but if inside then expand and show the button
-                            } else {
-                                print("error saving")
-                                // display what kind of error?
-                            }
-                        }
-                        
-                        
                     }
                 } else {
                     print("Error: \(error!) \(error!.userInfo)")
                 }
             }
-                        UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
-                            self.sentLabel.alpha = 1.0
-                            }, completion: nil)
-                        UIView.animateWithDuration(1.0, delay: 1.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-                            self.sentLabel.alpha = 0.0
-                            }, completion: {
-                                (finished: Bool) -> Void in
-                        })
+            UIView.animateWithDuration(1.0, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                self.sentLabel.alpha = 1.0
+                }, completion: nil)
+            UIView.animateWithDuration(1.0, delay: 1.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                self.sentLabel.alpha = 0.0
+                }, completion: {
+                    (finished: Bool) -> Void in
+            })
             
         }
     }
@@ -211,6 +212,9 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
         }
         textView.resignFirstResponder()
     }
+    
+    
+    
     
     
     //dismiss keyboard

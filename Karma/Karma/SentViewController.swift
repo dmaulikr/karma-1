@@ -22,7 +22,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var replyCount = Array<Int>()
     var popoverController:UIPopoverPresentationController? = nil
     var replies = Array<PFObject>()
-
+    
     
     @IBOutlet weak var messageBody: UILabel!
     
@@ -41,7 +41,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     // customize border between sections width between sections
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-                
+        
         if indexPath.section == 0 {
             let np = collectionView.dequeueReusableCellWithReuseIdentifier("newPost", forIndexPath: indexPath) as! NewPostCollectionViewCell
             
@@ -110,6 +110,11 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
     }
     
+    func parentShouldShowAlert(string: String, title: String) {
+        //String is the text of the alert
+        self.displayAlert(title, displayError: string)
+    }
+    
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         return .None
     }
@@ -121,10 +126,10 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.performSegueWithIdentifier("toSentExpand", sender: indexPath)
     }
     
-//    func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-//        index = indexPath.item
-//        return true
-//    }
+    //    func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+    //        index = indexPath.item
+    //        return true
+    //    }
     
     //add //design elements on cards
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -136,22 +141,22 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             print("index")
             print(index)
             vc.message = msgObjects[index]
-//            var query = PFQuery(className:"Replies")
-//            query.whereKey("messageId", equalTo: msgObjects[index].objectId!)
-//            query.findObjectsInBackgroundWithBlock {
-//                (objects: [PFObject]?, error: NSError?) -> Void in
-//                
-//                if error == nil {
-//                    // The find succeeded.
-//                    // Do something with the found objects
-//                    if let objects = objects {
-//                        self.replies = objects
-//                    }
-//                } else {
-//                    // Log details of the failure
-//                    print("Error: \(error!) \(error!.userInfo)")
-//                }
-//            }
+            //            var query = PFQuery(className:"Replies")
+            //            query.whereKey("messageId", equalTo: msgObjects[index].objectId!)
+            //            query.findObjectsInBackgroundWithBlock {
+            //                (objects: [PFObject]?, error: NSError?) -> Void in
+            //
+            //                if error == nil {
+            //                    // The find succeeded.
+            //                    // Do something with the found objects
+            //                    if let objects = objects {
+            //                        self.replies = objects
+            //                    }
+            //                } else {
+            //                    // Log details of the failure
+            //                    print("Error: \(error!) \(error!.userInfo)")
+            //                }
+            //            }
             vc.replies = replies
         }
     }
@@ -297,4 +302,15 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return String(numYears) + " years ago"
         
     }
+    
+    func displayAlert(title: String, displayError: String) {
+        
+        let alert = UIAlertController(title: title, message: displayError, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { action in
+            
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
 }
