@@ -202,12 +202,12 @@ class SentExpandVC: UIViewController, UICollectionViewDelegate, UICollectionView
         if indexPath.section == 0 {
             let sm = collectionView.dequeueReusableCellWithReuseIdentifier("originalSentMessage", forIndexPath: indexPath) as! OriginalSentMessageCollectionViewCell
             
-            sm.layer.borderColor = UIColor.whiteColor().CGColor
             sm.layer.borderWidth = 1
             sm.layer.shadowOffset = CGSizeMake(0, 1)
             sm.layer.shadowColor = UIColor(netHex:0xCDBA96).CGColor
             sm.layer.shadowRadius = 3
             sm.layer.cornerRadius = 3
+            sm.backgroundColor = UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1.0)
             
             sm.layer.shadowOpacity = 0.7
             
@@ -272,9 +272,9 @@ class SentExpandVC: UIViewController, UICollectionViewDelegate, UICollectionView
     {
         if indexPath.section == 0 {
             //Bigger one
-            return CGSizeMake(0.8 * UIScreen.mainScreen().bounds.width, 200);
+            return CGSizeMake(UIScreen.mainScreen().bounds.width - 20, 200);
         } else {
-            return CGSizeMake(0.8 * UIScreen.mainScreen().bounds.width, 115)
+            return CGSizeMake(UIScreen.mainScreen().bounds.width - 20, 115)
         }
     }
     func cleanTime(sentDate: NSDate) -> String {

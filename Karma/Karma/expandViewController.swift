@@ -30,7 +30,7 @@ class expandViewController: UIViewController, UITextViewDelegate{
         self.response.layer.cornerRadius = 4.5
         self.receivedmessage.clipsToBounds = true
         self.receivedmessage.layer.cornerRadius = 4.5
-        
+        self.response.textColor = UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1.0)
         setPlaceholder()
         addMapPin()
         markAsRead()
@@ -100,7 +100,7 @@ class expandViewController: UIViewController, UITextViewDelegate{
                             
                             var responseMessage = object["replyBody"] as! String
                             
-                            self.response.text = "Your Reply: " + responseMessage
+                            self.response.text = responseMessage
                             
                         }
                         

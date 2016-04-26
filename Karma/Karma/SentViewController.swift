@@ -48,9 +48,11 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             size = 100 + labelHeight - 46 + 20
         }
-        return CGSizeMake(UIScreen.mainScreen().bounds.width - 40, size)
+        return CGSizeMake(UIScreen.mainScreen().bounds.width - 20, size)
         
     }
+    
+    
     
     
     // customize border between sections width between sections
@@ -67,7 +69,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             } else {
                 audLimString = String(currUserAudLim) + " PEOPLE)"
             }
-            var buttonTitle = "SEND(" + audLimString
+            var buttonTitle = "SEND (" + audLimString
 //                String(format: "SEND(%i", audLimString)
             
             np.sendButton.setTitle(buttonTitle, forState: .Normal)
