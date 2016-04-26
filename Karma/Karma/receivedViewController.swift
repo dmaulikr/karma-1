@@ -27,6 +27,14 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
     var userId = PFUser.currentUser()!.objectId
     var replyOpenText = false
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let labelWidth = UIScreen.mainScreen().bounds.width - 40
+        let labelHeight = MDBSwiftUtils.getMultiLineLabelHeight(body[indexPath.item], maxWidth: Int(labelWidth), font: UIFont.systemFontOfSize(14))
+        var size = 100 + labelHeight - 46 + 20
+        return CGSizeMake(UIScreen.mainScreen().bounds.width - 40, size)
+        
+    }
+    
     func getMessages() {
         // Get the list of all the social titles and add them to the socialLabels array. Then reload the collectionview.
         let query = PFQuery(className:"Messages")
@@ -141,6 +149,8 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         replyOpenText = false
         refresh()
     }
+    
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
