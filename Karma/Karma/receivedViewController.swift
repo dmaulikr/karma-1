@@ -279,7 +279,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
             let row = (sender as! NSIndexPath).item
             let message = messages[row]
             vc.message = message
-            //vc.replySent = replied[row]
+            vc.replySent = replied[row]
             
             vc.replyOpenText = replyOpenText
             print("repOpen: " + String(replyOpenText))

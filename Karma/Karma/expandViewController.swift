@@ -25,11 +25,6 @@ class expandViewController: UIViewController, UITextViewDelegate{
     override func viewDidLoad() {
         self.view.sendSubviewToBack(backgroundImageView)
         
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
         
         receivedmessage.backgroundColor = UIColor(netHex: 0xFFA54F)
         
@@ -49,6 +44,7 @@ class expandViewController: UIViewController, UITextViewDelegate{
         
         if replySent {
             self.response.editable = false
+            response.textColor = UIColor.blackColor()
             self.sendReplyButton.hidden = true
             findReply()
         } else {
@@ -57,6 +53,12 @@ class expandViewController: UIViewController, UITextViewDelegate{
                 print("wwwwwwwoooootttt")
             }
         }
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
 
     }
@@ -91,7 +93,9 @@ class expandViewController: UIViewController, UITextViewDelegate{
                         
                         if ((object["senderId"] as! String) == self.currentUser!.objectId) {
                             
-                            self.response.text = object["replyBody"] as! String
+                            var responseMessage = object["replyBody"] as! String
+                            
+                            self.response.text = "Your Reply: " + responseMessage
                             
                         }
                         
