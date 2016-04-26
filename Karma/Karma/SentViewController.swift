@@ -277,6 +277,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 0
         
+        
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         //self.navigationController?.navigationBar.translucent = false;
         //UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1)
