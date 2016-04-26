@@ -306,8 +306,6 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
             vc.replyOpenText = replyOpenText
             print("repOpen: " + String(replyOpenText))
             
-            
-            
         }
         
         

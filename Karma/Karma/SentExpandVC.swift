@@ -208,7 +208,7 @@ class SentExpandVC: UIViewController, UICollectionViewDelegate, UICollectionView
             sm.layer.shadowRadius = 3
             sm.layer.cornerRadius = 3
             sm.backgroundColor = UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1.0)
-            
+            sm.layer.borderColor = UIColor.clearColor().CGColor
             sm.layer.shadowOpacity = 0.7
             
             let shadowFrame: CGRect = (sm.layer.bounds)

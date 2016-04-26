@@ -41,7 +41,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         var size = CGFloat()
         if (indexPath.section == 0) {
-            size = 120
+            size = 145
         } else {
             let labelWidth = UIScreen.mainScreen().bounds.width - 40
             let labelHeight = MDBSwiftUtils.getMultiLineLabelHeight(messages[indexPath.item], maxWidth: Int(labelWidth), font: UIFont.systemFontOfSize(14))
