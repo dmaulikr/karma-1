@@ -80,6 +80,8 @@ class MapViewController: UIViewController {
         //self.tabBarItem = UITabBarItem(title: "Home", image: UIImage(named: "tab_icon_normal"), selectedImage: customImage)
         
         let query = PFQuery(className:"Messages")
+        query.whereKey("authorized", equalTo: true)
+        query.whereKey("flagged", notEqualTo: true)
         query.whereKey("senderId", equalTo: (PFUser.currentUser()?.objectId)!)
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in

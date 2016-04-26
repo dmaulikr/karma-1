@@ -30,6 +30,8 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
     func getMessages() {
         // Get the list of all the social titles and add them to the socialLabels array. Then reload the collectionview.
         let query = PFQuery(className:"Messages")
+        query.whereKey("authorized", equalTo: true)
+        query.whereKey("flagged", notEqualTo: true)
         query.orderByDescending("sentDate")
         query.whereKey("recieverIds", equalTo: userId!)
         query.findObjectsInBackgroundWithBlock {
@@ -57,6 +59,15 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
                         
                         
                         self.timesArray.append((object["sentDate"] as? NSDate)!)
+                    }
+                    if (objects.count == 0) {
+                        var label:UILabel = UILabel(frame: CGRectMake(10
+                            ,100, 300, 40));
+                        label.textAlignment = NSTextAlignment.Center;
+                        label.numberOfLines = 0;
+                        label.font = UIFont.systemFontOfSize(16.0);
+                        label.text = "You Have Not Received Any Messages Yet";
+                        self.view.addSubview(label);
                     }
                     self.receivedMessagesCollectionView.reloadData()
                     self.refresher.endRefreshing()

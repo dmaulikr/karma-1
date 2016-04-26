@@ -23,6 +23,8 @@ class InitialViewController: UIViewController {
         if  currentUser != nil {
             //check for unread messages
             let query = PFQuery(className:"Messages")
+            query.whereKey("authorized", equalTo: true)
+            query.whereKey("flagged", notEqualTo: true)
             query.whereKey("recieverIds", equalTo: userId!)
             query.whereKey("readIds", notEqualTo: userId!)
             query.findObjectsInBackgroundWithBlock {

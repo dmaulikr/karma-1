@@ -72,6 +72,8 @@ class expandViewController: UIViewController, UITextViewDelegate{
     func findReply() {
         
         var query = PFQuery(className:"Replies")
+        query.whereKey("authorized", equalTo: true)
+        query.whereKey("flagged", notEqualTo: true)
         
         query.whereKey("messageId", equalTo: message!.objectId!)
         

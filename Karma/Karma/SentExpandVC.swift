@@ -27,6 +27,8 @@ class SentExpandVC: UIViewController, UICollectionViewDelegate, UICollectionView
         layout.minimumLineSpacing = 0
         
         var query = PFQuery(className:"Replies")
+        query.whereKey("authorized", equalTo: true)
+        query.whereKey("flagged", notEqualTo: true)
         query.whereKey("messageId", equalTo: message!.objectId!)
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
