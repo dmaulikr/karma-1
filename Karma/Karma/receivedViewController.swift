@@ -226,11 +226,13 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         
         
         //reply button
-        cell.replyButton.titleLabel?.font = UIFont.fontAwesomeOfSize(10)
-        cell.replyButton.setTitle("Reply", forState: .Normal)
+        
         
         if replied[indexPath.row] {
+            //cell.replyButton.titleLabel?.font = UIFont.fontAwesomeOfSize(10)
             cell.replyButton.setTitle(String.fontAwesomeIconWithName(.Check), forState: .Normal)
+        } else {
+            cell.replyButton.setTitle("Reply", forState: .Normal)
         }
         
         
