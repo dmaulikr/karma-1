@@ -53,12 +53,13 @@ class CardStackViewController: UIViewController, YSLDraggableCardContainerDataSo
         card.layer.borderColor = UIColor.grayColor().CGColor
         card.layer.borderWidth = 0.4
         card.layer.cornerRadius = 7.0
-        var label = UILabel(frame: CGRectMake(screenWidth / 7 + 20, 130 + 20, 200, 800))
+        var label = UILabel(frame: CGRectMake(screenWidth / 7, 130, 200, 800))
         
-        //label.center = CGPointMake(160, 284)
-        label.textAlignment = NSTextAlignment.Left
+        label.center = (CGPointMake(card.frame.size.width / 2, card.frame.size.height / 2))
+        label.textAlignment = NSTextAlignment.Center
         label.numberOfLines = 0
         label.text = messagesToShow[index]["messageBody"] as? String
+        label.textColor = UIColor.whiteColor()
         label.sizeToFit()
         
         card.addSubview(label)
