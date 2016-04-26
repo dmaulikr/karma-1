@@ -34,14 +34,18 @@
 		E807AF871CCEAD6F0088CC5D /* SentExpandVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E807AF861CCEAD6F0088CC5D /* SentExpandVC.swift */; };
 		E807AF891CCEB32C0088CC5D /* ReplyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E807AF881CCEB32C0088CC5D /* ReplyCollectionViewCell.swift */; };
 		E807AF8B1CCEB33D0088CC5D /* OriginalSentMessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E807AF8A1CCEB33D0088CC5D /* OriginalSentMessageCollectionViewCell.swift */; };
-		E8E931BC1CCF4580009FC848 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B41CCF4580009FC848 /* Bolts.framework */; };
-		E8E931BD1CCF4580009FC848 /* FontAwesome_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B51CCF4580009FC848 /* FontAwesome_swift.framework */; };
-		E8E931BE1CCF4580009FC848 /* FontAwesomeIconFactory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B61CCF4580009FC848 /* FontAwesomeIconFactory.framework */; };
-		E8E931BF1CCF4580009FC848 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B71CCF4580009FC848 /* Parse.framework */; };
-		E8E931C01CCF4580009FC848 /* Pods_Karma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B81CCF4580009FC848 /* Pods_Karma.framework */; };
-		E8E931C11CCF4580009FC848 /* Pods_KarmaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B91CCF4580009FC848 /* Pods_KarmaTests.framework */; };
-		E8E931C21CCF4580009FC848 /* Pods_KarmaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931BA1CCF4580009FC848 /* Pods_KarmaUITests.framework */; };
-		E8E931C31CCF4580009FC848 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931BB1CCF4580009FC848 /* Pods.framework */; };
+		E8E931D31CCFA310009FC848 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B41CCF4580009FC848 /* Bolts.framework */; };
+		E8E931D41CCFA310009FC848 /* Bolts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B41CCF4580009FC848 /* Bolts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8E931D51CCFA310009FC848 /* FontAwesome_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B51CCF4580009FC848 /* FontAwesome_swift.framework */; };
+		E8E931D61CCFA310009FC848 /* FontAwesome_swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B51CCF4580009FC848 /* FontAwesome_swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8E931D71CCFA310009FC848 /* FontAwesomeIconFactory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B61CCF4580009FC848 /* FontAwesomeIconFactory.framework */; };
+		E8E931D81CCFA310009FC848 /* FontAwesomeIconFactory.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B61CCF4580009FC848 /* FontAwesomeIconFactory.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8E931D91CCFA310009FC848 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B71CCF4580009FC848 /* Parse.framework */; };
+		E8E931DA1CCFA310009FC848 /* Parse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B71CCF4580009FC848 /* Parse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8E931DB1CCFA310009FC848 /* Pods_Karma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B81CCF4580009FC848 /* Pods_Karma.framework */; };
+		E8E931DC1CCFA310009FC848 /* Pods_Karma.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B81CCF4580009FC848 /* Pods_Karma.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8E931DD1CCFA310009FC848 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931BB1CCF4580009FC848 /* Pods.framework */; };
+		E8E931DE1CCFA310009FC848 /* Pods.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931BB1CCF4580009FC848 /* Pods.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E8F0D23F1CCC0ADC00AFF6AE /* YSLCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D23C1CCC0ADC00AFF6AE /* YSLCardView.m */; };
 		E8F0D2401CCC0ADC00AFF6AE /* YSLDraggableCardContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D23E1CCC0ADC00AFF6AE /* YSLDraggableCardContainer.m */; };
 		E8F0D2441CCC0AF600AFF6AE /* UIColor+Random_Color.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D2431CCC0AF600AFF6AE /* UIColor+Random_Color.m */; };
@@ -83,12 +87,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		0C9788581CCF13120088B4C4 /* Embed Frameworks */ = {
+		E8E931DF1CCFA310009FC848 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				E8E931DE1CCFA310009FC848 /* Pods.framework in Embed Frameworks */,
+				E8E931D81CCFA310009FC848 /* FontAwesomeIconFactory.framework in Embed Frameworks */,
+				E8E931D41CCFA310009FC848 /* Bolts.framework in Embed Frameworks */,
+				E8E931DC1CCFA310009FC848 /* Pods_Karma.framework in Embed Frameworks */,
+				E8E931DA1CCFA310009FC848 /* Parse.framework in Embed Frameworks */,
+				E8E931D61CCFA310009FC848 /* FontAwesome_swift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,6 +143,7 @@
 		E8E931B91CCF4580009FC848 /* Pods_KarmaTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_KarmaTests.framework; path = "Pods/../build/Debug-iphoneos/Pods_KarmaTests.framework"; sourceTree = "<group>"; };
 		E8E931BA1CCF4580009FC848 /* Pods_KarmaUITests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_KarmaUITests.framework; path = "Pods/../build/Debug-iphoneos/Pods_KarmaUITests.framework"; sourceTree = "<group>"; };
 		E8E931BB1CCF4580009FC848 /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = "../../../Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Pods.framework"; sourceTree = "<group>"; };
+		E8E931D01CCFA22E009FC848 /* Pods_Karma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Pods_Karma.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphoneos/Pods_Karma.framework"; sourceTree = "<absolute>"; };
 		E8F0D23B1CCC0ADC00AFF6AE /* YSLCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLCardView.h; sourceTree = "<group>"; };
 		E8F0D23C1CCC0ADC00AFF6AE /* YSLCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLCardView.m; sourceTree = "<group>"; };
 		E8F0D23D1CCC0ADC00AFF6AE /* YSLDraggableCardContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLDraggableCardContainer.h; sourceTree = "<group>"; };
@@ -172,14 +183,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8E931BC1CCF4580009FC848 /* Bolts.framework in Frameworks */,
-				E8E931BD1CCF4580009FC848 /* FontAwesome_swift.framework in Frameworks */,
-				E8E931BE1CCF4580009FC848 /* FontAwesomeIconFactory.framework in Frameworks */,
-				E8E931BF1CCF4580009FC848 /* Parse.framework in Frameworks */,
-				E8E931C01CCF4580009FC848 /* Pods_Karma.framework in Frameworks */,
-				E8E931C11CCF4580009FC848 /* Pods_KarmaTests.framework in Frameworks */,
-				E8E931C21CCF4580009FC848 /* Pods_KarmaUITests.framework in Frameworks */,
-				E8E931C31CCF4580009FC848 /* Pods.framework in Frameworks */,
+				E8E931DD1CCFA310009FC848 /* Pods.framework in Frameworks */,
+				E8E931D71CCFA310009FC848 /* FontAwesomeIconFactory.framework in Frameworks */,
+				E8E931D31CCFA310009FC848 /* Bolts.framework in Frameworks */,
+				E8E931DB1CCFA310009FC848 /* Pods_Karma.framework in Frameworks */,
+				E8E931D91CCFA310009FC848 /* Parse.framework in Frameworks */,
+				E8E931D51CCFA310009FC848 /* FontAwesome_swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +275,7 @@
 		FC3B03651CB02CA90000EC38 = {
 			isa = PBXGroup;
 			children = (
+				E8E931D01CCFA22E009FC848 /* Pods_Karma.framework */,
 				FC3B03701CB02CAA0000EC38 /* Karma */,
 				FC3B03851CB02CAA0000EC38 /* KarmaTests */,
 				FC3B03901CB02CAA0000EC38 /* KarmaUITests */,
@@ -368,7 +378,7 @@
 				FC3B036C1CB02CA90000EC38 /* Resources */,
 				F1BA1B0F7EB295F53DC0E1B9 /* Embed Pods Frameworks */,
 				0548F2EA3675A8DC1C8A7808 /* Copy Pods Resources */,
-				0C9788581CCF13120088B4C4 /* Embed Frameworks */,
+				E8E931DF1CCFA310009FC848 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
