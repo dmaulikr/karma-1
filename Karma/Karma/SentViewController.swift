@@ -19,6 +19,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var msgObjects = Array<PFObject>()
     var refresher:UIRefreshControl!
     var index = Int()
+    var replyCount = Array<Int>()
     var popoverController:UIPopoverPresentationController? = nil
     var replies = Array<PFObject>()
 
@@ -84,6 +85,11 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 sc.seenBy.text = "Seen by " + String(seenCount[indexPath.item])
                 sc.audience.text = locations[indexPath.item]
                 sc.timeStamp.text = cleanTime(sentTimes[indexPath.row])
+                if (replyCount[indexPath.item] == 1) {
+                    sc.numReplies.text = "1 reply"
+                } else {
+                    sc.numReplies.text = String(replyCount[indexPath.item]) + " replies"
+                }
             }
             return sc
         }
@@ -201,6 +207,13 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     for object in objects {
                         self.msgObjects.append(object)
                         self.locations.append (object["audience"] as! String)
+                        
+                        
+                        if object["repliedIds"] == nil {
+                            self.replyCount.append(0)
+                        } else {
+                            self.replyCount.append(object["repliedIds"].count)
+                        }
                         self.messages.append(String(object["messageBody"]))
                         self.sentTimes.append(object["sentDate"] as! NSDate)
                         if object["readIds"] == nil {

@@ -66,9 +66,22 @@ class SentExpandVC: UIViewController, UICollectionViewDelegate, UICollectionView
         if indexPath.section == 0 {
             let sm = collectionView.dequeueReusableCellWithReuseIdentifier("originalSentMessage", forIndexPath: indexPath) as! OriginalSentMessageCollectionViewCell
             
-            //np.layoutMargins
+            sm.layer.borderColor = UIColor.whiteColor().CGColor
+            sm.layer.borderWidth = 1
+            sm.layer.shadowOffset = CGSizeMake(0, 1)
+            sm.layer.shadowColor = UIColor(netHex:0xCDBA96).CGColor
+            sm.layer.shadowRadius = 3
+            sm.layer.cornerRadius = 3
+            
+            sm.layer.shadowOpacity = 0.7
+            
+            let shadowFrame: CGRect = (sm.layer.bounds)
+            let shadowPath: CGPathRef = UIBezierPath(rect: shadowFrame).CGPath
+            sm.layer.shadowPath = shadowPath
+            sm.clipsToBounds = false
+            
             sm.sentMessageText.text = message!["messageBody"] as! String
-            sm.sentMessageDate.text = cleanTime(message!["sentDate"] as! NSDate)
+            sm.sentMessageDate.text = "Sent " + cleanTime(message!["sentDate"] as! NSDate)
             //placeholder
             return sm
             
@@ -95,7 +108,7 @@ class SentExpandVC: UIViewController, UICollectionViewDelegate, UICollectionView
             
             if replies.count > 0 {
                 replyCell.replyBody.text = replies[indexPath.row]["replyBody"] as? String
-                replyCell.replyDate.text = cleanTime(replies[indexPath.row]["replyDate"] as! NSDate)
+                replyCell.replyDate.text = "Replied " + cleanTime(replies[indexPath.row]["replyDate"] as! NSDate)
 //                sc.audience.text = locations[indexPath.item]
 //                sc.timeStamp.text = cleanTime(sentTimes[indexPath.row])
             }
