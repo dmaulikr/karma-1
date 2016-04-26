@@ -125,7 +125,7 @@ class CardStackViewController: UIViewController, YSLDraggableCardContainerDataSo
         card.addSubview(timeLabel)
         
         let message = messagesToShow[index]
-        markAsRead(message)
+        //markAsRead(message)
         
         return card
     }
