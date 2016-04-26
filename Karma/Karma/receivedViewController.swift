@@ -17,7 +17,6 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
 //    var sendbutton = UIButton( frame: CGRectMake(300, 56 ,50, 40
 //    ))
     var refresher:UIRefreshControl!
-    var locations = Array<String>()
     var body = Array<String>()
     var currentIndex = -1;
     var timesArray = Array<NSDate>()
@@ -45,7 +44,6 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
                 if let objects = objects {
                     for object in objects {
                         //self.times.append(object["socialTitle"] as! String)
-                        self.locations.append ( object["audience"] as! String)
                         self.body.append(object["messageBody"] as! String)
                         self.messages.append(object)
                         self.messageIds.append(object.objectId!)
@@ -114,7 +112,6 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.tabBarController?.selectedIndex = 1
     }
     func refresh() {
-        locations.removeAll()
         body.removeAll()
         messages.removeAll()
         timesArray.removeAll()
@@ -204,7 +201,6 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         print(indexPath.row)
         cell.message.text = body[indexPath.row]
         cell.time.text = cleanTime(timesArray[indexPath.row])
-        cell.location.text = locations[indexPath.row]
         
         //cell.replyTextField.hidden = true
         
@@ -283,6 +279,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
             let row = (sender as! NSIndexPath).item
             let message = messages[row]
             vc.message = message
+            vc.replySent = replied[row]
             
             vc.replyOpenText = replyOpenText
             print("repOpen: " + String(replyOpenText))

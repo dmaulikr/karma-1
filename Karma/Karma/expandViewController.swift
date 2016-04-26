@@ -20,6 +20,7 @@ class expandViewController: UIViewController, UITextViewDelegate{
     
     @IBOutlet weak var sentMapView: MKMapView!
     
+    @IBOutlet weak var sendReplyButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,6 +51,57 @@ class expandViewController: UIViewController, UITextViewDelegate{
     var replyOpenText = false
     var currentUser = PFUser.currentUser()
     var locationName = ""
+    var replySent = false
+    
+    
+    func findReply() {
+        
+        var query = PFQuery(className:"Replies")
+        
+        query.whereKey("messageId", equalTo: message!.objectId!)
+        
+        query.findObjectsInBackgroundWithBlock {
+            
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            
+            
+            if error == nil {
+                
+                // The find succeeded.
+                
+                // Do something with the found objects
+                
+                if let objects = objects {
+                    
+                    for object in objects {
+                        
+                        if ((object["senderId"] as! String) == self.currentUser!.objectId) {
+                            
+                            self.response.text = object["replyBody"] as! String
+                            
+                            self.response.editable = false
+                            
+                            self.sendReplyButton.hidden = true
+                            
+                        }
+                        
+                    }
+                    
+                }
+                
+            } else {
+                
+                // Log details of the failure
+                
+                print("Error: \(error!) \(error!.userInfo)")
+                
+            }
+            
+        }
+        
+    }
+    
     
     func setPlaceholder() {
         response.delegate = self
