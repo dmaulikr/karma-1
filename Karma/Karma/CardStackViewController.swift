@@ -46,26 +46,86 @@ class CardStackViewController: UIViewController, YSLDraggableCardContainerDataSo
         
         let bounds = UIScreen.mainScreen().bounds
         let screenWidth = bounds.size.width
-        let screenHeight = bounds.size.height
         let cardWidth = screenWidth * (6 / 7) - screenWidth / 7
         let card = UIView(frame: CGRect(x: screenWidth / 7, y: 130, width: cardWidth, height: 400))
         card.backgroundColor = UIColor.randomColor()
         card.layer.borderColor = UIColor.grayColor().CGColor
         card.layer.borderWidth = 0.4
         card.layer.cornerRadius = 7.0
-        var label = UILabel(frame: CGRectMake(screenWidth / 7, 130, 200, 800))
+        let label = UILabel(frame: CGRectMake(screenWidth / 7, 130, 200, 800))
         
-        label.center = (CGPointMake(card.frame.size.width / 2, card.frame.size.height / 2))
+        label.center = (CGPointMake(card.frame.size.width / 2, (card.frame.size.height / 2) + 400))
         label.textAlignment = NSTextAlignment.Center
         label.numberOfLines = 0
         label.text = messagesToShow[index]["messageBody"] as? String
+        label.font = UIFont.fontAwesomeOfSize(30)
         label.textColor = UIColor.whiteColor()
         label.sizeToFit()
         
         card.addSubview(label)
         
+
+        
+        let locLabel = UILabel(frame: CGRectMake(screenWidth / 7, 130, 200, 800))
+        
+        locLabel.center = (CGPointMake(card.frame.size.width / 2 + 25, (card.frame.size.height / 2) + 260))
+        locLabel.textAlignment = NSTextAlignment.Center
+        
+        locLabel.numberOfLines = 0
+        
+        let imageName = "place"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        imageView.frame = CGRect(x: locLabel.frame.origin.x - 25, y: locLabel.frame.origin.y, width: 20, height: 20)
+        
+        card.addSubview(imageView)
+        
+        
+        var longitude :CLLocationDegrees = (messagesToShow[index]["sentLocation"] as! PFGeoPoint).longitude
+        var latitude :CLLocationDegrees = (messagesToShow[index]["sentLocation"] as! PFGeoPoint).latitude
+        
+        var location = CLLocation(latitude: latitude, longitude: longitude) //changed!!!
+        print(location)
+        
+        CLGeocoder().reverseGeocodeLocation(location, completionHandler: {(placemarks, error) -> Void in
+            print(location)
+            
+            if error != nil {
+                print("Reverse geocoder failed with error" + error!.localizedDescription)
+                return
+            }
+            
+            if placemarks!.count > 0 {
+                let pm = placemarks![0] 
+                locLabel.text = pm.locality
+                print(pm.locality)
+                locLabel.textColor = UIColor(colorLiteralRed: 224/255.0, green: 224/255.0, blue: 235.0/255.0, alpha: 1.0)
+                locLabel.font = UIFont.fontAwesomeOfSize(15)
+                locLabel.sizeToFit()
+                
+                card.addSubview(locLabel)
+            }
+            else {
+                print("Problem with the data received from geocoder")
+            }
+        })
+        
+        
+        
+        let timeLabel = UILabel(frame: CGRectMake(screenWidth / 7, 130, 200, 800))
+        timeLabel.center = (CGPointMake(card.frame.size.width / 2, (card.frame.size.height / 2) + 285))
+        timeLabel.textAlignment = NSTextAlignment.Center
+        timeLabel.numberOfLines = 0
+        timeLabel.text = "Sent: " + MDBSwiftUtils.timeSince((messagesToShow[index]["sentDate"] as? NSDate)!)
+        timeLabel.textColor = UIColor(colorLiteralRed: 224/255.0, green: 224/255.0, blue: 235/255.0, alpha: 1.0)
+        timeLabel.font = UIFont.fontAwesomeOfSize(15)
+        timeLabel.sizeToFit()
+        timeLabel.clipsToBounds = false
+        
+        card.addSubview(timeLabel)
+        
         let message = messagesToShow[index]
-        markAsRead(message)
+        //markAsRead(message)
         
         return card
     }
