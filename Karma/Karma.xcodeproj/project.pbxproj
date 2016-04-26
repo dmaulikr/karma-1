@@ -31,17 +31,22 @@
 		D8B2FBA31CCF368E009A6ADA /* changeUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B2FBA21CCF368E009A6ADA /* changeUsernameViewController.swift */; };
 		D8CDD29C1CCCEE71007964BF /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CDD29B1CCCEE71007964BF /* ForgotPasswordViewController.swift */; };
 		E807AE441CCDE99A0088CC5D /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E807AE431CCDE99A0088CC5D /* DataStorage.swift */; };
-		E807AF721CCE99F90088CC5D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807AF711CCE99F90088CC5D /* Bolts.framework */; };
 		E807AF871CCEAD6F0088CC5D /* SentExpandVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E807AF861CCEAD6F0088CC5D /* SentExpandVC.swift */; };
 		E807AF891CCEB32C0088CC5D /* ReplyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E807AF881CCEB32C0088CC5D /* ReplyCollectionViewCell.swift */; };
 		E807AF8B1CCEB33D0088CC5D /* OriginalSentMessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E807AF8A1CCEB33D0088CC5D /* OriginalSentMessageCollectionViewCell.swift */; };
+		E8E931BC1CCF4580009FC848 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B41CCF4580009FC848 /* Bolts.framework */; };
+		E8E931BD1CCF4580009FC848 /* FontAwesome_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B51CCF4580009FC848 /* FontAwesome_swift.framework */; };
+		E8E931BE1CCF4580009FC848 /* FontAwesomeIconFactory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B61CCF4580009FC848 /* FontAwesomeIconFactory.framework */; };
+		E8E931BF1CCF4580009FC848 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B71CCF4580009FC848 /* Parse.framework */; };
+		E8E931C01CCF4580009FC848 /* Pods_Karma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B81CCF4580009FC848 /* Pods_Karma.framework */; };
+		E8E931C11CCF4580009FC848 /* Pods_KarmaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931B91CCF4580009FC848 /* Pods_KarmaTests.framework */; };
+		E8E931C21CCF4580009FC848 /* Pods_KarmaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931BA1CCF4580009FC848 /* Pods_KarmaUITests.framework */; };
+		E8E931C31CCF4580009FC848 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931BB1CCF4580009FC848 /* Pods.framework */; };
 		E8F0D23F1CCC0ADC00AFF6AE /* YSLCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D23C1CCC0ADC00AFF6AE /* YSLCardView.m */; };
 		E8F0D2401CCC0ADC00AFF6AE /* YSLDraggableCardContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D23E1CCC0ADC00AFF6AE /* YSLDraggableCardContainer.m */; };
 		E8F0D2441CCC0AF600AFF6AE /* UIColor+Random_Color.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D2431CCC0AF600AFF6AE /* UIColor+Random_Color.m */; };
 		E8F0D2461CCC0BB500AFF6AE /* CardStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D2451CCC0BB400AFF6AE /* CardStackViewController.swift */; };
 		FC102D2D1CB1A85A00268B78 /* MapNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC102D2C1CB1A85A00268B78 /* MapNavigationViewController.swift */; };
-		FC2A8C4E1CCF42B400D4B438 /* FontAwesome_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2A8C4D1CCF42B400D4B438 /* FontAwesome_swift.framework */; };
-		FC2A8C4F1CCF42B400D4B438 /* FontAwesome_swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC2A8C4D1CCF42B400D4B438 /* FontAwesome_swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FC31A08E1CB03FA5005AA369 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31A08D1CB03FA5005AA369 /* MainTabBarViewController.swift */; };
 		FC3B03721CB02CAA0000EC38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03711CB02CAA0000EC38 /* AppDelegate.swift */; };
 		FC3B03741CB02CAA0000EC38 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03731CB02CAA0000EC38 /* ViewController.swift */; };
@@ -84,7 +89,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FC2A8C4F1CCF42B400D4B438 /* FontAwesome_swift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,10 +122,17 @@
 		D8B2FBA21CCF368E009A6ADA /* changeUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = changeUsernameViewController.swift; sourceTree = "<group>"; };
 		D8CDD29B1CCCEE71007964BF /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		E807AE431CCDE99A0088CC5D /* DataStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
-		E807AF711CCE99F90088CC5D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "/Users/jessicaji/Documents/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Bolts.framework"; sourceTree = "<absolute>"; };
 		E807AF861CCEAD6F0088CC5D /* SentExpandVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentExpandVC.swift; sourceTree = "<group>"; };
 		E807AF881CCEB32C0088CC5D /* ReplyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyCollectionViewCell.swift; sourceTree = "<group>"; };
 		E807AF8A1CCEB33D0088CC5D /* OriginalSentMessageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OriginalSentMessageCollectionViewCell.swift; sourceTree = "<group>"; };
+		E8E931B41CCF4580009FC848 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../../Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Bolts.framework"; sourceTree = "<group>"; };
+		E8E931B51CCF4580009FC848 /* FontAwesome_swift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FontAwesome_swift.framework; path = "../../../Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/FontAwesome_swift.framework"; sourceTree = "<group>"; };
+		E8E931B61CCF4580009FC848 /* FontAwesomeIconFactory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FontAwesomeIconFactory.framework; path = "../../../Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/FontAwesomeIconFactory.framework"; sourceTree = "<group>"; };
+		E8E931B71CCF4580009FC848 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../../Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Parse.framework"; sourceTree = "<group>"; };
+		E8E931B81CCF4580009FC848 /* Pods_Karma.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Karma.framework; path = "../../../Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Pods_Karma.framework"; sourceTree = "<group>"; };
+		E8E931B91CCF4580009FC848 /* Pods_KarmaTests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_KarmaTests.framework; path = "Pods/../build/Debug-iphoneos/Pods_KarmaTests.framework"; sourceTree = "<group>"; };
+		E8E931BA1CCF4580009FC848 /* Pods_KarmaUITests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_KarmaUITests.framework; path = "Pods/../build/Debug-iphoneos/Pods_KarmaUITests.framework"; sourceTree = "<group>"; };
+		E8E931BB1CCF4580009FC848 /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = "../../../Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Pods.framework"; sourceTree = "<group>"; };
 		E8F0D23B1CCC0ADC00AFF6AE /* YSLCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLCardView.h; sourceTree = "<group>"; };
 		E8F0D23C1CCC0ADC00AFF6AE /* YSLCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLCardView.m; sourceTree = "<group>"; };
 		E8F0D23D1CCC0ADC00AFF6AE /* YSLDraggableCardContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLDraggableCardContainer.h; sourceTree = "<group>"; };
@@ -131,7 +142,6 @@
 		E8F0D2431CCC0AF600AFF6AE /* UIColor+Random_Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Random_Color.m"; sourceTree = "<group>"; };
 		E8F0D2451CCC0BB400AFF6AE /* CardStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardStackViewController.swift; sourceTree = "<group>"; };
 		FC102D2C1CB1A85A00268B78 /* MapNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapNavigationViewController.swift; sourceTree = "<group>"; };
-		FC2A8C4D1CCF42B400D4B438 /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FontAwesome_swift.framework; path = "/Users/shaanappel/Library/Developer/Xcode/DerivedData/Karma-aozwyqwzuzebfnfngmqognwflduf/Build/Products/Debug-iphonesimulator/FontAwesome_swift.framework"; sourceTree = "<absolute>"; };
 		FC31A08B1CB03AA9005AA369 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		FC31A08D1CB03FA5005AA369 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		FC3B036E1CB02CA90000EC38 /* Karma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Karma.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,8 +172,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E807AF721CCE99F90088CC5D /* Bolts.framework in Frameworks */,
-				FC2A8C4E1CCF42B400D4B438 /* FontAwesome_swift.framework in Frameworks */,
+				E8E931BC1CCF4580009FC848 /* Bolts.framework in Frameworks */,
+				E8E931BD1CCF4580009FC848 /* FontAwesome_swift.framework in Frameworks */,
+				E8E931BE1CCF4580009FC848 /* FontAwesomeIconFactory.framework in Frameworks */,
+				E8E931BF1CCF4580009FC848 /* Parse.framework in Frameworks */,
+				E8E931C01CCF4580009FC848 /* Pods_Karma.framework in Frameworks */,
+				E8E931C11CCF4580009FC848 /* Pods_KarmaTests.framework in Frameworks */,
+				E8E931C21CCF4580009FC848 /* Pods_KarmaUITests.framework in Frameworks */,
+				E8E931C31CCF4580009FC848 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +230,14 @@
 		C0325ACF6BE238C9ADD76545 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E8E931B41CCF4580009FC848 /* Bolts.framework */,
+				E8E931B51CCF4580009FC848 /* FontAwesome_swift.framework */,
+				E8E931B61CCF4580009FC848 /* FontAwesomeIconFactory.framework */,
+				E8E931B71CCF4580009FC848 /* Parse.framework */,
+				E8E931B81CCF4580009FC848 /* Pods_Karma.framework */,
+				E8E931B91CCF4580009FC848 /* Pods_KarmaTests.framework */,
+				E8E931BA1CCF4580009FC848 /* Pods_KarmaUITests.framework */,
+				E8E931BB1CCF4580009FC848 /* Pods.framework */,
 				FC31A08B1CB03AA9005AA369 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
@@ -242,7 +266,6 @@
 		FC3B03651CB02CA90000EC38 = {
 			isa = PBXGroup;
 			children = (
-				FC2A8C4D1CCF42B400D4B438 /* FontAwesome_swift.framework */,
 				FC3B03701CB02CAA0000EC38 /* Karma */,
 				FC3B03851CB02CAA0000EC38 /* KarmaTests */,
 				FC3B03901CB02CAA0000EC38 /* KarmaUITests */,
@@ -697,6 +720,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = Karma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -714,6 +741,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = Karma/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
