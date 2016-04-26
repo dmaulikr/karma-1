@@ -128,6 +128,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidAppear(animated: Bool) {
         replyOpenText = false
+        refresh()
     }
    
     override func viewDidLoad() {
@@ -148,7 +149,8 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.topItem!.title = "Received Messages";
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: String(currUser["audienceLim"]), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(receivedViewController.addTapped))
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: String(Int(floor(currUser["audienceLim"] as! Double))), style: UIBarButtonItemStyle.Plain, target: self, action: #selector(receivedViewController.addTapped))
         let newMessageImage = UIImage.fontAwesomeIconWithName(.PencilSquareO, textColor: UIColor.blackColor(), size: CGSizeMake(25, 25))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: newMessageImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(receivedViewController.addTapped))
         
