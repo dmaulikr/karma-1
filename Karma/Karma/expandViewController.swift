@@ -12,6 +12,7 @@ import Parse
 
 class expandViewController: UIViewController, UITextViewDelegate{
     @IBOutlet weak var receivedmessage: UILabel!
+    @IBOutlet weak var backgroundImageView: UIImageView!
 
     @IBOutlet weak var response: UITextView!
     
@@ -22,7 +23,13 @@ class expandViewController: UIViewController, UITextViewDelegate{
     
     @IBOutlet weak var sendReplyButton: UIButton!
     override func viewDidLoad() {
-        super.viewDidLoad()
+        self.view.sendSubviewToBack(backgroundImageView)
+        
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
         receivedmessage.backgroundColor = UIColor(netHex: 0xFFA54F)
         
@@ -42,11 +49,8 @@ class expandViewController: UIViewController, UITextViewDelegate{
             response.becomeFirstResponder()
             print("wwwwwwwoooootttt")
         }
-        
-        
-        // Do any additional setup after loading the view.
+
     }
-    
     var message: PFObject?
     var replyOpenText = false
     var currentUser = PFUser.currentUser()
@@ -105,6 +109,7 @@ class expandViewController: UIViewController, UITextViewDelegate{
     
     func setPlaceholder() {
         response.delegate = self
+       
         response.text = "How would you like to reply?"
         response.textColor = UIColor.lightGrayColor()
     }
