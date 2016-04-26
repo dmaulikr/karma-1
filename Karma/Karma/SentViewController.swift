@@ -38,6 +38,20 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return 2
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        var size = CGFloat()
+        if (indexPath.section == 0) {
+            size = 120
+        } else {
+            let labelWidth = UIScreen.mainScreen().bounds.width - 40
+            let labelHeight = MDBSwiftUtils.getMultiLineLabelHeight(messages[indexPath.item], maxWidth: Int(labelWidth), font: UIFont.systemFontOfSize(14))
+            
+            size = 100 + labelHeight - 46 + 20
+        }
+        return CGSizeMake(UIScreen.mainScreen().bounds.width - 40, size)
+        
+    }
+    
     
     // customize border between sections width between sections
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {

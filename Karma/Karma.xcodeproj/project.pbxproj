@@ -10,6 +10,7 @@
 		0C0C4C651CB06669009A10B9 /* ThirstyScriptExtraBoldDemo.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0C0C4C641CB06669009A10B9 /* ThirstyScriptExtraBoldDemo.otf */; };
 		0C0C4C671CB61BB3009A10B9 /* SentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C4C661CB61BB3009A10B9 /* SentCollectionViewCell.swift */; };
 		0C0C4C691CB61E58009A10B9 /* NewPostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C4C681CB61E58009A10B9 /* NewPostCollectionViewCell.swift */; };
+		0C634AE91CCF29DF00C84741 /* MDBSwiftUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C634AE81CCF29DF00C84741 /* MDBSwiftUtils.swift */; };
 		0C6B30BF1CCD9A5300127771 /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B30BE1CCD9A5300127771 /* LocationsViewController.swift */; };
 		0C79AEED1CBE039900CD43AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C79AEEC1CBE039900CD43AD /* Main.storyboard */; };
 		0C7FEDCC1CCCC80800F25365 /* DropDownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C7FEDC81CCCC80800F25365 /* DropDownCell.xib */; };
@@ -52,8 +53,6 @@
 		FC3B03AC1CB031A10000EC38 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03AB1CB031A10000EC38 /* MapViewController.swift */; };
 		FC3B03B01CB031C60000EC38 /* UnreadRecievedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03AF1CB031C60000EC38 /* UnreadRecievedViewController.swift */; };
 		FC3B03B21CB032180000EC38 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03B11CB032180000EC38 /* NewMessageViewController.swift */; };
-		FC64C0471CCF24550072A4A7 /* FontAwesome_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC64C0461CCF24550072A4A7 /* FontAwesome_swift.framework */; };
-		FC64C0481CCF24550072A4A7 /* FontAwesome_swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC64C0461CCF24550072A4A7 /* FontAwesome_swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FC9789881CC8940600AB7FB7 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9789871CC8940600AB7FB7 /* DateExtensions.swift */; };
 		FCCEF0791CBE02BC00740817 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCEF0781CBE02BC00740817 /* InitialViewController.swift */; };
 /* End PBXBuildFile section */
@@ -82,7 +81,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				FC64C0481CCF24550072A4A7 /* FontAwesome_swift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,6 +91,7 @@
 		0C0C4C641CB06669009A10B9 /* ThirstyScriptExtraBoldDemo.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ThirstyScriptExtraBoldDemo.otf; path = Fonts/ThirstyScriptExtraBoldDemo.otf; sourceTree = "<group>"; };
 		0C0C4C661CB61BB3009A10B9 /* SentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentCollectionViewCell.swift; sourceTree = "<group>"; };
 		0C0C4C681CB61E58009A10B9 /* NewPostCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostCollectionViewCell.swift; sourceTree = "<group>"; };
+		0C634AE81CCF29DF00C84741 /* MDBSwiftUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MDBSwiftUtils.swift; sourceTree = "<group>"; };
 		0C6B30BE1CCD9A5300127771 /* LocationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		0C79AEEC1CBE039900CD43AD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0C7FEDC81CCCC80800F25365 /* DropDownCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropDownCell.xib; sourceTree = "<group>"; };
@@ -148,7 +147,6 @@
 		FC3B03AB1CB031A10000EC38 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FC3B03AF1CB031C60000EC38 /* UnreadRecievedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnreadRecievedViewController.swift; sourceTree = "<group>"; };
 		FC3B03B11CB032180000EC38 /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
-		FC64C0461CCF24550072A4A7 /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FontAwesome_swift.framework; path = "/Users/shaanappel/Library/Developer/Xcode/DerivedData/Karma-aozwyqwzuzebfnfngmqognwflduf/Build/Products/Debug-iphonesimulator/FontAwesome_swift.framework"; sourceTree = "<absolute>"; };
 		FC9789871CC8940600AB7FB7 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		FCCEF0781CBE02BC00740817 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,7 +157,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E807AF721CCE99F90088CC5D /* Bolts.framework in Frameworks */,
-				FC64C0471CCF24550072A4A7 /* FontAwesome_swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +235,6 @@
 		FC3B03651CB02CA90000EC38 = {
 			isa = PBXGroup;
 			children = (
-				FC64C0461CCF24550072A4A7 /* FontAwesome_swift.framework */,
 				FC3B03701CB02CAA0000EC38 /* Karma */,
 				FC3B03851CB02CAA0000EC38 /* KarmaTests */,
 				FC3B03901CB02CAA0000EC38 /* KarmaUITests */,
@@ -280,6 +276,7 @@
 				FC3B03A71CB031830000EC38 /* SentViewController.swift */,
 				E807AF861CCEAD6F0088CC5D /* SentExpandVC.swift */,
 				0C7FEDE71CCCE08200F25365 /* UIColor.swift */,
+				0C634AE81CCF29DF00C84741 /* MDBSwiftUtils.swift */,
 				0C79AEEC1CBE039900CD43AD /* Main.storyboard */,
 				E807AF881CCEB32C0088CC5D /* ReplyCollectionViewCell.swift */,
 				E807AF8A1CCEB33D0088CC5D /* OriginalSentMessageCollectionViewCell.swift */,
@@ -521,6 +518,7 @@
 				FC3B03741CB02CAA0000EC38 /* ViewController.swift in Sources */,
 				E807AF8B1CCEB33D0088CC5D /* OriginalSentMessageCollectionViewCell.swift in Sources */,
 				FC3B03A81CB031830000EC38 /* SentViewController.swift in Sources */,
+				0C634AE91CCF29DF00C84741 /* MDBSwiftUtils.swift in Sources */,
 				D851269D1CB97A8F007CF281 /* receivedMessageCollectionViewCell.swift in Sources */,
 				D867B3D31CB0964600335615 /* FeedCollectionViewController.swift in Sources */,
 				0C7FEDE81CCCE08200F25365 /* UIColor.swift in Sources */,
