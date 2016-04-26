@@ -28,6 +28,7 @@
 		D867B3D11CB0964600335615 /* expandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867B3CE1CB0964600335615 /* expandViewController.swift */; };
 		D867B3D21CB0964600335615 /* FeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867B3CF1CB0964600335615 /* FeedCollectionViewCell.swift */; };
 		D867B3D31CB0964600335615 /* FeedCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867B3D01CB0964600335615 /* FeedCollectionViewController.swift */; };
+		D8B2FBA31CCF368E009A6ADA /* changeUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B2FBA21CCF368E009A6ADA /* changeUsernameViewController.swift */; };
 		D8CDD29C1CCCEE71007964BF /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CDD29B1CCCEE71007964BF /* ForgotPasswordViewController.swift */; };
 		E807AE441CCDE99A0088CC5D /* DataStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E807AE431CCDE99A0088CC5D /* DataStorage.swift */; };
 		E807AF721CCE99F90088CC5D /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E807AF711CCE99F90088CC5D /* Bolts.framework */; };
@@ -111,6 +112,7 @@
 		D867B3CE1CB0964600335615 /* expandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = expandViewController.swift; sourceTree = "<group>"; };
 		D867B3CF1CB0964600335615 /* FeedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewCell.swift; sourceTree = "<group>"; };
 		D867B3D01CB0964600335615 /* FeedCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionViewController.swift; sourceTree = "<group>"; };
+		D8B2FBA21CCF368E009A6ADA /* changeUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = changeUsernameViewController.swift; sourceTree = "<group>"; };
 		D8CDD29B1CCCEE71007964BF /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		E807AE431CCDE99A0088CC5D /* DataStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStorage.swift; sourceTree = "<group>"; };
 		E807AF711CCE99F90088CC5D /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "/Users/jessicaji/Documents/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Bolts.framework"; sourceTree = "<absolute>"; };
@@ -295,6 +297,7 @@
 				D83409AF1CC89508007ECA3D /* SettingsViewController.swift */,
 				D83409B11CC8950C007ECA3D /* settingTableViewCell.swift */,
 				D83409AD1CC89500007ECA3D /* changePasswordViewController.swift */,
+				D8B2FBA21CCF368E009A6ADA /* changeUsernameViewController.swift */,
 				FC3B03781CB02CAA0000EC38 /* Assets.xcassets */,
 				0C7FEDCF1CCCC80E00F25365 /* helpers */,
 				0C7FEDC71CCCC80800F25365 /* resources */,
@@ -519,6 +522,7 @@
 				E807AF8B1CCEB33D0088CC5D /* OriginalSentMessageCollectionViewCell.swift in Sources */,
 				FC3B03A81CB031830000EC38 /* SentViewController.swift in Sources */,
 				0C634AE91CCF29DF00C84741 /* MDBSwiftUtils.swift in Sources */,
+				D8B2FBA31CCF368E009A6ADA /* changeUsernameViewController.swift in Sources */,
 				D851269D1CB97A8F007CF281 /* receivedMessageCollectionViewCell.swift in Sources */,
 				D867B3D31CB0964600335615 /* FeedCollectionViewController.swift in Sources */,
 				0C7FEDE81CCCE08200F25365 /* UIColor.swift in Sources */,

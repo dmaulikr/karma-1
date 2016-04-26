@@ -22,7 +22,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     var ParseUsernameLabel = UILabel (frame: CGRectMake(270, 0, 200, 50))
 
     
-
+    var changeUsernameLabel = UILabel (frame: CGRectMake(30, 0 , 200, 50))
     
     var accountActionsLabel = UILabel(frame: CGRectMake(20, 0 , 200, 60
         ))
@@ -84,7 +84,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         settingstable.delegate = self
         settingstable.dataSource = self
         
-     
+        changeUsernameLabel.text = "Change Username"
+        changeUsernameLabel.font =  UIFont(name: "Avenir Next", size: 18)
+        changeUsernameLabel.backgroundColor = UIColor.clearColor()
         
         
         
@@ -168,7 +170,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.row == 2 {
             cell.addSubview(passwordLabel)
         }
-      
+        if indexPath.row == 3 {
+            cell.addSubview(changeUsernameLabel)
+        }
         
         if indexPath.row == 4
         {
@@ -198,7 +202,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let row = (sender as! NSIndexPath).item
         if segue.identifier == "toChangePassword"{
-            let vc = segue.destinationViewController as! changePasswordViewController
+            let vc = segue.destinationViewController as! ForgotPasswordViewController
+        }
+        if segue.identifier == "toChangeUsername" {
+            let vc = segue.destinationViewController as! changeUsernameViewController
+
         }
     }
  
@@ -210,6 +218,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.row == 2 {
             self.performSegueWithIdentifier("toChangePassword", sender: indexPath)            
         }
+        if indexPath.row == 3 {
+            self.performSegueWithIdentifier("toChangeUsername", sender: indexPath)
+            
+        }
+            
+            
         else if indexPath.row == 5 {
             let confirmLogOff = UIAlertAction(title: "Logout", style: .Default, handler: { (action) -> Void in
                 // Logout

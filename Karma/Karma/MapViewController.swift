@@ -18,6 +18,57 @@ class MapViewController: UIViewController {
     
     @IBOutlet weak var reachMap: MKMapView!
     override func viewDidLoad() {
+        
+        
+        
+        // these are only for screenshot purposes
+        let newYorkLocation = CLLocationCoordinate2DMake(40.9000, -120
+        )
+        // Drop a pin
+        let dropPin = MKPointAnnotation()
+        dropPin.coordinate = newYorkLocation
+        dropPin.title = "New York City"
+        reachMap.addAnnotation(dropPin)
+        
+        let santacruz = CLLocationCoordinate2DMake(39, -160.0308)
+        // Drop a pin
+        let dropPin1 = MKPointAnnotation()
+        dropPin1.coordinate = santacruz
+        dropPin1.title = "New York City"
+        reachMap.addAnnotation(dropPin1)
+        
+        let sanfrancisco = CLLocationCoordinate2DMake(40, -112)
+        // Drop a pin
+        let dropPin2 = MKPointAnnotation()
+        dropPin2.coordinate = sanfrancisco
+        dropPin2.title = "San Francisco"
+        reachMap.addAnnotation(dropPin2)
+        
+        let richmond = CLLocationCoordinate2DMake(36, -92)
+        // Drop a pin
+        let dropPin3 = MKPointAnnotation()
+        dropPin3.coordinate = richmond
+        dropPin3.title = "richmond"
+        reachMap.addAnnotation(dropPin3)
+        
+        let sanleandro = CLLocationCoordinate2DMake(33, -117)
+        // Drop a pin
+        let dropPin4 = MKPointAnnotation()
+        dropPin4.coordinate = sanleandro
+        dropPin4.title = "San Leandro"
+        reachMap.addAnnotation(dropPin4)
+        
+        let halfmoonbay = CLLocationCoordinate2DMake(38, -123)
+        // Drop a pin
+        let dropPin5 = MKPointAnnotation()
+        dropPin5.coordinate = halfmoonbay
+        dropPin5.title = "Halfmoon Bay"
+        reachMap.addAnnotation(dropPin5)
+        
+        
+        
+        
+        
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         //self.navigationController?.navigationBar.translucent = false;
