@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="i7D-KF-sbn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="i7D-KF-sbn">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -467,8 +467,8 @@
                                                     <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="message body" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNf-s1-pJl">
-                                                    <rect key="frame" x="13" y="8" width="288" height="63"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="message body" lineBreakMode="wordWrap" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNf-s1-pJl">
+                                                    <rect key="frame" x="13" y="25" width="288" height="46"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -518,15 +518,15 @@
                                             <constraint firstItem="WNf-s1-pJl" firstAttribute="centerX" secondItem="Yii-DX-MTe" secondAttribute="centerX" id="Huo-xJ-v96"/>
                                             <constraint firstItem="0bJ-sS-woz" firstAttribute="centerX" secondItem="pbL-BG-UdE" secondAttribute="centerX" constant="54" id="Li0-vc-B5l"/>
                                             <constraint firstItem="pbL-BG-UdE" firstAttribute="bottom" secondItem="Yii-DX-MTe" secondAttribute="bottomMargin" id="MJD-PO-Bjj"/>
-                                            <constraint firstItem="0bJ-sS-woz" firstAttribute="top" secondItem="WNf-s1-pJl" secondAttribute="bottom" constant="3" id="TEQ-Bp-ZN6"/>
+                                            <constraint firstItem="0bJ-sS-woz" firstAttribute="top" secondItem="WNf-s1-pJl" secondAttribute="bottom" constant="1" id="TEQ-Bp-ZN6"/>
                                             <constraint firstItem="pbL-BG-UdE" firstAttribute="firstBaseline" secondItem="VGx-fT-Wu9" secondAttribute="firstBaseline" id="Wvc-GB-thC"/>
                                             <constraint firstItem="Kqt-2a-gyb" firstAttribute="centerX" secondItem="pbL-BG-UdE" secondAttribute="centerX" constant="182" id="ad1-BD-SQM"/>
                                             <constraint firstItem="Kqt-2a-gyb" firstAttribute="top" secondItem="lly-yW-CeD" secondAttribute="bottom" constant="42" id="dCD-uJ-5Xk"/>
                                             <constraint firstItem="Kqt-2a-gyb" firstAttribute="leading" secondItem="pbL-BG-UdE" secondAttribute="trailing" constant="76" id="hsT-4R-eTN"/>
-                                            <constraint firstItem="WNf-s1-pJl" firstAttribute="top" secondItem="Yii-DX-MTe" secondAttribute="topMargin" id="ibQ-d6-Lw3"/>
-                                            <constraint firstItem="WNf-s1-pJl" firstAttribute="top" secondItem="lly-yW-CeD" secondAttribute="top" id="n3z-v0-HTr"/>
+                                            <constraint firstItem="WNf-s1-pJl" firstAttribute="top" secondItem="Yii-DX-MTe" secondAttribute="topMargin" constant="17" id="ibQ-d6-Lw3"/>
+                                            <constraint firstItem="WNf-s1-pJl" firstAttribute="top" secondItem="lly-yW-CeD" secondAttribute="top" constant="17" id="n3z-v0-HTr"/>
                                             <constraint firstItem="VGx-fT-Wu9" firstAttribute="centerX" secondItem="pbL-BG-UdE" secondAttribute="centerX" constant="102.5" id="p4y-5l-8VL"/>
-                                            <constraint firstItem="pbL-BG-UdE" firstAttribute="top" secondItem="WNf-s1-pJl" secondAttribute="bottom" id="qSB-3z-LAH"/>
+                                            <constraint firstItem="pbL-BG-UdE" firstAttribute="top" secondItem="WNf-s1-pJl" secondAttribute="bottom" constant="-2" id="qSB-3z-LAH"/>
                                             <constraint firstItem="0bJ-sS-woz" firstAttribute="bottom" secondItem="VGx-fT-Wu9" secondAttribute="bottom" id="tIu-Ez-Ufe"/>
                                         </constraints>
                                         <size key="customSize" width="315" height="97"/>
@@ -630,14 +630,14 @@
                                                     <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Body" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Brt-Fv-0gC">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Body" lineBreakMode="wordWrap" numberOfLines="13" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Brt-Fv-0gC">
                                                     <rect key="frame" x="15" y="8" width="285" height="63"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Berkeley" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YuD-Jj-qCT">
-                                                    <rect key="frame" x="147" y="72" width="84" height="21"/>
+                                                    <rect key="frame" x="149" y="72" width="84" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="84" id="cZT-g9-lJu"/>
                                                         <constraint firstAttribute="height" constant="21" id="d9U-Cp-fZs"/>
