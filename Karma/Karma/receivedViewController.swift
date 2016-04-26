@@ -32,7 +32,6 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
         let labelHeight = MDBSwiftUtils.getMultiLineLabelHeight(body[indexPath.item], maxWidth: Int(labelWidth), font: UIFont.systemFontOfSize(14))
         var size = 100 + labelHeight - 46 + 20
         return CGSizeMake(UIScreen.mainScreen().bounds.width - 20, size)
-        
     }
     
     func getMessages() {

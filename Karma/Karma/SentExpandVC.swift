@@ -266,17 +266,36 @@ class SentExpandVC: UIViewController, UICollectionViewDelegate, UICollectionView
         return UIEdgeInsetsMake(10, -30, 0, -30) // margin between cells
     }
     
-    func collectionView(collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                               sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
-    {
-        if indexPath.section == 0 {
-            //Bigger one
-            return CGSizeMake(UIScreen.mainScreen().bounds.width - 20, 200);
+//    func collectionView(collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                               sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+//    {
+//        if indexPath.section == 0 {
+//            //Bigger one
+//            return CGSizeMake(UIScreen.mainScreen().bounds.width - 20, 200);
+//        } else {
+//            return CGSizeMake(UIScreen.mainScreen().bounds.width - 20, 115)
+//        }
+//    }
+    
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        var size = CGFloat()
+        let labelWidth = UIScreen.mainScreen().bounds.width - 40
+        if (indexPath.section == 0) {
+            let labelHeight = MDBSwiftUtils.getMultiLineLabelHeight(message!["messageBody"] as! String, maxWidth: Int(labelWidth), font: UIFont.systemFontOfSize(14))
+            
+            size = 140 + labelHeight - 46 + 20
         } else {
-            return CGSizeMake(UIScreen.mainScreen().bounds.width - 20, 115)
+            let labelHeight = MDBSwiftUtils.getMultiLineLabelHeight(replies[indexPath.item]["replyBody"] as! String, maxWidth: Int(labelWidth), font: UIFont.systemFontOfSize(14))
+            
+            size = 100 + labelHeight - 46 + 20
         }
+        return CGSizeMake(UIScreen.mainScreen().bounds.width - 20, size)
+        
     }
+    
+    
     func cleanTime(sentDate: NSDate) -> String {
         
         var timeInterval : NSTimeInterval = sentDate.timeIntervalSinceNow
