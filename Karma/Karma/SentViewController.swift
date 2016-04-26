@@ -30,7 +30,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if section == 0 {
             return 1
         } else {
-            return locations.count
+            return messages.count
         }
     }
     
