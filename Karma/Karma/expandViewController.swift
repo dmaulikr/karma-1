@@ -45,10 +45,19 @@ class expandViewController: UIViewController, UITextViewDelegate{
         let dateString = dateFormatter.stringFromDate(messDate)
         date.text = dateString
         receivedmessage.text = message!["messageBody"] as? String
-        if replyOpenText {
-            response.becomeFirstResponder()
-            print("wwwwwwwoooootttt")
+        
+        
+        if replySent {
+            self.response.editable = false
+            self.sendReplyButton.hidden = true
+            findReply()
+        } else {
+            if replyOpenText {
+                response.becomeFirstResponder()
+                print("wwwwwwwoooootttt")
+            }
         }
+        
 
     }
     var message: PFObject?
@@ -83,10 +92,6 @@ class expandViewController: UIViewController, UITextViewDelegate{
                         if ((object["senderId"] as! String) == self.currentUser!.objectId) {
                             
                             self.response.text = object["replyBody"] as! String
-                            
-                            self.response.editable = false
-                            
-                            self.sendReplyButton.hidden = true
                             
                         }
                         

@@ -33,18 +33,6 @@
 		E807AF871CCEAD6F0088CC5D /* SentExpandVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E807AF861CCEAD6F0088CC5D /* SentExpandVC.swift */; };
 		E807AF891CCEB32C0088CC5D /* ReplyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E807AF881CCEB32C0088CC5D /* ReplyCollectionViewCell.swift */; };
 		E807AF8B1CCEB33D0088CC5D /* OriginalSentMessageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E807AF8A1CCEB33D0088CC5D /* OriginalSentMessageCollectionViewCell.swift */; };
-		E8E9316B1CCF2219009FC848 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E9316A1CCF2219009FC848 /* Bolts.framework */; };
-		E8E9316C1CCF2219009FC848 /* Bolts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8E9316A1CCF2219009FC848 /* Bolts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E8E9316E1CCF2219009FC848 /* FontAwesome_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E9316D1CCF2219009FC848 /* FontAwesome_swift.framework */; };
-		E8E9316F1CCF2219009FC848 /* FontAwesome_swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8E9316D1CCF2219009FC848 /* FontAwesome_swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E8E931711CCF221A009FC848 /* FontAwesomeIconFactory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931701CCF221A009FC848 /* FontAwesomeIconFactory.framework */; };
-		E8E931721CCF221A009FC848 /* FontAwesomeIconFactory.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931701CCF221A009FC848 /* FontAwesomeIconFactory.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E8E931741CCF221A009FC848 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931731CCF221A009FC848 /* Parse.framework */; };
-		E8E931751CCF221A009FC848 /* Parse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931731CCF221A009FC848 /* Parse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E8E931771CCF221A009FC848 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931761CCF221A009FC848 /* Pods.framework */; };
-		E8E931781CCF221A009FC848 /* Pods.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931761CCF221A009FC848 /* Pods.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E8E9317A1CCF221A009FC848 /* Pods_Karma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931791CCF221A009FC848 /* Pods_Karma.framework */; };
-		E8E9317B1CCF221A009FC848 /* Pods_Karma.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8E931791CCF221A009FC848 /* Pods_Karma.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E8F0D23F1CCC0ADC00AFF6AE /* YSLCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D23C1CCC0ADC00AFF6AE /* YSLCardView.m */; };
 		E8F0D2401CCC0ADC00AFF6AE /* YSLDraggableCardContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D23E1CCC0ADC00AFF6AE /* YSLDraggableCardContainer.m */; };
 		E8F0D2441CCC0AF600AFF6AE /* UIColor+Random_Color.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D2431CCC0AF600AFF6AE /* UIColor+Random_Color.m */; };
@@ -64,6 +52,8 @@
 		FC3B03AC1CB031A10000EC38 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03AB1CB031A10000EC38 /* MapViewController.swift */; };
 		FC3B03B01CB031C60000EC38 /* UnreadRecievedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03AF1CB031C60000EC38 /* UnreadRecievedViewController.swift */; };
 		FC3B03B21CB032180000EC38 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3B03B11CB032180000EC38 /* NewMessageViewController.swift */; };
+		FC64C0471CCF24550072A4A7 /* FontAwesome_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC64C0461CCF24550072A4A7 /* FontAwesome_swift.framework */; };
+		FC64C0481CCF24550072A4A7 /* FontAwesome_swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC64C0461CCF24550072A4A7 /* FontAwesome_swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FC9789881CC8940600AB7FB7 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9789871CC8940600AB7FB7 /* DateExtensions.swift */; };
 		FCCEF0791CBE02BC00740817 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCEF0781CBE02BC00740817 /* InitialViewController.swift */; };
 /* End PBXBuildFile section */
@@ -92,12 +82,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E8E931721CCF221A009FC848 /* FontAwesomeIconFactory.framework in Embed Frameworks */,
-				E8E931781CCF221A009FC848 /* Pods.framework in Embed Frameworks */,
-				E8E9316C1CCF2219009FC848 /* Bolts.framework in Embed Frameworks */,
-				E8E931751CCF221A009FC848 /* Parse.framework in Embed Frameworks */,
-				E8E9316F1CCF2219009FC848 /* FontAwesome_swift.framework in Embed Frameworks */,
-				E8E9317B1CCF221A009FC848 /* Pods_Karma.framework in Embed Frameworks */,
+				FC64C0481CCF24550072A4A7 /* FontAwesome_swift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -133,12 +118,6 @@
 		E807AF861CCEAD6F0088CC5D /* SentExpandVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentExpandVC.swift; sourceTree = "<group>"; };
 		E807AF881CCEB32C0088CC5D /* ReplyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplyCollectionViewCell.swift; sourceTree = "<group>"; };
 		E807AF8A1CCEB33D0088CC5D /* OriginalSentMessageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OriginalSentMessageCollectionViewCell.swift; sourceTree = "<group>"; };
-		E8E9316A1CCF2219009FC848 /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Bolts.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Bolts.framework"; sourceTree = "<absolute>"; };
-		E8E9316D1CCF2219009FC848 /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FontAwesome_swift.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/FontAwesome_swift.framework"; sourceTree = "<absolute>"; };
-		E8E931701CCF221A009FC848 /* FontAwesomeIconFactory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FontAwesomeIconFactory.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/FontAwesomeIconFactory.framework"; sourceTree = "<absolute>"; };
-		E8E931731CCF221A009FC848 /* Parse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Parse.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Parse.framework"; sourceTree = "<absolute>"; };
-		E8E931761CCF221A009FC848 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Pods.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Pods.framework"; sourceTree = "<absolute>"; };
-		E8E931791CCF221A009FC848 /* Pods_Karma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Pods_Karma.framework; path = "/Users/ankurmahesh/Library/Developer/Xcode/DerivedData/Karma-atjinkmjsxxcfkcmsthhsvbvptbt/Build/Products/Debug-iphonesimulator/Pods_Karma.framework"; sourceTree = "<absolute>"; };
 		E8F0D23B1CCC0ADC00AFF6AE /* YSLCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLCardView.h; sourceTree = "<group>"; };
 		E8F0D23C1CCC0ADC00AFF6AE /* YSLCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLCardView.m; sourceTree = "<group>"; };
 		E8F0D23D1CCC0ADC00AFF6AE /* YSLDraggableCardContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLDraggableCardContainer.h; sourceTree = "<group>"; };
@@ -169,6 +148,7 @@
 		FC3B03AB1CB031A10000EC38 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		FC3B03AF1CB031C60000EC38 /* UnreadRecievedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnreadRecievedViewController.swift; sourceTree = "<group>"; };
 		FC3B03B11CB032180000EC38 /* NewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
+		FC64C0461CCF24550072A4A7 /* FontAwesome_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = FontAwesome_swift.framework; path = "/Users/shaanappel/Library/Developer/Xcode/DerivedData/Karma-aozwyqwzuzebfnfngmqognwflduf/Build/Products/Debug-iphonesimulator/FontAwesome_swift.framework"; sourceTree = "<absolute>"; };
 		FC9789871CC8940600AB7FB7 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		FCCEF0781CBE02BC00740817 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,13 +158,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8E931771CCF221A009FC848 /* Pods.framework in Frameworks */,
 				E807AF721CCE99F90088CC5D /* Bolts.framework in Frameworks */,
-				E8E9316E1CCF2219009FC848 /* FontAwesome_swift.framework in Frameworks */,
-				E8E931711CCF221A009FC848 /* FontAwesomeIconFactory.framework in Frameworks */,
-				E8E9316B1CCF2219009FC848 /* Bolts.framework in Frameworks */,
-				E8E931741CCF221A009FC848 /* Parse.framework in Frameworks */,
-				E8E9317A1CCF221A009FC848 /* Pods_Karma.framework in Frameworks */,
+				FC64C0471CCF24550072A4A7 /* FontAwesome_swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,12 +238,7 @@
 		FC3B03651CB02CA90000EC38 = {
 			isa = PBXGroup;
 			children = (
-				E8E931791CCF221A009FC848 /* Pods_Karma.framework */,
-				E8E931761CCF221A009FC848 /* Pods.framework */,
-				E8E931731CCF221A009FC848 /* Parse.framework */,
-				E8E931701CCF221A009FC848 /* FontAwesomeIconFactory.framework */,
-				E8E9316D1CCF2219009FC848 /* FontAwesome_swift.framework */,
-				E8E9316A1CCF2219009FC848 /* Bolts.framework */,
+				FC64C0461CCF24550072A4A7 /* FontAwesome_swift.framework */,
 				FC3B03701CB02CAA0000EC38 /* Karma */,
 				FC3B03851CB02CAA0000EC38 /* KarmaTests */,
 				FC3B03901CB02CAA0000EC38 /* KarmaUITests */,
