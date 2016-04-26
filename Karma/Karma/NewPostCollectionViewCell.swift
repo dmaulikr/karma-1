@@ -20,11 +20,12 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
     @IBOutlet weak var setAudience: UIButton!
     //let dropDown = DropDown()
     
+    @IBOutlet weak var sendButton: UIButton!
     var selectedAudience = "Berkeley"
-    var currUser = PFUser.currentUser()
+    var currUser:PFUser? = PFUser.currentUser()
+    
     
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var sendButton: UIButton!
     var usersInRange = Array<PFObject>()
     
     var delegate:NewPostCollectionViewDelegate? = nil
@@ -45,6 +46,8 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
         //        dropDown.direction = .Top
         ////        dropDown.bottomOffset = CGPoint(x: 0, y:setAudience.bounds.height)
         //        dropDown.topOffset = CGPoint(x: 0, y:-setAudience.bounds.height)
+        
+        
     }
     
     //    @IBAction func showOrDismiss(sender: AnyObject) {
@@ -79,7 +82,6 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
     }
     @IBAction func sendMessage(sender: AnyObject) {
         print(textView.text)
-        
         
         if (textView.text != "" || textView.text != "What's on your mind?") {
             currUser?.incrementKey("audienceLim", byAmount: 0.2)
@@ -195,6 +197,8 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
         //        dropDown.direction = .Bottom
         //        dropDown.topOffset = CGPoint(x: 0, y:-30)
         
+//        var currUserAudLim = currUser!["audienceLim"] as! Int
+//        sendButton.titleLabel?.text = String(format: "Send(%i People)", currUserAudLim)
         
     }
     

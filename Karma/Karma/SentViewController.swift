@@ -60,6 +60,9 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let np = collectionView.dequeueReusableCellWithReuseIdentifier("newPost", forIndexPath: indexPath) as! NewPostCollectionViewCell
             
             np.delegate = self
+            var currUserAudLim = PFUser.currentUser()!["audienceLim"] as! Int
+            var buttonTitle = String(format: "Send(%i People)", currUserAudLim)
+            np.sendButton.setTitle(buttonTitle, forState: .Normal)
             
             //np.layoutMargins
             

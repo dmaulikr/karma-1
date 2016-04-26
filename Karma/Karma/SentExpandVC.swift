@@ -120,6 +120,12 @@ class SentExpandVC: UIViewController, UICollectionViewDelegate, UICollectionView
         }
     }
     
+    func collectionView(collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                               minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 1
+    }
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         
         //        let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
