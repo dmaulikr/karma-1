@@ -81,7 +81,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             if messages.count > 0 {
                 sc.messageBody.text = messages[indexPath.item]
                 sc.seenBy.text = "Seen by " + String(seenCount[indexPath.item])
-//                sc.audience.text = locations[indexPath.item]
+                sc.audience.text = locations[indexPath.item]
                 sc.timeStamp.text = cleanTime(sentTimes[indexPath.row])
                 if (replyCount[indexPath.item] == 1) {
                     sc.numReplies.text = "1 reply"
@@ -204,7 +204,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 if let objects = objects {
                     for object in objects {
                         self.msgObjects.append(object)
-//                        self.locations.append (object["audience"] as! String)
+                        self.locations.append (object["sentScale"] as! String)
                         
                         
                         if object["repliedIds"] == nil {

@@ -98,6 +98,13 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
             msg["authorized"] = false
             msg["flagged"] = false
             msg["favorited"] = false
+            if (DataStorage.getDouble("radius") == 20.0) {
+                msg["sentScale"] = "Local"
+            } else if (DataStorage.getDouble("radius") == 200.0) {
+                msg["sentScale"] = "Mid-Range"
+            } else {
+                msg["sentScale"] = "Expansive"
+            }
             
 //            msg["audience"] = selectedAudience
             
@@ -121,6 +128,9 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
                 if error == nil {
                     if let objects = objects {
                         for object in objects {
+                            if (objects.count == 0) {
+                                //Put display alert here
+                            }
                             if (object.objectId != self.currUser?.objectId) {
                                 recieverIds.addObject(object.objectId!)
                                 recievedLocations.addObject(object["location"])
