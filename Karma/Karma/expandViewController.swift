@@ -27,6 +27,9 @@ class expandViewController: UIViewController, UITextViewDelegate{
         
         
         receivedmessage.backgroundColor = UIColor(netHex: 0xFFA54F)
+        self.response.layer.cornerRadius = 4.5
+        self.receivedmessage.clipsToBounds = true
+        self.receivedmessage.layer.cornerRadius = 4.5
         
         setPlaceholder()
         addMapPin()
@@ -72,7 +75,7 @@ class expandViewController: UIViewController, UITextViewDelegate{
     func findReply() {
         
         var query = PFQuery(className:"Replies")
-        query.whereKey("authorized", equalTo: true)
+//        query.whereKey("authorized", equalTo: true)
         query.whereKey("flagged", notEqualTo: true)
         
         query.whereKey("messageId", equalTo: message!.objectId!)
