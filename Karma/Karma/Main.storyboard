@@ -403,13 +403,10 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXP-KI-FKh">
-                                                    <rect key="frame" x="193" y="85" width="108" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="70" id="o82-r0-P7L"/>
-                                                    </constraints>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXP-KI-FKh">
+                                                    <rect key="frame" x="174" y="85" width="127" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <state key="normal" title="SEND">
+                                                    <state key="normal" title="SEND (100  PEOPLE)">
                                                         <color key="titleColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
@@ -422,19 +419,13 @@
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="9L3-ta-MSq" firstAttribute="leading" secondItem="7Nc-Gu-kLa" secondAttribute="leadingMargin" constant="5" id="83U-Ob-I4L"/>
-                                            <constraint firstItem="kQa-nt-jTE" firstAttribute="baseline" secondItem="bXP-KI-FKh" secondAttribute="firstBaseline" id="L4z-9L-k65"/>
-                                            <constraint firstItem="bXP-KI-FKh" firstAttribute="baseline" secondItem="kQa-nt-jTE" secondAttribute="firstBaseline" id="LhI-Cd-1H2"/>
                                             <constraint firstItem="kQa-nt-jTE" firstAttribute="top" secondItem="9L3-ta-MSq" secondAttribute="bottom" constant="3" id="OkD-dN-Drr"/>
                                             <constraint firstItem="kQa-nt-jTE" firstAttribute="leading" secondItem="9L3-ta-MSq" secondAttribute="leading" id="Plo-KK-Ui4"/>
                                             <constraint firstItem="9L3-ta-MSq" firstAttribute="top" secondItem="7Nc-Gu-kLa" secondAttribute="topMargin" constant="10" id="RZk-SU-uLJ"/>
                                             <constraint firstItem="kQa-nt-jTE" firstAttribute="bottom" secondItem="7Nc-Gu-kLa" secondAttribute="bottomMargin" id="Ti5-6C-9dy"/>
-                                            <constraint firstItem="kQa-nt-jTE" firstAttribute="top" secondItem="bXP-KI-FKh" secondAttribute="top" id="bdR-wU-PQS"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="fit-OM-SDW" secondAttribute="trailing" constant="82" id="cnT-sb-aMx"/>
-                                            <constraint firstItem="bXP-KI-FKh" firstAttribute="leading" secondItem="kQa-nt-jTE" secondAttribute="trailing" constant="71" id="dYY-pe-0L4"/>
                                             <constraint firstItem="kQa-nt-jTE" firstAttribute="leading" secondItem="7Nc-Gu-kLa" secondAttribute="leadingMargin" constant="10" id="eKo-62-UHN"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="bXP-KI-FKh" secondAttribute="trailing" constant="6" id="fF4-W3-bCm"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="9L3-ta-MSq" secondAttribute="trailing" constant="9" id="gLM-nD-YVE"/>
-                                            <constraint firstItem="bXP-KI-FKh" firstAttribute="bottom" secondItem="kQa-nt-jTE" secondAttribute="bottom" id="i4U-oN-zfU"/>
                                             <constraint firstItem="fit-OM-SDW" firstAttribute="top" secondItem="7Nc-Gu-kLa" secondAttribute="topMargin" constant="58" id="vZ0-ux-QOB"/>
                                         </constraints>
                                         <size key="customSize" width="315" height="123"/>

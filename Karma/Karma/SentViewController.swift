@@ -61,9 +61,9 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             np.delegate = self
             var currUserAudLim = PFUser.currentUser()!["audienceLim"] as! Int
-            var buttonTitle = String(format: "Send(%i People)", currUserAudLim)
+            var buttonTitle = String(format: "SEND(%i PEOPLE)", currUserAudLim)
             np.sendButton.setTitle(buttonTitle, forState: .Normal)
-            
+            np.sendButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Right
             //np.layoutMargins
             
             
