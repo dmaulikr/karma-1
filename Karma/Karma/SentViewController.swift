@@ -61,7 +61,15 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             np.delegate = self
             var currUserAudLim = PFUser.currentUser()!["audienceLim"] as! Int
-            var buttonTitle = String(format: "SEND(%i PEOPLE)", currUserAudLim)
+            var audLimString = ""
+            if currUserAudLim == 1 {
+                audLimString = "1 PERSON)"
+            } else {
+                audLimString = String(currUserAudLim) + " PEOPLE)"
+            }
+            var buttonTitle = "SEND(" + audLimString
+//                String(format: "SEND(%i", audLimString)
+            
             np.sendButton.setTitle(buttonTitle, forState: .Normal)
             np.sendButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Right
             //np.layoutMargins
@@ -140,7 +148,9 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         print("selected")
         index = indexPath.row
-        self.performSegueWithIdentifier("toSentExpand", sender: indexPath)
+        if (indexPath.section != 0) {
+            self.performSegueWithIdentifier("toSentExpand", sender: indexPath)
+        }
     }
     
     //    func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
