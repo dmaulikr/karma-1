@@ -32,11 +32,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     
-    let logOutAlertController = UIAlertController(title: "Log Out", message: "Would you like to log out of your account?", preferredStyle: .Alert)
+    let logOutAlertController = UIAlertController(title: "Log out", message: "Are you sure?", preferredStyle: .Alert)
     
     let cancelLogout = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
 
-    let confirmLogout = UIAlertAction(title: "Log Out", style: .Default) { (UIAlertAction) in
+    let confirmLogout = UIAlertAction(title: "Log out", style: .Default) { (UIAlertAction) in
         PFUser.logOut()
         print("You are no longer signed in")
         
@@ -69,7 +69,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationController!.navigationBar.topItem!.title = "Settings"
         //;
         
-        
+        settingstable.tableFooterView = UIView()
 
         
         ParseUsernameLabel.text = currentUser!["username"] as! String
@@ -90,7 +90,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
 
         
-        usernameLabel.text = "Your Username"
+        usernameLabel.text = "Username"
         usernameLabel.font =  UIFont(name: "Avenir Next", size: 18)
         usernameLabel.backgroundColor = UIColor.clearColor()
         

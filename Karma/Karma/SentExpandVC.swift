@@ -21,7 +21,11 @@ class SentExpandVC: UIViewController, UICollectionViewDelegate, UICollectionView
         collectionView.delegate = self
         collectionView.dataSource = self
         // Do any additional setup after loading the view.
-                
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        
         var query = PFQuery(className:"Replies")
         query.whereKey("messageId", equalTo: message!.objectId!)
         query.findObjectsInBackgroundWithBlock {

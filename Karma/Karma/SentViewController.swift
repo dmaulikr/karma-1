@@ -41,9 +41,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     // customize border between sections width between sections
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
-        //TIME STAMPS
-        
+                
         if indexPath.section == 0 {
             let np = collectionView.dequeueReusableCellWithReuseIdentifier("newPost", forIndexPath: indexPath) as! NewPostCollectionViewCell
             
