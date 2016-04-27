@@ -136,69 +136,69 @@ class MapViewController: UIViewController {
                     (placemarks, error) -> Void in
                     
                     if placemarks != nil {
-                    let placeArray = placemarks as [CLPlacemark]!
-                    
-                    // Place details
-                    var placeMark: CLPlacemark!
-                    placeMark = placeArray?[0]
-                    
-                    
-                    // City
-                    if let city = placeMark.locality
-                    {
-                        print(city)
-                        self.locationName += city as String
-                        self.locationName += ", "
-                    }
-                    
-                    if let state = placeMark.administrativeArea
-                    {
-                        print(state)
-                        self.locationName += state as String
-                        self.locationName += ", "
-                    }
-                    
-                    // Country
-                    if let country = placeMark.country
-                    {
-                        print(country)
-                        self.locationName += country as String
-                    }
-                    
-                    //These next three lines will add an annotation of the specific location.
-                    //Comment out these lines adding an annotation of the
-                    //general city.
-                    //                    annotation.title = self.locationName
-                    //                    annotation.coordinate = location
-                    //                    self.reachMap.addAnnotation(annotation)
-                    
-                    //localLocationName is necessary to hold the value of self.locationName
-                    //because self.locationName will be set to nil in the line after this geocodeAddressString block,
-                    //before this geocodeAddressString block is done running.
-                    var localLocationName = self.locationName
-                    var geo = CLGeocoder()
-                    geo.geocodeAddressString(localLocationName, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
-                        if((error) != nil){
-                            
-                            print("Error", error)
+                        let placeArray = placemarks as [CLPlacemark]!
+                        
+                        // Place details
+                        var placeMark: CLPlacemark!
+                        placeMark = placeArray?[0]
+                        
+                        
+                        // City
+                        if let city = placeMark.locality
+                        {
+                            print(city)
+                            self.locationName += city as String
+                            self.locationName += ", "
                         }
-                            
-                        else {
-                            var placemark:CLPlacemark = placemarks![0] as! CLPlacemark
-                            var coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
-                            
-                            var pointAnnotation:MKPointAnnotation = MKPointAnnotation()
-                            pointAnnotation.coordinate = coordinates
-                            pointAnnotation.title = localLocationName
-                            self.reachMap.addAnnotation(pointAnnotation)
-                            self.reachMap.centerCoordinate = coordinates
-                            self.reachMap.selectAnnotation(pointAnnotation, animated: true)
-                            print("Added annotation to map view")
+                        
+                        if let state = placeMark.administrativeArea
+                        {
+                            print(state)
+                            self.locationName += state as String
+                            self.locationName += ", "
                         }
-                    })
-                    self.locationName = ""
+                        
+                        // Country
+                        if let country = placeMark.country
+                        {
+                            print(country)
+                            self.locationName += country as String
+                        }
+                        
+                        //These next three lines will add an annotation of the specific location.
+                        //Comment out these lines adding an annotation of the
+                        //general city.
+                        //                    annotation.title = self.locationName
+                        //                    annotation.coordinate = location
+                        //                    self.reachMap.addAnnotation(annotation)
+                        
+                        //localLocationName is necessary to hold the value of self.locationName
+                        //because self.locationName will be set to nil in the line after this geocodeAddressString block,
+                        //before this geocodeAddressString block is done running.
+                        var localLocationName = self.locationName
+                        var geo = CLGeocoder()
+                        geo.geocodeAddressString(localLocationName, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+                            if((error) != nil){
+                                
+                                print("Error", error)
+                            }
+                                
+                            else {
+                                var placemark:CLPlacemark = placemarks![0] as! CLPlacemark
+                                var coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
+                                
+                                var pointAnnotation:MKPointAnnotation = MKPointAnnotation()
+                                pointAnnotation.coordinate = coordinates
+                                pointAnnotation.title = localLocationName
+                                self.reachMap.addAnnotation(pointAnnotation)
+                                self.reachMap.centerCoordinate = coordinates
+                                self.reachMap.selectAnnotation(pointAnnotation, animated: true)
+                                print("Added annotation to map view")
+                            }
+                        })
+                        self.locationName = ""
+                    }
                 }
-            }
             }
         }
     }
