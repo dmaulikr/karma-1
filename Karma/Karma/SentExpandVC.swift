@@ -207,9 +207,9 @@ class SentExpandVC: UIViewController, UICollectionViewDelegate, UICollectionView
             sm.layer.shadowColor = UIColor(netHex:0xCDBA96).CGColor
             sm.layer.shadowRadius = 3
             sm.layer.cornerRadius = 3
-            sm.backgroundColor = UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1.0)
+            sm.backgroundColor = UIColor(netHex: 0xF9A75E)
             sm.layer.borderColor = UIColor.clearColor().CGColor
-            sm.layer.shadowOpacity = 0.7
+            //sm.layer.shadowOpacity = 0.7
             
             let shadowFrame: CGRect = (sm.layer.bounds)
             let shadowPath: CGPathRef = UIBezierPath(rect: shadowFrame).CGPath

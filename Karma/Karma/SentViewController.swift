@@ -46,7 +46,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let labelWidth = UIScreen.mainScreen().bounds.width - 40
             let labelHeight = MDBSwiftUtils.getMultiLineLabelHeight(messages[indexPath.item], maxWidth: Int(labelWidth), font: UIFont.systemFontOfSize(14))
             
-            size = 100 + labelHeight - 46 + 20
+            size = 60 + labelHeight + 25
         }
         return CGSizeMake(UIScreen.mainScreen().bounds.width - 20, size)
         

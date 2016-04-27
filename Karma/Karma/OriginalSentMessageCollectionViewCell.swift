@@ -10,6 +10,6 @@ import UIKit
 
 class OriginalSentMessageCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var sentMessageText: UILabel!
+    @IBOutlet weak var sentMessageText: UITextView!
     @IBOutlet weak var sentMessageDate: UILabel!
 }

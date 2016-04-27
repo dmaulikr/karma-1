@@ -11,9 +11,10 @@ import MapKit
 import Parse
 
 class expandViewController: UIViewController, UITextViewDelegate{
-    @IBOutlet weak var receivedmessage: UILabel!
+    
     @IBOutlet weak var backgroundImageView: UIImageView!
 
+    @IBOutlet weak var receivedMessage: UITextView!
     @IBOutlet weak var response: UITextView!
     
     @IBOutlet weak var date: UILabel!
@@ -22,34 +23,38 @@ class expandViewController: UIViewController, UITextViewDelegate{
     
     @IBOutlet weak var sendReplyButton: UIButton!
     
+//    func heightForView(text:String, #font:UIFont, #width:CGFloat) -> CGFloat{
+//        let label:UILabel = UILabel(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width - 20, CGFloat.max))
+//
+//        return label.frame.height
+//    }
+
+    
     override func viewDidLoad() {
         self.view.sendSubviewToBack(backgroundImageView)
         
         
-        receivedmessage.backgroundColor = UIColor(netHex: 0xFFA54F)
+        receivedMessage.backgroundColor = UIColor(netHex: 0xFFA54F)
         self.response.clipsToBounds = false
-        self.response.layer.cornerRadius = 4.5
+        self.response.layer.cornerRadius = 3
         
         
-        self.receivedmessage.clipsToBounds = true
-        self.receivedmessage.layer.cornerRadius = 4.5
+        self.receivedMessage.clipsToBounds = true
+        self.receivedMessage.layer.cornerRadius = 3
         
-        self.response.textColor = UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1.0)
+        self.receivedMessage.backgroundColor = UIColor(netHex: 0xF9A75E)
+        //self.receivedMessage.backgroundColor = UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1.0)
         setPlaceholder()
         addMapPin()
         markAsRead()
         self.automaticallyAdjustsScrollViewInsets = false
         
-        //location.text = message!["audience"] as? String
-//        let messDate = (message!["sentDate"] as? NSDate)!
-//        let dateFormatter = NSDateFormatter()
-//        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-//        let dateString = dateFormatter.stringFromDate(messDate)
-//        date.text = dateString
-        
         date.text = "Sent " + String(cleanTime(message!["sentDate"] as! NSDate))
-        receivedmessage.text = message!["messageBody"] as? String
-        
+
+        receivedMessage.text = message!["messageBody"] as? String
+        receivedMessage.scrollEnabled = true
+        receivedMessage.showsVerticalScrollIndicator = false
+        receivedMessage.showsHorizontalScrollIndicator = false
         
         if replySent {
             self.response.editable = false
@@ -57,8 +62,10 @@ class expandViewController: UIViewController, UITextViewDelegate{
             response.textAlignment = NSTextAlignment.Center
             response.layer.shadowOffset = CGSizeMake(0, 1)
             response.layer.shadowColor = UIColor(netHex:0xCDBA96).CGColor
-            response.layer.shadowRadius = 3
             response.layer.shadowOpacity = 0.7
+            response.showsHorizontalScrollIndicator = false
+            response.showsVerticalScrollIndicator = false
+            
             
             self.sendReplyButton.hidden = true
             findReply()

@@ -32,6 +32,10 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
     var delegate:NewPostCollectionViewDelegate? = nil
     var canHitSend = true
     
+    var characterLimit = 270
+    
+    @IBOutlet weak var characterLimitLabel: UILabel!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         //
@@ -103,6 +107,11 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
                 
                 if (currUser!["location"] == nil) {
                     delegate!.parentShouldShowAlert("We cannot find your location", title: "No Location")
+                    return;
+                }
+                
+                if textView.text.characters.count > characterLimit {
+                    delegate!.parentShouldShowAlert("It seems like you have a tad bit too many characters in your message! Make it a little shorter.", title: "Woah!")
                     return;
                 }
                 
@@ -232,7 +241,15 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
             textView.textColor = UIColor.blackColor()
         }
     }
-    
+    func textViewDidChange(textView: UITextView) {
+        var charactersLeft = characterLimit - textView.text.characters.count
+        if charactersLeft < 0 {
+            characterLimitLabel.textColor = UIColor.redColor()
+        } else {
+            characterLimitLabel.textColor = UIColor.lightGrayColor()
+        }
+        characterLimitLabel.text = String(charactersLeft)
+    }
     func textViewDidEndEditing(textView: UITextView) {
         if (textView.text == "") {
             textView.text = "What's on your mind?"
