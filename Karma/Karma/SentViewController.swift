@@ -235,7 +235,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         //        let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         //        layout.sectionInset = UIEdgeInsetsMake(-10, 0, 0, 0);
-        let frame : CGRect = self.view.frame
+        //let frame : CGRect = self.view.frame
         return UIEdgeInsetsMake(10, -30, 0, -30) // margin between cells
     }
     
