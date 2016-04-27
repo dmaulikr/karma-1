@@ -80,6 +80,12 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             //placeholder
             np.setPlaceholder()
             
+            if KarmaUtils.didPressNewSentfromReply {
+                KarmaUtils.didPressNewSentfromReply = false
+                np.textView.becomeFirstResponder()
+                
+            }
+            
             return np
             
             
@@ -215,7 +221,14 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     override func viewDidAppear(animated: Bool) {
-        print(PFUser.currentUser()!.username)
+        //print(PFUser.currentUser()!.username)
+        if KarmaUtils.didPressNewSentfromReply {
+            //KarmaUtils.didPressNewSentfromReply = false
+            let indexPath = NSIndexPath(forItem: 0, inSection: 0)
+            collectionView.reloadData()
+            self.collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: UICollectionViewScrollPosition.Top, animated: true)
+            
+        }
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
@@ -290,8 +303,8 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.topItem!.title = "Sent Messages";
         
-        let newMessageImage = UIImage.fontAwesomeIconWithName(.PencilSquareO, textColor: UIColor.blackColor(), size: CGSizeMake(25, 25))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: newMessageImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(receivedViewController.addTapped))
+        //let newMessageImage = UIImage.fontAwesomeIconWithName(.PencilSquareO, textColor: UIColor.blackColor(), size: CGSizeMake(25, 25))
+        //self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: newMessageImage, style: UIBarButtonItemStyle.Plain, target: self, action: #selector(receivedViewController.addTapped))
     }
     
     override func didReceiveMemoryWarning() {

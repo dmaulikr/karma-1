@@ -51,6 +51,11 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
                 
                 // Do something with the found objects
                 if let objects = objects {
+                    self.body.removeAll()
+                    self.messages.removeAll()
+                    self.timesArray.removeAll()
+                    self.messageIds.removeAll()
+                    self.replied.removeAll()
                     for object in objects {
                         //self.times.append(object["socialTitle"] as! String)
                         self.body.append(object["messageBody"] as! String)
@@ -128,13 +133,9 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     func addTapped() {
         self.tabBarController?.selectedIndex = 1
+        KarmaUtils.didPressNewSentfromReply = true
     }
     func refresh() {
-        body.removeAll()
-        messages.removeAll()
-        timesArray.removeAll()
-        messageIds.removeAll()
-        replied.removeAll()
         
         currentIndex = -1;
         getMessages()

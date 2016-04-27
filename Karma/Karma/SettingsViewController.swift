@@ -232,10 +232,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 // Logout
                 PFUser.logOut()
                 
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("LoginView") as! UIViewController
-                    self.presentViewController(viewController, animated: true, completion: nil)
-                })
+                self.tabBarController?.dismissViewControllerAnimated(true, completion: nil)
             })
             
             

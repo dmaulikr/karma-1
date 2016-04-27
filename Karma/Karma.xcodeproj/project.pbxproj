@@ -63,6 +63,7 @@
 		FCE6A3891CD0820700EE5396 /* FontAwesome_swift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FCE6A36E1CD0816300EE5396 /* FontAwesome_swift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FCE6A38A1CD0822200EE5396 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCE6A37A1CD0819500EE5396 /* Parse.framework */; };
 		FCE6A38B1CD0822200EE5396 /* Parse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FCE6A37A1CD0819500EE5396 /* Parse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FCE7314D1CD0999200E867A3 /* KarmaUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE7314C1CD0999200E867A3 /* KarmaUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +169,7 @@
 		FCE6A37A1CD0819500EE5396 /* Parse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Parse.framework; path = "/Users/shaanappel/Library/Developer/Xcode/DerivedData/Karma-aozwyqwzuzebfnfngmqognwflduf/Build/Products/Debug-iphoneos/Parse.framework"; sourceTree = "<absolute>"; };
 		FCE6A37D1CD0819500EE5396 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Pods.framework; path = "/Users/shaanappel/Library/Developer/Xcode/DerivedData/Karma-aozwyqwzuzebfnfngmqognwflduf/Build/Products/Debug-iphoneos/Pods.framework"; sourceTree = "<absolute>"; };
 		FCE6A3801CD0819500EE5396 /* Pods_Karma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = Pods_Karma.framework; path = "/Users/shaanappel/Library/Developer/Xcode/DerivedData/Karma-aozwyqwzuzebfnfngmqognwflduf/Build/Products/Debug-iphoneos/Pods_Karma.framework"; sourceTree = "<absolute>"; };
+		FCE7314C1CD0999200E867A3 /* KarmaUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KarmaUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +309,7 @@
 				E807AF861CCEAD6F0088CC5D /* SentExpandVC.swift */,
 				0C7FEDE71CCCE08200F25365 /* UIColor.swift */,
 				0C634AE81CCF29DF00C84741 /* MDBSwiftUtils.swift */,
+				FCE7314C1CD0999200E867A3 /* KarmaUtils.swift */,
 				0C79AEEC1CBE039900CD43AD /* Main.storyboard */,
 				E807AF881CCEB32C0088CC5D /* ReplyCollectionViewCell.swift */,
 				E807AF8A1CCEB33D0088CC5D /* OriginalSentMessageCollectionViewCell.swift */,
@@ -553,6 +556,7 @@
 				D851269D1CB97A8F007CF281 /* receivedMessageCollectionViewCell.swift in Sources */,
 				D867B3D31CB0964600335615 /* FeedCollectionViewController.swift in Sources */,
 				0C7FEDE81CCCE08200F25365 /* UIColor.swift in Sources */,
+				FCE7314D1CD0999200E867A3 /* KarmaUtils.swift in Sources */,
 				E8F0D2461CCC0BB500AFF6AE /* CardStackViewController.swift in Sources */,
 				E807AF871CCEAD6F0088CC5D /* SentExpandVC.swift in Sources */,
 				D851269B1CB97738007CF281 /* receivedViewController.swift in Sources */,

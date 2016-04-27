@@ -435,7 +435,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeD-Rd-9pk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="583.5" y="924.5"/>
+            <point key="canvasLocation" x="225.5" y="1102.5"/>
         </scene>
         <!--Received View Controller-->
         <scene sceneID="Ihv-25-ium">
@@ -606,7 +606,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hVa-ik-Sq2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162.40000000000001" y="1036.1266666666666"/>
+            <point key="canvasLocation" x="-204.5" y="1119.5"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="ujo-Xv-vh9">
@@ -1130,7 +1130,7 @@
         <image name="white" width="80" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="UW3-EQ-oWD"/>
         <segue reference="rNy-x1-rcQ"/>
-        <segue reference="nGd-mI-yaX"/>
     </inferredMetricsTieBreakers>
 </document>

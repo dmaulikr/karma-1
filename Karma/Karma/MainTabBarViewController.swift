@@ -35,13 +35,13 @@ class MainTabBarViewController: UITabBarController, CLLocationManagerDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.locationManager.requestWhenInUseAuthorization()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        
+        self.locationManager.requestWhenInUseAuthorization()
+
         if CLLocationManager.locationServicesEnabled() && CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse {
             locationManager.requestLocation()
-        } else {
+        } else if (CLLocationManager.authorizationStatus() != CLAuthorizationStatus.NotDetermined){
             self.displayAlertLocation()
         }
     }
