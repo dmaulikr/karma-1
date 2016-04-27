@@ -202,6 +202,20 @@ class expandViewController: UIViewController, UITextViewDelegate{
         }
     }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        UIView.animateWithDuration(0.5) {
+            self.view.frame = CGRectOffset(self.view.frame, 0, -UIScreen.mainScreen().bounds.height/3 - 10)
+            
+        }
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        UIView.animateWithDuration(0.5) {
+            self.view.frame = CGRectOffset(self.view.frame, 0, UIScreen.mainScreen().bounds.height/3 + 10)
+            
+        }
+    }
+    
     func markAsRead() {
         message!.addUniqueObject((self.currentUser?.objectId)!, forKey:"readIds")
         message!.saveInBackground()
