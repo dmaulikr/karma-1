@@ -36,10 +36,10 @@ class MainTabBarViewController: UITabBarController, CLLocationManagerDelegate {
     
     override func viewDidAppear(animated: Bool) {
         self.locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+        if CLLocationManager.locationServicesEnabled() && CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse {
             locationManager.requestLocation()
         } else {
             self.displayAlertLocation()
@@ -47,7 +47,7 @@ class MainTabBarViewController: UITabBarController, CLLocationManagerDelegate {
     }
     
     func displayAlertLocation() {
-        let alert = UIAlertController(title: "We Can't Get Your Location", message: "Turn on location services on your device.", preferredStyle: UIAlertControllerStyle.Alert)
+        let alert = UIAlertController(title: "We Can't Get Your Location", message: "Sincerely needs your location to function. Please grant permission to Sincerely in location settings.", preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addAction(UIAlertAction(title:"Location Settings", style: UIAlertActionStyle.Default, handler: { action in
             
@@ -84,6 +84,14 @@ class MainTabBarViewController: UITabBarController, CLLocationManagerDelegate {
             }
         } else {
             // ...
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        if CLLocationManager.locationServicesEnabled() && CLLocationManager.authorizationStatus() == CLAuthorizationStatus.AuthorizedWhenInUse {
+            locationManager.requestLocation()
+        } else {
+            self.displayAlertLocation()
         }
     }
     

@@ -95,6 +95,12 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
             }
             let msg = PFObject(className: "Messages")
             msg["messageBody"] = textView.text
+            
+            if (currUser!["location"] == nil) {
+                delegate!.parentShouldShowAlert("We cannot find your location", title: "No Location")
+                return;
+            }
+            
             msg["sentLocation"] = currUser!["location"] as! PFGeoPoint
             msg["senderId"] = currUser!.objectId
             msg["sentDate"] = NSDate()

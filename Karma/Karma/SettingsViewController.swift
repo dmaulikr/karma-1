@@ -44,11 +44,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     
     
-    
+    var currentUser = PFUser.currentUser()
 
     
     
-    
+    override func viewDidAppear(animated: Bool) {
+        currentUser = PFUser.currentUser()
+        ParseUsernameLabel.text = currentUser!["username"] as! String
+    }
     
     
     
@@ -60,7 +63,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var currentUser = PFUser.currentUser()
+        currentUser = PFUser.currentUser()
         
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         //self.navigationController?.navigationBar.translucent = false;

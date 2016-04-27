@@ -97,7 +97,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rW8-0Z-SwP">
                                 <rect key="frame" x="66" y="537" width="99" height="30"/>
@@ -186,7 +186,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="modal" id="q83-Q4-cJL"/>
+                                    <action selector="backToLoginPressed:" destination="nQa-qr-3ru" eventType="touchUpInside" id="skX-C4-aVG"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" id="07l-SE-FmB">
@@ -215,7 +215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UJE-XT-pt5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1706.5" y="3009.5"/>
+            <point key="canvasLocation" x="785.5" y="238.5"/>
         </scene>
         <!--Locations View Controller-->
         <scene sceneID="nZo-VX-pQJ">
@@ -1130,7 +1130,7 @@
         <image name="white" width="80" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UW3-EQ-oWD"/>
         <segue reference="rNy-x1-rcQ"/>
+        <segue reference="nGd-mI-yaX"/>
     </inferredMetricsTieBreakers>
 </document>

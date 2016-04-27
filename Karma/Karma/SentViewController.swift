@@ -214,6 +214,10 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        print(PFUser.currentUser()!.username)
+    }
+    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         
         //        let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout

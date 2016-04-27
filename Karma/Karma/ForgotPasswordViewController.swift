@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class ForgotPasswordViewController: UIViewController {
+class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
 
     func displayalert(title: String, displayError: String){
         let alert = UIAlertController(title: title, message: displayError, preferredStyle: UIAlertControllerStyle.Alert)
@@ -20,11 +20,15 @@ class ForgotPasswordViewController: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
         
     }
+    @IBAction func backToLoginPressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBOutlet weak var EmailTextField: UITextField!
     @IBOutlet weak var SendResetLink: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        EmailTextField.delegate = self
         
         // Do any additional setup after loading the view.
     }
@@ -41,9 +45,50 @@ class ForgotPasswordViewController: UIViewController {
             displayalert("Error", displayError: emailerror)
         }
         else {
-            PFUser.requestPasswordResetForEmailInBackground(EmailTextField.text!)}
+            print(EmailTextField.text!)
+            resetPassword(EmailTextField.text!)
+                   }
+    }
+        
+        func resetPassword(email : String){
+            
+            // convert the email string to lower case
+            let emailToLowerCase = email.lowercaseString
+            // remove any whitespaces before and after the email address
+            let emailClean = emailToLowerCase.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+            
+            print(emailClean)
+            
+            PFUser.requestPasswordResetForEmailInBackground(emailClean) { (success, error) -> Void in
+                if (error == nil) {
+                    let success = UIAlertController(title: "Success", message: "Success! Check your email!", preferredStyle: .Alert)
+                    let okButton = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    success.addAction(okButton)
+                    self.presentViewController(success, animated: false, completion: nil)
+                    
+                }else {
+                    let errormessage = error!.userInfo["error"] as! NSString
+                    let error = UIAlertController(title: "Cannot complete request", message: errormessage as String, preferredStyle: .Alert)
+                    let okButton = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                    error.addAction(okButton)
+                    self.presentViewController(error, animated: false, completion: nil)
+                }
+            }
+        }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        UIView.animateWithDuration(0.5) {
+            self.view.frame = CGRectOffset(self.view.frame, 0, -UIScreen.mainScreen().bounds.height/3 + 30)
+            
+        }
     }
     
+    func textFieldDidEndEditing(textField: UITextField) {
+        UIView.animateWithDuration(0.5) {
+            self.view.frame = CGRectOffset(self.view.frame, 0, UIScreen.mainScreen().bounds.height/3 - 30)
+            
+        }
+    }
     /*
      // MARK: - Navigation
      

@@ -176,7 +176,7 @@ class MDBSwiftUtils {
         - content: message to display in alert
         - currVC: the ViewController in which this function is being called
      */
-    func showBasicAlert(title: String, content: String, currVC: UIViewController) {
+    static func showBasicAlert(title: String, content: String, currVC: UIViewController) {
         let alert = UIAlertController(title: title, message: content, preferredStyle: UIAlertControllerStyle.Alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { action in
