@@ -16,12 +16,12 @@ class expandViewController: UIViewController, UITextViewDelegate{
 
     @IBOutlet weak var response: UITextView!
     
-    @IBOutlet weak var location: UILabel!
     @IBOutlet weak var date: UILabel!
     
     @IBOutlet weak var sentMapView: MKMapView!
     
     @IBOutlet weak var sendReplyButton: UIButton!
+    
     override func viewDidLoad() {
         self.view.sendSubviewToBack(backgroundImageView)
         
@@ -41,11 +41,13 @@ class expandViewController: UIViewController, UITextViewDelegate{
         self.automaticallyAdjustsScrollViewInsets = false
         
         //location.text = message!["audience"] as? String
-        let messDate = (message!["sentDate"] as? NSDate)!
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        let dateString = dateFormatter.stringFromDate(messDate)
-        date.text = dateString
+//        let messDate = (message!["sentDate"] as? NSDate)!
+//        let dateFormatter = NSDateFormatter()
+//        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+//        let dateString = dateFormatter.stringFromDate(messDate)
+//        date.text = dateString
+        
+        date.text = "Sent " + String(cleanTime(message!["sentDate"] as! NSDate))
         receivedmessage.text = message!["messageBody"] as? String
         
         
@@ -244,7 +246,6 @@ class expandViewController: UIViewController, UITextViewDelegate{
             if let city = placeMark.locality
             {
                 print(city)
-                self.location.text = city as String
                 self.locationName += city as String
                 self.locationName += ", "
             }
@@ -301,7 +302,46 @@ class expandViewController: UIViewController, UITextViewDelegate{
     }
     
     
-    
+    func cleanTime(sentDate: NSDate) -> String {
+        
+        var timeInterval : NSTimeInterval = sentDate.timeIntervalSinceNow
+        timeInterval = timeInterval * -1
+        
+        //print(timeInterval)
+        if timeInterval < 60 {
+            return "Just now"
+        } else if timeInterval < (60 * 60) {
+            let numMinutes = Int(floor(timeInterval / 60))
+            return String(numMinutes) + " minutes ago"
+        } else if timeInterval < (2*60*60) {
+            return "1 hour ago"
+        } else if timeInterval < (24*60*60) {
+            let numHours = Int(floor(timeInterval / (60*60)))
+            return String(numHours) + " hours ago"
+        } else if timeInterval < (48 * 60 * 60) {
+            return "1 day ago"
+        } else if timeInterval < (7 * 24 * 60 * 60) {
+            let numDays = Int(floor(timeInterval / (24*60*60)))
+            return String(numDays) + " days ago"
+        } else if timeInterval < (2 * 7 * 24 * 60 * 60) {
+            return "1 week ago"
+        } else if timeInterval < (30 * 24 * 60 * 60) {
+            let numWeeks = Int(floor(timeInterval / (7*24*60*60)))
+            return String(numWeeks) + " weeks ago"
+        } else if timeInterval < (2 * 30 * 24 * 60 * 60) {
+            return "1 month ago"
+        } else if timeInterval < (365 * 24 * 60 * 60) {
+            let numMonths = Int(floor(timeInterval / (30*24*60*60)))
+            return String(numMonths) + " months ago"
+        } else if timeInterval < (365 * 24 * 60 * 60) {
+            return "1 year ago"
+        }
+        
+        let numYears = Int(floor(timeInterval / (365*24*60*60)))
+        return String(numYears) + " years ago"
+        
+    }
+
 
 
     override func didReceiveMemoryWarning() {
