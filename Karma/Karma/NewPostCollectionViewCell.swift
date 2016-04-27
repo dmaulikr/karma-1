@@ -165,7 +165,7 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
                                         var currUserAudLim = self.currUser!["audienceLim"] as! Int
                                         var audLimString = ""
                                         if currUserAudLim == 1 {
-                                            audLimString = "1 person"
+                                            audLimString = "1 person!"
                                         } else {
                                             audLimString = String(currUserAudLim) + " people!"
                                         }
