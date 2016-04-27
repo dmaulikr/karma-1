@@ -112,15 +112,24 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             
             if messages.count > 0 {
+                let isAuth = msgObjects[indexPath.row]["authorized"] as! Bool
+                
                 sc.messageBody.text = messages[indexPath.item]
+                if !isAuth {
+                    sc.messageBody.textColor = UIColor.lightGrayColor()
+                    sc.numReplies.text = "Pending"
+                } else {
+                    sc.messageBody.textColor = UIColor.blackColor()
+                    if (replyCount[indexPath.item] == 1) {
+                        sc.numReplies.text = "1 reply"
+                    } else {
+                        sc.numReplies.text = String(replyCount[indexPath.item]) + " replies"
+                    }
+                }
                 sc.seenBy.text = "Seen by " + String(seenCount[indexPath.item])
                 sc.audience.text = locations[indexPath.item]
                 sc.timeStamp.text = cleanTime(sentTimes[indexPath.row])
-                if (replyCount[indexPath.item] == 1) {
-                    sc.numReplies.text = "1 reply"
-                } else {
-                    sc.numReplies.text = String(replyCount[indexPath.item]) + " replies"
-                }
+                
             }
             return sc
         }
@@ -146,6 +155,11 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func parentShouldShowAlert(string: String, title: String) {
         //String is the text of the alert
         self.displayAlert(title, displayError: string)
+    }
+    
+    func refreshParentCollectionView() {
+        self.refresh()
+        //print("refreshed")
     }
     
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -246,13 +260,17 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func queryMessages() {
         // query for messages sent by user
         let query = PFQuery(className:"Messages")
-        query.whereKey("authorized", equalTo: true)
+        //query.whereKey("authorized", equalTo: true)
         query.whereKey("flagged", notEqualTo: true)
-        query.orderByDescending("sentDate")
+        query.orderByDescending("authorized")
+        query.addDescendingOrder("sentDate")
         query.whereKey("senderId", equalTo: (PFUser.currentUser()?.objectId)!)
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) ->Void in
             if error == nil {
                 print("Successfully retrieved sent")
+                self.locations = Array<String>()
+                self.messages = Array<String>()
+                self.seenCount = Array<Int>()
                 
                 if let objects = objects {
                     for object in objects {
@@ -285,9 +303,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func refresh() {
-        locations = Array<String>()
-        messages = Array<String>()
-        seenCount = Array<Int>()
+        
         queryMessages()
         
     }

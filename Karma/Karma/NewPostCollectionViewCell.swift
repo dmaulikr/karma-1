@@ -12,6 +12,7 @@ import Parse
 protocol NewPostCollectionViewDelegate {
     func selectLocationsPressed(cell : NewPostCollectionViewCell)
     func parentShouldShowAlert(string:String, title:String)
+    func refreshParentCollectionView()
 }
 
 class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPopoverPresentationControllerDelegate {
@@ -171,6 +172,7 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
                                         }
                                         var sendString = "Your message is on its way to approval! It will be sent to " + audLimString
                                         self.delegate!.parentShouldShowAlert(sendString, title: "Sent!")
+                                        self.delegate!.refreshParentCollectionView()
                                         // if tap outside then shrink the box
                                         // but if inside then expand and show the button
                                     } else {
