@@ -19,8 +19,8 @@ class MapViewController: UIViewController {
     @IBOutlet weak var reachMap: MKMapView!
     override func viewDidLoad() {
         
-//        
-//        
+        
+        
 //        // these are only for screenshot purposes
 //        let newYorkLocation = CLLocationCoordinate2DMake(40.9000, -120
 //        )
