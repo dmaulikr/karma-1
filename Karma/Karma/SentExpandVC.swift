@@ -202,13 +202,13 @@ class SentExpandVC: UIViewController, UICollectionViewDelegate, UICollectionView
         if indexPath.section == 0 {
             let sm = collectionView.dequeueReusableCellWithReuseIdentifier("originalSentMessage", forIndexPath: indexPath) as! OriginalSentMessageCollectionViewCell
             
-            sm.layer.borderColor = UIColor.whiteColor().CGColor
             sm.layer.borderWidth = 1
             sm.layer.shadowOffset = CGSizeMake(0, 1)
             sm.layer.shadowColor = UIColor(netHex:0xCDBA96).CGColor
             sm.layer.shadowRadius = 3
             sm.layer.cornerRadius = 3
-            
+            sm.backgroundColor = UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1.0)
+            sm.layer.borderColor = UIColor.clearColor().CGColor
             sm.layer.shadowOpacity = 0.7
             
             let shadowFrame: CGRect = (sm.layer.bounds)
@@ -266,17 +266,36 @@ class SentExpandVC: UIViewController, UICollectionViewDelegate, UICollectionView
         return UIEdgeInsetsMake(10, -30, 0, -30) // margin between cells
     }
     
-    func collectionView(collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                               sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
-    {
-        if indexPath.section == 0 {
-            //Bigger one
-            return CGSizeMake(0.8 * UIScreen.mainScreen().bounds.width, 200);
+//    func collectionView(collectionView: UICollectionView,
+//                        layout collectionViewLayout: UICollectionViewLayout,
+//                               sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize
+//    {
+//        if indexPath.section == 0 {
+//            //Bigger one
+//            return CGSizeMake(UIScreen.mainScreen().bounds.width - 20, 200);
+//        } else {
+//            return CGSizeMake(UIScreen.mainScreen().bounds.width - 20, 115)
+//        }
+//    }
+    
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        var size = CGFloat()
+        let labelWidth = UIScreen.mainScreen().bounds.width - 40
+        if (indexPath.section == 0) {
+            let labelHeight = MDBSwiftUtils.getMultiLineLabelHeight(message!["messageBody"] as! String, maxWidth: Int(labelWidth), font: UIFont.systemFontOfSize(14))
+            
+            size = 140 + labelHeight - 46 + 20
         } else {
-            return CGSizeMake(0.8 * UIScreen.mainScreen().bounds.width, 115)
+            let labelHeight = MDBSwiftUtils.getMultiLineLabelHeight(replies[indexPath.item]["replyBody"] as! String, maxWidth: Int(labelWidth), font: UIFont.systemFontOfSize(14))
+            
+            size = 100 + labelHeight - 46 + 20
         }
+        return CGSizeMake(UIScreen.mainScreen().bounds.width - 20, size)
+        
     }
+    
+    
     func cleanTime(sentDate: NSDate) -> String {
         
         var timeInterval : NSTimeInterval = sentDate.timeIntervalSinceNow

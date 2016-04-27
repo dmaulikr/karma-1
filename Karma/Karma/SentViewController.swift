@@ -41,16 +41,18 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         var size = CGFloat()
         if (indexPath.section == 0) {
-            size = 120
+            size = 145
         } else {
             let labelWidth = UIScreen.mainScreen().bounds.width - 40
             let labelHeight = MDBSwiftUtils.getMultiLineLabelHeight(messages[indexPath.item], maxWidth: Int(labelWidth), font: UIFont.systemFontOfSize(14))
             
             size = 100 + labelHeight - 46 + 20
         }
-        return CGSizeMake(UIScreen.mainScreen().bounds.width - 40, size)
+        return CGSizeMake(UIScreen.mainScreen().bounds.width - 20, size)
         
     }
+    
+    
     
     
     // customize border between sections width between sections
@@ -67,7 +69,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
             } else {
                 audLimString = String(currUserAudLim) + " PEOPLE)"
             }
-            var buttonTitle = "SEND(" + audLimString
+            var buttonTitle = "SEND (" + audLimString
 //                String(format: "SEND(%i", audLimString)
             
             np.sendButton.setTitle(buttonTitle, forState: .Normal)
@@ -276,6 +278,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func setProperties() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 0
+        
         
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         //self.navigationController?.navigationBar.translucent = false;

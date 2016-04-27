@@ -25,13 +25,7 @@ class MainTabBarViewController: UITabBarController, CLLocationManagerDelegate {
             // Core Location Manager asks for GPS location
             
             // For use in foreground
-            self.locationManager.requestWhenInUseAuthorization()
-            
-            if CLLocationManager.locationServicesEnabled() {
-                locationManager.delegate = self
-                locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-                locationManager.requestLocation()
-            }
+        
             
             viewControllers![0].tabBarItem.image = UIImage.fontAwesomeIconWithName(.MapO, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
             viewControllers![1].tabBarItem.image = UIImage.fontAwesomeIconWithName(.MailForward, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
@@ -39,7 +33,35 @@ class MainTabBarViewController: UITabBarController, CLLocationManagerDelegate {
             viewControllers![3].tabBarItem.image = UIImage.fontAwesomeIconWithName(.Gear, textColor: UIColor.blackColor(), size: CGSizeMake(30, 30))
         
     }
-
+    
+    override func viewDidAppear(animated: Bool) {
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            locationManager.requestLocation()
+        } else {
+            self.displayAlertLocation()
+        }
+    }
+    
+    func displayAlertLocation() {
+        let alert = UIAlertController(title: "We Can't Get Your Location", message: "Turn on location services on your device.", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title:"Location Settings", style: UIAlertActionStyle.Default, handler: { action in
+            
+            if let url = NSURL(string:UIApplicationOpenSettingsURLString) {
+                UIApplication.sharedApplication().openURL(url)
+            }
+        }))
+        alert.addAction(UIAlertAction(title:"Cancel", style: UIAlertActionStyle.Default, handler: { action in
+            self.displayAlertLocation()
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

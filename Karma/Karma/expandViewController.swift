@@ -27,10 +27,14 @@ class expandViewController: UIViewController, UITextViewDelegate{
         
         
         receivedmessage.backgroundColor = UIColor(netHex: 0xFFA54F)
+        self.response.clipsToBounds = false
         self.response.layer.cornerRadius = 4.5
+        
+        
         self.receivedmessage.clipsToBounds = true
         self.receivedmessage.layer.cornerRadius = 4.5
         
+        self.response.textColor = UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1.0)
         setPlaceholder()
         addMapPin()
         markAsRead()
@@ -48,6 +52,7 @@ class expandViewController: UIViewController, UITextViewDelegate{
         if replySent {
             self.response.editable = false
             response.textColor = UIColor.blackColor()
+            response.textAlignment = NSTextAlignment.Center
             self.sendReplyButton.hidden = true
             findReply()
         } else {
@@ -100,7 +105,7 @@ class expandViewController: UIViewController, UITextViewDelegate{
                             
                             var responseMessage = object["replyBody"] as! String
                             
-                            self.response.text = "Your Reply: " + responseMessage
+                            self.response.text = responseMessage
                             
                         }
                         
@@ -133,12 +138,20 @@ class expandViewController: UIViewController, UITextViewDelegate{
             response.text = nil
             response.textColor = UIColor.blackColor()
         }
+        UIView.animateWithDuration(0.5) {
+            self.view.frame = CGRectOffset(self.view.frame, 0, -UIScreen.mainScreen().bounds.height/3 - 10)
+            
+        }
     }
     
     func textViewDidEndEditing(response: UITextView) {
         if (response.text == "") {
             response.text = "How would you like to reply?"
             response.textColor = UIColor.lightGrayColor()
+        }
+        UIView.animateWithDuration(0.5) {
+            self.view.frame = CGRectOffset(self.view.frame, 0, UIScreen.mainScreen().bounds.height/3 + 10)
+            
         }
         response.resignFirstResponder()
     }
@@ -196,6 +209,7 @@ class expandViewController: UIViewController, UITextViewDelegate{
 
         }
     }
+    
     
     func markAsRead() {
         message!.addUniqueObject((self.currentUser?.objectId)!, forKey:"readIds")

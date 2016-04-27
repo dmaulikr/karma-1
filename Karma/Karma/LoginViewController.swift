@@ -54,6 +54,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        UIView.animateWithDuration(0.5) {
+            self.view.frame = CGRectOffset(self.view.frame, 0, -UIScreen.mainScreen().bounds.height/3 + 20)
+
+        }
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        UIView.animateWithDuration(0.5) {
+            self.view.frame = CGRectOffset(self.view.frame, 0, UIScreen.mainScreen().bounds.height/3 - 20)
+            
+        }
+    }
+    
     override func viewDidAppear(animated: Bool) {
         let currentUser = PFUser.currentUser()
         if currentUser != nil {

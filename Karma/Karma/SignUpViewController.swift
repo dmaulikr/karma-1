@@ -49,6 +49,20 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+        UIView.animateWithDuration(0.5) {
+            self.view.frame = CGRectOffset(self.view.frame, 0, -UIScreen.mainScreen().bounds.height/3 + 30)
+            
+        }
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        UIView.animateWithDuration(0.5) {
+            self.view.frame = CGRectOffset(self.view.frame, 0, UIScreen.mainScreen().bounds.height/3 - 30)
+            
+        }
+    }
+    
     func displayEmptyFieldError() {
         let alert = UIAlertController(title: "halp", message: "Please fill in all fields", preferredStyle: .Alert)
         let okay = UIAlertAction(title: "Ok", style: .Default, handler: { (action) -> Void in

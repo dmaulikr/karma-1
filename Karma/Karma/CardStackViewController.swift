@@ -46,8 +46,9 @@ class CardStackViewController: UIViewController, YSLDraggableCardContainerDataSo
         
         let bounds = UIScreen.mainScreen().bounds
         let screenWidth = bounds.size.width
+        let screenHeight = bounds.size.height
         let cardWidth = screenWidth * (6 / 7) - screenWidth / 7
-        let card = UIView(frame: CGRect(x: screenWidth / 7, y: 130, width: cardWidth, height: 400))
+        let card = UIView(frame: CGRect(x: screenWidth / 7, y: screenHeight * 0.2, width: cardWidth, height: screenHeight * 0.7))
         card.backgroundColor = UIColor.randomColor()
         card.layer.borderColor = UIColor.grayColor().CGColor
         card.layer.borderWidth = 0.4
