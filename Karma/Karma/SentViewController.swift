@@ -117,15 +117,19 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 sc.messageBody.text = messages[indexPath.item]
                 if !isAuth {
                     sc.messageBody.textColor = UIColor.lightGrayColor()
+                    sc.numReplies.text = "Approval Pending"
+                } else {
+                    sc.messageBody.textColor = UIColor.blackColor()
+                    if (replyCount[indexPath.item] == 1) {
+                        sc.numReplies.text = "1 reply"
+                    } else {
+                        sc.numReplies.text = String(replyCount[indexPath.item]) + " replies"
+                    }
                 }
                 sc.seenBy.text = "Seen by " + String(seenCount[indexPath.item])
                 sc.audience.text = locations[indexPath.item]
                 sc.timeStamp.text = cleanTime(sentTimes[indexPath.row])
-                if (replyCount[indexPath.item] == 1) {
-                    sc.numReplies.text = "1 reply"
-                } else {
-                    sc.numReplies.text = String(replyCount[indexPath.item]) + " replies"
-                }
+                
             }
             return sc
         }
