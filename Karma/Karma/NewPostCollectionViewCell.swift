@@ -161,8 +161,15 @@ class NewPostCollectionViewCell: UICollectionViewCell, UITextViewDelegate, UIPop
                                     if (success) {
                                         print("yaaaaas")
                                         self.canHitSend = true;
-                                        var sendString = "Your message was succesfully sent to " + String(self.currUser!["audienceLim"] as! Int)
-                                        sendString = sendString + " people!"
+                                        
+                                        var currUserAudLim = self.currUser!["audienceLim"] as! Int
+                                        var audLimString = ""
+                                        if currUserAudLim == 1 {
+                                            audLimString = "1 person"
+                                        } else {
+                                            audLimString = String(currUserAudLim) + " people!"
+                                        }
+                                        var sendString = "Your message is on its way to approval! It will be sent to " + audLimString
                                         self.delegate!.parentShouldShowAlert(sendString, title: "Sent!")
                                         // if tap outside then shrink the box
                                         // but if inside then expand and show the button
