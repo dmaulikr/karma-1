@@ -117,7 +117,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 sc.messageBody.text = messages[indexPath.item]
                 if !isAuth {
                     sc.messageBody.textColor = UIColor.lightGrayColor()
-                    sc.numReplies.text = "Approval Pending"
+                    sc.numReplies.text = "Pending"
                 } else {
                     sc.messageBody.textColor = UIColor.blackColor()
                     if (replyCount[indexPath.item] == 1) {
@@ -262,7 +262,8 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let query = PFQuery(className:"Messages")
         //query.whereKey("authorized", equalTo: true)
         query.whereKey("flagged", notEqualTo: true)
-        query.orderByDescending("sentDate")
+        query.orderByDescending("authorized")
+        query.addDescendingOrder("sentDate")
         query.whereKey("senderId", equalTo: (PFUser.currentUser()?.objectId)!)
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) ->Void in
             if error == nil {
