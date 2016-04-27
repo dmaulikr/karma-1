@@ -70,6 +70,20 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(okay)
         self.presentViewController(alert, animated: true, completion: nil)
     }
+    
+    
+    func displayAlertAccept(title: String, content: String) {
+        let alert = UIAlertController(title: title, message: content, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alert.addAction(UIAlertAction(title: "Accept", style: .Default, handler: { action in
+            
+            alert.dismissViewControllerAnimated(true, completion: nil)
+            self.dismissViewControllerAnimated(false, completion: nil)
+            
+        }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
 
     
     @IBAction func trySignUp(sender: AnyObject) {
@@ -120,7 +134,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 
             } else {
                     if (success) {
-                        self.dismissViewControllerAnimated(false, completion: nil)
+                        let termsMessage = "Please make sure that you do not send any content that could be offensive to others and that you conduct youself on this app in a friendly manner. Sincerely does not tolerate any form of bullying or offensive content. If you violate these rules, you may be permanently banned from this community."
+                        self.displayAlertAccept("Terms & Conditions", content: termsMessage)
                     } else {
                         print("email error?")
                         self.emailAlert.hidden = false
