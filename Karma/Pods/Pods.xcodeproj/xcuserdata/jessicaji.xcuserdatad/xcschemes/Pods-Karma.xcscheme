@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '3A81D835785F1C18017F945F'
+               BlueprintIdentifier = 'E5884485342C1A9F42448587'
                BlueprintName = 'Pods-Karma'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_Karma.framework'>

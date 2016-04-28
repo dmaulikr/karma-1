@@ -1,4 +1,4 @@
-//
+ //
 //  expandViewController.swift
 //  karma2
 //
@@ -11,48 +11,62 @@ import MapKit
 import Parse
 
 class expandViewController: UIViewController, UITextViewDelegate{
-    @IBOutlet weak var receivedmessage: UILabel!
+    
     @IBOutlet weak var backgroundImageView: UIImageView!
 
+    @IBOutlet weak var receivedMessage: UITextView!
     @IBOutlet weak var response: UITextView!
     
-    @IBOutlet weak var location: UILabel!
     @IBOutlet weak var date: UILabel!
     
     @IBOutlet weak var sentMapView: MKMapView!
     
     @IBOutlet weak var sendReplyButton: UIButton!
+    
+//    func heightForView(text:String, #font:UIFont, #width:CGFloat) -> CGFloat{
+//        let label:UILabel = UILabel(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width - 20, CGFloat.max))
+//
+//        return label.frame.height
+//    }
+
+    
     override func viewDidLoad() {
         self.view.sendSubviewToBack(backgroundImageView)
         
         
-        receivedmessage.backgroundColor = UIColor(netHex: 0xFFA54F)
+        receivedMessage.backgroundColor = UIColor(netHex: 0xFFA54F)
         self.response.clipsToBounds = false
-        self.response.layer.cornerRadius = 4.5
+        self.response.layer.cornerRadius = 3
         
         
-        self.receivedmessage.clipsToBounds = true
-        self.receivedmessage.layer.cornerRadius = 4.5
+        self.receivedMessage.clipsToBounds = true
+        self.receivedMessage.layer.cornerRadius = 3
         
-        self.response.textColor = UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1.0)
+        self.receivedMessage.backgroundColor = UIColor(netHex: 0xF9A75E)
+        //self.receivedMessage.backgroundColor = UIColor(red: 0.965, green: 0.698, blue: 0.42, alpha: 1.0)
         setPlaceholder()
         addMapPin()
         markAsRead()
         self.automaticallyAdjustsScrollViewInsets = false
         
-        //location.text = message!["audience"] as? String
-        let messDate = (message!["sentDate"] as? NSDate)!
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        let dateString = dateFormatter.stringFromDate(messDate)
-        date.text = dateString
-        receivedmessage.text = message!["messageBody"] as? String
-        
+        date.text = "Sent " + String(cleanTime(message!["sentDate"] as! NSDate))
+
+        receivedMessage.text = message!["messageBody"] as? String
+        receivedMessage.scrollEnabled = true
+        receivedMessage.showsVerticalScrollIndicator = false
+        receivedMessage.showsHorizontalScrollIndicator = false
         
         if replySent {
             self.response.editable = false
             response.textColor = UIColor.blackColor()
             response.textAlignment = NSTextAlignment.Center
+            response.layer.shadowOffset = CGSizeMake(0, 1)
+            response.layer.shadowColor = UIColor(netHex:0xCDBA96).CGColor
+            response.layer.shadowOpacity = 0.7
+            response.showsHorizontalScrollIndicator = false
+            response.showsVerticalScrollIndicator = false
+            
+            
             self.sendReplyButton.hidden = true
             findReply()
         } else {
@@ -233,67 +247,68 @@ class expandViewController: UIViewController, UITextViewDelegate{
         geoCoder.reverseGeocodeLocation(locationNot2D) {
             (placemarks, error) -> Void in
             
-            let placeArray = placemarks as [CLPlacemark]!
-            
-            // Place details
-            var placeMark: CLPlacemark!
-            placeMark = placeArray?[0]
-            
-            
-            // City
-            if let city = placeMark.locality
-            {
-                print(city)
-                self.location.text = city as String
-                self.locationName += city as String
-                self.locationName += ", "
-            }
-            
-            if let state = placeMark.administrativeArea
-            {
-                print(state)
-                self.locationName += state as String
-                self.locationName += ", "
-            }
-            
-            // Country
-            if let country = placeMark.country
-            {
-                print(country)
-                self.locationName += country as String
-            }
-            
-            //These next three lines will add an annotation of the specific location.
-            //Comment out these lines adding an annotation of the
-            //general city.
-            //                    annotation.title = self.locationName
-            //                    annotation.coordinate = location
-            //                    self.reachMap.addAnnotation(annotation)
-            
-            //localLocationName is necessary to hold the value of self.locationName
-            //because self.locationName will be set to nil in the line after this geocodeAddressString block,
-            //before this geocodeAddressString block is done running.
-            let localLocationName = self.locationName
-            let geo = CLGeocoder()
-            geo.geocodeAddressString(localLocationName, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
-                if((error) != nil){
-                    
-                    print("Error", error)
+            if placemarks != nil {
+                let placeArray = placemarks as [CLPlacemark]!
+                
+                // Place details
+                var placeMark: CLPlacemark!
+                placeMark = placeArray?[0]
+                
+                
+                // City
+                if let city = placeMark.locality
+                {
+                    print(city)
+                    self.locationName += city as String
+                    self.locationName += ", "
                 }
-                    
-                else {
-                    let placemark:CLPlacemark = placemarks![0]
-                    let coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
-                    
-                    let pointAnnotation:MKPointAnnotation = MKPointAnnotation()
-                    pointAnnotation.coordinate = coordinates
-                    pointAnnotation.title = localLocationName
-                    self.sentMapView.addAnnotation(pointAnnotation)
-                    self.sentMapView.centerCoordinate = coordinates
-                    self.sentMapView.selectAnnotation(pointAnnotation, animated: true)
-                    print("Added annotation to map view")
+                
+                if let state = placeMark.administrativeArea
+                {
+                    print(state)
+                    self.locationName += state as String
+                    self.locationName += ", "
                 }
-            })
+                
+                // Country
+                if let country = placeMark.country
+                {
+                    print(country)
+                    self.locationName += country as String
+                }
+                
+                //These next three lines will add an annotation of the specific location.
+                //Comment out these lines adding an annotation of the
+                //general city.
+                //                    annotation.title = self.locationName
+                //                    annotation.coordinate = location
+                //                    self.reachMap.addAnnotation(annotation)
+                
+                //localLocationName is necessary to hold the value of self.locationName
+                //because self.locationName will be set to nil in the line after this geocodeAddressString block,
+                //before this geocodeAddressString block is done running.
+                let localLocationName = self.locationName
+                let geo = CLGeocoder()
+                geo.geocodeAddressString(localLocationName, completionHandler: {(placemarks: [CLPlacemark]?, error: NSError?) -> Void in
+                    if((error) != nil){
+                        
+                        print("Error", error)
+                    }
+                        
+                    else {
+                        let placemark:CLPlacemark = placemarks![0]
+                        let coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
+                        
+                        let pointAnnotation:MKPointAnnotation = MKPointAnnotation()
+                        pointAnnotation.coordinate = coordinates
+                        pointAnnotation.title = localLocationName
+                        self.sentMapView.addAnnotation(pointAnnotation)
+                        self.sentMapView.centerCoordinate = coordinates
+                        self.sentMapView.selectAnnotation(pointAnnotation, animated: true)
+                        print("Added annotation to map view")
+                    }
+                })
+            }
             self.locationName = ""
         }
         
@@ -301,7 +316,46 @@ class expandViewController: UIViewController, UITextViewDelegate{
     }
     
     
-    
+    func cleanTime(sentDate: NSDate) -> String {
+        
+        var timeInterval : NSTimeInterval = sentDate.timeIntervalSinceNow
+        timeInterval = timeInterval * -1
+        
+        //print(timeInterval)
+        if timeInterval < 60 {
+            return "Just now"
+        } else if timeInterval < (60 * 60) {
+            let numMinutes = Int(floor(timeInterval / 60))
+            return String(numMinutes) + " minutes ago"
+        } else if timeInterval < (2*60*60) {
+            return "1 hour ago"
+        } else if timeInterval < (24*60*60) {
+            let numHours = Int(floor(timeInterval / (60*60)))
+            return String(numHours) + " hours ago"
+        } else if timeInterval < (48 * 60 * 60) {
+            return "1 day ago"
+        } else if timeInterval < (7 * 24 * 60 * 60) {
+            let numDays = Int(floor(timeInterval / (24*60*60)))
+            return String(numDays) + " days ago"
+        } else if timeInterval < (2 * 7 * 24 * 60 * 60) {
+            return "1 week ago"
+        } else if timeInterval < (30 * 24 * 60 * 60) {
+            let numWeeks = Int(floor(timeInterval / (7*24*60*60)))
+            return String(numWeeks) + " weeks ago"
+        } else if timeInterval < (2 * 30 * 24 * 60 * 60) {
+            return "1 month ago"
+        } else if timeInterval < (365 * 24 * 60 * 60) {
+            let numMonths = Int(floor(timeInterval / (30*24*60*60)))
+            return String(numMonths) + " months ago"
+        } else if timeInterval < (365 * 24 * 60 * 60) {
+            return "1 year ago"
+        }
+        
+        let numYears = Int(floor(timeInterval / (365*24*60*60)))
+        return String(numYears) + " years ago"
+        
+    }
+
 
 
     override func didReceiveMemoryWarning() {

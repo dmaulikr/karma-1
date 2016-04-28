@@ -77,8 +77,9 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
                             ,100, 300, 40));
                         label.textAlignment = NSTextAlignment.Center;
                         label.numberOfLines = 0;
+                        label.textColor = UIColor(netHex: 0x666666)
                         label.font = UIFont.systemFontOfSize(16.0);
-                        label.text = "You Have Not Received Any Messages Yet";
+                        label.text = "You have not received any messages yet";
                         self.view.addSubview(label);
                     }
                     self.receivedMessagesCollectionView.reloadData()
@@ -252,7 +253,7 @@ class receivedViewController: UIViewController, UICollectionViewDelegate, UIColl
             cell.replyButton.setTitle(String.fontAwesomeIconWithName(.Check), forState: .Normal)
         } else {
             cell.replyButton.titleLabel?.font = UIFont.systemFontOfSize(UIFont.systemFontSize())
-            cell.replyButton.setTitle("Reply", forState: .Normal)
+            cell.replyButton.setTitle("REPLY", forState: .Normal)
             //comment
         }
         
