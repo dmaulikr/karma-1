@@ -1,9 +1,9 @@
 //
 //  MDBSwiftUtils.swift
-//  DealOn
+//  Karma
 //
-//  Created by Akkshay Khoslaa on 4/25/16.
-//  Copyright © 2016 Akkshay Khoslaa. All rights reserved.
+//  Created by Shaan Appel on 4/25/16.
+//  Copyright © 2016 Shaan Appel. All rights reserved.
 //
 
 
@@ -12,7 +12,6 @@ import UIKit
 import CoreLocation
 
 class MDBSwiftUtils {
-    
     
     /**
      Returns the time since an NSDate as a properly formatted string.

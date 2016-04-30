@@ -61,7 +61,7 @@ class SentViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if indexPath.section == 0 {
             let np = collectionView.dequeueReusableCellWithReuseIdentifier("newPost", forIndexPath: indexPath) as! NewPostCollectionViewCell
             
-            np.delegate = self
+            np.bind(self)
             var currUserAudLim = PFUser.currentUser()!["audienceLim"] as! Int
             var audLimString = ""
             if currUserAudLim == 1 {
